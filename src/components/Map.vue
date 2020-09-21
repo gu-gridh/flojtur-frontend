@@ -39,8 +39,7 @@ export default {
   mounted: function() {
     const map = L.map("map", {
       zoom: 4,
-      center: [60.702098, 14.943204],
-      zoom: 4
+      center: [60.702098, 14.943204]
     });
 
     L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
