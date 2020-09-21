@@ -136,7 +136,7 @@ export default {
   margin-right: auto;
   margin-top: 25px;
   border-radius: 50%;
-  background-image: url(../assets/interface/heroes/7.jpg);
+  background-image: url(../assets/7.jpg);
   background-size: cover;
 }
 
