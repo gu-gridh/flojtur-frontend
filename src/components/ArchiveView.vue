@@ -13,12 +13,6 @@
         @click="setSelected('map')">
           <a>Karta</a>
         </div>
-        <div class="viewOption">|</div>
-        <div class="viewOption" 
-        :class="{ selected: searchSelected, notselected: !searchSelected }"
-        @click="setSelected('search')">
-          <a>Avancerad sökning</a>
-        </div>
       </div>
     </div>
 
@@ -28,10 +22,6 @@
 
     <div v-if="mapSelected">
       MAP
-    </div>
-
-    <div v-if="searchSelected">
-      SEARCH
     </div>
 
   </div>
@@ -61,10 +51,7 @@ export default {
     },
     mapSelected () {
       return this.selected === 'map';
-    },
-    searchSelected () {
-      return this.selected === 'search';
-    } 
+    }
   }
 };
 </script>
