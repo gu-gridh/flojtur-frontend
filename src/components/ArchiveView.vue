@@ -20,23 +20,21 @@
       </div>
     </div>
 
-    <div v-if="gallerySelected">
-      <Gallery />
-    </div>
+    <Gallery v-if="gallerySelected" />
 
-    <div v-if="mapSelected">
-      MAP
-    </div>
+    <Map v-if="mapSelected" />
   </div>
 </template>
 
 <script>
 import Gallery from "./Gallery.vue";
+import Map from "./Map.vue";
 
 export default {
   name: "ArchiveView",
   components: {
-    Gallery
+    Gallery,
+    Map
   },
   data: function() {
     return {
@@ -63,7 +61,6 @@ export default {
 .links {
   height: 100px;
   width: 100%;
-  float: left;
   margin-top: 10px;
 }
 .ArchiveViewOptions {
