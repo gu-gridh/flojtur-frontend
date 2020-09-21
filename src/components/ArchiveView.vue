@@ -2,15 +2,19 @@
   <div>
     <div class="links">
       <div class="ArchiveViewOptions">
-        <div class="viewOption"
-        :class="{ selected: gallerySelected, notselected: !gallerySelected }"
-        @click="setSelected('gallery')">
+        <div
+          class="viewOption"
+          :class="{ selected: gallerySelected, notselected: !gallerySelected }"
+          @click="setSelected('gallery')"
+        >
           <a>Galleri</a>
         </div>
         <div class="viewOption">|</div>
-        <div class="viewOption" 
-        :class="{ selected: mapSelected, notselected: !mapSelected }"
-        @click="setSelected('map')">
+        <div
+          class="viewOption"
+          :class="{ selected: mapSelected, notselected: !mapSelected }"
+          @click="setSelected('map')"
+        >
           <a>Karta</a>
         </div>
       </div>
@@ -23,21 +27,20 @@
     <div v-if="mapSelected">
       MAP
     </div>
-
   </div>
 </template>
 
 <script>
-import Gallery from "./Gallery.vue"
+import Gallery from "./Gallery.vue";
 
 export default {
   name: "ArchiveView",
   components: {
-    Gallery,
+    Gallery
   },
-  data: function () {
+  data: function() {
     return {
-      selected: 'gallery'
+      selected: "gallery"
     };
   },
   methods: {
@@ -46,11 +49,11 @@ export default {
     }
   },
   computed: {
-    gallerySelected () {
-      return this.selected === 'gallery';
+    gallerySelected() {
+      return this.selected === "gallery";
     },
-    mapSelected () {
-      return this.selected === 'map';
+    mapSelected() {
+      return this.selected === "map";
     }
   }
 };
@@ -78,19 +81,19 @@ export default {
   margin-left: 15px;
   margin-right: 15px;
   margin-top: 5px;
-  transition: all .2s
+  transition: all 0.2s;
 }
 .viewOption.selected {
   border-style: solid;
   border-width: 0 0 1px 0;
   border-color: black;
   height: 30px;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
 .viewOption.notselected {
   text-decoration: none;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
 </style>
