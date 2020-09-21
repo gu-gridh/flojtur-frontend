@@ -10,8 +10,8 @@
       >
         <div class="grid">
           <div class="grid-sizer"></div>
-          <a
-            @click="gotoDetailPage(instrument.id)"
+          <router-link
+            to="/spelur"
             v-for="instrument in tmpInstruments"
             :key="instrument.id"
           >
@@ -37,7 +37,7 @@
                 </div>
               </div>
             </div>
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
@@ -51,7 +51,7 @@ export default {
   name: "Gallery",
   data: function() {
     return {
-      containerId: "lol",
+      containerId: "masonryContainer",
       instruments: []
     };
   },
@@ -69,11 +69,6 @@ export default {
     tmpInstruments() {
       // since we only have 14 images right now, filter out the rest from the DB
       return this.instruments.filter(instrument => instrument.id < 15);
-    }
-  },
-  methods: {
-    gotoDetailPage(instrId) {
-      console.log("go", instrId);
     }
   }
 };
