@@ -11,7 +11,7 @@
         <div class="grid">
           <div class="grid-sizer"></div>
           <a
-            href="spelur1.html"
+            @click="gotoDetailPage(instrument.id)"
             v-for="instrument in tmpInstruments"
             :key="instrument.id"
           >
@@ -69,6 +69,11 @@ export default {
     tmpInstruments() {
       // since we only have 14 images right now, filter out the rest from the DB
       return this.instruments.filter(instrument => instrument.id < 15);
+    }
+  },
+  methods: {
+    gotoDetailPage(instrId) {
+      console.log("go", instrId);
     }
   }
 };
