@@ -72,7 +72,7 @@ export default {
   text-align: center;
 }
 .viewOption {
-  float: left;
+  display: inline-block;
   width: auto;
   font-size: 20px;
   margin-left: 15px;
