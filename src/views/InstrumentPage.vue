@@ -9,7 +9,7 @@
         <div id="ItemBack"></div>
       </router-link>
 
-      <div class="SectionTitle">Fl&ouml;jturet i Vinterstationen</div>
+      <div class="SectionTitle">{{title}}</div>
 
       <div class="MetaArticle" style="margin-top:20px;">
         The winter station on Snow Hill Island, inscribed as HSM38, was built in
@@ -31,10 +31,15 @@
       <div class="SectionTitle">Specifikationer</div>
 
       <div class="MetaContainer">
-        Tillverkare: <span>Per Strand</span> <br />
-        Bygg&aring;r: <span>1815</span> <br />
-        Dimensioner (cm): <span>200 x 60 x 60 </span> <br />
-        Dokumentation <span>2020-01-12</span> <br />
+        Tillverkare:
+        <span>{{builder}}</span>
+        <br />Byggår:
+        <span>{{buildYear}}</span>
+        <br />Antal verk:
+        <span>{{divisionCount}}</span>
+        <br />Antal stämmor:
+        <span>{{stopCount}}</span>
+        <br />
       </div>
 
       <div class="SectionTitle" style="margin-top:40px;">Liknande</div>
@@ -52,9 +57,20 @@
 <script>
 import "pannellum";
 import "pannellum/build/pannellum.css";
+import { getInstrument } from "@/assets/db";
 
 export default {
   name: "InstrumentPage",
+  data: function () {
+    return {
+      // TODO remove tmp fallback values
+      title: "Flöjturet i Vinterstationen",
+      builder: "Per Strand",
+      buildYear: "1815",
+      divisionCount: "1",
+      stopCount: "2",
+    };
+  },
   mounted() {
     pannellum.viewer("panorama", {
       type: "equirectangular",
@@ -64,9 +80,28 @@ export default {
       compass: true,
       northOffset: 320.0,
       showZoomCtrl: false,
-      panorama: "panoramas/Panorama002.jpg"
+      panorama: "panoramas/Panorama002.jpg",
     });
-  }
+  },
+  created() {
+    this.id = 1;
+    getInstrument(this.id).then(({ data }) => {
+      const fields = data.fields;
+      this.title = fields.title.value;
+      const [surname, firstName] = fields.build1.extra.split(",");
+      this.builder = firstName + " " + surname;
+      if (fields.date1.value.length > 0) {
+        this.buildYear = fields.date1.value.slice(0, 4);
+      } else if (fields.date2.value.length > 0) {
+        this.buildYear = fields.date2.value.slice(0, 4);
+      } else {
+        this.buildYear = "Unknown";
+      }
+
+      this.divisionCount = fields.no_div.value;
+      this.stopCount = fields.no_stop.value;
+    });
+  },
 };
 </script>
 

@@ -16,3 +16,7 @@ export function getLocations() {
     "-17.752108500000002,26.719871179878666,47.6385165,77.34475721800521";
   return get("map", { layer: "autom", bbox });
 }
+
+export function getInstrument(id) {
+  return get("edit", { tb: "autom", id });
+}
