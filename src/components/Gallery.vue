@@ -11,7 +11,11 @@
       >
         <div class="grid">
           <div class="grid-sizer"></div>
-          <router-link to="/spelur" v-for="instrument in tmpInstruments" :key="instrument.id">
+          <router-link
+            :to="{ name: 'InstrumentPage', params: { id: instrument.id }}"
+            v-for="instrument in tmpInstruments"
+            :key="instrument.id"
+          >
             <div v-masonry-tile class="grid-item" style>
               <div class="flip-card">
                 <div class="flip-card-inner">

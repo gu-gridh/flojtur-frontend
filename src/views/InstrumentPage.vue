@@ -61,9 +61,10 @@ import { getInstrument } from "@/assets/db";
 
 export default {
   name: "InstrumentPage",
+  props: ["id"],
   data: function () {
     return {
-      // TODO remove tmp fallback values
+      // TODO remove temporary fallback values when all data is available in database
       title: "Flöjturet i Vinterstationen",
       builder: "Per Strand",
       buildYear: "1815",
@@ -80,11 +81,10 @@ export default {
       compass: true,
       northOffset: 320.0,
       showZoomCtrl: false,
-      panorama: "panoramas/Panorama002.jpg",
+      panorama: "/panoramas/Panorama002.jpg",
     });
   },
   created() {
-    this.id = 1;
     getInstrument(this.id).then(({ data }) => {
       const fields = data.fields;
       this.title = fields.title.value;
