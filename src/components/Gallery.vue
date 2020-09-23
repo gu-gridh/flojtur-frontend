@@ -1,6 +1,7 @@
 <template>
   <div id="galleries" v-if="instruments.length > 0">
     <div id="herogallery">
+      <!-- masonry container, change masonry paramters here -->
       <div
         v-masonry="containerId"
         class="masonContainer"
@@ -10,12 +11,8 @@
       >
         <div class="grid">
           <div class="grid-sizer"></div>
-          <router-link
-            to="/spelur"
-            v-for="instrument in tmpInstruments"
-            :key="instrument.id"
-          >
-            <div v-masonry-tile class="grid-item" style="">
+          <router-link to="/spelur" v-for="instrument in tmpInstruments" :key="instrument.id">
+            <div v-masonry-tile class="grid-item" style>
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
@@ -23,15 +20,10 @@
                   </div>
                   <div class="flip-card-back" :style="instrument.backStyle">
                     <div class="cardInfo">
-                      <div
-                        class="cardMiniImage"
-                        :style="instrument.miniStyle"
-                      ></div>
-                      <div class="cardInfoObjectTitle">
-                        {{ instrument.name }}
-                      </div>
-                      <div class="cardInfoObject">Place and Year</div>
-                      <div class="cardInfoObject">Bes&ouml;k</div>
+                      <div class="cardMiniImage" :style="instrument.miniStyle"></div>
+                      <div class="cardInfoObjectTitle">{{ instrument.title }}</div>
+                      <div class="cardInfoObject">{{instrument.place}}, {{instrument.year}}</div>
+                      <div class="cardInfoObject">Besök</div>
                     </div>
                   </div>
                 </div>
@@ -49,28 +41,61 @@ import { getInstruments } from "@/assets/db";
 
 export default {
   name: "Gallery",
-  data: function() {
+  data: function () {
     return {
       containerId: "masonryContainer",
-      instruments: []
+      instruments: [],
     };
   },
-  created: function() {
+  created: function () {
+    // get the instruments from database
     getInstruments().then(({ data }) => {
       this.instruments = data["features"];
+      // loop through the instruments and augument the objects with additional data
       for (let instrument of this.instruments) {
         instrument.img = `interface/heroes/${instrument.id}.jpg`;
         instrument.backStyle = `background-image:url(interface/heroes/${instrument.id}b.jpg); background-size:cover;`;
         instrument.miniStyle = `background-image:url(interface/heroes/${instrument.id}.jpg); background-size:cover;`;
+
+        if (!instrument.title) {
+          instrument.title = "Namn";
+        }
+
+        instrument.place = this.createPlaceString(
+          instrument.address,
+          instrument.country
+        );
+        instrument.year = (instrument.date1 || instrument.date2).slice(0, 4);
       }
     });
   },
   computed: {
     tmpInstruments() {
       // since we only have 14 images right now, filter out the rest from the DB
-      return this.instruments.filter(instrument => instrument.id < 15);
-    }
-  }
+      // TODO when images have been connected in DB, remove this and replace usage
+      // of `tmpInstruments` with just `instruments`
+      return this.instruments.filter((instrument) => instrument.id < 15);
+    },
+  },
+  methods: {
+    /*
+    Create a reasonable place string from the non-normalized form in the field "address" in DB
+    */
+    createPlaceString(address, country) {
+      let place;
+      if (/\d/.test(address)) {
+        place = address.split(/\d/);
+      } else {
+        place = address.split(",");
+      }
+      place = place.filter(
+        (x) => x.length > 0 && x != ", " && x != " " && x != "-"
+      );
+      place = place.length > 0 ? place[place.length - 1] : "Okänd plats";
+      place = place + ", " + country;
+      return place;
+    },
+  },
 };
 </script>
 
