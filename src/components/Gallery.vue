@@ -25,19 +25,24 @@
                       :alt="`Bild på ${instrument.title}`"
                     />
                   </div>
-                  <div class="flip-card-back" :style="instrument.backStyle">
-                    <div class="cardInfo">
-                      <div
-                        class="cardMiniImage"
-                        :style="instrument.miniStyle"
-                      ></div>
-                      <div class="cardInfoObjectTitle">
-                        {{ instrument.title }}
+                  <div
+                    class="flip-card-back"
+                    :style="`background-image:url(${instrument.img});`"
+                  >
+                    <div class="cardBlur">
+                      <div class="cardInfo">
+                        <div
+                          class="cardMiniImage"
+                          :style="`background-image:url(${instrument.img});`"
+                        ></div>
+                        <div class="cardInfoObjectTitle">
+                          {{ instrument.title }}
+                        </div>
+                        <div class="cardInfoObject">
+                          {{ instrument.place }}, {{ instrument.year }}
+                        </div>
+                        <div class="cardInfoObject">Besök</div>
                       </div>
-                      <div class="cardInfoObject">
-                        {{ instrument.place }}, {{ instrument.year }}
-                      </div>
-                      <div class="cardInfoObject">Besök</div>
                     </div>
                   </div>
                 </div>
@@ -68,8 +73,6 @@ export default {
       // loop through the instruments and augument the objects with additional data
       for (let instrument of this.instruments) {
         instrument.img = `interface/heroes/${instrument.id}.jpg`;
-        instrument.backStyle = `background-image:url(interface/heroes/${instrument.id}b.jpg); background-size:cover;`;
-        instrument.miniStyle = `background-image:url(interface/heroes/${instrument.id}.jpg); background-size:cover;`;
 
         if (!instrument.title) {
           instrument.title = "Namn";
@@ -225,6 +228,12 @@ export default {
   color: white;
   height: 100%;
   transform: rotateY(180deg);
+  background-size: cover;
+}
+
+.cardBlur {
+  height: 100%;
+  backdrop-filter: blur(35px);
 }
 
 .cardInfo {
@@ -260,5 +269,6 @@ export default {
   margin-right: auto;
   margin-top: 25px;
   border-radius: 50%;
+  background-size: cover;
 }
 </style>
