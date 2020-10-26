@@ -82,22 +82,12 @@ export default {
     },
   },
   methods: {
-    /*
-    Create a reasonable place string from the non-normalized form in the field "address" in DB
-    */
+    /**
+     * Create a reasonable place string from the non-normalized form in the field "address" in DB
+     */
     createPlaceString(address, country) {
-      let place;
-      if (/\d/.test(address)) {
-        place = address.split(/\d/);
-      } else {
-        place = address.split(",");
-      }
-      place = place.filter(
-        (x) => x.length > 0 && x != ", " && x != " " && x != "-"
-      );
-      place = place.length > 0 ? place[place.length - 1] : "Okänd plats";
-      place = place + ", " + country;
-      return place;
+      const place = address.split(/[\d-]+|, */).filter(x => x).pop();
+      return (place || "Okänd plats").trim() + ", " + country;
     },
   },
 };
