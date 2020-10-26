@@ -2,7 +2,7 @@
   <div>
     <div class="cardMiniImage"></div>
 
-    <div class="title">FLÖJTUR</div>
+    <div class="title">Pehr Strands spelur</div>
     <div class="subtitle">1763-1810</div>
 
     <div class="articleContainer">

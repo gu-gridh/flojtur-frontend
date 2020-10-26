@@ -66,8 +66,8 @@ export default {
         }
 
         instrument.place = this.createPlaceString(
-          instrument.address,
-          instrument.country
+          instrument['location.address'],
+          instrument['location.country']
         );
         instrument.year = (instrument.date1 || instrument.date2).slice(0, 4);
       }

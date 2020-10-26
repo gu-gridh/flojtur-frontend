@@ -88,6 +88,7 @@ export default {
     getInstrument(this.id).then(({ data }) => {
       const fields = data.fields;
       this.title = fields.title.value;
+      document.title = this.title;
       const [surname, firstName] = fields.build1.extra.split(",");
       this.builder = firstName + " " + surname;
       if (fields.date1.value.length > 0) {

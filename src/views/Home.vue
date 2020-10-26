@@ -14,6 +14,9 @@ export default {
   components: {
     Title,
     ArchiveView
+  },
+  mounted() {
+    document.title = 'Pehr Strands spelur';
   }
 };
 </script>
