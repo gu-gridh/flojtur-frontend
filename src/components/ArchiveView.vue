@@ -2,58 +2,22 @@
   <div>
     <div class="links">
       <div class="ArchiveViewOptions">
-        <div
+          <router-link to="/"
           class="viewOption"
-          :class="{ selected: gallerySelected, notselected: !gallerySelected }"
-          @click="setSelected('gallery')"
-        >
-          <a>Galleri</a>
-        </div>
+          >Galleri</router-link>
         <div class="viewOption">|</div>
-        <div
-          class="viewOption"
-          :class="{ selected: mapSelected, notselected: !mapSelected }"
-          @click="setSelected('map')"
-        >
-          <a>Karta</a>
-        </div>
+        <router-link
+        class="viewOption" to="/map">Karta</router-link>
       </div>
     </div>
 
-    <Gallery v-if="gallerySelected" />
-
-    <Map v-if="mapSelected" />
+    <router-view />
   </div>
 </template>
 
 <script>
-import Gallery from "./Gallery.vue";
-import Map from "./Map.vue";
-
 export default {
   name: "ArchiveView",
-  components: {
-    Gallery,
-    Map
-  },
-  data: function() {
-    return {
-      selected: "gallery"
-    };
-  },
-  methods: {
-    setSelected(select) {
-      this.selected = select;
-    }
-  },
-  computed: {
-    gallerySelected() {
-      return this.selected === "gallery";
-    },
-    mapSelected() {
-      return this.selected === "map";
-    }
-  }
 };
 </script>
 
@@ -80,16 +44,11 @@ export default {
   margin-top: 5px;
   transition: all 0.2s;
 }
-.viewOption.selected {
+.viewOption.router-link-exact-active {
   border-style: solid;
   border-width: 0 0 1px 0;
   border-color: black;
   height: 30px;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-}
-.viewOption.notselected {
-  text-decoration: none;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }

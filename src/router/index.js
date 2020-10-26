@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Gallery from "../components/Gallery";
 
 Vue.use(VueRouter);
 
@@ -8,7 +9,21 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
+    // Child routes will appear in the <router-view> under the Home component.
+    children: [
+      {
+        path: "",
+        name: "Gallery",
+        component: Gallery
+      },
+      {
+        path: "map",
+        name: "Map",
+        component: () =>
+          import(/* webpackChunkName: "map" */ "../components/Map.vue")
+      }
+    ]
   },
   {
     path: "/spelur/:id",

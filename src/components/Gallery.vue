@@ -20,7 +20,7 @@
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
-                    <img :src="instrument.img" alt="Avatar" />
+                    <img :src="instrument.img" :alt="`Bild på ${instrument.title}`" />
                   </div>
                   <div class="flip-card-back" :style="instrument.backStyle">
                     <div class="cardInfo">
