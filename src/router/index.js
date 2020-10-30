@@ -8,13 +8,12 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home",
     component: Home,
     // Child routes will appear in the <router-view> under the Home component.
     children: [
       {
         path: "",
-        name: "Gallery",
+        name: "Home",
         component: Gallery
       },
       {
@@ -24,6 +23,17 @@ const routes = [
           import(/* webpackChunkName: "map" */ "../components/Map.vue")
       }
     ]
+  },
+  {
+    path: "/om",
+    name: "About",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/About.vue")
+  },
+  {
+    path: "/introduktion",
+    name: "Help",
+    component: () => import(/* webpackChunkName: "help" */ "../views/Help.vue")
   },
   {
     path: "/spelur/:id",

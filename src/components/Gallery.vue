@@ -12,7 +12,7 @@
         <div class="grid">
           <div class="grid-sizer"></div>
           <router-link
-            :to="{ name: 'InstrumentPage', params: { id: instrument.id }}"
+            :to="{ name: 'InstrumentPage', params: { id: instrument.id } }"
             v-for="instrument in tmpInstruments"
             :key="instrument.id"
           >
@@ -20,13 +20,23 @@
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
-                    <img :src="instrument.img" :alt="`Bild på ${instrument.title}`" />
+                    <img
+                      :src="instrument.img"
+                      :alt="`Bild på ${instrument.title}`"
+                    />
                   </div>
                   <div class="flip-card-back" :style="instrument.backStyle">
                     <div class="cardInfo">
-                      <div class="cardMiniImage" :style="instrument.miniStyle"></div>
-                      <div class="cardInfoObjectTitle">{{ instrument.title }}</div>
-                      <div class="cardInfoObject">{{instrument.place}}, {{instrument.year}}</div>
+                      <div
+                        class="cardMiniImage"
+                        :style="instrument.miniStyle"
+                      ></div>
+                      <div class="cardInfoObjectTitle">
+                        {{ instrument.title }}
+                      </div>
+                      <div class="cardInfoObject">
+                        {{ instrument.place }}, {{ instrument.year }}
+                      </div>
                       <div class="cardInfoObject">Besök</div>
                     </div>
                   </div>
@@ -66,8 +76,8 @@ export default {
         }
 
         instrument.place = this.createPlaceString(
-          instrument['location.address'],
-          instrument['location.country']
+          instrument["location.address"],
+          instrument["location.country"]
         );
         instrument.year = (instrument.date1 || instrument.date2).slice(0, 4);
       }
@@ -86,7 +96,10 @@ export default {
      * Create a reasonable place string from the non-normalized form in the field "address" in DB
      */
     createPlaceString(address, country) {
-      const place = address.split(/[\d-]+|, */).filter(x => x).pop();
+      const place = address
+        .split(/[\d-]+|, */)
+        .filter((x) => x)
+        .pop();
       return (place || "Okänd plats").trim() + ", " + country;
     },
   },
