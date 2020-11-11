@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="ItemTopPano">
-      <div id="panorama"></div>
+      <Panorama />
     </div>
 
     <div id="galleries">
@@ -9,9 +9,9 @@
         <div id="ItemBack"></div>
       </router-link>
 
-      <div class="SectionTitle">{{title}}</div>
+      <div class="SectionTitle">{{ title }}</div>
 
-      <div class="MetaArticle" style="margin-top:20px;">
+      <div class="MetaArticle" style="margin-top: 20px">
         The winter station on Snow Hill Island, inscribed as HSM38, was built in
         Februari 1902 on the East shore of the island about 150 meters from the
         sea. Erected on top of a small hill with a salient curved contour, the
@@ -32,36 +32,42 @@
 
       <div class="MetaContainer">
         Tillverkare:
-        <span>{{builder}}</span>
+        <span>{{ builder }}</span>
         <br />Byggår:
-        <span>{{buildYear}}</span>
+        <span>{{ buildYear }}</span>
         <br />Antal verk:
-        <span>{{divisionCount}}</span>
+        <span>{{ divisionCount }}</span>
         <br />Antal stämmor:
-        <span>{{stopCount}}</span>
+        <span>{{ stopCount }}</span>
         <br />
       </div>
 
-      <div class="SectionTitle" style="margin-top:40px;">Liknande</div>
+      <div class="SectionTitle" style="margin-top: 40px">Liknande</div>
 
       <div
         id="gallery"
-        style="margin-top:20px; margin-bottom:40px; float:left; margin-left:10%;  width:80%;"
+        style="
+          margin-top: 20px;
+          margin-bottom: 40px;
+          float: left;
+          margin-left: 10%;
+          width: 80%;
+        "
       ></div>
     </div>
 
-    <div id="foot" style="float:left; width:100%;"></div>
+    <div id="foot" style="float: left; width: 100%"></div>
   </div>
 </template>
 
 <script>
-import "pannellum";
-import "pannellum/build/pannellum.css";
 import { getInstrument } from "@/assets/db";
+import Panorama from "@/components/Panorama";
 
 export default {
   name: "InstrumentPage",
   props: ["id"],
+  components: { Panorama },
   data: function () {
     return {
       // TODO remove temporary fallback values when all data is available in database
@@ -71,18 +77,6 @@ export default {
       divisionCount: "1",
       stopCount: "2",
     };
-  },
-  mounted() {
-    pannellum.viewer("panorama", {
-      type: "equirectangular",
-      autoLoad: true,
-      autoRotate: -2,
-      yaw: -60,
-      compass: true,
-      northOffset: 320.0,
-      showZoomCtrl: false,
-      panorama: "/panoramas/Panorama002.jpg",
-    });
   },
   created() {
     getInstrument(this.id).then(({ data }) => {
