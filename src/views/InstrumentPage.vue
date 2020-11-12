@@ -79,8 +79,7 @@ export default {
     };
   },
   created() {
-    getInstrument(this.id).then(({ data }) => {
-      const fields = data.fields;
+    getInstrument(this.id).then((fields) => {
       this.title = fields.title.value;
       document.title = this.title;
       const [surname, firstName] = fields.build1.extra.split(",");

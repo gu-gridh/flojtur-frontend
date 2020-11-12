@@ -9,11 +9,11 @@ import { getLocations } from "@/assets/db";
 
 export default {
   name: "Map",
-  data: function() {
+  data: function () {
     return {};
   },
-  created: function() {
-    getLocations().then(({ data }) => {
+  created: function () {
+    getLocations().then((locations) => {
       function onEachFeature(feature, layer) {
         // called for every marker/instrument, set up click handlers
         layer.bindPopup(feature.properties.name);
@@ -25,31 +25,31 @@ export default {
         color: "#000",
         weight: 1,
         opacity: 1,
-        fillOpacity: 0.8
+        fillOpacity: 0.8,
       };
 
-      L.geoJSON(data["features"], {
-        pointToLayer: function(feature, latlng) {
+      L.geoJSON(locations, {
+        pointToLayer: function (feature, latlng) {
           return L.circleMarker(latlng, geojsonMarkerOptions);
         },
-        onEachFeature: onEachFeature
+        onEachFeature: onEachFeature,
       }).addTo(this.map);
     });
   },
-  mounted: function() {
+  mounted: function () {
     const map = L.map("map", {
       zoom: 4,
-      center: [60.702098, 14.943204]
+      center: [60.702098, 14.943204],
     });
 
     L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      subdomains: ["a", "b", "c"]
+      subdomains: ["a", "b", "c"],
     }).addTo(map);
 
     this.map = map;
-  }
+  },
 };
 </script>
 

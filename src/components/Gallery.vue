@@ -13,7 +13,7 @@
           <div class="grid-sizer"></div>
           <router-link
             :to="{ name: 'InstrumentPage', params: { id: instrument.id } }"
-            v-for="instrument in tmpInstruments"
+            v-for="instrument in instruments"
             :key="instrument.id"
           >
             <div v-masonry-tile class="grid-item" style>
@@ -68,31 +68,23 @@ export default {
   },
   created: function () {
     // get the instruments from database
-    getInstruments().then(({ data }) => {
-      this.instruments = data["features"];
+    getInstruments().then((instruments) => {
+      this.instruments = instruments;
       // loop through the instruments and augument the objects with additional data
       for (let instrument of this.instruments) {
-        instrument.img = `interface/heroes/${instrument.id}.jpg`;
-
-        if (!instrument.title) {
-          instrument.title = "Namn";
-        }
+        instrument.img = instrument.thumbnail
+          ? `https://data.dh.gu.se/flojtur/${instrument.thumbnail}`
+          : `interface/heroes/8.jpg`;
 
         instrument.place = this.createPlaceString(
           instrument["location.address"],
-          instrument["location.country"]
+          instrument.fields.loc_nr.extra.split(",")[0]
         );
-        instrument.year = (instrument.date1 || instrument.date2).slice(0, 4);
+        instrument.year = (
+          instrument.fields.date1.value || instrument.fields.date2.value
+        ).slice(0, 4);
       }
     });
-  },
-  computed: {
-    tmpInstruments() {
-      // since we only have 14 images right now, filter out the rest from the DB
-      // TODO when images have been connected in DB, remove this and replace usage
-      // of `tmpInstruments` with just `instruments`
-      return this.instruments.filter((instrument) => instrument.id < 15);
-    },
   },
   methods: {
     /**
