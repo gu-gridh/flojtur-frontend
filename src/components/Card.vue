@@ -53,4 +53,43 @@ export default {
   width: 40%;
   float: left;
 }
+
+.PublicationInfoContainer {
+  width: 55%;
+  float: left;
+  margin-top: 10px;
+}
+
+.PublicationTitle {
+  margin-left: 20px;
+  float: left;
+  height: 60px;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 24px;
+  width: 90%;
+  overflow: hidden;
+}
+
+.PubBigMetaContainer {
+  cursor: pointer;
+  width: 100%;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  float: left;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 18px;
+}
+
+.PubBigMeta {
+  width: 80%;
+  margin-left: 0px;
+  margin-bottom: 4px;
+  float: left;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 16px;
+}
 </style>

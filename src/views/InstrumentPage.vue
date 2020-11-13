@@ -197,40 +197,17 @@
         id="valsar"
         style="margin-top: 20px; float: left; margin-left: 9.5%; width: 81%"
       >
-        <div
-          v-masonry="'barrels-masonry'"
-          item-selector=".grid-item-pub"
-          :percent-position="true"
-          :column-width="'.grid-sizer-pub'"
-          :gutter="20"
-          style=""
-          class="clear-after"
-        >
-          <div class="grid-sizer-pub"></div>
-          <Card
-            v-for="i in [1, 2, 3, 4, 5, 6, 7]"
-            :key="i"
-            v-masonry-tile
-            to="/archive/hopebaycloud41-98.html"
-            image="/graphics/thumbnails/001_Aarsta_gen_DSC_1447_thumb.jpg"
-            title="Namn på stycke"
-          >
-            Kompositör<br />Annan info
-          </Card>
-
-          <!-- <script>
-          var $gridPub = $(".gridPub").masonry({
-            itemSelector: ".grid-item-pub",
-            percentPosition: true,
-            columnWidth: ".grid-sizer-pub",
-            gutter: 20,
-          });
-
-          $gridPub.imagesLoaded().progress(function () {
-            $gridPub.masonry();
-          });
-        </script> -->
-        </div>
+        <CardGrid
+          masonryId="barrels-masonry"
+          :cards="
+            [1, 2, 3, 4, 5, 6, 7].map((i) => ({
+              id: i,
+              to: `barrel/${i}`,
+              image: `/graphics/thumbnails/001_Aarsta_gen_DSC_1447_thumb.jpg`,
+              title: `Vals ${i}`,
+            }))
+          "
+        />
       </div>
 
       <div class="SectionTitles" style="margin-top: 30px">Speluret</div>
@@ -376,13 +353,13 @@
 
 <script>
 import { getInstrument } from "@/assets/db";
-import Card from "@/components/Card";
+import CardGrid from "@/components/CardGrid";
 
 export default {
   name: "InstrumentPage",
   props: ["id"],
   components: {
-    Card,
+    CardGrid,
   },
   data: function () {
     return {
@@ -397,7 +374,7 @@ export default {
     };
   },
   created() {
-    getInstrument(this.id).then((fields) => {
+    getInstrument(this.id).then(({ fields }) => {
       this.title = fields.title.value;
       document.title = this.title;
       const [surname, firstName] = fields.build1.extra.split(",");
@@ -815,78 +792,6 @@ export default {
   background-position: 100px;
   margin-top: 5px;
   float: left;
-}
-
-/* Dessa är för Valsarna */
-
-.gridPub {
-}
-
-.clear-after:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-.grid-sizer-pub,
-.grid-item-pub {
-  width: 32.1%;
-  //transition: all .2s ease-in-out;
-  margin-bottom: 20px;
-  float: left;
-}
-
-@media screen and (max-width: 1400px) {
-  .grid-sizer-pub,
-  .grid-item-pub {
-    width: 48.5%;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .grid-sizer-pub,
-  .grid-item-pub {
-    width: 100%;
-  }
-}
-
-.PublicationInfoContainer {
-  width: 55%;
-  float: left;
-  margin-top: 10px;
-}
-
-.PublicationTitle {
-  margin-left: 20px;
-  float: left;
-  height: 60px;
-  font-weight: 200;
-  font-style: normal;
-  font-size: 24px;
-  width: 90%;
-  overflow: hidden;
-}
-
-.PubBigMetaContainer {
-  cursor: pointer;
-  width: 100%;
-  margin-left: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  float: left;
-  font-weight: 200;
-  font-style: normal;
-  font-size: 18px;
-}
-
-.PubBigMeta {
-  width: 80%;
-  margin-left: 0px;
-  margin-bottom: 4px;
-  float: left;
-  font-weight: 200;
-  font-style: normal;
-  font-size: 16px;
 }
 
 /* Dessa är för mini-gallerierna */
