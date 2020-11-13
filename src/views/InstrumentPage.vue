@@ -70,8 +70,6 @@
         </div>
       </div>
 
-      <div class="SectionTitle">Specifikationer</div>
-
       <div class="MetaContainerShort">
         Tillverkare: <span>{{ builder }}</span> <br />
         Byggår: <span>{{ buildYear }}</span> <br />
@@ -144,8 +142,6 @@
               float: left;
             "
           >
-            <!-- <title>Valsar</title> -->
-
             <div style="margin-left: -30px; color: white">
               <a href="">
                 <div class="grid-item-fil">
@@ -201,129 +197,28 @@
         id="valsar"
         style="margin-top: 20px; float: left; margin-left: 9.5%; width: 81%"
       >
-        <title>Valsar</title>
-
-        <div class="gridPub" style="position: relative; height: 480px">
+        <div
+          v-masonry="'barrels-masonry'"
+          item-selector=".grid-item-pub"
+          :percent-position="true"
+          :column-width="'.grid-sizer-pub'"
+          :gutter="20"
+          style=""
+          class="clear-after"
+        >
           <div class="grid-sizer-pub"></div>
-          <a href="/archive/hopebaycloud41-98.html">
-            <div
-              class="grid-item-pub"
-              style="position: absolute; left: 0%; top: 0px"
-            >
-              <div
-                class="PubBigImage"
-                style="
-                  background: url(/graphics/thumbnails/001_Aarsta_gen_DSC_1447_thumb.jpg);
-                  background-size: cover;
-                "
-              ></div>
-              <div class="PublicationInfoContainer">
-                <div class="PublicationTitle">Namn på stycke</div>
+          <Card
+            v-for="i in [1, 2, 3, 4, 5, 6, 7]"
+            :key="i"
+            v-masonry-tile
+            to="/archive/hopebaycloud41-98.html"
+            image="/graphics/thumbnails/001_Aarsta_gen_DSC_1447_thumb.jpg"
+            title="Namn på stycke"
+          >
+            Kompositör<br />Annan info
+          </Card>
 
-                <div class="PubBigMetaContainer">
-                  <div class="PubBigMeta">Kompositör</div>
-                  <div class="PubBigMeta">Annan info</div>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <a href="/archive/hopebaycloud41-98.html">
-            <div
-              class="grid-item-pub"
-              style="position: absolute; left: 50.5189%; top: 0px"
-            >
-              <div
-                class="PubBigImage"
-                style="
-                  background: url(/graphics/thumbnails/001_Aarsta_gen_DSC_1447_thumb.jpg);
-                  background-size: cover;
-                "
-              ></div>
-              <div class="PublicationInfoContainer">
-                <div class="PublicationTitle">
-                  Mycket Mycket längre Namn på stycke
-                </div>
-
-                <div class="PubBigMetaContainer">
-                  <div class="PubBigMeta">Kompositör</div>
-                  <div class="PubBigMeta">Annan info</div>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <a href="/archive/hopebaycloud41-98.html">
-            <div
-              class="grid-item-pub"
-              style="position: absolute; left: 0%; top: 160px"
-            >
-              <div
-                class="PubBigImage"
-                style="
-                  background: url(/graphics/thumbnails/001_Aarsta_gen_DSC_1447_thumb.jpg);
-                  background-size: cover;
-                "
-              ></div>
-              <div class="PublicationInfoContainer">
-                <div class="PublicationTitle">Namn på stycke</div>
-
-                <div class="PubBigMetaContainer">
-                  <div class="PubBigMeta">Kompositör</div>
-                  <div class="PubBigMeta">Annan info</div>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <a href="/archive/hopebaycloud41-98.html">
-            <div
-              class="grid-item-pub"
-              style="position: absolute; left: 50.5189%; top: 160px"
-            >
-              <div
-                class="PubBigImage"
-                style="
-                  background: url(/graphics/thumbnails/001_Aarsta_gen_DSC_1447_thumb.jpg);
-                  background-size: cover;
-                "
-              ></div>
-              <div class="PublicationInfoContainer">
-                <div class="PublicationTitle">Namn på stycke</div>
-
-                <div class="PubBigMetaContainer">
-                  <div class="PubBigMeta">Kompositör</div>
-                  <div class="PubBigMeta">Annan info</div>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <a href="/archive/hopebaycloud41-98.html">
-            <div
-              class="grid-item-pub"
-              style="position: absolute; left: 0%; top: 320px"
-            >
-              <div
-                class="PubBigImage"
-                style="
-                  background: url(/graphics/thumbnails/001_Aarsta_gen_DSC_1447_thumb.jpg);
-                  background-size: cover;
-                "
-              ></div>
-              <div class="PublicationInfoContainer">
-                <div class="PublicationTitle">Namn på stycke</div>
-
-                <div class="PubBigMetaContainer">
-                  <div class="PubBigMeta">Kompositör</div>
-                  <div class="PubBigMeta">Annan info</div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <!-- <script>
+          <!-- <script>
           var $gridPub = $(".gridPub").masonry({
             itemSelector: ".grid-item-pub",
             percentPosition: true,
@@ -335,6 +230,7 @@
             $gridPub.masonry();
           });
         </script> -->
+        </div>
       </div>
 
       <div class="SectionTitles" style="margin-top: 30px">Speluret</div>
@@ -480,10 +376,14 @@
 
 <script>
 import { getInstrument } from "@/assets/db";
+import Card from "@/components/Card";
 
 export default {
   name: "InstrumentPage",
   props: ["id"],
+  components: {
+    Card,
+  },
   data: function () {
     return {
       // TODO remove temporary fallback values when all data is available in database
@@ -896,7 +796,7 @@ export default {
   font-size: 18px;
 }
 
-.PubBigMeta {
+#filer .PubBigMeta {
   width: 90%;
   margin-left: 0px;
   margin-bottom: 4px;
@@ -919,29 +819,10 @@ export default {
 
 /* Dessa är för Valsarna */
 
-.grid-item-pub {
-  float: left;
-  color: white;
-  height: 140px;
-  border-radius: 10px;
-  background-color: RGBA(50, 50, 50, 1);
-  overflow: hidden;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2),
-    0 6px 40px 0 rgba(0, 0, 0, 0.19);
-}
-
-.grid-item-pub:hover {
-  display: block;
-  filter: brightness(120%);
-  transform: scale(1.04);
-  background-color: RGBA(80, 80, 80, 1);
-}
-
 .gridPub {
 }
 
-.gridPub:after {
+.clear-after:after {
   content: "";
   display: block;
   clear: both;
@@ -1006,15 +887,6 @@ export default {
   font-weight: 200;
   font-style: normal;
   font-size: 16px;
-}
-
-.PubBigImage {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 180px;
-  width: 40%;
-  float: left;
 }
 
 /* Dessa är för mini-gallerierna */
