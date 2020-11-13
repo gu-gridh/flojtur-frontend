@@ -1,17 +1,14 @@
 <template>
   <div id="app">
-    <div id="ItemTopPano">
-      <Panorama />
-    </div>
+    <div id="Hero"></div>
 
     <div id="galleries">
       <router-link to="/">
         <div id="ItemBack"></div>
       </router-link>
+      <div class="MainTitles" style="margin-top: 60px">{{ title }}</div>
 
-      <div class="SectionTitle">{{ title }}</div>
-
-      <div class="MetaArticle" style="margin-top: 20px">
+      <div class="MetaArticleShort" style="margin-top: 20px">
         The winter station on Snow Hill Island, inscribed as HSM38, was built in
         Februari 1902 on the East shore of the island about 150 meters from the
         sea. Erected on top of a small hill with a salient curved contour, the
@@ -28,18 +25,439 @@
         scan 002 of the same date.
       </div>
 
+      <div class="BonusButtonPosition">
+        <div
+          v-show="!articleExpanded"
+          class="ActivateBonusMaterialText"
+          id="collapsibleArticle"
+          style="margin-left: -10px"
+          @click="toggleArticle"
+        >
+          Läs mer...
+        </div>
+      </div>
+
+      <div
+        v-show="articleExpanded"
+        id="LongArticle"
+        style="display: none; width: 100%"
+      >
+        <div id="articleEnclosure" style="">
+          <div
+            class="deactivateBonusMaterial"
+            id="CloseLongArticle"
+            style="margin-left: -77px; margin-top: 30px"
+            @click="toggleArticle"
+          ></div>
+
+          <div class="MetaArticleLong" style="margin-top: 30px">
+            The winter station on Snow Hill Island, inscribed as HSM38, was
+            built in Februari 1902 on the East shore of the island about 150
+            meters from the sea. Erected on top of a small hill with a salient
+            curved contour, the station functioned as a base for the research
+            field work and in the nearby surroundings several small field
+            stations were set up. The one-storied building plan is about
+            6.30x4.10 meters and with a small vestibule located by the entrance
+            in the East. Both the roof and the outer walls are covered with
+            tarred wallpaper. Two diagonal plank struts are supporting the
+            northern facade and recently also steel wires are mounted in each
+            corner of the building and fixed to the ground to sustain the harsh
+            southern storms. The building contains a kitchen, three small
+            dormitories with a bunkbed and a desk, and a centre room with a
+            stove and a dining table. The panorama was produced from laser scan
+            002 of the same date.
+          </div>
+        </div>
+      </div>
+
       <div class="SectionTitle">Specifikationer</div>
 
-      <div class="MetaContainer">
-        Tillverkare:
-        <span>{{ builder }}</span>
-        <br />Byggår:
-        <span>{{ buildYear }}</span>
-        <br />Antal verk:
-        <span>{{ divisionCount }}</span>
-        <br />Antal stämmor:
-        <span>{{ stopCount }}</span>
-        <br />
+      <div class="MetaContainerShort">
+        Tillverkare: <span>{{ builder }}</span> <br />
+        Byggår: <span>{{ buildYear }}</span> <br />
+        Plats: <span>Vinterstationen museum </span> <br />
+        Antal stämmor: <span>{{ stopCount }}</span> <br />
+        Snygghet: <span>Fenomenalt stiligt! </span> <br />
+        Dimensioner (cm): <span>200 x 60 x 60 </span> <br />
+      </div>
+      <div class="BonusButtonPosition">
+        <div
+          v-if="!metadataExpanded"
+          class="ActivateBonusMaterialText"
+          id="collapsibleMeta"
+          style="margin-left: -10px"
+          @click="toggleMetadata"
+        >
+          Visa all metadata...
+        </div>
+      </div>
+      <div v-show="metadataExpanded" id="LongMeta" style="width: 100%">
+        <div id="metaFileEnclosure" style="">
+          <div
+            class="deactivateBonusMaterial"
+            id="CloseLongMeta"
+            style="margin-left: -60px; margin-top: 0px"
+            @click="toggleMetadata"
+          ></div>
+          <div
+            class="SectionTitles"
+            style="margin-top: 30px; margin-left: 30px"
+          >
+            Metadata
+          </div>
+
+          <div class="MetaContainerLong">
+            Typ av mekanik: <span>Komplicerad! </span> <br />
+            Dokumentation <span>2020-01-12</span> <br />
+            Tillverkare: <span>Per Strand</span> <br />
+            Byggår: <span>1815</span> <br />
+            Dimensioner (cm): <span>200 x 60 x 60 </span> <br />
+            Plats: <span>Alingsås museum </span> <br />
+            Antal pipor: <span>8 </span> <br />
+            Snygghet: <span>Jättesnygg! </span> <br />
+            Typ av mekanik: <span>Komplicerad! </span> <br />
+            Dokumentation <span>2020-01-12</span> <br />
+            Tillverkare: <span>Per Strand</span> <br />
+            Byggår: <span>1815</span> <br />
+            Dimensioner (cm): <span>200 x 60 x 60 </span> <br />
+            Plats: <span>Alingsås museum </span> <br />
+            Antal pipor: <span>8 </span> <br />
+            Snygghet: <span>Jättesnygg! </span> <br />
+            Typ av mekanik: <span>Komplicerad! </span> <br />
+            Dokumentation <span>2020-01-12</span> <br />
+          </div>
+
+          <div
+            class="SectionTitles"
+            style="margin-top: 40px; margin-left: 30px"
+          >
+            Filer
+          </div>
+
+          <div
+            id="filer"
+            style="
+              color: white;
+              margin-left: 30px;
+              margin-top: 20px;
+              margin-bottom: 40px;
+              float: left;
+            "
+          >
+            <!-- <title>Valsar</title> -->
+
+            <div style="margin-left: -30px; color: white">
+              <a href="">
+                <div class="grid-item-fil">
+                  <div
+                    class="FilImage"
+                    style="
+                      background: url(/graphics/thumbnails/fileInvert.png);
+                      background-size: cover;
+                    "
+                  ></div>
+                  <div class="FilInfoContainer">
+                    <div class="FilTitle">Typ av information</div>
+
+                    <div class="FilMetaContainer">
+                      <div class="PubBigMeta">Filtyp</div>
+                      <div class="PubBigMeta">Storlek</div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+              <a href="">
+                <div class="grid-item-fil">
+                  <div
+                    class="FilImage"
+                    style="
+                      background: url(/graphics/thumbnails/fileInvert.png);
+                      background-size: cover;
+                    "
+                  ></div>
+                  <div class="FilInfoContainer">
+                    <div class="FilTitle">Typ av information</div>
+
+                    <div class="FilMetaContainer">
+                      <div class="PubBigMeta">Filtyp</div>
+                      <div class="PubBigMeta">Storlek</div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- <script>
+            $("#filer").load("modules/filer.html");
+          </script> -->
+        </div>
+      </div>
+
+      <div class="SectionTitles" style="margin-top: 40px">Valsar</div>
+
+      <div
+        id="valsar"
+        style="margin-top: 20px; float: left; margin-left: 9.5%; width: 81%"
+      >
+        <title>Valsar</title>
+
+        <div class="gridPub" style="position: relative; height: 480px">
+          <div class="grid-sizer-pub"></div>
+          <a href="/archive/hopebaycloud41-98.html">
+            <div
+              class="grid-item-pub"
+              style="position: absolute; left: 0%; top: 0px"
+            >
+              <div
+                class="PubBigImage"
+                style="
+                  background: url(/graphics/thumbnails/001_Aarsta_gen_DSC_1447_thumb.jpg);
+                  background-size: cover;
+                "
+              ></div>
+              <div class="PublicationInfoContainer">
+                <div class="PublicationTitle">Namn på stycke</div>
+
+                <div class="PubBigMetaContainer">
+                  <div class="PubBigMeta">Kompositör</div>
+                  <div class="PubBigMeta">Annan info</div>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="/archive/hopebaycloud41-98.html">
+            <div
+              class="grid-item-pub"
+              style="position: absolute; left: 50.5189%; top: 0px"
+            >
+              <div
+                class="PubBigImage"
+                style="
+                  background: url(/graphics/thumbnails/001_Aarsta_gen_DSC_1447_thumb.jpg);
+                  background-size: cover;
+                "
+              ></div>
+              <div class="PublicationInfoContainer">
+                <div class="PublicationTitle">
+                  Mycket Mycket längre Namn på stycke
+                </div>
+
+                <div class="PubBigMetaContainer">
+                  <div class="PubBigMeta">Kompositör</div>
+                  <div class="PubBigMeta">Annan info</div>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="/archive/hopebaycloud41-98.html">
+            <div
+              class="grid-item-pub"
+              style="position: absolute; left: 0%; top: 160px"
+            >
+              <div
+                class="PubBigImage"
+                style="
+                  background: url(/graphics/thumbnails/001_Aarsta_gen_DSC_1447_thumb.jpg);
+                  background-size: cover;
+                "
+              ></div>
+              <div class="PublicationInfoContainer">
+                <div class="PublicationTitle">Namn på stycke</div>
+
+                <div class="PubBigMetaContainer">
+                  <div class="PubBigMeta">Kompositör</div>
+                  <div class="PubBigMeta">Annan info</div>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="/archive/hopebaycloud41-98.html">
+            <div
+              class="grid-item-pub"
+              style="position: absolute; left: 50.5189%; top: 160px"
+            >
+              <div
+                class="PubBigImage"
+                style="
+                  background: url(/graphics/thumbnails/001_Aarsta_gen_DSC_1447_thumb.jpg);
+                  background-size: cover;
+                "
+              ></div>
+              <div class="PublicationInfoContainer">
+                <div class="PublicationTitle">Namn på stycke</div>
+
+                <div class="PubBigMetaContainer">
+                  <div class="PubBigMeta">Kompositör</div>
+                  <div class="PubBigMeta">Annan info</div>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="/archive/hopebaycloud41-98.html">
+            <div
+              class="grid-item-pub"
+              style="position: absolute; left: 0%; top: 320px"
+            >
+              <div
+                class="PubBigImage"
+                style="
+                  background: url(/graphics/thumbnails/001_Aarsta_gen_DSC_1447_thumb.jpg);
+                  background-size: cover;
+                "
+              ></div>
+              <div class="PublicationInfoContainer">
+                <div class="PublicationTitle">Namn på stycke</div>
+
+                <div class="PubBigMetaContainer">
+                  <div class="PubBigMeta">Kompositör</div>
+                  <div class="PubBigMeta">Annan info</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- <script>
+          var $gridPub = $(".gridPub").masonry({
+            itemSelector: ".grid-item-pub",
+            percentPosition: true,
+            columnWidth: ".grid-sizer-pub",
+            gutter: 20,
+          });
+
+          $gridPub.imagesLoaded().progress(function () {
+            $gridPub.masonry();
+          });
+        </script> -->
+      </div>
+
+      <div class="SectionTitles" style="margin-top: 30px">Speluret</div>
+
+      <div
+        id="speluret"
+        style="margin-top: 20px; float: left; margin-left: 10%; width: 80%"
+      >
+        <div id="masonContainerSpeluret">
+          <div class="grid" style="position: relative; height: 589.219px">
+            <div class="grid-sizer"></div>
+            <a href="image.html">
+              <div
+                class="grid-item"
+                style="position: absolute; left: 0%; top: 0px"
+              >
+                <img
+                  src="/graphics/thumbnails/001_Aarsta_gen_DSC_1439_thumb.jpg"
+                />
+              </div>
+            </a>
+            <a href="image.html">
+              <div
+                class="grid-item"
+                style="position: absolute; left: 21.1907%; top: 0px"
+              >
+                <img
+                  src="/graphics/thumbnails/001_Aarsta_gen_DSC_1441_thumb.jpg"
+                />
+              </div>
+            </a>
+            <a href="image.html">
+              <div
+                class="grid-item"
+                style="position: absolute; left: 42.3814%; top: 0px"
+              >
+                <img
+                  src="/graphics/thumbnails/001_Aarsta_gen_DSC_1442_thumb.jpg"
+                />
+              </div>
+            </a>
+            <a href="image.html">
+              <div
+                class="grid-item"
+                style="position: absolute; left: 63.5721%; top: 0px"
+              >
+                <img
+                  src="/graphics/thumbnails/001_Aarsta_gen_DSC_1444_thumb.jpg"
+                />
+              </div>
+            </a>
+            <a href="image.html">
+              <div
+                class="grid-item"
+                style="position: absolute; left: 42.3814%; top: 286.125px"
+              >
+                <img
+                  src="/graphics/thumbnails/001_Aarsta_gen_DSC_1439_thumb.jpg"
+                />
+              </div>
+            </a>
+
+            <a href="image.html">
+              <div
+                class="grid-item"
+                style="position: absolute; left: 63.5721%; top: 286.125px"
+              >
+                <img
+                  src="/graphics/thumbnails/001_Aarsta_gen_DSC_1442_thumb.jpg"
+                />
+              </div>
+            </a>
+            <a href="image.html">
+              <div
+                class="grid-item"
+                style="position: absolute; left: 0%; top: 303.094px"
+              >
+                <img
+                  src="/graphics/thumbnails/001_Aarsta_gen_DSC_1444_thumb.jpg"
+                />
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- <script>
+          var $grid = $(".grid").masonry({
+            itemSelector: ".grid-item",
+            percentPosition: true,
+            columnWidth: ".grid-sizer",
+            gutter: 15,
+            transitionDuration: "0.2s",
+          });
+
+          $grid.imagesLoaded().progress(function () {
+            $grid.masonry();
+          });
+        </script> -->
+      </div>
+
+      <div class="BonusButtonPosition">
+        <div
+          class="ActivateBonusMaterialText"
+          id="ExpandSpeluret"
+          style="margin-top: 10px; margin-left: -10px"
+        >
+          Visa alla bilder...
+        </div>
+      </div>
+
+      <div
+        id="location"
+        style="
+          margin-top: 20px;
+          margin-bottom: 40px;
+          float: left;
+          margin-left: 9%;
+          width: 82%;
+        "
+      >
+        <title>Location</title>
+
+        <div id="MapInterface" style=""></div>
       </div>
 
       <div class="SectionTitle" style="margin-top: 40px">Liknande</div>
@@ -62,12 +480,10 @@
 
 <script>
 import { getInstrument } from "@/assets/db";
-import Panorama from "@/components/Panorama";
 
 export default {
   name: "InstrumentPage",
   props: ["id"],
-  components: { Panorama },
   data: function () {
     return {
       // TODO remove temporary fallback values when all data is available in database
@@ -76,6 +492,8 @@ export default {
       buildYear: "1815",
       divisionCount: "1",
       stopCount: "2",
+      articleExpanded: false,
+      metadataExpanded: false,
     };
   },
   created() {
@@ -96,30 +514,53 @@ export default {
       this.stopCount = fields.no_stop.value;
     });
   },
+  methods: {
+    toggleArticle() {
+      this.articleExpanded = !this.articleExpanded;
+    },
+    toggleMetadata() {
+      this.metadataExpanded = !this.metadataExpanded;
+    },
+  },
 };
 </script>
 
 <style>
+#Hero {
+  padding: 0px 0px 0px 0px;
+  overflow: hidden;
+  width: 100%;
+  height: 70vh;
+  background-color: #333333;
+  background: url(/interface/heroes/1.jpg);
+  background-size: cover;
+}
 #ItemBack {
   cursor: pointer;
   position: absolute;
-  margin-top: 50px;
+  margin-top: 60px;
   margin-left: 30px;
   height: 50px;
   width: 50px;
-  background: url(../assets/back-black.png);
+  border-radius: 50%;
+  background: url(/interface/back-black.png);
   background-size: 35px 35px;
   background-repeat: no-repeat;
   background-position: center;
   z-index: 2000;
 }
-#ItemTopPano {
-  padding: 0px 0px 0px 0px;
-  overflow: hidden;
-  width: 100%;
-  height: 60vh;
-  background-color: #333333;
+
+.MainTitles {
+  width: 80%;
+  margin-left: 10%;
+  float: left;
+  text-align: left;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 60px;
+  line-height: 1;
 }
+
 #galleries {
   color: black;
   float: left;
@@ -127,73 +568,533 @@ export default {
   padding: 0px 0 0px 0;
   background: rgba(234, 234, 231, 1);
 }
-.SectionTitle {
+
+.BonusButtonPosition {
   width: 80%;
-  height: auto;
+  float: left;
+  margin-left: 10%;
+}
+
+.SectionTitles {
+  width: 80%;
+  margin-left: 10%;
+  float: left;
+
   text-align: left;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 60px;
+
   font-weight: 100;
   font-style: normal;
-  font-size: 30px;
+  font-size: 35px;
   line-height: 1;
 }
 
-@media screen and (max-width: 610px) {
-  .SectionTitle {
-    font-size: 38px;
-    margin-bottom: 10px;
+.MetaArticleShort {
+  width: 80%;
+  float: left;
+  font-size: 24px;
+  text-align: left;
+  margin-left: 10%;
+  margin-right: auto;
+  column-count: 2;
+  column-gap: 40px;
+  line-height: 1.3;
+  font-weight: 100;
+}
+
+@media screen and (max-width: 1100px) {
+  .MetaArticleShort {
+    column-count: 1;
+    font-size: 24px;
   }
 }
 
-.MetaArticle {
-  width: 80%;
-  font-size: 18px;
-  text-align: left;
-  margin-left: auto;
+.MetaArticleLong {
+  width: 100%;
+
+  font-size: 20px;
+  text-align: justify;
+
   margin-right: auto;
   column-count: 3;
   column-gap: 40px;
-  column-rule-style: solid;
-  column-rule-width: 1px;
-  column-rule-color: grey;
+  line-height: 1.3;
+  font-weight: 300;
 }
 
-@media screen and (max-width: 1200px) {
-  .MetaArticle {
+@media screen and (max-width: 1100px) {
+  .MetaArticleLong {
     column-count: 2;
   }
 }
 
-@media screen and (max-width: 610px) {
-  .MetaArticle {
+@media screen and (max-width: 800px) {
+  .MetaArticleLong {
     column-count: 1;
     font-size: 22px;
   }
 }
 
-.MetaContainer {
-  width: 550px;
-  margin-top: 20px;
+.MetaContainerShort {
+  width: 780px;
+  margin-top: 30px;
   margin-left: 10%;
   column-count: 2;
   column-gap: 40px;
-  column-rule-style: solid;
-  column-rule-width: 1px;
-  column-rule-color: grey;
-  font-size: 18px;
+  float: left;
+  font-weight: 100;
+  font-size: 32px;
   line-height: 2;
 }
 
-.MetaContainer span {
-  color: blue;
+.MetaContainerShort span {
+  color: #3fa4bd;
 }
 
 @media screen and (max-width: 610px) {
-  .MetaContainer {
+  .MetaContainerShort {
+    column-count: 1;
+    font-size: 24px;
+  }
+}
+
+.MetaContainerLong {
+  margin-top: 10px;
+  width: 1350px;
+  column-count: 5;
+  column-gap: 40px;
+  float: left;
+  font-size: 18px;
+  line-height: 2;
+  padding: 10px 30px 10px 30px;
+}
+
+.MetaContainerLong span {
+  color: #4ccded;
+}
+
+@media screen and (max-width: 1600px) {
+  .MetaContainerLong {
+    column-count: 4;
+    width: 1015px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .MetaContainerLong {
+    column-count: 3;
+    width: 750px;
+  }
+}
+
+@media screen and (max-width: 910px) {
+  .MetaContainerLong {
+    column-count: 2;
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .MetaContainerLong {
     column-count: 1;
     font-size: 22px;
   }
+}
+
+#metaFileEnclosure {
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.2),
+    0 6px 40px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 20px;
+  float: left;
+  width: 82%;
+  margin-left: 9%;
+  border-radius: 20px;
+  color: white;
+  background-color: RGBA(50, 50, 50, 1);
+}
+
+#articleEnclosure {
+  margin-top: 10px;
+  float: left;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.ActivateBonusMaterial {
+  position: relative;
+
+  font-size: 47px;
+  line-height: 0.7;
+
+  width: 40px;
+  height: 40px;
+
+  vertical-align: 90%;
+  text-align: center;
+
+  float: left;
+  border-radius: 10px;
+
+  margin-top: 20px;
+
+  cursor: pointer;
+}
+
+.deactivateBonusMaterial {
+  position: relative;
+
+  font-size: 47px;
+  line-height: 0.7;
+
+  background: url(/interface/close.png);
+
+  background-size: cover;
+
+  width: 40px;
+  height: 40px;
+
+  float: left;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.ActivateBonusMaterial:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+.ActivateBonusMaterialText {
+  position: relative;
+
+  font-size: 22px;
+  line-height: 0.7;
+  color: gray;
+
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+
+  float: left;
+
+  padding: 10px;
+  border-radius: 10px;
+
+  margin-top: 20px;
+
+  cursor: pointer;
+}
+
+.ActivateBonusMaterialText:hover {
+  background-color: rgb(245, 245, 245);
+  color: black;
+}
+
+/* För Image.html */
+
+.DownloadContainer {
+  width: auto;
+  margin-top: 40px;
+  margin-left: -10px;
+  float: left;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.DownloadContainer:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+.DownloadButton {
+  cursor: pointer;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #666666;
+  background: url(/interface/download.png);
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  font-size: 12px;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  margin-right: 20px;
+  float: left;
+}
+
+.DownloadLabel {
+  margin-top: 5px;
+  cursor: pointer;
+  color: black;
+  font-weight: 300;
+  font-size: 25px;
+  position: relative;
+  float: left;
+}
+
+@media screen and (max-width: 800px) {
+  .DownloadLabel {
+    margin-top: -4px;
+    font-size: 32px;
+  }
+}
+
+#foot {
+  width: 80%;
+  margin-left: 10%;
+  color: black;
+  font-weight: 300;
+}
+
+/** Expanded metadata, move to other component? */
+.grid-item-fil {
+  float: left;
+  color: white;
+  height: 100px;
+  margin-left: 30px;
+  border-radius: 10px;
+  border-style: dotted;
+  border-width: 0.5px;
+  border-color: white;
+  padding: 10px 20px 10px 20px;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.grid-item-fil:hover {
+  display: block;
+  filter: brightness(120%);
+  transform: scale(1.04);
+  background-color: RGBA(50, 50, 50, 1);
+}
+
+.FilInfoContainer {
+  width: 160px;
+  float: left;
+  margin-top: 10px;
+}
+
+.FilTitle {
+  float: left;
+  height: 30px;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 20px;
+  width: 90%;
+  overflow: hidden;
+}
+
+.FilMetaContainer {
+  cursor: pointer;
+  width: 100%;
+  margin-left: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  float: left;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 18px;
+}
+
+.PubBigMeta {
+  width: 90%;
+  margin-left: 0px;
+  margin-bottom: 4px;
+  float: left;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 16px;
+}
+
+.FilImage {
+  background-repeat: no-repeat;
+  background-position: center;
+
+  height: 95px;
+  width: 95px;
+  background-position: 100px;
+  margin-top: 5px;
+  float: left;
+}
+
+/* Dessa är för Valsarna */
+
+.grid-item-pub {
+  float: left;
+  color: white;
+  height: 140px;
+  border-radius: 10px;
+  background-color: RGBA(50, 50, 50, 1);
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2),
+    0 6px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+.grid-item-pub:hover {
+  display: block;
+  filter: brightness(120%);
+  transform: scale(1.04);
+  background-color: RGBA(80, 80, 80, 1);
+}
+
+.gridPub {
+}
+
+.gridPub:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.grid-sizer-pub,
+.grid-item-pub {
+  width: 32.1%;
+  //transition: all .2s ease-in-out;
+  margin-bottom: 20px;
+  float: left;
+}
+
+@media screen and (max-width: 1400px) {
+  .grid-sizer-pub,
+  .grid-item-pub {
+    width: 48.5%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .grid-sizer-pub,
+  .grid-item-pub {
+    width: 100%;
+  }
+}
+
+.PublicationInfoContainer {
+  width: 55%;
+  float: left;
+  margin-top: 10px;
+}
+
+.PublicationTitle {
+  margin-left: 20px;
+  float: left;
+  height: 60px;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 24px;
+  width: 90%;
+  overflow: hidden;
+}
+
+.PubBigMetaContainer {
+  cursor: pointer;
+  width: 100%;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  float: left;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 18px;
+}
+
+.PubBigMeta {
+  width: 80%;
+  margin-left: 0px;
+  margin-bottom: 4px;
+  float: left;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 16px;
+}
+
+.PubBigImage {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 180px;
+  width: 40%;
+  float: left;
+}
+
+/* Dessa är för mini-gallerierna */
+
+.grid {
+}
+
+.grid-sizer,
+.grid-item {
+  width: 13.1%;
+  transition: all 0.2s ease-in-out;
+  background-color: black;
+  margin-top: 0px;
+}
+
+@media screen and (max-width: 1500px) {
+  .grid-sizer,
+  .grid-item {
+    width: 18.5%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .grid-sizer,
+  .grid-item {
+    width: 23.5%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .grid-sizer,
+  .grid-item {
+    width: 31%;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .grid-sizer,
+  .grid-item {
+    width: 48%;
+  }
+}
+
+.grid-item {
+  float: left;
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.grid-item img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.2s ease-in-out;
+}
+
+.grid-item:hover {
+  display: block;
+  transform: scale(1.01);
+  filter: brightness(120%);
+}
+
+/* MAp */
+
+#MapInterface {
+  border-radius: 20px;
+  width: 100%;
+  height: 500px;
+  background: url(/interface/map.jpg);
+
+  background-size: cover;
+  )transition: all 0.2s ease-in-out;
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.2),
+    0 6px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+#MapInterface:hover {
+  transition: all 0.2s ease-in-out;
+  filter: brightness(110%);
+  transform: scale(1.02);
 }
 </style>

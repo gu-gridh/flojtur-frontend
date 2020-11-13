@@ -48,11 +48,33 @@
       </div>
     </div>
 
-    <!-- <div class="scroll bounce" style="cursor:pointer; display:none;" @click="scrollToFilter"></div> -->
+    <div id="ItemTop" style="">
+      <model-viewer
+        id="ModelViewer"
+        reveal="auto"
+        loading="eager"
+        poster="/models/poster.png"
+        src="models/cube2.glb"
+        alt="cube"
+        camera-controls=""
+        auto-rotate=""
+        camera-orbit="-0deg 80deg 17.0m"
+        camera-target="-0.0m 0m 0m"
+        exposure="0.7"
+        shadows="true"
+        shadow-intensity="1"
+        shadow-softness="1"
+        style=""
+        ar-status="not-presenting"
+      >
+      </model-viewer>
+    </div>
   </div>
 </template>
 
 <script>
+import "@/assets/model-viewer/dist/model-viewer.min";
+
 export default {
   name: "Title",
 };
@@ -60,7 +82,6 @@ export default {
 
 <style scoped>
 .title {
-  font-weight: 600;
   width: 100%;
   float: left;
   text-align: center;
@@ -69,7 +90,6 @@ export default {
   margin-top: 20px;
 }
 .subtitle {
-  font-weight: 600;
   width: 500px;
   line-height: 0.5;
   text-align: center;
@@ -85,11 +105,11 @@ export default {
   padding-top: 30px;
   width: 190px;
   height: auto;
-  text-align: left;
-  font-weight: 100;
+  text-align: center;
+  font-weight: 300;
   font-style: normal;
   font-size: 35px;
-  line-height: 0.8;
+  line-height: 1.8;
   cursor: pointer;
 }
 .cardMiniImage {
@@ -120,5 +140,14 @@ export default {
   line-height: 1.8;
   float: left;
   margin-left: 20px;
+}
+
+#ItemTop {
+  padding: 0px 0px 0px 0px;
+  overflow: hidden;
+  width: 60%;
+  height: 60vh;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>

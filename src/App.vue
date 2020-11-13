@@ -16,6 +16,7 @@
   width: 100%;
   font-size: 24px;
   text-align: left;
+  line-height: 1.2;
   columns: 1;
   orphans: 2;
   margin-top: 50px;
@@ -23,12 +24,11 @@
 .articletext {
   margin-top: 30px;
   width: 100%;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 300;
   text-align: justify;
+  line-height: 1.2;
   column-gap: 40px;
-  column-rule-style: solid;
-  column-rule-width: 1px;
-  column-rule-color: grey;
   columns: 2;
   orphans: 2;
 }

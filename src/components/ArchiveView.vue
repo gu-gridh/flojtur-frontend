@@ -2,12 +2,13 @@
   <div>
     <div class="links">
       <div class="ArchiveViewOptions">
-          <router-link to="/"
-          class="viewOption"
-          >Galleri</router-link>
+        <router-link to="/" class="viewOption">Galleri</router-link>
         <div class="viewOption">|</div>
-        <router-link
-        class="viewOption" to="/map">Karta</router-link>
+        <router-link class="viewOption" to="/map">Karta</router-link>
+        <div class="viewOption">|</div>
+        <router-link class="viewOption" to="/search"
+          >Avancerad sökning</router-link
+        >
       </div>
     </div>
 
@@ -23,13 +24,15 @@ export default {
 
 <style scoped>
 .links {
-  height: 100px;
+  height: 40px;
   width: 100%;
-  margin-top: 10px;
+  float: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .ArchiveViewOptions {
-  width: 360px;
-  height: 40px;
+  width: 370px;
+  height: 30px;
   margin-left: auto;
   margin-right: auto;
   color: black;
@@ -42,7 +45,7 @@ export default {
   margin-left: 15px;
   margin-right: 15px;
   margin-top: 5px;
-  transition: all 0.2s;
+  transition: all 0.2s ease-in-out;
 }
 .viewOption.router-link-exact-active {
   border-style: solid;

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "https://dh.gu.se/ws/flojtur/";
+const apiUrl = "http://localhost/digarv";
 
 function get(name, params) {
   return axios.get(`${apiUrl}/${name}.php`, { params });
