@@ -3,7 +3,7 @@
     v-masonry="masonryId"
     item-selector=".grid-item-pub"
     :percent-position="true"
-    :column-width="'.grid-sizer-pub'"
+    column-width=".grid-sizer-pub"
     :gutter="20"
     class="clear-after"
   >

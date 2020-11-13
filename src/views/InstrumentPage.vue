@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <div id="Hero"></div>
 
     <div id="galleries">
@@ -212,100 +212,18 @@
 
       <div class="SectionTitles" style="margin-top: 30px">Speluret</div>
 
-      <div
-        id="speluret"
-        style="margin-top: 20px; float: left; margin-left: 10%; width: 80%"
-      >
-        <div id="masonContainerSpeluret">
-          <div class="grid" style="position: relative; height: 589.219px">
-            <div class="grid-sizer"></div>
-            <a href="image.html">
-              <div
-                class="grid-item"
-                style="position: absolute; left: 0%; top: 0px"
-              >
-                <img
-                  src="/graphics/thumbnails/001_Aarsta_gen_DSC_1439_thumb.jpg"
-                />
-              </div>
-            </a>
-            <a href="image.html">
-              <div
-                class="grid-item"
-                style="position: absolute; left: 21.1907%; top: 0px"
-              >
-                <img
-                  src="/graphics/thumbnails/001_Aarsta_gen_DSC_1441_thumb.jpg"
-                />
-              </div>
-            </a>
-            <a href="image.html">
-              <div
-                class="grid-item"
-                style="position: absolute; left: 42.3814%; top: 0px"
-              >
-                <img
-                  src="/graphics/thumbnails/001_Aarsta_gen_DSC_1442_thumb.jpg"
-                />
-              </div>
-            </a>
-            <a href="image.html">
-              <div
-                class="grid-item"
-                style="position: absolute; left: 63.5721%; top: 0px"
-              >
-                <img
-                  src="/graphics/thumbnails/001_Aarsta_gen_DSC_1444_thumb.jpg"
-                />
-              </div>
-            </a>
-            <a href="image.html">
-              <div
-                class="grid-item"
-                style="position: absolute; left: 42.3814%; top: 286.125px"
-              >
-                <img
-                  src="/graphics/thumbnails/001_Aarsta_gen_DSC_1439_thumb.jpg"
-                />
-              </div>
-            </a>
-
-            <a href="image.html">
-              <div
-                class="grid-item"
-                style="position: absolute; left: 63.5721%; top: 286.125px"
-              >
-                <img
-                  src="/graphics/thumbnails/001_Aarsta_gen_DSC_1442_thumb.jpg"
-                />
-              </div>
-            </a>
-            <a href="image.html">
-              <div
-                class="grid-item"
-                style="position: absolute; left: 0%; top: 303.094px"
-              >
-                <img
-                  src="/graphics/thumbnails/001_Aarsta_gen_DSC_1444_thumb.jpg"
-                />
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- <script>
-          var $grid = $(".grid").masonry({
-            itemSelector: ".grid-item",
-            percentPosition: true,
-            columnWidth: ".grid-sizer",
-            gutter: 15,
-            transitionDuration: "0.2s",
-          });
-
-          $grid.imagesLoaded().progress(function () {
-            $grid.masonry();
-          });
-        </script> -->
+      <div style="margin-top: 20px; float: left; margin-left: 10%; width: 80%">
+        <MiniGallery
+          masonryId="masonry-speluret"
+          :items="
+            [1, 2, 3, 4, 5, 6, 7].map((i) => ({
+              link: `/image/${i}`,
+              image: `/graphics/thumbnails/001_Aarsta_gen_DSC_14${
+                [39, 41, 42, 44][i % 4]
+              }_thumb.jpg`,
+            }))
+          "
+        />
       </div>
 
       <div class="BonusButtonPosition">
@@ -354,12 +272,14 @@
 <script>
 import { getInstrument } from "@/assets/db";
 import CardGrid from "@/components/CardGrid";
+import MiniGallery from "@/components/MiniGallery";
 
 export default {
   name: "InstrumentPage",
   props: ["id"],
   components: {
     CardGrid,
+    MiniGallery,
   },
   data: function () {
     return {
