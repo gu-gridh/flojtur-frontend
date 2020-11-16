@@ -3,15 +3,19 @@
     v-masonry="masonryId"
     item-selector=".grid-item"
     :percent-position="true"
-    column-width=".grid-sizer"
     :gutter="15"
-    transition-duration="0.2s"
+    transition-duration="0s"
+    class="grid"
+    :class="{ collapsed }"
   >
-    <div class="grid-sizer"></div>
-    <router-link v-for="item in items" :key="item.link" :to="item.link">
-      <div class="grid-item">
-        <img :src="item.image" />
-      </div>
+    <router-link
+      v-for="item in items"
+      :key="item.link"
+      tag="div"
+      :to="item.link"
+      class="grid-item"
+    >
+      <img :src="item.image" />
     </router-link>
   </div>
 </template>
@@ -21,17 +25,21 @@ import imagesLoaded from "imagesloaded";
 
 export default {
   name: "MiniGallery",
-  props: ["masonryId", "items"],
+  props: ["masonryId", "items", "collapsed"],
   mounted() {
     imagesLoaded(`#${this.masonryId}`, () =>
       setTimeout(() => this.$redrawVueMasonry(this.masonryId), 100)
     );
   },
+  watch: {
+    collapsed() {
+      setTimeout(() => this.$redrawVueMasonry(this.masonryId));
+    },
+  },
 };
 </script>
 
 <style scoped>
-.grid-sizer,
 .grid-item {
   width: 13.1%;
   transition: all 0.2s ease-in-out;
@@ -40,30 +48,49 @@ export default {
 }
 
 @media screen and (max-width: 1500px) {
-  .grid-sizer,
   .grid-item {
     width: 18.5%;
+  }
+  .grid.collapsed
+    .grid-item
+    + .grid-item
+    + .grid-item
+    + .grid-item
+    + .grid-item
+    + .grid-item {
+    display: none;
   }
 }
 
 @media screen and (max-width: 1200px) {
-  .grid-sizer,
   .grid-item {
     width: 23.5%;
+  }
+  .grid.collapsed
+    .grid-item
+    + .grid-item
+    + .grid-item
+    + .grid-item
+    + .grid-item {
+    display: none;
   }
 }
 
 @media screen and (max-width: 900px) {
-  .grid-sizer,
   .grid-item {
     width: 31%;
+  }
+  .grid.collapsed .grid-item + .grid-item + .grid-item + .grid-item {
+    display: none;
   }
 }
 
 @media screen and (max-width: 610px) {
-  .grid-sizer,
   .grid-item {
     width: 48%;
+  }
+  .grid.collapsed .grid-item + .grid-item + .grid-item {
+    display: none;
   }
 }
 

@@ -223,16 +223,21 @@
               }_thumb.jpg`,
             }))
           "
+          :collapsed="!instrumentGridExpanded"
         />
       </div>
 
       <div class="BonusButtonPosition">
         <div
           class="ActivateBonusMaterialText"
-          id="ExpandSpeluret"
           style="margin-top: 10px; margin-left: -10px"
+          @click="toggleInstrumentGrid"
         >
-          Visa alla bilder...
+          {{
+            instrumentGridExpanded
+              ? "Visa färre bilder..."
+              : "Visa alla bilder..."
+          }}
         </div>
       </div>
 
@@ -291,6 +296,7 @@ export default {
       stopCount: "2",
       articleExpanded: false,
       metadataExpanded: false,
+      instrumentGridExpanded: false,
     };
   },
   created() {
@@ -317,6 +323,9 @@ export default {
     },
     toggleMetadata() {
       this.metadataExpanded = !this.metadataExpanded;
+    },
+    toggleInstrumentGrid() {
+      this.instrumentGridExpanded = !this.instrumentGridExpanded;
     },
   },
 };
