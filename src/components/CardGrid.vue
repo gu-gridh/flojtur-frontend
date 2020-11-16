@@ -17,6 +17,7 @@
       :title="card.title"
     >
       {{ card.content }}
+      Kompositör<br />Annan info
     </Card>
   </div>
 </template>
@@ -32,10 +33,29 @@ export default {
 </script>
 
 <style>
+.grid-item-pub {
+  float: left;
+  color: white;
+  height: 140px;
+  border-radius: 10px;
+  background-color: RGBA(50, 50, 50, 1);
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2),
+    0 6px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+.grid-item-pub:hover {
+  display: block;
+  filter: brightness(120%);
+  transform: scale(1.04);
+  background-color: RGBA(80, 80, 80, 1);
+}
+
 .gridPub {
 }
 
-.clear-after:after {
+.gridPub:after {
   content: "";
   display: block;
   clear: both;
@@ -48,6 +68,7 @@ export default {
   margin-bottom: 20px;
   float: left;
 }
+
 @media screen and (max-width: 1400px) {
   .grid-sizer-pub,
   .grid-item-pub {

@@ -54,4 +54,14 @@
     columns: 1;
   }
 }
+
+.outset-small {
+  margin-left: -6px;
+  margin-right: -6px;
+}
+
+.outset-large {
+  margin-left: -12px;
+  margin-right: -12px;
+}
 </style>

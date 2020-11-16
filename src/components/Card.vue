@@ -45,25 +45,17 @@ export default {
   background-color: RGBA(80, 80, 80, 1);
 }
 
-.PubBigImage {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 180px;
-  width: 40%;
-  float: left;
-}
-
 .PublicationInfoContainer {
   width: 55%;
   float: left;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .PublicationTitle {
   margin-left: 20px;
   float: left;
   height: 60px;
+  line-height: 1.2;
   font-weight: 200;
   font-style: normal;
   font-size: 24px;
@@ -86,10 +78,20 @@ export default {
 .PubBigMeta {
   width: 80%;
   margin-left: 0px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   float: left;
   font-weight: 200;
   font-style: normal;
   font-size: 16px;
+  line-height: 1.25;
+}
+
+.PubBigImage {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 180px;
+  width: 40%;
+  float: left;
 }
 </style>

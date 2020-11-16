@@ -2,7 +2,7 @@
   <div>
     <div id="Hero"></div>
 
-    <div id="galleries">
+    <main id="main">
       <router-link to="/">
         <div id="ItemBack"></div>
       </router-link>
@@ -25,50 +25,24 @@
         scan 002 of the same date.
       </div>
 
-      <div class="BonusButtonPosition">
-        <div
-          v-show="!articleExpanded"
-          class="ActivateBonusMaterialText"
-          id="collapsibleArticle"
-          style="margin-left: -10px"
-          @click="toggleArticle"
-        >
-          Läs mer...
+      <ShowMore label="Läs mer..." style="padding-top: 30px">
+        <div class="MetaArticleLong">
+          The winter station on Snow Hill Island, inscribed as HSM38, was built
+          in Februari 1902 on the East shore of the island about 150 meters from
+          the sea. Erected on top of a small hill with a salient curved contour,
+          the station functioned as a base for the research field work and in
+          the nearby surroundings several small field stations were set up. The
+          one-storied building plan is about 6.30x4.10 meters and with a small
+          vestibule located by the entrance in the East. Both the roof and the
+          outer walls are covered with tarred wallpaper. Two diagonal plank
+          struts are supporting the northern facade and recently also steel
+          wires are mounted in each corner of the building and fixed to the
+          ground to sustain the harsh southern storms. The building contains a
+          kitchen, three small dormitories with a bunkbed and a desk, and a
+          centre room with a stove and a dining table. The panorama was produced
+          from laser scan 002 of the same date.
         </div>
-      </div>
-
-      <div
-        v-show="articleExpanded"
-        id="LongArticle"
-        style="display: none; width: 100%"
-      >
-        <div id="articleEnclosure" style="">
-          <div
-            class="deactivateBonusMaterial"
-            id="CloseLongArticle"
-            style="margin-left: -77px; margin-top: 30px"
-            @click="toggleArticle"
-          ></div>
-
-          <div class="MetaArticleLong" style="margin-top: 30px">
-            The winter station on Snow Hill Island, inscribed as HSM38, was
-            built in Februari 1902 on the East shore of the island about 150
-            meters from the sea. Erected on top of a small hill with a salient
-            curved contour, the station functioned as a base for the research
-            field work and in the nearby surroundings several small field
-            stations were set up. The one-storied building plan is about
-            6.30x4.10 meters and with a small vestibule located by the entrance
-            in the East. Both the roof and the outer walls are covered with
-            tarred wallpaper. Two diagonal plank struts are supporting the
-            northern facade and recently also steel wires are mounted in each
-            corner of the building and fixed to the ground to sustain the harsh
-            southern storms. The building contains a kitchen, three small
-            dormitories with a bunkbed and a desk, and a centre room with a
-            stove and a dining table. The panorama was produced from laser scan
-            002 of the same date.
-          </div>
-        </div>
-      </div>
+      </ShowMore>
 
       <div class="MetaContainerShort">
         Tillverkare: <span>{{ builder }}</span> <br />
@@ -78,31 +52,10 @@
         Snygghet: <span>Fenomenalt stiligt! </span> <br />
         Dimensioner (cm): <span>200 x 60 x 60 </span> <br />
       </div>
-      <div class="BonusButtonPosition">
-        <div
-          v-if="!metadataExpanded"
-          class="ActivateBonusMaterialText"
-          id="collapsibleMeta"
-          style="margin-left: -10px"
-          @click="toggleMetadata"
-        >
-          Visa all metadata...
-        </div>
-      </div>
-      <div v-show="metadataExpanded" id="LongMeta" style="width: 100%">
-        <div id="metaFileEnclosure" style="">
-          <div
-            class="deactivateBonusMaterial"
-            id="CloseLongMeta"
-            style="margin-left: -60px; margin-top: 0px"
-            @click="toggleMetadata"
-          ></div>
-          <div
-            class="SectionTitles"
-            style="margin-top: 30px; margin-left: 30px"
-          >
-            Metadata
-          </div>
+
+      <ShowMore label="Visa all metadata..." style="margin-top: 30px">
+        <div id="metaFileEnclosure" class="outset-large">
+          <div class="SectionTitles">Metadata</div>
 
           <div class="MetaContainerLong">
             Typ av mekanik: <span>Komplicerad! </span> <br />
@@ -125,78 +78,14 @@
             Dokumentation <span>2020-01-12</span> <br />
           </div>
 
-          <div
-            class="SectionTitles"
-            style="margin-top: 40px; margin-left: 30px"
-          >
-            Filer
-          </div>
-
-          <div
-            id="filer"
-            style="
-              color: white;
-              margin-left: 30px;
-              margin-top: 20px;
-              margin-bottom: 40px;
-              float: left;
-            "
-          >
-            <div style="margin-left: -30px; color: white">
-              <a href="">
-                <div class="grid-item-fil">
-                  <div
-                    class="FilImage"
-                    style="
-                      background: url(/graphics/thumbnails/fileInvert.png);
-                      background-size: cover;
-                    "
-                  ></div>
-                  <div class="FilInfoContainer">
-                    <div class="FilTitle">Typ av information</div>
-
-                    <div class="FilMetaContainer">
-                      <div class="PubBigMeta">Filtyp</div>
-                      <div class="PubBigMeta">Storlek</div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <a href="">
-                <div class="grid-item-fil">
-                  <div
-                    class="FilImage"
-                    style="
-                      background: url(/graphics/thumbnails/fileInvert.png);
-                      background-size: cover;
-                    "
-                  ></div>
-                  <div class="FilInfoContainer">
-                    <div class="FilTitle">Typ av information</div>
-
-                    <div class="FilMetaContainer">
-                      <div class="PubBigMeta">Filtyp</div>
-                      <div class="PubBigMeta">Storlek</div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <!-- <script>
-            $("#filer").load("modules/filer.html");
-          </script> -->
+          <div class="SectionTitles" style="margin-top: 40px">Filer</div>
+          <FileGrid :files="[{}, {}]" />
         </div>
-      </div>
+      </ShowMore>
 
       <div class="SectionTitles" style="margin-top: 40px">Valsar</div>
 
-      <div
-        id="valsar"
-        style="margin-top: 20px; float: left; margin-left: 9.5%; width: 81%"
-      >
+      <div id="valsar" style="margin-top: 20px" class="outset-small">
         <CardGrid
           masonryId="barrels-masonry"
           :cards="
@@ -212,7 +101,7 @@
 
       <div class="SectionTitles" style="margin-top: 30px">Speluret</div>
 
-      <div style="margin-top: 20px; float: left; margin-left: 10%; width: 80%">
+      <div style="margin-top: 20px">
         <MiniGallery
           masonryId="masonry-speluret"
           :items="
@@ -243,39 +132,23 @@
 
       <div
         id="location"
-        style="
-          margin-top: 20px;
-          margin-bottom: 40px;
-          float: left;
-          margin-left: 9%;
-          width: 82%;
-        "
+        style="margin-top: 50px; margin-bottom: 40px"
+        class="outset-large"
       >
         <title>Location</title>
 
         <div id="MapInterface" style=""></div>
       </div>
+    </main>
 
-      <div class="SectionTitle" style="margin-top: 40px">Liknande</div>
-
-      <div
-        id="gallery"
-        style="
-          margin-top: 20px;
-          margin-bottom: 40px;
-          float: left;
-          margin-left: 10%;
-          width: 80%;
-        "
-      ></div>
-    </div>
-
-    <div id="foot" style="float: left; width: 100%"></div>
+    <div id="foot" style="width: 100%"></div>
   </div>
 </template>
 
 <script>
 import { getInstrument } from "@/assets/db";
+import ShowMore from "@/components/ShowMore";
+import FileGrid from "@/components/FileGrid";
 import CardGrid from "@/components/CardGrid";
 import MiniGallery from "@/components/MiniGallery";
 
@@ -283,6 +156,8 @@ export default {
   name: "InstrumentPage",
   props: ["id"],
   components: {
+    ShowMore,
+    FileGrid,
     CardGrid,
     MiniGallery,
   },
@@ -341,11 +216,18 @@ export default {
   background: url(/interface/heroes/1.jpg);
   background-size: cover;
 }
+
+#main {
+  /* color: black; */
+  width: 80%;
+  margin: auto;
+  background: rgba(234, 234, 231, 1);
+}
+
 #ItemBack {
   cursor: pointer;
   position: absolute;
-  margin-top: 60px;
-  margin-left: 30px;
+  left: 30px;
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -357,37 +239,14 @@ export default {
 }
 
 .MainTitles {
-  width: 80%;
-  margin-left: 10%;
-  float: left;
-  text-align: left;
   font-weight: 100;
   font-style: normal;
   font-size: 60px;
   line-height: 1;
 }
 
-#galleries {
-  color: black;
-  float: left;
-  width: 100%;
-  padding: 0px 0 0px 0;
-  background: rgba(234, 234, 231, 1);
-}
-
-.BonusButtonPosition {
-  width: 80%;
-  float: left;
-  margin-left: 10%;
-}
-
 .SectionTitles {
-  width: 80%;
-  margin-left: 10%;
-  float: left;
-
   text-align: left;
-
   font-weight: 100;
   font-style: normal;
   font-size: 35px;
@@ -395,11 +254,9 @@ export default {
 }
 
 .MetaArticleShort {
-  width: 80%;
-  float: left;
   font-size: 24px;
   text-align: left;
-  margin-left: 10%;
+
   margin-right: auto;
   column-count: 2;
   column-gap: 40px;
@@ -443,10 +300,8 @@ export default {
 .MetaContainerShort {
   width: 780px;
   margin-top: 30px;
-  margin-left: 10%;
   column-count: 2;
   column-gap: 40px;
-  float: left;
   font-weight: 100;
   font-size: 32px;
   line-height: 2;
@@ -468,10 +323,9 @@ export default {
   width: 1350px;
   column-count: 5;
   column-gap: 40px;
-  float: left;
   font-size: 18px;
   line-height: 2;
-  padding: 10px 30px 10px 30px;
+  padding: 10px 0;
 }
 
 .MetaContainerLong span {
@@ -509,83 +363,22 @@ export default {
 #metaFileEnclosure {
   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.2),
     0 6px 40px 0 rgba(0, 0, 0, 0.19);
-  margin-top: 20px;
-  float: left;
-  width: 82%;
-  margin-left: 9%;
+  padding: 30px;
   border-radius: 20px;
   color: white;
   background-color: RGBA(50, 50, 50, 1);
 }
 
-#articleEnclosure {
-  margin-top: 10px;
-  float: left;
-  width: 80%;
-  margin-left: 10%;
-}
-
-.ActivateBonusMaterial {
-  position: relative;
-
-  font-size: 47px;
-  line-height: 0.7;
-
-  width: 40px;
-  height: 40px;
-
-  vertical-align: 90%;
-  text-align: center;
-
-  float: left;
-  border-radius: 10px;
-
-  margin-top: 20px;
-
-  cursor: pointer;
-}
-
-.deactivateBonusMaterial {
-  position: relative;
-
-  font-size: 47px;
-  line-height: 0.7;
-
-  background: url(/interface/close.png);
-
-  background-size: cover;
-
-  width: 40px;
-  height: 40px;
-
-  float: left;
-  border-radius: 10px;
-
-  cursor: pointer;
-}
-
-.ActivateBonusMaterial:hover {
-  background-color: rgb(245, 245, 245);
-}
-
 .ActivateBonusMaterialText {
   position: relative;
-
   font-size: 22px;
   line-height: 0.7;
   color: gray;
-
-  margin-left: auto;
   margin-right: auto;
   height: auto;
-
-  float: left;
-
   padding: 10px;
   border-radius: 10px;
-
   margin-top: 20px;
-
   cursor: pointer;
 }
 
@@ -600,7 +393,6 @@ export default {
   width: auto;
   margin-top: 40px;
   margin-left: -10px;
-  float: left;
   border-radius: 10px;
   padding: 10px;
 }
@@ -625,7 +417,6 @@ export default {
   height: 30px;
   position: relative;
   margin-right: 20px;
-  float: left;
 }
 
 .DownloadLabel {
@@ -635,7 +426,6 @@ export default {
   font-weight: 300;
   font-size: 25px;
   position: relative;
-  float: left;
 }
 
 @media screen and (max-width: 800px) {
@@ -647,80 +437,8 @@ export default {
 
 #foot {
   width: 80%;
-  margin-left: 10%;
   color: black;
   font-weight: 300;
-}
-
-/** Expanded metadata, move to other component? */
-.grid-item-fil {
-  float: left;
-  color: white;
-  height: 100px;
-  margin-left: 30px;
-  border-radius: 10px;
-  border-style: dotted;
-  border-width: 0.5px;
-  border-color: white;
-  padding: 10px 20px 10px 20px;
-  overflow: hidden;
-  transition: all 0.2s ease-in-out;
-}
-
-.grid-item-fil:hover {
-  display: block;
-  filter: brightness(120%);
-  transform: scale(1.04);
-  background-color: RGBA(50, 50, 50, 1);
-}
-
-.FilInfoContainer {
-  width: 160px;
-  float: left;
-  margin-top: 10px;
-}
-
-.FilTitle {
-  float: left;
-  height: 30px;
-  font-weight: 200;
-  font-style: normal;
-  font-size: 20px;
-  width: 90%;
-  overflow: hidden;
-}
-
-.FilMetaContainer {
-  cursor: pointer;
-  width: 100%;
-  margin-left: 0px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  float: left;
-  font-weight: 200;
-  font-style: normal;
-  font-size: 18px;
-}
-
-#filer .PubBigMeta {
-  width: 90%;
-  margin-left: 0px;
-  margin-bottom: 4px;
-  float: left;
-  font-weight: 200;
-  font-style: normal;
-  font-size: 16px;
-}
-
-.FilImage {
-  background-repeat: no-repeat;
-  background-position: center;
-
-  height: 95px;
-  width: 95px;
-  background-position: 100px;
-  margin-top: 5px;
-  float: left;
 }
 
 /* Dessa är för mini-gallerierna */
@@ -765,7 +483,6 @@ export default {
 }
 
 .grid-item {
-  float: left;
   transition: all 0.2s ease-in-out;
   overflow: hidden;
   margin-bottom: 15px;
