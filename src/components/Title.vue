@@ -73,7 +73,7 @@
 </template>
 
 <script>
-import "@/assets/model-viewer/dist/model-viewer.min";
+import "@/assets/model-viewer/dist/model-viewer";
 
 export default {
   name: "Title",
