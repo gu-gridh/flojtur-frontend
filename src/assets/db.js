@@ -6,6 +6,14 @@ function get(name, params) {
   return axios.get(`${apiUrl}/${name}.php`, { params });
 }
 
+export function getRecord(table, id) {
+  return get("edit", { tb: table, id: parseInt(id) })
+    .then((response) => response.data.fields)
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
 export function getInstruments() {
   // Each actual instrument has multiple autom records, one for each activity. Activity type 1 is "Inventering".
   return get("search", { tb: "autom", query: "equals|act_type|1" })
@@ -14,10 +22,7 @@ export function getInstruments() {
         response.data.features.map((record) =>
           // Get the full details for each and merge them with the brief info.
           getInstrument(record.id)
-            .then((instrument) => ({
-              ...record,
-              ...instrument
-            }))
+            .then((fields) => ({ ...record, fields }))
             .catch((error) => {
               console.error(error);
               return record;
@@ -38,7 +43,5 @@ export function getLocations() {
 }
 
 export function getInstrument(id) {
-  return get("edit", { tb: "autom", id })
-    .then((response) => response.data)
-    .catch((error) => console.error(error));
+  return getRecord("autom", id);
 }

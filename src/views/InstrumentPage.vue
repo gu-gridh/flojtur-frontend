@@ -130,14 +130,18 @@
         </div>
       </div>
 
-      <div
-        id="location"
-        style="margin-top: 50px; margin-bottom: 40px"
-        class="outset-large"
-      >
-        <title>Location</title>
+      <div v-if="locationId">
+        <div
+          id="location"
+          style="margin-top: 50px; margin-bottom: 40px"
+          class="outset-large"
+        >
+          <title>Location</title>
 
-        <div id="MapInterface" style=""></div>
+          <div id="MapInterface" style="">
+            <Map :locationId="locationId" />
+          </div>
+        </div>
       </div>
     </main>
 
@@ -151,6 +155,7 @@ import ShowMore from "@/components/ShowMore";
 import FileGrid from "@/components/FileGrid";
 import CardGrid from "@/components/CardGrid";
 import MiniGallery from "@/components/MiniGallery";
+import Map from "@/components/Map";
 
 export default {
   name: "InstrumentPage",
@@ -160,9 +165,11 @@ export default {
     FileGrid,
     CardGrid,
     MiniGallery,
+    Map,
   },
   data: function () {
     return {
+      instrument: null,
       // TODO remove temporary fallback values when all data is available in database
       title: "Flöjturet i Vinterstationen",
       builder: "Per Strand",
@@ -174,8 +181,14 @@ export default {
       instrumentGridExpanded: false,
     };
   },
+  computed: {
+    locationId() {
+      return this.instrument && parseInt(this.instrument.loc_nr.value);
+    },
+  },
   created() {
-    getInstrument(this.id).then(({ fields }) => {
+    getInstrument(this.id).then((fields) => {
+      this.instrument = fields;
       this.title = fields.title.value;
       document.title = this.title;
       const [surname, firstName] = fields.build1.extra.split(",");
@@ -507,10 +520,8 @@ export default {
   border-radius: 20px;
   width: 100%;
   height: 500px;
-  background: url(/interface/map.jpg);
-
   background-size: cover;
-  )transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.2),
     0 6px 40px 0 rgba(0, 0, 0, 0.19);
 }
@@ -519,5 +530,11 @@ export default {
   transition: all 0.2s ease-in-out;
   filter: brightness(110%);
   transform: scale(1.02);
+}
+
+/** Override Map component style. */
+#MapInterface #map {
+  border-radius: 20px;
+  height: 100%;
 }
 </style>
