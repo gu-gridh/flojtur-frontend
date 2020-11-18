@@ -2,53 +2,37 @@
   <div>
     <div id="Hero"></div>
 
-    <main id="main">
+    <main v-if="instrument" id="main">
       <router-link to="/">
         <div id="ItemBack"></div>
       </router-link>
-      <div class="MainTitles" style="margin-top: 60px">{{ title }}</div>
+      <div class="MainTitles" style="margin-top: 60px">
+        {{ instrument.title.value }}
+      </div>
 
       <div class="MetaArticleShort" style="margin-top: 20px">
-        The winter station on Snow Hill Island, inscribed as HSM38, was built in
-        Februari 1902 on the East shore of the island about 150 meters from the
-        sea. Erected on top of a small hill with a salient curved contour, the
-        station functioned as a base for the research field work and in the
-        nearby surroundings several small field stations were set up. The
-        one-storied building plan is about 6.30x4.10 meters and with a small
-        vestibule located by the entrance in the East. Both the roof and the
-        outer walls are covered with tarred wallpaper. Two diagonal plank struts
-        are supporting the northern facade and recently also steel wires are
-        mounted in each corner of the building and fixed to the ground to
-        sustain the harsh southern storms. The building contains a kitchen,
-        three small dormitories with a bunkbed and a desk, and a centre room
-        with a stove and a dining table. The panorama was produced from laser
-        scan 002 of the same date.
+        Dolor mollit culpa veniam amet. Irure mollit voluptate deserunt commodo
+        in minim exercitation exercitation voluptate minim excepteur dolore.
+        Duis labore incididunt ex minim dolore magna.
       </div>
 
       <ShowMore label="Läs mer..." style="padding-top: 30px">
         <div class="MetaArticleLong">
-          The winter station on Snow Hill Island, inscribed as HSM38, was built
-          in Februari 1902 on the East shore of the island about 150 meters from
-          the sea. Erected on top of a small hill with a salient curved contour,
-          the station functioned as a base for the research field work and in
-          the nearby surroundings several small field stations were set up. The
-          one-storied building plan is about 6.30x4.10 meters and with a small
-          vestibule located by the entrance in the East. Both the roof and the
-          outer walls are covered with tarred wallpaper. Two diagonal plank
-          struts are supporting the northern facade and recently also steel
-          wires are mounted in each corner of the building and fixed to the
-          ground to sustain the harsh southern storms. The building contains a
-          kitchen, three small dormitories with a bunkbed and a desk, and a
-          centre room with a stove and a dining table. The panorama was produced
-          from laser scan 002 of the same date.
+          Anim sunt nisi esse aliquip cupidatat exercitation nisi veniam anim
+          laborum in elit. Magna reprehenderit do duis enim pariatur
+          reprehenderit proident officia et ex voluptate ullamco. Amet minim
+          amet laboris et est ea nulla nostrud fugiat Lorem aute minim magna.
+          Qui incididunt ex et ullamco non ut aliquip aliquip commodo in veniam
+          ipsum fugiat dolore. Sint qui mollit officia ad do ullamco ea aliquip
+          commodo sit eu Lorem.
         </div>
       </ShowMore>
 
       <div class="MetaContainerShort">
         Tillverkare: <span>{{ builder }}</span> <br />
         Byggår: <span>{{ buildYear }}</span> <br />
-        Plats: <span>Vinterstationen museum </span> <br />
-        Antal stämmor: <span>{{ stopCount }}</span> <br />
+        Plats: <span>{{ instrument.loc_nr.extra }}</span> <br />
+        Antal stämmor: <span>{{ instrument.no_stop.value }}</span> <br />
         Snygghet: <span>Fenomenalt stiligt! </span> <br />
         Dimensioner (cm): <span>200 x 60 x 60 </span> <br />
       </div>
@@ -150,7 +134,7 @@
 </template>
 
 <script>
-import { getInstrument } from "@/assets/db";
+import { getInstrument, getRecord } from "@/assets/db";
 import ShowMore from "@/components/ShowMore";
 import FileGrid from "@/components/FileGrid";
 import CardGrid from "@/components/CardGrid";
@@ -170,10 +154,8 @@ export default {
   data: function () {
     return {
       instrument: null,
+      builder: null,
       // TODO remove temporary fallback values when all data is available in database
-      title: "Flöjturet i Vinterstationen",
-      builder: "Per Strand",
-      buildYear: "1815",
       divisionCount: "1",
       stopCount: "2",
       articleExpanded: false,
@@ -182,6 +164,17 @@ export default {
     };
   },
   computed: {
+    buildYear() {
+      return (
+        this.instrument &&
+        [
+          parseInt(this.instrument.date1.value),
+          parseInt(this.instrument.date2.value),
+        ]
+          .filter(Boolean)
+          .join("–")
+      );
+    },
     locationId() {
       return this.instrument && parseInt(this.instrument.loc_nr.value);
     },
@@ -191,16 +184,6 @@ export default {
       this.instrument = fields;
       this.title = fields.title.value;
       document.title = this.title;
-      const [surname, firstName] = fields.build1.extra.split(",");
-      this.builder = firstName + " " + surname;
-      if (fields.date1.value.length > 0) {
-        this.buildYear = fields.date1.value.slice(0, 4);
-      } else if (fields.date2.value.length > 0) {
-        this.buildYear = fields.date2.value.slice(0, 4);
-      } else {
-        this.buildYear = "Unknown";
-      }
-
       this.divisionCount = fields.no_div.value;
       this.stopCount = fields.no_stop.value;
     });
@@ -214,6 +197,16 @@ export default {
     },
     toggleInstrumentGrid() {
       this.instrumentGridExpanded = !this.instrumentGridExpanded;
+    },
+  },
+  watch: {
+    "instrument.build1"(field) {
+      if (field.value)
+        getRecord("person", field.value).then((person) => {
+          this.builder = [person.first_name.value, person.fam_name.value]
+            .filter(Boolean)
+            .join(" ");
+        });
     },
   },
 };
