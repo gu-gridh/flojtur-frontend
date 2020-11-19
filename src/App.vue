@@ -13,46 +13,53 @@
   border-radius: 10px;
 }
 .articleIngress {
-  width: 100%;
   font-size: 24px;
   text-align: left;
-  line-height: 1.2;
-  columns: 1;
-  orphans: 2;
-  margin-top: 50px;
-}
-.articletext {
-  margin-top: 30px;
-  width: 100%;
-  font-size: 20px;
-  font-weight: 300;
-  text-align: justify;
-  line-height: 1.2;
+  margin-right: auto;
+  column-count: 2;
   column-gap: 40px;
-  columns: 2;
-  orphans: 2;
+  line-height: 1.3;
+  font-weight: 100;
 }
-.articletext p {
+@media screen and (max-width: 1100px) {
+  .articleIngress {
+    column-count: 1;
+    font-size: 24px;
+  }
+}
+
+.articletext {
+  font-size: 20px;
+  text-align: justify;
+  column-count: 3;
+  column-gap: 40px;
+  line-height: 1.3;
+  font-weight: 300;
+}
+@media screen and (max-width: 1100px) {
+  .articletext {
+    column-count: 2;
+    orphans: 2;
+  }
+}
+@media screen and (max-width: 800px) {
+  .articletext {
+    column-count: 1;
+    font-size: 22px;
+  }
+}
+
+.articletext p,
+.articleIngress p {
   margin: 0;
 }
-.articletext p:not(:first-of-type) {
+.articletext p:not(:first-of-type),
+.articleIngress p:not(:first-of-type) {
   text-indent: 1em;
 }
 .articletext a:link {
   text-decoration: none;
   color: black;
-}
-@media screen and (max-width: 1200px) {
-  .articletext {
-    columns: 2;
-    orphans: 2;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .articletext {
-    columns: 1;
-  }
 }
 
 .outset-small {

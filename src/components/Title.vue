@@ -6,8 +6,7 @@
     <div class="subtitle">1763-1810</div>
 
     <div class="articleContainer">
-      <!-- <div style="margin-top:50px;"> -->
-      <div class="articleIngress">
+      <div class="articleIngress" style="margin-top: 50px">
         Termen
         <i>flöjtur</i> brukar på svenska användas för de mekaniska spelverk som
         byggts in i större golvur och där tonen alstras med hjälp av pipor

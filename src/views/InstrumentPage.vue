@@ -10,21 +10,44 @@
         {{ instrument.title.value }}
       </div>
 
-      <div class="MetaArticleShort" style="margin-top: 20px">
-        Dolor mollit culpa veniam amet. Irure mollit voluptate deserunt commodo
-        in minim exercitation exercitation voluptate minim excepteur dolore.
-        Duis labore incididunt ex minim dolore magna.
+      <div class="articleIngress" style="margin-top: 20px">
+        <p>
+          Dolor mollit culpa veniam amet. Irure mollit voluptate deserunt
+          commodo in minim exercitation exercitation voluptate minim excepteur
+          dolore. Duis labore incididunt ex minim dolore magna.
+        </p>
+        <p>
+          Nulla laborum nostrud elit quis aliqua non adipisicing consectetur
+          aliqua veniam. Irure esse enim aliquip non id est magna qui pariatur
+          ullamco adipisicing reprehenderit eiusmod. Occaecat nulla consequat
+          officia velit deserunt. Magna quis aliquip tempor ipsum exercitation
+          nostrud commodo. Amet fugiat culpa est duis qui cillum id.
+        </p>
       </div>
 
       <ShowMore label="Läs mer..." style="padding-top: 30px">
-        <div class="MetaArticleLong">
-          Anim sunt nisi esse aliquip cupidatat exercitation nisi veniam anim
-          laborum in elit. Magna reprehenderit do duis enim pariatur
-          reprehenderit proident officia et ex voluptate ullamco. Amet minim
-          amet laboris et est ea nulla nostrud fugiat Lorem aute minim magna.
-          Qui incididunt ex et ullamco non ut aliquip aliquip commodo in veniam
-          ipsum fugiat dolore. Sint qui mollit officia ad do ullamco ea aliquip
-          commodo sit eu Lorem.
+        <div class="articletext">
+          <p>
+            Anim sunt nisi esse aliquip cupidatat exercitation nisi veniam anim
+            laborum in elit. Magna reprehenderit do duis enim pariatur
+            reprehenderit proident officia et ex voluptate ullamco. Amet minim
+            amet laboris et est ea nulla nostrud fugiat Lorem aute minim magna.
+            Qui incididunt ex et ullamco non ut aliquip aliquip commodo in
+            veniam ipsum fugiat dolore. Sint qui mollit officia ad do ullamco ea
+            aliquip commodo sit eu Lorem.
+          </p>
+          <p>
+            Commodo anim excepteur ea nisi magna consectetur quis. Laborum
+            reprehenderit commodo occaecat consequat elit anim excepteur nostrud
+            eiusmod. Dolore voluptate ipsum veniam magna sit exercitation nulla
+            ullamco consectetur magna.
+          </p>
+          <p>
+            Commodo esse proident ad magna excepteur officia consectetur dolore
+            consequat. Proident mollit deserunt incididunt duis laborum deserunt
+            deserunt exercitation ad nulla incididunt deserunt anim ex. Ad id et
+            nulla quis cillum adipisicing do laborum commodo commodo.
+          </p>
         </div>
       </ShowMore>
 
@@ -255,50 +278,6 @@ export default {
   font-style: normal;
   font-size: 35px;
   line-height: 1;
-}
-
-.MetaArticleShort {
-  font-size: 24px;
-  text-align: left;
-
-  margin-right: auto;
-  column-count: 2;
-  column-gap: 40px;
-  line-height: 1.3;
-  font-weight: 100;
-}
-
-@media screen and (max-width: 1100px) {
-  .MetaArticleShort {
-    column-count: 1;
-    font-size: 24px;
-  }
-}
-
-.MetaArticleLong {
-  width: 100%;
-
-  font-size: 20px;
-  text-align: justify;
-
-  margin-right: auto;
-  column-count: 3;
-  column-gap: 40px;
-  line-height: 1.3;
-  font-weight: 300;
-}
-
-@media screen and (max-width: 1100px) {
-  .MetaArticleLong {
-    column-count: 2;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .MetaArticleLong {
-    column-count: 1;
-    font-size: 22px;
-  }
 }
 
 .MetaContainerShort {
