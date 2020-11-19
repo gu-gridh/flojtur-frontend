@@ -66,7 +66,8 @@
 }
 
 .ActivateBonusMaterialText {
-  position: relative;
+  display: inline-block;
+  margin-left: -10px;
   font-size: 22px;
   line-height: 0.7;
   color: gray;

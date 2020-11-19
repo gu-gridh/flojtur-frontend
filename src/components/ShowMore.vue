@@ -41,10 +41,6 @@ export default {
 </script>
 
 <style scoped>
-.ActivateBonusMaterialText {
-  margin-left: -10px;
-}
-
 .deactivateBonusMaterial {
   float: left;
   margin-left: -77px;

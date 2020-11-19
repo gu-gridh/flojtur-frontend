@@ -100,19 +100,17 @@
         />
       </div>
 
-      <div class="BonusButtonPosition">
-        <div
-          class="ActivateBonusMaterialText"
-          style="margin-top: 10px; margin-left: -10px"
-          @click="toggleInstrumentGrid"
-        >
-          {{
-            instrumentGridExpanded
-              ? "Visa färre bilder..."
-              : "Visa alla bilder..."
-          }}
-        </div>
-      </div>
+      <span
+        class="ActivateBonusMaterialText"
+        style="margin-top: 10px"
+        @click="toggleInstrumentGrid"
+      >
+        {{
+          instrumentGridExpanded
+            ? "Visa färre bilder..."
+            : "Visa alla bilder..."
+        }}
+      </span>
 
       <div v-if="locationId">
         <div
