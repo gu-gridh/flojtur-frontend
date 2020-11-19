@@ -281,7 +281,6 @@ export default {
 }
 
 .MetaContainerShort {
-  width: 780px;
   margin-top: 30px;
   column-count: 2;
   column-gap: 40px;
@@ -294,7 +293,7 @@ export default {
   color: #3fa4bd;
 }
 
-@media screen and (max-width: 610px) {
+@media screen and (max-width: 1200px) {
   .MetaContainerShort {
     column-count: 1;
     font-size: 24px;
@@ -303,7 +302,6 @@ export default {
 
 .MetaContainerLong {
   margin-top: 10px;
-  width: 1350px;
   column-count: 5;
   column-gap: 40px;
   font-size: 18px;
@@ -318,21 +316,18 @@ export default {
 @media screen and (max-width: 1600px) {
   .MetaContainerLong {
     column-count: 4;
-    width: 1015px;
   }
 }
 
 @media screen and (max-width: 1200px) {
   .MetaContainerLong {
     column-count: 3;
-    width: 750px;
   }
 }
 
 @media screen and (max-width: 910px) {
   .MetaContainerLong {
     column-count: 2;
-    width: 500px;
   }
 }
 
