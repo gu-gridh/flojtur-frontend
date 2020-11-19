@@ -1,30 +1,32 @@
 <template>
   <aside>
-    <span v-show="!expanded" class="ActivateBonusMaterialText" @click="toggle">
-      {{ label }}
-    </span>
+    <TransitionExpand>
+      <div v-show="!expanded">
+        <span class="ActivateBonusMaterialText" @click="toggle">
+          {{ label }}
+        </span>
+      </div>
+    </TransitionExpand>
 
-    <div v-show="expanded" style="width: 100%">
-      <div class="enclosure">
-        <div
-          class="deactivateBonusMaterial"
-          id="CloseLongArticle"
-          style="float: left; margin-left: -77px"
-          @click="toggle"
-        ></div>
+    <TransitionExpand>
+      <div v-show="expanded" class="enclosure">
+        <div class="deactivateBonusMaterial" @click="toggle"></div>
 
         <slot></slot>
       </div>
-    </div>
+    </TransitionExpand>
   </aside>
 </template>
 
 <script>
+import TransitionExpand from "@/components/TransitionExpand";
+
 export default {
   name: "ShowMore",
   props: {
     label: String,
   },
+  components: { TransitionExpand },
   data() {
     return {
       expanded: false,
@@ -44,9 +46,8 @@ export default {
 }
 
 .deactivateBonusMaterial {
-  position: relative;
-  font-size: 47px;
-  line-height: 0.7;
+  float: left;
+  margin-left: -77px;
   background: url(/interface/close.png);
   background-size: cover;
   width: 40px;
