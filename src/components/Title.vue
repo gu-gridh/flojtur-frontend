@@ -48,26 +48,27 @@
       </div>
     </div>
 
-    <div id="ItemTop" style="">
-      <model-viewer
-        id="ModelViewer"
-        reveal="auto"
-        loading="eager"
-        poster="/models/poster.png"
-        src="models/cube2.glb"
-        alt="cube"
-        camera-controls=""
-        auto-rotate=""
-        camera-orbit="-0deg 80deg 17.0m"
-        camera-target="-0.0m 0m 0m"
-        exposure="0.7"
-        shadows="true"
-        shadow-intensity="1"
-        shadow-softness="1"
-        style=""
-        ar-status="not-presenting"
-      >
-      </model-viewer>
+    <div id="hero">
+      <div id="ItemTop" style="">
+        <model-viewer
+          id="ModelViewer"
+          reveal="auto"
+          loading="eager"
+          poster="/models/poster.png"
+          src="models/cube2.glb"
+          alt="cube"
+          camera-controls
+          auto-rotate
+          camera-orbit="-0deg 80deg 17.0m"
+          camera-target="-0.0m 0m 0m"
+          exposure="0.7"
+          shadows="true"
+          shadow-intensity="1"
+          shadow-softness="1"
+          style=""
+        >
+        </model-viewer>
+      </div>
     </div>
   </div>
 </template>
@@ -142,6 +143,12 @@ export default {
   margin-left: 20px;
 }
 
+#hero {
+  height: 800px;
+  width: 100%;
+  margin: 0px;
+}
+
 #ItemTop {
   padding: 0px 0px 0px 0px;
   overflow: hidden;
@@ -149,5 +156,11 @@ export default {
   height: 60vh;
   margin-left: auto;
   margin-right: auto;
+}
+
+#ModelViewer {
+  height: 100%;
+  width: 100%;
+  --poster-color: transparent;
 }
 </style>
