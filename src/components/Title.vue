@@ -49,35 +49,17 @@
     </div>
 
     <div id="hero">
-      <div id="ItemTop" style="">
-        <model-viewer
-          id="ModelViewer"
-          reveal="auto"
-          loading="eager"
-          poster="/models/poster.png"
-          src="models/cube2.glb"
-          alt="cube"
-          camera-controls
-          auto-rotate
-          camera-orbit="-0deg 80deg 17.0m"
-          camera-target="-0.0m 0m 0m"
-          exposure="0.7"
-          shadows="true"
-          shadow-intensity="1"
-          shadow-softness="1"
-          style=""
-        >
-        </model-viewer>
-      </div>
+      <ThreeDViewer src="/models/cube2.glb" poster="/models/cube.png" />
     </div>
   </div>
 </template>
 
 <script>
-import "@/assets/model-viewer/dist/model-viewer";
+import ThreeDViewer from "@/components/ThreeDViewer";
 
 export default {
   name: "Title",
+  components: { ThreeDViewer },
 };
 </script>
 
@@ -144,23 +126,10 @@ export default {
 }
 
 #hero {
-  height: 800px;
-  width: 100%;
-  margin: 0px;
-}
-
-#ItemTop {
-  padding: 0px 0px 0px 0px;
   overflow: hidden;
   width: 60%;
   height: 60vh;
   margin-left: auto;
   margin-right: auto;
-}
-
-#ModelViewer {
-  height: 100%;
-  width: 100%;
-  --poster-color: transparent;
 }
 </style>
