@@ -488,7 +488,8 @@ export default {
 
 /** Override Map component style. */
 #MapInterface #map {
-  border-radius: 20px;
   height: 100%;
+  border-radius: 20px;
+  z-index: 0; /* Fixes border-radius in Safari. */
 }
 </style>
