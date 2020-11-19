@@ -212,7 +212,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #Hero {
   padding: 0px 0px 0px 0px;
   overflow: hidden;
@@ -375,24 +375,6 @@ export default {
   background-color: RGBA(50, 50, 50, 1);
 }
 
-.ActivateBonusMaterialText {
-  position: relative;
-  font-size: 22px;
-  line-height: 0.7;
-  color: gray;
-  margin-right: auto;
-  height: auto;
-  padding: 10px;
-  border-radius: 10px;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-.ActivateBonusMaterialText:hover {
-  background-color: rgb(245, 245, 245);
-  color: black;
-}
-
 /* För Image.html */
 
 .DownloadContainer {
@@ -486,25 +468,6 @@ export default {
   .grid-item {
     width: 48%;
   }
-}
-
-.grid-item {
-  transition: all 0.2s ease-in-out;
-  overflow: hidden;
-  margin-bottom: 15px;
-}
-
-.grid-item img {
-  display: block;
-  width: 100%;
-  object-fit: cover;
-  transition: all 0.2s ease-in-out;
-}
-
-.grid-item:hover {
-  display: block;
-  transform: scale(1.01);
-  filter: brightness(120%);
 }
 
 /* MAp */

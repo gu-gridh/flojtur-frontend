@@ -64,4 +64,22 @@
   margin-left: -12px;
   margin-right: -12px;
 }
+
+.ActivateBonusMaterialText {
+  position: relative;
+  font-size: 22px;
+  line-height: 0.7;
+  color: gray;
+  margin-right: auto;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.ActivateBonusMaterialText:hover {
+  background-color: rgb(245, 245, 245);
+  color: black;
+}
 </style>
