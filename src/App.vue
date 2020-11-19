@@ -5,6 +5,26 @@
 </template>
 
 <style>
+a:link {
+  text-decoration: none;
+  color: #3fa4bd;
+}
+
+a:visited {
+  text-decoration: underline;
+  color: #3fa4bd;
+  text-decoration-style: wavy;
+  text-decoration-color: #3fa4bd;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
 .articleContainer {
   width: 72%;
   padding: 10px;

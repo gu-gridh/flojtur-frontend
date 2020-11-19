@@ -25,8 +25,8 @@
         </p>
       </div>
 
-      <ShowMore label="Läs mer..." style="padding-top: 30px">
-        <div class="articletext">
+      <ShowMore label="Läs mer...">
+        <div class="articletext" style="margin-top: 30px">
           <p>
             Anim sunt nisi esse aliquip cupidatat exercitation nisi veniam anim
             laborum in elit. Magna reprehenderit do duis enim pariatur
@@ -51,46 +51,71 @@
         </div>
       </ShowMore>
 
-      <div class="MetaContainerShort">
-        Tillverkare: <span>{{ builder }}</span> <br />
-        Byggår: <span>{{ buildYear }}</span> <br />
-        Plats: <span>{{ location }}</span> <br />
+      <dl class="MetaContainerShort">
+        <dt>Tillverkare:</dt>
+        <dd>{{ builder }}</dd>
+        <dt>Byggår:</dt>
+        <dd>{{ buildYear }}</dd>
+        <dt>Plats:</dt>
+        <dd>
+          <a href="#location">{{ location }}</a>
+        </dd>
         <template v-if="instrument.loc_in_bui.value">
-          Plats i byggnaden: <span>{{ instrument.loc_in_bui.value }}</span>
-          <br />
+          <dt>Plats i byggnaden:</dt>
+          <dd>{{ instrument.loc_in_bui.value }}</dd>
         </template>
-        Antal stämmor: <span>{{ instrument.no_stop.value }}</span> <br />
+        <dt>Antal stämmor:</dt>
+        <dd>{{ instrument.no_stop.value }}</dd>
         <template
           v-if="instrument.loc_sign.value && instrument.loc_sign.value !== '-'"
         >
-          Signum: <span>{{ instrument.loc_sign.value }}</span> <br />
+          <dt>Signum:</dt>
+          <dd>{{ instrument.loc_sign.value }}</dd>
         </template>
-      </div>
+      </dl>
 
-      <ShowMore label="Visa all metadata..." style="margin-top: 30px">
+      <ShowMore label="Visa all metadata...">
         <div id="metaFileEnclosure" class="outset-large">
           <div class="SectionTitles">Metadata</div>
 
-          <div class="MetaContainerLong">
-            Typ av mekanik: <span>Komplicerad! </span> <br />
-            Dokumentation <span>2020-01-12</span> <br />
-            Tillverkare: <span>Per Strand</span> <br />
-            Byggår: <span>1815</span> <br />
-            Dimensioner (cm): <span>200 x 60 x 60 </span> <br />
-            Plats: <span>Alingsås museum </span> <br />
-            Antal pipor: <span>8 </span> <br />
-            Snygghet: <span>Jättesnygg! </span> <br />
-            Typ av mekanik: <span>Komplicerad! </span> <br />
-            Dokumentation <span>2020-01-12</span> <br />
-            Tillverkare: <span>Per Strand</span> <br />
-            Byggår: <span>1815</span> <br />
-            Dimensioner (cm): <span>200 x 60 x 60 </span> <br />
-            Plats: <span>Alingsås museum </span> <br />
-            Antal pipor: <span>8 </span> <br />
-            Snygghet: <span>Jättesnygg! </span> <br />
-            Typ av mekanik: <span>Komplicerad! </span> <br />
-            Dokumentation <span>2020-01-12</span> <br />
-          </div>
+          <dl class="MetaContainerLong">
+            <dt>Typ av mekanik:</dt>
+            <dd>Komplicerad!</dd>
+            <dt>Dokumentation</dt>
+            <dd>2020-01-12</dd>
+            <dt>Tillverkare:</dt>
+            <dd>Per Strand</dd>
+            <dt>Byggår:</dt>
+            <dd>1815</dd>
+            <dt>Dimensioner (cm):</dt>
+            <dd>200 x 60 x 60</dd>
+            <dt>Plats:</dt>
+            <dd>Alingsås museum</dd>
+            <dt>Antal pipor:</dt>
+            <dd>8</dd>
+            <dt>Snygghet:</dt>
+            <dd>Jättesnygg!</dd>
+            <dt>Typ av mekanik:</dt>
+            <dd>Komplicerad!</dd>
+            <dt>Dokumentation</dt>
+            <dd>2020-01-12</dd>
+            <dt>Tillverkare:</dt>
+            <dd>Per Strand</dd>
+            <dt>Byggår:</dt>
+            <dd>1815</dd>
+            <dt>Dimensioner (cm):</dt>
+            <dd>200 x 60 x 60</dd>
+            <dt>Plats:</dt>
+            <dd>Alingsås museum</dd>
+            <dt>Antal pipor:</dt>
+            <dd>8</dd>
+            <dt>Snygghet:</dt>
+            <dd>Jättesnygg!</dd>
+            <dt>Typ av mekanik:</dt>
+            <dd>Komplicerad!</dd>
+            <dt>Dokumentation</dt>
+            <dd>2020-01-12</dd>
+          </dl>
 
           <div class="SectionTitles" style="margin-top: 40px">Filer</div>
           <FileGrid :files="[{}, {}]" />
@@ -298,19 +323,29 @@ export default {
 }
 
 .MetaContainerShort {
-  margin-top: 30px;
+  margin: 40px 0 -20px;
   column-count: 2;
   column-gap: 40px;
   font-weight: 100;
   font-size: 32px;
-  line-height: 2;
+  line-height: 1.2;
 }
 
-.MetaContainerShort span {
-  color: #3fa4bd;
+dt {
+  display: inline;
+}
+dd {
+  display: inline;
+  margin-left: 0.2em;
+  color: #666;
+}
+dd::after {
+  content: "";
+  display: block;
+  margin-bottom: 0.8em;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 910px) {
   .MetaContainerShort {
     column-count: 1;
     font-size: 24px;
@@ -322,12 +357,12 @@ export default {
   column-count: 5;
   column-gap: 40px;
   font-size: 18px;
-  line-height: 2;
+  line-height: 1.2;
   padding: 10px 0;
 }
 
-.MetaContainerLong span {
-  color: #4ccded;
+.MetaContainerLong dd {
+  color: #bbb;
 }
 
 @media screen and (max-width: 1600px) {
