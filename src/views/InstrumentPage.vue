@@ -54,10 +54,17 @@
       <div class="MetaContainerShort">
         Tillverkare: <span>{{ builder }}</span> <br />
         Byggår: <span>{{ buildYear }}</span> <br />
-        Plats: <span>{{ instrument.loc_nr.extra }}</span> <br />
+        Plats: <span>{{ location }}</span> <br />
+        <template v-if="instrument.loc_in_bui.value">
+          Plats i byggnaden: <span>{{ instrument.loc_in_bui.value }}</span>
+          <br />
+        </template>
         Antal stämmor: <span>{{ instrument.no_stop.value }}</span> <br />
-        Snygghet: <span>Fenomenalt stiligt! </span> <br />
-        Dimensioner (cm): <span>200 x 60 x 60 </span> <br />
+        <template
+          v-if="instrument.loc_sign.value && instrument.loc_sign.value !== '-'"
+        >
+          Signum: <span>{{ instrument.loc_sign.value }}</span> <br />
+        </template>
       </div>
 
       <ShowMore label="Visa all metadata..." style="margin-top: 30px">
@@ -176,6 +183,7 @@ export default {
     return {
       instrument: null,
       builder: null,
+      location: null,
       // TODO remove temporary fallback values when all data is available in database
       divisionCount: "1",
       stopCount: "2",
@@ -186,15 +194,18 @@ export default {
   },
   computed: {
     buildYear() {
-      return (
-        this.instrument &&
-        [
-          parseInt(this.instrument.date1.value),
-          parseInt(this.instrument.date2.value),
-        ]
-          .filter(Boolean)
-          .join("–")
-      );
+      if (!this.instrument) return;
+      // Parse year.
+      const date1 = parseInt(this.instrument.date1.value);
+      const date2 = parseInt(this.instrument.date2.value);
+      // Fixed date: has date2 and no date_sign
+      if (!this.instrument.date_sign.value) return date2;
+      // After some date.
+      if (!date2) return `efter ${date1}`;
+      // Before some date.
+      if (!date1) return `före ${date2}`;
+      // Between two dates.
+      return `mellan ${date1} och ${date2}`;
     },
     locationId() {
       return this.instrument && parseInt(this.instrument.loc_nr.value);
@@ -227,6 +238,12 @@ export default {
           this.builder = [person.first_name.value, person.fam_name.value]
             .filter(Boolean)
             .join(" ");
+        });
+    },
+    "instrument.loc_nr"(field) {
+      if (field.value)
+        getRecord("location", field.value).then((location) => {
+          this.location = location.build_name.value;
         });
     },
   },
