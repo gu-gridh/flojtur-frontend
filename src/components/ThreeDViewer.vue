@@ -20,8 +20,7 @@
 </template>
 
 <script>
-// TODO Import async.
-import "@google/model-viewer";
+import(/* webpackChunkName: "model-viewer" */ "@google/model-viewer");
 import "focus-visible";
 
 export default {
