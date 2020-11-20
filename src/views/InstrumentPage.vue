@@ -131,7 +131,13 @@
               image:
                 barrel.photo &&
                 `https://data.dh.gu.se/flojtur/300x/${barrel.photo.thumbnail}`,
-              title: barrel.fields && barrel.fields.bar_title.value,
+              title: barrel.music
+                ? [
+                    barrel.music['music.title'],
+                    barrel.music['music.sub_title'],
+                  ].join(', ')
+                : barrel.fields && barrel.fields.bar_title.value,
+              content: barrel.music && barrel.music['music.comp'],
             }))
           "
         />
@@ -269,21 +275,22 @@ export default {
     // Find barrels for this instrument.
     search("barrel", `equals|i_nr|1`).then(({ features }) => {
       this.barrels = features;
-      // Load each full record and add to each barrel item.
-      this.barrels.forEach((hit) =>
-        getRecord("barrel", hit.id).then((record) => (hit.fields = record))
-      );
-      // TODO Load full music info: composer etc.
-      // Find photos of each barrel.
-      this.barrels.forEach((hit) =>
+      this.barrels.forEach((hit) => {
+        // Load each full record and add to each barrel item.
+        getRecord("barrel", hit.id).then((record) => (hit.fields = record));
+        // Load full music info.
+        search("barmus", `equals|nr1|${hit.id}`).then(
+          ({ features }) => (hit.music = features[0])
+        );
+        // Find photos of each barrel.
         search("photobarrel", `equals|barrel|${hit.id}`).then(
           ({ features }) =>
             // Pick the title photo if available, otherwise any.
             (hit.photo = features.sort((a) =>
               a["tag.type"] === "title" ? -1 : 1
             )[0])
-        )
-      );
+        );
+      });
     });
     search("photoautom", `equals|autom|1`).then(({ features }) => {
       this.instrumentPhotos = features;
