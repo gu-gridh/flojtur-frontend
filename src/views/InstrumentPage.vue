@@ -51,28 +51,21 @@
         </div>
       </ShowMore>
 
-      <dl class="MetaContainerShort">
-        <dt>Tillverkare:</dt>
-        <dd>{{ builder }}</dd>
-        <dt>Byggår:</dt>
-        <dd>{{ buildYear }}</dd>
-        <dt>Plats:</dt>
-        <dd>
-          <a href="#location">{{ location }}</a>
-        </dd>
-        <template v-if="instrument.loc_in_bui.value">
-          <dt>Plats i byggnaden:</dt>
-          <dd>{{ instrument.loc_in_bui.value }}</dd>
-        </template>
-        <dt>Antal stämmor:</dt>
-        <dd>{{ instrument.no_stop.value }}</dd>
-        <template
-          v-if="instrument.loc_sign.value && instrument.loc_sign.value !== '-'"
+      <div class="clearfix" style="margin-top: 40px">
+        <dl
+          v-for="(items, i) in chunk(metadata1, 2)"
+          :key="i"
+          class="MetaContainerShort"
         >
-          <dt>Signum:</dt>
-          <dd>{{ instrument.loc_sign.value }}</dd>
-        </template>
-      </dl>
+          <div v-for="item in items" :key="item.label">
+            <dt>{{ item.label }}:</dt>
+            <dd v-if="item.href">
+              <a :href="item.href">{{ item.value }}</a>
+            </dd>
+            <dd v-else>{{ item.value }}</dd>
+          </div>
+        </dl>
+      </div>
 
       <ShowMore label="Visa all metadata...">
         <div id="metaFileEnclosure" class="outset-large">
@@ -219,6 +212,16 @@ export default {
     };
   },
   computed: {
+    metadata1() {
+      return [
+        { label: "Tillverkare", value: this.builder },
+        { label: "Byggår", value: this.buildYear },
+        { label: "Plats", value: this.location, href: "#location" },
+        { label: "Plats i byggnaden", value: this.instrument.loc_in_bui.value },
+        { label: "Antal stämmor", value: this.instrument.no_stop.value },
+        { label: "Signum", value: this.instrument.loc_sign.value },
+      ].filter((item) => item.value);
+    },
     buildYear() {
       if (!this.instrument) return;
       // Parse year.
@@ -260,6 +263,10 @@ export default {
     },
     toggleInstrumentGrid() {
       this.instrumentGridExpanded = !this.instrumentGridExpanded;
+    },
+    chunk(list, n = 1) {
+      const size = Math.ceil(list.length / n);
+      return [...Array(n)].map((_, i) => list.slice(i * size, (i + 1) * size));
     },
   },
   watch: {
@@ -330,12 +337,25 @@ export default {
 }
 
 .MetaContainerShort {
-  margin: 40px 0 -20px;
-  column-count: 2;
-  column-gap: 40px;
+  float: left;
+  white-space: nowrap;
+  width: auto;
+  margin: 0px 30px 0 0;
   font-weight: 100;
   font-size: 32px;
   line-height: 1.2;
+}
+
+@media screen and (max-width: 910px) {
+  .MetaContainerShort {
+    font-size: 24px;
+  }
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 dt {
@@ -344,19 +364,12 @@ dt {
 dd {
   display: inline;
   margin-left: 0.2em;
-  color: #666;
+  color: #c029bb;
 }
 dd::after {
   content: "";
   display: block;
   margin-bottom: 0.8em;
-}
-
-@media screen and (max-width: 910px) {
-  .MetaContainerShort {
-    column-count: 1;
-    font-size: 24px;
-  }
 }
 
 /* TODO Set this font size etc. as body default. */
@@ -370,7 +383,7 @@ dd::after {
 }
 
 .MetaContainerLong dd {
-  color: #bbb;
+  color: #fd8ef9;
 }
 
 @media screen and (max-width: 1600px) {
