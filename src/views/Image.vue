@@ -28,6 +28,7 @@
       <div id="gallery" style="margin-top: 40px">
         <MiniGallery
           masonryId="masonry-speluret"
+          full="1"
           :items="
             [1, 2, 3, 4, 5, 6, 7].map((i) => ({
               link: {

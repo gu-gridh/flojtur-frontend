@@ -1,22 +1,28 @@
 <template>
-  <div
-    v-masonry="masonryId"
-    item-selector=".grid-item"
-    :percent-position="true"
-    :gutter="15"
-    transition-duration="0s"
-    class="grid"
-    :class="{ collapsed }"
-  >
-    <router-link
-      v-for="item in items"
-      :key="item.link"
-      tag="div"
-      :to="item.link"
-      class="grid-item"
+  <div>
+    <div
+      v-masonry="masonryId"
+      item-selector=".grid-item"
+      :percent-position="true"
+      :gutter="15"
+      transition-duration="0s"
+      class="grid"
+      :class="{ collapsed }"
     >
-      <img :src="item.image" />
-    </router-link>
+      <router-link
+        v-for="item in items"
+        :key="item.link"
+        tag="div"
+        :to="item.link"
+        class="grid-item"
+      >
+        <img :src="item.image" />
+      </router-link>
+    </div>
+
+    <span v-if="!full" class="ActivateBonusMaterialText" @click="toggle">
+      {{ collapsed ? "Visa alla bilder..." : "Visa färre bilder..." }}
+    </span>
   </div>
 </template>
 
@@ -25,11 +31,21 @@ import imagesLoaded from "imagesloaded";
 
 export default {
   name: "MiniGallery",
-  props: ["masonryId", "items", "collapsed"],
+  props: ["masonryId", "items", "full"],
+  data() {
+    return {
+      collapsed: !this.full,
+    };
+  },
   mounted() {
     imagesLoaded(`#${this.masonryId}`, () =>
       setTimeout(() => this.$redrawVueMasonry(this.masonryId), 100)
     );
+  },
+  methods: {
+    toggle() {
+      this.collapsed = !this.collapsed;
+    },
   },
   watch: {
     collapsed() {
@@ -112,5 +128,9 @@ export default {
   display: block;
   transform: scale(1.01);
   filter: brightness(120%);
+}
+
+.ActivateBonusMaterialText {
+  margin-top: 10px;
 }
 </style>

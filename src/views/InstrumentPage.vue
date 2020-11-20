@@ -147,21 +147,8 @@
               }_thumb.jpg`,
             }))
           "
-          :collapsed="!instrumentGridExpanded"
         />
       </div>
-
-      <span
-        class="ActivateBonusMaterialText"
-        style="margin-top: 10px"
-        @click="toggleInstrumentGrid"
-      >
-        {{
-          instrumentGridExpanded
-            ? "Visa färre bilder..."
-            : "Visa alla bilder..."
-        }}
-      </span>
 
       <div v-if="locationId">
         <div
@@ -206,12 +193,8 @@ export default {
       heroImageUrl: "/interface/heroes/1.jpg",
       builder: null,
       location: null,
-      // TODO remove temporary fallback values when all data is available in database
-      divisionCount: "1",
-      stopCount: "2",
       articleExpanded: false,
       metadataExpanded: false,
-      instrumentGridExpanded: false,
     };
   },
   computed: {
@@ -263,9 +246,6 @@ export default {
     },
     toggleMetadata() {
       this.metadataExpanded = !this.metadataExpanded;
-    },
-    toggleInstrumentGrid() {
-      this.instrumentGridExpanded = !this.instrumentGridExpanded;
     },
     chunk(list, n = 1) {
       const size = Math.ceil(list.length / n);
