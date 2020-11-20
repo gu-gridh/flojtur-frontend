@@ -43,7 +43,6 @@ export default {
 .viewOption {
   display: inline-block;
   width: auto;
-  font-size: 20px;
   margin-left: 15px;
   margin-right: 15px;
   margin-top: 5px;

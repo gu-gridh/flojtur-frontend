@@ -14,9 +14,7 @@
         <div id="ItemBack"></div>
       </router-link>
 
-      <div class="SectionTitles" style="margin-top: 70px">
-        Bildens titel om s&aring;dan finnes
-      </div>
+      <h2 style="margin-top: 70px">Bildens titel om s&aring;dan finnes</h2>
 
       <a href="/images/hopehist1.jpg">
         <div class="DownloadContainer">

@@ -2,11 +2,11 @@
   <div>
     <div class="cardMiniImage"></div>
 
-    <div class="title">Pehr Strands spelur</div>
-    <div class="subtitle">1763-1810</div>
+    <h1 id="site-title">Pehr Strands spelur</h1>
+    <div class="subtitle">1763–1810</div>
 
     <div class="articleContainer">
-      <div class="articleIngress" style="margin-top: 50px">
+      <div class="articleIngress" style="margin-top: 50px; columns: 1">
         Termen
         <i>flöjtur</i> brukar på svenska användas för de mekaniska spelverk som
         byggts in i större golvur och där tonen alstras med hjälp av pipor
@@ -15,7 +15,7 @@
         på; 1800-talet. Flöjturet hör till en grupp instrument som brukar
         benämnas <i>självspelande instrument</i> eller <i>spelautomater</i>.
       </div>
-      <div class="articletext">
+      <div class="articletext" style="margin-top: 30px; columns: 2">
         Termen
         <i>flöjtur</i> brukar på; svenska användas för de mekaniska spelverk som
         byggts in i större golvur och där tonen alstras med hjälp av pipor
@@ -63,22 +63,10 @@ export default {
 </script>
 
 <style scoped>
-.title {
-  width: 100%;
-  float: left;
-  text-align: center;
-  font-size: 120px;
-  margin-bottom: 10px;
-  margin-top: 20px;
-}
 .subtitle {
-  width: 500px;
   line-height: 0.5;
   text-align: center;
   font-size: 30px;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .IntroItem {
@@ -118,7 +106,6 @@ export default {
   height: auto;
   font-weight: 300;
   font-style: normal;
-  font-size: 20px;
   line-height: 1.8;
   float: left;
   margin-left: 20px;

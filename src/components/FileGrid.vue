@@ -77,7 +77,6 @@ export default {
   height: 30px;
   font-weight: 200;
   font-style: normal;
-  font-size: 20px;
   width: 90%;
   overflow: hidden;
 }

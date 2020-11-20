@@ -6,9 +6,9 @@
       <router-link to="/">
         <div id="ItemBack"></div>
       </router-link>
-      <div class="MainTitles" style="margin-top: 60px">
+      <h1>
         {{ instrument.title.value }}
-      </div>
+      </h1>
 
       <div class="articleIngress" style="margin-top: 20px">
         <p>
@@ -69,7 +69,7 @@
 
       <ShowMore label="Visa all metadata...">
         <div id="metaFileEnclosure" class="outset-large">
-          <div class="SectionTitles">Metadata</div>
+          <h2 style="margin-top: 0">Metadata</h2>
 
           <dl class="MetaContainerLong">
             <dt>Typ av mekanik:</dt>
@@ -110,14 +110,18 @@
             <dd>2020-01-12</dd>
           </dl>
 
-          <div class="SectionTitles" style="margin-top: 40px">Filer</div>
+          <h2>Filer</h2>
           <FileGrid :files="[{}, {}]" />
         </div>
       </ShowMore>
 
-      <div class="SectionTitles" style="margin-top: 40px">Valsar</div>
+      <h2>Valsar</h2>
 
-      <div id="valsar" style="margin-top: 20px" class="outset-small">
+      <div
+        id="valsar"
+        style="margin-top: 20px; margin-bottom: -10px"
+        class="outset-small"
+      >
         <CardGrid
           masonryId="barrels-masonry"
           :cards="
@@ -131,7 +135,7 @@
         />
       </div>
 
-      <div class="SectionTitles" style="margin-top: 30px">Speluret</div>
+      <h2>Speluret</h2>
 
       <div style="margin-top: 20px">
         <MiniGallery

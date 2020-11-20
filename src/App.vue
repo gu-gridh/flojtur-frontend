@@ -5,6 +5,17 @@
 </template>
 
 <style>
+body {
+  font-family: "Yanone Kaffeesatz", "PT Sans Narrow", "Arial Narrow", sans-serif;
+  font-weight: 100;
+  color: black;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  -webkit-text-size-adjust: 100%;
+  background: rgb(234, 234, 231);
+}
+
 a:link,
 a:hover,
 a:active {
@@ -24,20 +35,25 @@ a:visited {
   background: rgba(234, 234, 231, 1);
 }
 
-/* TODO Use h1, h2 etc. */
-.MainTitles {
+h1 {
   font-weight: 100;
   font-style: normal;
   font-size: 60px;
   line-height: 1;
+  margin: 60px 0 20px;
 }
 
-.SectionTitles {
-  text-align: left;
+h1#site-title {
+  text-align: center;
+  font-size: 120px;
+  margin: 20px 0 10px;
+}
+
+h2 {
   font-weight: 100;
-  font-style: normal;
   font-size: 35px;
   line-height: 1;
+  margin: 40px 0 0;
 }
 
 #ItemBack {
@@ -78,7 +94,6 @@ a:visited {
 }
 
 .articletext {
-  font-size: 20px;
   text-align: justify;
   column-count: 3;
   column-gap: 40px;
