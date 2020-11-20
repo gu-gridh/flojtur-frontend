@@ -138,7 +138,10 @@
           masonryId="masonry-speluret"
           :items="
             [1, 2, 3, 4, 5, 6, 7].map((i) => ({
-              link: `/image/${i}`,
+              link: {
+                name: 'Image',
+                params: { automId: this.id, category: 'autom', imageId: i },
+              },
               image: `/graphics/thumbnails/001_Aarsta_gen_DSC_14${
                 [39, 41, 42, 44][i % 4]
               }_thumb.jpg`,
@@ -299,43 +302,6 @@ export default {
   background-position: center 25%;
 }
 
-#main {
-  /* color: black; */
-  width: 80%;
-  margin: auto;
-  background: rgba(234, 234, 231, 1);
-}
-
-#ItemBack {
-  cursor: pointer;
-  position: absolute;
-  left: 30px;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  background: url(/interface/back-black.png);
-  background-size: 35px 35px;
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 2000;
-}
-
-/* TODO Use h1, h2 etc. */
-.MainTitles {
-  font-weight: 100;
-  font-style: normal;
-  font-size: 60px;
-  line-height: 1;
-}
-
-.SectionTitles {
-  text-align: left;
-  font-weight: 100;
-  font-style: normal;
-  font-size: 35px;
-  line-height: 1;
-}
-
 .MetaContainerShort {
   float: left;
   white-space: nowrap;
@@ -418,61 +384,6 @@ dd::after {
   border-radius: 20px;
   color: white;
   background-color: RGBA(50, 50, 50, 1);
-}
-
-/* För Image.html */
-
-/* TODO Create component for file button. */
-.DownloadContainer {
-  width: auto;
-  margin-top: 40px;
-  margin-left: -10px;
-  border-radius: 10px;
-  padding: 10px;
-}
-
-.DownloadContainer:hover {
-  background-color: rgb(245, 245, 245);
-}
-
-.DownloadButton {
-  cursor: pointer;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #666666;
-  background: url(/interface/download.png);
-  background-size: 20px 20px;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  font-size: 12px;
-  width: 30px;
-  height: 30px;
-  position: relative;
-  margin-right: 20px;
-}
-
-.DownloadLabel {
-  margin-top: 5px;
-  cursor: pointer;
-  color: black;
-  font-weight: 300;
-  font-size: 25px;
-  position: relative;
-}
-
-@media screen and (max-width: 800px) {
-  .DownloadLabel {
-    margin-top: -4px;
-    font-size: 32px;
-  }
-}
-
-#foot {
-  width: 80%;
-  color: black;
-  font-weight: 300;
 }
 
 /* Map */

@@ -25,6 +25,42 @@ a:active {
   text-decoration: none;
 }
 
+#main {
+  width: 80%;
+  margin: auto;
+  background: rgba(234, 234, 231, 1);
+}
+
+/* TODO Use h1, h2 etc. */
+.MainTitles {
+  font-weight: 100;
+  font-style: normal;
+  font-size: 60px;
+  line-height: 1;
+}
+
+.SectionTitles {
+  text-align: left;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 35px;
+  line-height: 1;
+}
+
+#ItemBack {
+  cursor: pointer;
+  position: absolute;
+  left: 30px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: url(/interface/back-black.png);
+  background-size: 35px 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 2000;
+}
+
 .articleContainer {
   width: 72%;
   padding: 10px;
