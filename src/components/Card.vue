@@ -1,9 +1,6 @@
 <template>
   <router-link tag="div" :to="to" class="grid-item-pub">
-    <div
-      class="PubBigImage"
-      :style="`background: url(${image}); background-size: cover`"
-    ></div>
+    <div class="PubBigImage" :style="`background-image: url(${image});`"></div>
     <div class="PublicationInfoContainer">
       <div class="PublicationTitle">
         {{ title }}
@@ -54,7 +51,7 @@ export default {
 .PublicationTitle {
   margin-left: 20px;
   float: left;
-  height: 60px;
+  min-height: 60px;
   line-height: 1.2;
   font-weight: 200;
   font-style: normal;
@@ -88,9 +85,9 @@ export default {
 
 .PubBigImage {
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 180px;
+  background-position: center 60%;
+  background-size: 200%;
+  height: 100%;
   width: 40%;
   float: left;
 }

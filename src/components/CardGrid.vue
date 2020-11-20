@@ -17,7 +17,6 @@
       :title="card.title"
     >
       {{ card.content }}
-      Kompositör<br />Annan info
     </Card>
   </div>
 </template>

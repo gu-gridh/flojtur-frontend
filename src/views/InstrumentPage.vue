@@ -125,11 +125,13 @@
         <CardGrid
           masonryId="barrels-masonry"
           :cards="
-            [1, 2, 3, 4, 5, 6, 7].map((i) => ({
-              id: i,
-              to: `barrel/${i}`,
-              image: `/graphics/thumbnails/001_Aarsta_gen_DSC_1447_thumb.jpg`,
-              title: `Vals ${i}`,
+            barrels.map((barrel) => ({
+              id: barrel.id,
+              to: `barrel/${id}`,
+              image:
+                barrel.photo &&
+                `https://data.dh.gu.se/flojtur/300x/${barrel.photo.thumbnail}`,
+              title: barrel.fields && barrel.fields.bar_title.value,
             }))
           "
         />
@@ -220,6 +222,7 @@ export default {
       heroImageUrl: "/interface/heroes/1.jpg",
       builder: null,
       location: null,
+      barrels: [],
       instrumentPhotos: [],
       stopPhotos: [],
       articleExpanded: false,
@@ -262,6 +265,25 @@ export default {
       document.title = this.title;
       this.divisionCount = fields.no_div.value;
       this.stopCount = fields.no_stop.value;
+    });
+    // Find barrels for this instrument.
+    search("barrel", `equals|i_nr|1`).then(({ features }) => {
+      this.barrels = features;
+      // Load each full record and add to each barrel item.
+      this.barrels.forEach((hit) =>
+        getRecord("barrel", hit.id).then((record) => (hit.fields = record))
+      );
+      // TODO Load full music info: composer etc.
+      // Find photos of each barrel.
+      this.barrels.forEach((hit) =>
+        search("photobarrel", `equals|barrel|${hit.id}`).then(
+          ({ features }) =>
+            // Pick the title photo if available, otherwise any.
+            (hit.photo = features.sort((a) =>
+              a["tag.type"] === "title" ? -1 : 1
+            )[0])
+        )
+      );
     });
     search("photoautom", `equals|autom|1`).then(({ features }) => {
       this.instrumentPhotos = features;
