@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="Hero"></div>
+    <div id="Hero" :style="`background-image: url(${heroImageUrl});`"></div>
 
     <main v-if="instrument" id="main">
       <router-link to="/">
@@ -187,7 +187,7 @@
 </template>
 
 <script>
-import { getInstrument, getRecord } from "@/assets/db";
+import { getInstrument, getRecord, search } from "@/assets/db";
 import ShowMore from "@/components/ShowMore";
 import FileGrid from "@/components/FileGrid";
 import CardGrid from "@/components/CardGrid";
@@ -207,6 +207,7 @@ export default {
   data: function () {
     return {
       instrument: null,
+      heroImageUrl: "/interface/heroes/1.jpg",
       builder: null,
       location: null,
       // TODO remove temporary fallback values when all data is available in database
@@ -243,6 +244,11 @@ export default {
       document.title = this.title;
       this.divisionCount = fields.no_div.value;
       this.stopCount = fields.no_stop.value;
+    });
+    search("photoautom", `equals|autom|${this.id}`).then(({ features }) => {
+      const heroImage = features.find((hit) => hit["tag.type"] === "main");
+      if (heroImage)
+        this.heroImageUrl = `https://data.dh.gu.se/flojtur/${heroImage.thumbnail}`;
     });
   },
   methods: {
@@ -282,8 +288,8 @@ export default {
   width: 100%;
   height: 70vh;
   background-color: #333333;
-  background: url(/interface/heroes/1.jpg);
   background-size: cover;
+  background-position: center 25%;
 }
 
 #main {
@@ -307,6 +313,7 @@ export default {
   z-index: 2000;
 }
 
+/* TODO Use h1, h2 etc. */
 .MainTitles {
   font-weight: 100;
   font-style: normal;
@@ -352,6 +359,7 @@ dd::after {
   }
 }
 
+/* TODO Set this font size etc. as body default. */
 .MetaContainerLong {
   margin-top: 10px;
   column-count: 5;
@@ -401,6 +409,7 @@ dd::after {
 
 /* För Image.html */
 
+/* TODO Create component for file button. */
 .DownloadContainer {
   width: auto;
   margin-top: 40px;
@@ -453,48 +462,7 @@ dd::after {
   font-weight: 300;
 }
 
-/* Dessa är för mini-gallerierna */
-
-.grid {
-}
-
-.grid-sizer,
-.grid-item {
-  width: 13.1%;
-  transition: all 0.2s ease-in-out;
-  background-color: black;
-  margin-top: 0px;
-}
-
-@media screen and (max-width: 1500px) {
-  .grid-sizer,
-  .grid-item {
-    width: 18.5%;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .grid-sizer,
-  .grid-item {
-    width: 23.5%;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .grid-sizer,
-  .grid-item {
-    width: 31%;
-  }
-}
-
-@media screen and (max-width: 610px) {
-  .grid-sizer,
-  .grid-item {
-    width: 48%;
-  }
-}
-
-/* MAp */
+/* Map */
 
 #MapInterface {
   border-radius: 20px;

@@ -45,3 +45,15 @@ export function getLocations() {
 export function getInstrument(id) {
   return getRecord("autom", id);
 }
+
+export function search(tb, query) {
+  return (
+    get("search", {
+      tb,
+      [query.includes("|") ? "query" : "sstring"]: query
+    })
+      // Data contains `features` (list of objects) and `num`.
+      .then((response) => response.data)
+      .catch((error) => console.error(error))
+  );
+}
