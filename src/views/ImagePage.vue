@@ -28,18 +28,16 @@
           masonryId="masonry-speluret"
           full="1"
           :items="
-            [1, 2, 3, 4, 5, 6, 7].map((i) => ({
+            photos.map((hit) => ({
               link: {
-                name: 'Image',
+                name: 'ImagePage',
                 params: {
-                  automId: this.automId,
-                  category: this.category,
-                  imageId: i,
+                  automId,
+                  category: category,
+                  imageId: hit.id,
                 },
               },
-              image: `/graphics/thumbnails/001_Aarsta_gen_DSC_14${
-                [39, 41, 42, 44][i % 4]
-              }_thumb.jpg`,
+              image: `https://data.dh.gu.se/flojtur/300x/${hit.thumbnail}`,
             }))
           "
         />
@@ -52,12 +50,23 @@
 
 <script>
 import OpenSeadragon from "openseadragon";
+import { search } from "@/assets/db";
 import MiniGallery from "@/components/MiniGallery";
 
 export default {
-  name: "Image",
+  name: "ImagePage",
   props: ["automId", "category", "imageId"],
   components: { MiniGallery },
+  data() {
+    return {
+      photos: [],
+    };
+  },
+  created() {
+    search(`photo${this.category}`, "").then(({ features }) => {
+      this.photos = features;
+    });
+  },
   mounted() {
     OpenSeadragon({
       id: "openseadragon1",

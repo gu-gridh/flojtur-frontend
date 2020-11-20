@@ -11,7 +11,7 @@
     >
       <router-link
         v-for="item in items"
-        :key="item.link"
+        :key="item.image"
         tag="div"
         :to="item.link"
         class="grid-item"
@@ -39,7 +39,7 @@ export default {
   },
   mounted() {
     imagesLoaded(`#${this.masonryId}`, () =>
-      setTimeout(() => this.$redrawVueMasonry(this.masonryId), 100)
+      setTimeout(() => this.$redrawVueMasonry(this.masonryId), 300)
     );
   },
   methods: {

@@ -49,9 +49,9 @@ const routes = [
   },
   {
     path: "/spelur/:automId/image/:category/:imageId",
-    name: "Image",
+    name: "ImagePage",
     component: () =>
-      import(/* webpackChunkName: "image" */ "../views/Image.vue"),
+      import(/* webpackChunkName: "image" */ "../views/ImagePage.vue"),
     props: true
   }
 ];

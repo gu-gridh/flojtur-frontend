@@ -141,14 +141,37 @@
         <MiniGallery
           masonryId="masonry-speluret"
           :items="
-            [1, 2, 3, 4, 5, 6, 7].map((i) => ({
+            instrumentPhotos.map((hit) => ({
               link: {
-                name: 'Image',
-                params: { automId: this.id, category: 'autom', imageId: i },
+                name: 'ImagePage',
+                params: {
+                  automId: id,
+                  category: 'autom',
+                  imageId: hit.id,
+                },
               },
-              image: `/graphics/thumbnails/001_Aarsta_gen_DSC_14${
-                [39, 41, 42, 44][i % 4]
-              }_thumb.jpg`,
+              image: `https://data.dh.gu.se/flojtur/300x/${hit.thumbnail}`,
+            }))
+          "
+        />
+      </div>
+
+      <h2>Pipor</h2>
+
+      <div style="margin-top: 20px">
+        <MiniGallery
+          masonryId="masonry-speluret"
+          :items="
+            stopPhotos.map((hit) => ({
+              link: {
+                name: 'ImagePage',
+                params: {
+                  automId: id,
+                  category: 'stop',
+                  imageId: hit.id,
+                },
+              },
+              image: `https://data.dh.gu.se/flojtur/300x/${hit.thumbnail}`,
             }))
           "
         />
@@ -197,6 +220,8 @@ export default {
       heroImageUrl: "/interface/heroes/1.jpg",
       builder: null,
       location: null,
+      instrumentPhotos: [],
+      stopPhotos: [],
       articleExpanded: false,
       metadataExpanded: false,
     };
@@ -238,10 +263,14 @@ export default {
       this.divisionCount = fields.no_div.value;
       this.stopCount = fields.no_stop.value;
     });
-    search("photoautom", `equals|autom|${this.id}`).then(({ features }) => {
+    search("photoautom", `equals|autom|1`).then(({ features }) => {
+      this.instrumentPhotos = features;
       const heroImage = features.find((hit) => hit["tag.type"] === "main");
       if (heroImage)
         this.heroImageUrl = `https://data.dh.gu.se/flojtur/${heroImage.thumbnail}`;
+    });
+    search("photostop", "").then(({ features }) => {
+      this.stopPhotos = features;
     });
   },
   methods: {
