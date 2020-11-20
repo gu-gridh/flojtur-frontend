@@ -5,24 +5,17 @@
 </template>
 
 <style>
-a:link {
+a:link,
+a:hover,
+a:active {
   text-decoration: none;
-  color: #3fa4bd;
+  color: inherit;
 }
 
 a:visited {
   text-decoration: underline;
-  color: #3fa4bd;
+  color: inherit;
   text-decoration-style: wavy;
-  text-decoration-color: #3fa4bd;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-a:active {
-  text-decoration: none;
 }
 
 #main {
