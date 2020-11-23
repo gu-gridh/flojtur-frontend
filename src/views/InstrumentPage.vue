@@ -117,11 +117,7 @@
 
       <h2>Valsar</h2>
 
-      <div
-        id="valsar"
-        style="margin-top: 20px; margin-bottom: -10px"
-        class="outset-small"
-      >
+      <div id="valsar" style="margin-top: 20px">
         <CardGrid
           masonryId="barrels-masonry"
           :cards="

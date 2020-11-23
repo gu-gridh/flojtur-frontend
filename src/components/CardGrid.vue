@@ -1,33 +1,59 @@
 <template>
-  <div
-    v-masonry="masonryId"
-    item-selector=".grid-item-pub"
-    :percent-position="true"
-    column-width=".grid-sizer-pub"
-    :gutter="20"
-    class="clear-after"
-  >
-    <div class="grid-sizer-pub"></div>
-    <Card
-      v-for="card in cards"
-      :key="card.id || card.to || card.image || card.title"
-      v-masonry-tile
-      :to="card.to"
-      :image="card.image"
-      :title="card.title"
+  <div>
+    <div
+      v-masonry="masonryId"
+      item-selector=".grid-item-pub"
+      :percent-position="true"
+      :gutter="20"
+      class="grid clear-after outset-small"
+      :class="{ collapsed }"
     >
-      {{ card.content }}
-    </Card>
+      <Card
+        v-for="card in cards"
+        :key="card.id || card.to || card.image || card.title"
+        v-masonry-tile
+        :to="card.to"
+        :image="card.image"
+        :title="card.title"
+      >
+        {{ card.content }}
+      </Card>
+    </div>
+
+    <span v-if="!full" class="ActivateBonusMaterialText" @click="toggle">
+      {{ collapsed ? "Visa alla valsar..." : "Visa färre valsar..." }}
+    </span>
   </div>
 </template>
 
 <script>
+import imagesLoaded from "imagesloaded";
 import Card from "./Card";
 
 export default {
   name: "CardGrid",
-  props: ["masonryId", "cards"],
+  props: ["masonryId", "cards", "full"],
   components: { Card },
+  data() {
+    return {
+      collapsed: !this.full,
+    };
+  },
+  mounted() {
+    imagesLoaded(`#${this.masonryId}`, () =>
+      setTimeout(() => this.$redrawVueMasonry(this.masonryId), 300)
+    );
+  },
+  methods: {
+    toggle() {
+      this.collapsed = !this.collapsed;
+    },
+  },
+  watch: {
+    collapsed() {
+      setTimeout(() => this.$redrawVueMasonry(this.masonryId));
+    },
+  },
 };
 </script>
 
@@ -60,7 +86,6 @@ export default {
   clear: both;
 }
 
-.grid-sizer-pub,
 .grid-item-pub {
   width: 32.1%;
   //transition: all .2s ease-in-out;
@@ -68,15 +93,32 @@ export default {
   float: left;
 }
 
+.grid.collapsed
+  .grid-item-pub
+  + .grid-item-pub
+  + .grid-item-pub
+  + .grid-item-pub
+  + .grid-item-pub
+  + .grid-item-pub
+  + .grid-item-pub {
+  display: none;
+}
+
 @media screen and (max-width: 1400px) {
-  .grid-sizer-pub,
   .grid-item-pub {
     width: 48.5%;
+  }
+  .grid.collapsed
+    .grid-item-pub
+    + .grid-item-pub
+    + .grid-item-pub
+    + .grid-item-pub
+    + .grid-item-pub {
+    display: none;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .grid-sizer-pub,
   .grid-item-pub {
     width: 100%;
   }

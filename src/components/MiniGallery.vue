@@ -62,6 +62,17 @@ export default {
   background-color: black;
   margin-top: 0px;
 }
+.grid.collapsed
+  .grid-item
+  + .grid-item
+  + .grid-item
+  + .grid-item
+  + .grid-item
+  + .grid-item
+  + .grid-item
+  + .grid-item {
+  display: none;
+}
 
 @media screen and (max-width: 1500px) {
   .grid-item {
