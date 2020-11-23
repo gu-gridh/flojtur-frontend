@@ -115,10 +115,9 @@
         </div>
       </ShowMore>
 
-      <h2>Valsar</h2>
-
       <div id="valsar" style="margin-top: 20px">
         <CardGrid
+          title="Valsar"
           masonryId="barrels-masonry"
           :cards="
             barrels.map((barrel) => ({
@@ -139,10 +138,9 @@
         />
       </div>
 
-      <h2>Speluret</h2>
-
       <div style="margin-top: 20px">
         <MiniGallery
+          title="Speluret"
           masonryId="masonry-speluret"
           :items="
             instrumentPhotos.map((hit) => ({
@@ -160,10 +158,9 @@
         />
       </div>
 
-      <h2>Pipor</h2>
-
       <div style="margin-top: 20px">
         <MiniGallery
+          title="Pipor"
           masonryId="masonry-speluret"
           :items="
             stopPhotos.map((hit) => ({
@@ -344,7 +341,7 @@ export default {
   float: left;
   white-space: nowrap;
   width: auto;
-  margin: 0px 30px 0 0;
+  margin: 0px 50px 0 0;
   font-weight: 100;
   font-size: 32px;
   line-height: 1.2;

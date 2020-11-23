@@ -1,5 +1,11 @@
 <template>
   <div>
+    <heading>
+      <h2 v-if="title">{{ title }}</h2>
+      <span v-if="!full" class="ActivateBonusMaterialText" @click="toggle">
+        {{ collapsed ? "Visa alla bilder..." : "Visa färre bilder..." }}
+      </span>
+    </heading>
     <div
       v-masonry="masonryId"
       item-selector=".grid-item"
@@ -19,10 +25,6 @@
         <img :src="item.image" />
       </router-link>
     </div>
-
-    <span v-if="!full" class="ActivateBonusMaterialText" @click="toggle">
-      {{ collapsed ? "Visa alla bilder..." : "Visa färre bilder..." }}
-    </span>
   </div>
 </template>
 
@@ -31,7 +33,7 @@ import imagesLoaded from "imagesloaded";
 
 export default {
   name: "MiniGallery",
-  props: ["masonryId", "items", "full"],
+  props: ["title", "masonryId", "items", "full"],
   data() {
     return {
       collapsed: !this.full,
@@ -56,6 +58,16 @@ export default {
 </script>
 
 <style scoped>
+heading {
+  display: flex;
+  align-items: baseline;
+  margin: 0 0 1em;
+}
+
+.ActivateBonusMaterialText {
+  margin-left: 1em;
+}
+
 .grid-item {
   width: 13.1%;
   transition: all 0.2s ease-in-out;
@@ -139,9 +151,5 @@ export default {
   display: block;
   transform: scale(1.01);
   filter: brightness(120%);
-}
-
-.ActivateBonusMaterialText {
-  margin-top: 10px;
 }
 </style>

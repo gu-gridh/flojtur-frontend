@@ -1,5 +1,11 @@
 <template>
   <div>
+    <heading>
+      <h2 v-if="title">{{ title }}</h2>
+      <span v-if="!full" class="ActivateBonusMaterialText" @click="toggle">
+        {{ collapsed ? "Visa alla valsar..." : "Visa färre valsar..." }}
+      </span>
+    </heading>
     <div
       v-masonry="masonryId"
       item-selector=".grid-item-pub"
@@ -19,10 +25,6 @@
         {{ card.content }}
       </Card>
     </div>
-
-    <span v-if="!full" class="ActivateBonusMaterialText" @click="toggle">
-      {{ collapsed ? "Visa alla valsar..." : "Visa färre valsar..." }}
-    </span>
   </div>
 </template>
 
@@ -32,7 +34,7 @@ import Card from "./Card";
 
 export default {
   name: "CardGrid",
-  props: ["masonryId", "cards", "full"],
+  props: ["title", "masonryId", "cards", "full"],
   components: { Card },
   data() {
     return {
@@ -57,7 +59,17 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+heading {
+  display: flex;
+  align-items: baseline;
+  margin: 0 0 1em;
+}
+
+.ActivateBonusMaterialText {
+  margin-left: 1em;
+}
+
 .grid-item-pub {
   float: left;
   color: white;
