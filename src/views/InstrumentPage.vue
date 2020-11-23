@@ -1,11 +1,12 @@
 <template>
-  <div>
+  <div v-if="instrument">
     <div id="Hero" :style="`background-image: url(${heroImageUrl});`"></div>
 
-    <main v-if="instrument" id="main">
+    <div class="container">
       <router-link to="/">
         <div id="ItemBack"></div>
       </router-link>
+
       <h1>
         {{ instrument.title.value }}
       </h1>
@@ -66,55 +67,57 @@
           </div>
         </dl>
       </div>
+    </div>
 
-      <ShowMore label="Visa all metadata...">
-        <div id="metaFileEnclosure" class="outset-large">
-          <h2 style="margin-top: 0">Metadata</h2>
+    <ShowMore label="Visa all metadata..." :contain="true">
+      <div id="metaFileEnclosure" class="outset-large">
+        <h2 style="margin-top: 0">Metadata</h2>
 
-          <dl class="MetaContainerLong">
-            <dt>Typ av mekanik:</dt>
-            <dd>Komplicerad!</dd>
-            <dt>Dokumentation</dt>
-            <dd>2020-01-12</dd>
-            <dt>Tillverkare:</dt>
-            <dd>Per Strand</dd>
-            <dt>Byggår:</dt>
-            <dd>1815</dd>
-            <dt>Dimensioner (cm):</dt>
-            <dd>200 x 60 x 60</dd>
-            <dt>Plats:</dt>
-            <dd>Alingsås museum</dd>
-            <dt>Antal pipor:</dt>
-            <dd>8</dd>
-            <dt>Snygghet:</dt>
-            <dd>Jättesnygg!</dd>
-            <dt>Typ av mekanik:</dt>
-            <dd>Komplicerad!</dd>
-            <dt>Dokumentation</dt>
-            <dd>2020-01-12</dd>
-            <dt>Tillverkare:</dt>
-            <dd>Per Strand</dd>
-            <dt>Byggår:</dt>
-            <dd>1815</dd>
-            <dt>Dimensioner (cm):</dt>
-            <dd>200 x 60 x 60</dd>
-            <dt>Plats:</dt>
-            <dd>Alingsås museum</dd>
-            <dt>Antal pipor:</dt>
-            <dd>8</dd>
-            <dt>Snygghet:</dt>
-            <dd>Jättesnygg!</dd>
-            <dt>Typ av mekanik:</dt>
-            <dd>Komplicerad!</dd>
-            <dt>Dokumentation</dt>
-            <dd>2020-01-12</dd>
-          </dl>
+        <dl class="MetaContainerLong">
+          <dt>Typ av mekanik:</dt>
+          <dd>Komplicerad!</dd>
+          <dt>Dokumentation</dt>
+          <dd>2020-01-12</dd>
+          <dt>Tillverkare:</dt>
+          <dd>Per Strand</dd>
+          <dt>Byggår:</dt>
+          <dd>1815</dd>
+          <dt>Dimensioner (cm):</dt>
+          <dd>200 x 60 x 60</dd>
+          <dt>Plats:</dt>
+          <dd>Alingsås museum</dd>
+          <dt>Antal pipor:</dt>
+          <dd>8</dd>
+          <dt>Snygghet:</dt>
+          <dd>Jättesnygg!</dd>
+          <dt>Typ av mekanik:</dt>
+          <dd>Komplicerad!</dd>
+          <dt>Dokumentation</dt>
+          <dd>2020-01-12</dd>
+          <dt>Tillverkare:</dt>
+          <dd>Per Strand</dd>
+          <dt>Byggår:</dt>
+          <dd>1815</dd>
+          <dt>Dimensioner (cm):</dt>
+          <dd>200 x 60 x 60</dd>
+          <dt>Plats:</dt>
+          <dd>Alingsås museum</dd>
+          <dt>Antal pipor:</dt>
+          <dd>8</dd>
+          <dt>Snygghet:</dt>
+          <dd>Jättesnygg!</dd>
+          <dt>Typ av mekanik:</dt>
+          <dd>Komplicerad!</dd>
+          <dt>Dokumentation</dt>
+          <dd>2020-01-12</dd>
+        </dl>
 
-          <h2>Filer</h2>
-          <FileGrid :files="[{}, {}]" />
-        </div>
-      </ShowMore>
+        <h2>Filer</h2>
+        <FileGrid :files="[{}, {}]" />
+      </div>
+    </ShowMore>
 
+    <div class="container">
       <div id="valsar" style="margin-top: 20px">
         <CardGrid
           title="Valsar"
@@ -191,7 +194,7 @@
           </div>
         </div>
       </div>
-    </main>
+    </div>
 
     <div id="foot" style="width: 100%"></div>
   </div>

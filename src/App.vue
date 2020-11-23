@@ -29,10 +29,13 @@ a:visited {
   text-decoration-style: wavy;
 }
 
-#main {
+.container {
   width: 80%;
   margin: auto;
-  background: rgba(234, 234, 231, 1);
+}
+
+.container-padded {
+  padding: 0 10%;
 }
 
 h1 {

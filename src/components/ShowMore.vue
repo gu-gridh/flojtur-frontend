@@ -1,7 +1,7 @@
 <template>
   <aside>
     <TransitionExpand>
-      <div v-show="!expanded">
+      <div v-show="!expanded" :class="{ container: contain }">
         <span class="ActivateBonusMaterialText" @click="toggle">
           {{ label }}
         </span>
@@ -10,9 +10,10 @@
 
     <TransitionExpand>
       <div v-show="expanded" class="enclosure">
-        <div class="deactivateBonusMaterial" @click="toggle"></div>
-
-        <slot></slot>
+        <div :class="{ container: contain }">
+          <div class="deactivateBonusMaterial" @click="toggle"></div>
+          <slot></slot>
+        </div>
       </div>
     </TransitionExpand>
   </aside>
@@ -25,6 +26,8 @@ export default {
   name: "ShowMore",
   props: {
     label: String,
+    /** Whether to add a .container div wrapping the content. */
+    contain: Boolean,
   },
   components: { TransitionExpand },
   data() {

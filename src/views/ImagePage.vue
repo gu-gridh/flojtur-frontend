@@ -7,7 +7,7 @@
       ></div>
     </div>
 
-    <main id="main">
+    <div class="container">
       <router-link
         :to="{ name: 'InstrumentPage', params: { id: this.automId } }"
       >
@@ -42,7 +42,7 @@
           "
         />
       </div>
-    </main>
+    </div>
 
     <div id="foot" style="float: left; width: 100%"></div>
   </div>
