@@ -125,7 +125,7 @@
           :cards="
             barrels.map((barrel) => ({
               id: barrel.id,
-              to: `barrel/${id}`,
+              to: `barrel/${barrel.id}`,
               image:
                 barrel.photo &&
                 `https://data.dh.gu.se/flojtur/300x/${barrel.photo.thumbnail}`,
@@ -270,14 +270,15 @@ export default {
     });
     // Find barrels for this instrument.
     search("barrel", `equals|i_nr|1`).then(({ features }) => {
-      this.barrels = features;
-      this.barrels.forEach((hit) => {
+      // For each barrel search result item, make sub-requests to complement the data.
+      // Each sub-request enriches the barrel item.
+      const requestsByBarrel = features.map((hit) => [
         // Load each full record and add to each barrel item.
-        getRecord("barrel", hit.id).then((record) => (hit.fields = record));
+        getRecord("barrel", hit.id).then((record) => (hit.fields = record)),
         // Load full music info.
         search("barmus", `equals|nr1|${hit.id}`).then(
           ({ features }) => (hit.music = features[0])
-        );
+        ),
         // Find photos of each barrel.
         search("photobarrel", `equals|barrel|${hit.id}`).then(
           ({ features }) =>
@@ -285,8 +286,12 @@ export default {
             (hit.photo = features.sort((a) =>
               a["tag.type"] === "title" ? -1 : 1
             )[0])
-        );
-      });
+        ),
+      ]);
+      // Flatten the list of lists.
+      const allRequests = [].concat.apply([], requestsByBarrel);
+      // Only when finished, assign the enriched barrel items to the component data item.
+      Promise.all(allRequests).then(() => (this.barrels = features));
     });
     search("photoautom", `equals|autom|1`).then(({ features }) => {
       this.instrumentPhotos = features;
