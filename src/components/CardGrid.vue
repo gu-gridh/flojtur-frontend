@@ -1,11 +1,11 @@
 <template>
   <div>
-    <heading>
+    <header>
       <h2 v-if="title">{{ title }}</h2>
       <span v-if="!full" class="ActivateBonusMaterialText" @click="toggle">
         {{ collapsed ? "Visa alla valsar..." : "Visa färre valsar..." }}
       </span>
-    </heading>
+    </header>
     <div
       v-masonry="masonryId"
       item-selector=".grid-item-pub"
@@ -60,7 +60,7 @@ export default {
 </script>
 
 <style scoped>
-heading {
+header {
   display: flex;
   align-items: baseline;
   margin: 0 0 1em;
