@@ -8,8 +8,11 @@
       </router-link>
 
       <h1>
-        {{ instrument.title.value }}
+        {{ instrument.aut_title.value }}
       </h1>
+      <h3 v-if="instrument.loc_sign.value.replace('-', '')">
+        {{ instrument.loc_sign.value }}
+      </h3>
 
       <div class="articleIngress" style="margin-top: 20px">
         <p>
@@ -74,43 +77,16 @@
         <h2 style="margin-top: 0">Metadata</h2>
 
         <dl class="MetaContainerLong">
-          <dt>Typ av mekanik:</dt>
-          <dd>Komplicerad!</dd>
-          <dt>Dokumentation</dt>
-          <dd>2020-01-12</dd>
-          <dt>Tillverkare:</dt>
-          <dd>Per Strand</dd>
-          <dt>Byggår:</dt>
-          <dd>1815</dd>
-          <dt>Dimensioner (cm):</dt>
-          <dd>200 x 60 x 60</dd>
-          <dt>Plats:</dt>
-          <dd>Alingsås museum</dd>
-          <dt>Antal pipor:</dt>
-          <dd>8</dd>
-          <dt>Snygghet:</dt>
-          <dd>Jättesnygg!</dd>
-          <dt>Typ av mekanik:</dt>
-          <dd>Komplicerad!</dd>
-          <dt>Dokumentation</dt>
-          <dd>2020-01-12</dd>
-          <dt>Tillverkare:</dt>
-          <dd>Per Strand</dd>
-          <dt>Byggår:</dt>
-          <dd>1815</dd>
-          <dt>Dimensioner (cm):</dt>
-          <dd>200 x 60 x 60</dd>
-          <dt>Plats:</dt>
-          <dd>Alingsås museum</dd>
-          <dt>Antal pipor:</dt>
-          <dd>8</dd>
-          <dt>Snygghet:</dt>
-          <dd>Jättesnygg!</dd>
-          <dt>Typ av mekanik:</dt>
-          <dd>Komplicerad!</dd>
-          <dt>Dokumentation</dt>
-          <dd>2020-01-12</dd>
+          <div v-for="item in metadata2" :key="item.label">
+            <dt>{{ item.label }}:</dt>
+            <dd v-if="item.href">
+              <a :href="item.href">{{ item.value }}</a>
+            </dd>
+            <dd v-else>{{ item.value }}</dd>
+          </div>
         </dl>
+
+        <p v-for="(paragraph, i) in comment" :key="i">{{ paragraph }}</p>
 
         <h2>Filer</h2>
         <FileGrid :files="[{}, {}]" />
@@ -223,6 +199,9 @@ export default {
       instrument: null,
       heroImageUrl: "/interface/heroes/1.jpg",
       builder: null,
+      clockmaker: null,
+      casebuilder: null,
+      owner: null,
       location: null,
       barrels: [],
       instrumentPhotos: [],
@@ -233,13 +212,36 @@ export default {
   },
   computed: {
     metadata1() {
+      if (!this.instrument) return [];
       return [
-        { label: "Tillverkare", value: this.builder },
-        { label: "Byggår", value: this.buildYear },
+        { label: "Typ", value: this.instrument.obj_type.extra },
         { label: "Plats", value: this.location, href: "#location" },
+        { label: "Byggd av", value: this.builder },
+        { label: "Urmakare", value: this.clockmaker },
+      ].filter((item) => item.value);
+    },
+    metadata2() {
+      if (!this.instrument) return [];
+      return [
+        { label: "Byggår", value: this.buildYear },
         { label: "Plats i byggnaden", value: this.instrument.loc_in_bui.value },
+        { label: "Antal verk", value: this.instrument.no_div.value },
         { label: "Antal stämmor", value: this.instrument.no_stop.value },
-        { label: "Signum", value: this.instrument.loc_sign.value },
+        { label: "Fodral byggt av", value: this.casebuilder },
+        { label: "Ägare", value: this.casebuilder },
+        // Repeat it...
+        { label: "Byggår", value: this.buildYear },
+        { label: "Plats i byggnaden", value: this.instrument.loc_in_bui.value },
+        { label: "Antal verk", value: this.instrument.no_div.value },
+        { label: "Antal stämmor", value: this.instrument.no_stop.value },
+        { label: "Fodral byggt av", value: this.casebuilder },
+        { label: "Ägare", value: this.casebuilder },
+        { label: "Byggår", value: this.buildYear },
+        { label: "Plats i byggnaden", value: this.instrument.loc_in_bui.value },
+        { label: "Antal verk", value: this.instrument.no_div.value },
+        { label: "Antal stämmor", value: this.instrument.no_stop.value },
+        { label: "Fodral byggt av", value: this.casebuilder },
+        { label: "Ägare", value: this.casebuilder },
       ].filter((item) => item.value);
     },
     buildYear() {
@@ -256,6 +258,10 @@ export default {
       // Between two dates.
       return `mellan ${date1} och ${date2}`;
     },
+    comment() {
+      if (!this.instrument) return;
+      return this.instrument.gen_info.value.split(/<br>/i).filter(Boolean);
+    },
     locationId() {
       return this.instrument && parseInt(this.instrument.loc_nr.value);
     },
@@ -263,7 +269,7 @@ export default {
   created() {
     getInstrument(this.id).then((fields) => {
       this.instrument = fields;
-      this.title = fields.title.value;
+      this.title = fields.aut_title.value;
       document.title = this.title;
       this.divisionCount = fields.no_div.value;
       this.stopCount = fields.no_stop.value;
@@ -324,6 +330,30 @@ export default {
             .join(" ");
         });
     },
+    "instrument.build2"(field) {
+      if (field.value)
+        getRecord("person", field.value).then((person) => {
+          this.clockmaker = [person.first_name.value, person.fam_name.value]
+            .filter(Boolean)
+            .join(" ");
+        });
+    },
+    "instrument.build3"(field) {
+      if (field.value)
+        getRecord("person", field.value).then((person) => {
+          this.casebuilder = [person.first_name.value, person.fam_name.value]
+            .filter(Boolean)
+            .join(" ");
+        });
+    },
+    "instrument.owner"(field) {
+      if (field.value)
+        getRecord("person", field.value).then((person) => {
+          this.owner = [person.first_name.value, person.fam_name.value]
+            .filter(Boolean)
+            .join(" ");
+        });
+    },
     "instrument.loc_nr"(field) {
       if (field.value)
         getRecord("location", field.value).then((location) => {
@@ -352,7 +382,7 @@ export default {
   margin: 0px 50px 0 0;
   font-weight: 100;
   font-size: 32px;
-  line-height: 1.2;
+  line-height: 2;
 }
 
 @media screen and (max-width: 910px) {
@@ -375,11 +405,6 @@ dd {
   margin-left: 0.2em;
   color: #c029bb;
 }
-dd::after {
-  content: "";
-  display: block;
-  margin-bottom: 0.8em;
-}
 
 /* TODO Set this font size etc. as body default. */
 .MetaContainerLong {
@@ -387,7 +412,7 @@ dd::after {
   column-count: 5;
   column-gap: 40px;
   font-size: 18px;
-  line-height: 1.2;
+  line-height: 2;
   padding: 10px 0;
 }
 

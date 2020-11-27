@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "https://dh.gu.se/ws/flojtur";
+const apiUrl = process.env.VUE_APP_APIURL || "https://dh.gu.se/ws/flojtur";
 
 function get(name, params) {
   return axios.get(`${apiUrl}/${name}.php`, { params });

@@ -22,7 +22,7 @@
                   <div class="flip-card-front">
                     <img
                       :src="instrument.img"
-                      :alt="`Bild på ${instrument.title}`"
+                      :alt="`Bild på ${instrument.aut_title}`"
                     />
                   </div>
                   <div
@@ -36,7 +36,7 @@
                           :style="`background-image:url(${instrument.img});`"
                         ></div>
                         <div class="cardInfoObjectTitle">
-                          {{ instrument.title }}
+                          {{ instrument.aut_title }}
                         </div>
                         <div class="cardInfoObject">
                           {{ instrument.place }}, {{ instrument.year }}
