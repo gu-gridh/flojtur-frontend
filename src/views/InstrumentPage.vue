@@ -18,14 +18,12 @@
         <p>
           Dolor mollit culpa veniam amet. Irure mollit voluptate deserunt
           commodo in minim exercitation exercitation voluptate minim excepteur
-          dolore. Duis labore incididunt ex minim dolore magna.
-        </p>
-        <p>
-          Nulla laborum nostrud elit quis aliqua non adipisicing consectetur
-          aliqua veniam. Irure esse enim aliquip non id est magna qui pariatur
-          ullamco adipisicing reprehenderit eiusmod. Occaecat nulla consequat
-          officia velit deserunt. Magna quis aliquip tempor ipsum exercitation
-          nostrud commodo. Amet fugiat culpa est duis qui cillum id.
+          dolore. Duis labore incididunt ex minim dolore magna. Nulla laborum
+          nostrud elit quis aliqua non adipisicing consectetur aliqua veniam.
+          Irure esse enim aliquip non id est magna qui pariatur ullamco
+          adipisicing reprehenderit eiusmod. Occaecat nulla consequat officia
+          velit deserunt. Magna quis aliquip tempor ipsum exercitation nostrud
+          commodo. Amet fugiat culpa est duis qui cillum id.
         </p>
       </div>
 
@@ -38,19 +36,14 @@
             amet laboris et est ea nulla nostrud fugiat Lorem aute minim magna.
             Qui incididunt ex et ullamco non ut aliquip aliquip commodo in
             veniam ipsum fugiat dolore. Sint qui mollit officia ad do ullamco ea
-            aliquip commodo sit eu Lorem.
-          </p>
-          <p>
-            Commodo anim excepteur ea nisi magna consectetur quis. Laborum
-            reprehenderit commodo occaecat consequat elit anim excepteur nostrud
-            eiusmod. Dolore voluptate ipsum veniam magna sit exercitation nulla
-            ullamco consectetur magna.
-          </p>
-          <p>
-            Commodo esse proident ad magna excepteur officia consectetur dolore
-            consequat. Proident mollit deserunt incididunt duis laborum deserunt
-            deserunt exercitation ad nulla incididunt deserunt anim ex. Ad id et
-            nulla quis cillum adipisicing do laborum commodo commodo.
+            aliquip commodo sit eu Lorem. Commodo anim excepteur ea nisi magna
+            consectetur quis. Laborum reprehenderit commodo occaecat consequat
+            elit anim excepteur nostrud eiusmod. Dolore voluptate ipsum veniam
+            magna sit exercitation nulla ullamco consectetur magna. Commodo esse
+            proident ad magna excepteur officia consectetur dolore consequat.
+            Proident mollit deserunt incididunt duis laborum deserunt deserunt
+            exercitation ad nulla incididunt deserunt anim ex. Ad id et nulla
+            quis cillum adipisicing do laborum commodo commodo.
           </p>
         </div>
       </ShowMore>
