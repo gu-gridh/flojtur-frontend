@@ -11,6 +11,7 @@
       item-selector=".grid-item-pub"
       :percent-position="true"
       :gutter="20"
+      transition-duration="0s"
       class="grid clear-after outset-small"
       :class="{ collapsed }"
     >
@@ -29,7 +30,6 @@
 </template>
 
 <script>
-import imagesLoaded from "imagesloaded";
 import Card from "./Card";
 
 export default {
@@ -41,17 +41,20 @@ export default {
       collapsed: !this.full,
     };
   },
-  mounted() {
-    imagesLoaded(`#${this.masonryId}`, () =>
-      setTimeout(() => this.$redrawVueMasonry(this.masonryId), 300)
-    );
-  },
   methods: {
     toggle() {
       this.collapsed = !this.collapsed;
     },
   },
   watch: {
+    // Refresh as card content is being progressively loaded.
+    cards: {
+      deep: true,
+      handler() {
+        setTimeout(() => this.$redrawVueMasonry(this.masonryId));
+      },
+    },
+    // Surplus items are shown/hidden with CSS upon collapsing/expanding. Refresh the layout in response.
     collapsed() {
       setTimeout(() => this.$redrawVueMasonry(this.masonryId));
     },
@@ -100,7 +103,6 @@ header {
 
 .grid-item-pub {
   width: 32.1%;
-  //transition: all .2s ease-in-out;
   margin-bottom: 20px;
   float: left;
 }
