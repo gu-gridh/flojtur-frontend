@@ -279,7 +279,7 @@ export default {
           ({ features }) => (hit.music = features[0])
         ),
         // Find photos of each barrel.
-        search("photobarrel", `equals|barrel|${hit.id}`).then(
+        search("photo", `equals|barrel_nr|${hit.id}`).then(
           ({ features }) =>
             // Pick the title photo if available, otherwise any.
             (hit.photo = features.sort((a) =>
@@ -292,13 +292,13 @@ export default {
       // Only when finished, assign the enriched barrel items to the component data item.
       Promise.all(allRequests).then(() => (this.barrels = features));
     });
-    search("photoautom", `equals|autom|1`).then(({ features }) => {
+    search("photo", `equals|autom_nr|1`).then(({ features }) => {
       this.instrumentPhotos = features;
       const heroImage = features.find((hit) => hit["tag.type"] === "main");
       if (heroImage)
         this.heroImageUrl = `https://data.dh.gu.se/flojtur/${heroImage.thumbnail}`;
     });
-    search("photostop", "").then(({ features }) => {
+    search("photo", "equals|stop_nr|22").then(({ features }) => {
       this.stopPhotos = features;
     });
   },
