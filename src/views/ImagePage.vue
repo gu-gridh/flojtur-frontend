@@ -7,7 +7,7 @@
       ></div>
     </div>
 
-    <div class="container">
+    <div v-if="photo" class="container">
       <router-link
         :to="{ name: 'InstrumentPage', params: { id: this.automId } }"
       >
@@ -16,7 +16,7 @@
 
       <h2 style="margin-top: 70px">Bildens titel om s&aring;dan finnes</h2>
 
-      <a href="/images/hopehist1.jpg">
+      <a :href="`https://data.dh.gu.se/flojtur/${photo.filename.value}`">
         <div class="DownloadContainer">
           <div class="DownloadButton"></div>
           <div class="DownloadLabel">Ladda ner</div>
@@ -50,7 +50,7 @@
 
 <script>
 import OpenSeadragon from "openseadragon";
-import { search } from "@/assets/db";
+import { getRecord, search } from "@/assets/db";
 import MiniGallery from "@/components/MiniGallery";
 
 export default {
@@ -59,26 +59,50 @@ export default {
   components: { MiniGallery },
   data() {
     return {
+      viewer: null,
+      photo: null,
       photos: [],
     };
   },
   created() {
-    search("photo", `not||equals|${this.category}_nr|`).then(({ features }) => {
-      this.photos = features;
-    });
+    this.load();
   },
-  mounted() {
-    OpenSeadragon({
-      id: "openseadragon1",
-      homeFillsViewer: false,
-      minZoomImageRatio: 0.3,
+  methods: {
+    load() {
+      getRecord("photo", this.imageId).then((photo) => {
+        this.photo = photo;
+      });
+    },
+  },
+  watch: {
+    category() {
+      this.load();
+    },
+    imageId() {
+      this.load();
+    },
+    photo() {
+      search(
+        "photo",
+        `equals|${this.category}_nr|${this.photo[`${this.category}_nr`].value}`
+      ).then(({ features }) => {
+        this.photos = features;
+      });
 
-      showZoomControl: false,
-      showHomeControl: false,
-
-      prefixUrl: "/openseadragon/",
-      tileSources: "/graphics/hopehist1.dzi",
-    });
+      if (this.viewer) this.viewer.destroy();
+      this.viewer = OpenSeadragon({
+        id: "openseadragon1",
+        homeFillsViewer: false,
+        minZoomImageRatio: 0.3,
+        showZoomControl: false,
+        showHomeControl: false,
+        prefixUrl: "/openseadragon/",
+        tileSources: {
+          type: "image",
+          url: `https://data.dh.gu.se/flojtur/${this.photo.filename.value}`,
+        },
+      });
+    },
   },
 };
 </script>
