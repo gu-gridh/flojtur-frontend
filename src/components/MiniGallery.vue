@@ -2,7 +2,11 @@
   <div>
     <header>
       <h2 v-if="title">{{ title }}</h2>
-      <span v-if="!full" class="ActivateBonusMaterialText" @click="toggle">
+      <span
+        v-if="!full && items.length > limit"
+        class="ActivateBonusMaterialText"
+        @click="toggle"
+      >
         {{ collapsed ? "Visa alla bilder..." : "Visa färre bilder..." }}
       </span>
     </header>
@@ -16,11 +20,13 @@
       :class="{ collapsed }"
     >
       <router-link
-        v-for="item in items"
+        v-for="(item, i) in items"
         :key="item.image"
         tag="div"
         :to="item.link"
         class="grid-item"
+        :class="{ hidden: collapsed && i >= limit }"
+        :style="`width: calc(100% / ${limit} - 15px * (${limit} - 1) / ${limit})`"
       >
         <img :src="item.image" />
       </router-link>
@@ -29,29 +35,53 @@
 </template>
 
 <script>
-import imagesLoaded from "imagesloaded";
+import { vueWindowSizeMixin } from "vue-window-size";
 
 export default {
   name: "MiniGallery",
   props: ["title", "masonryId", "items", "full"],
+  mixins: [vueWindowSizeMixin],
   data() {
     return {
       collapsed: !this.full,
     };
   },
+  computed: {
+    limit() {
+      return this.windowWidth <= 610
+        ? 2
+        : this.windowWidth <= 900
+        ? 3
+        : this.windowWidth <= 1200
+        ? 4
+        : this.windowWidth <= 1500
+        ? 5
+        : 6;
+    },
+  },
   mounted() {
-    imagesLoaded(`#${this.masonryId}`, () =>
-      setTimeout(() => this.$redrawVueMasonry(this.masonryId), 300)
-    );
+    () => this.redraw(300);
   },
   methods: {
     toggle() {
       this.collapsed = !this.collapsed;
     },
+    redraw(ms) {
+      setTimeout(() => this.$redrawVueMasonry(this.masonryId), ms);
+    },
   },
   watch: {
     collapsed() {
-      setTimeout(() => this.$redrawVueMasonry(this.masonryId));
+      this.redraw();
+    },
+    limit() {
+      this.redraw();
+    },
+    items: {
+      deep: true,
+      handler() {
+        this.redraw(100);
+      },
     },
   },
 };
@@ -74,30 +104,15 @@ header {
   background-color: black;
   margin-top: 0px;
 }
-.grid.collapsed
-  .grid-item
-  + .grid-item
-  + .grid-item
-  + .grid-item
-  + .grid-item
-  + .grid-item
-  + .grid-item
-  + .grid-item {
+
+.hidden {
   display: none;
 }
 
+/* Fallback responsive widths, in case the calculated style attribute is not supported. */
 @media screen and (max-width: 1500px) {
   .grid-item {
     width: 18.5%;
-  }
-  .grid.collapsed
-    .grid-item
-    + .grid-item
-    + .grid-item
-    + .grid-item
-    + .grid-item
-    + .grid-item {
-    display: none;
   }
 }
 
@@ -105,31 +120,17 @@ header {
   .grid-item {
     width: 23.5%;
   }
-  .grid.collapsed
-    .grid-item
-    + .grid-item
-    + .grid-item
-    + .grid-item
-    + .grid-item {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 900px) {
   .grid-item {
     width: 31%;
   }
-  .grid.collapsed .grid-item + .grid-item + .grid-item + .grid-item {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 610px) {
   .grid-item {
     width: 48%;
-  }
-  .grid.collapsed .grid-item + .grid-item + .grid-item {
-    display: none;
   }
 }
 
@@ -144,7 +145,6 @@ header {
   display: block;
   width: 100%;
   object-fit: cover;
-  transition: all 0.2s ease-in-out;
 }
 
 .grid-item:hover {

@@ -63,7 +63,7 @@ export default {
     };
   },
   created() {
-    search(`photo${this.category}`, "").then(({ features }) => {
+    search("photo", `not||equals|${this.category}_nr|`).then(({ features }) => {
       this.photos = features;
     });
   },
