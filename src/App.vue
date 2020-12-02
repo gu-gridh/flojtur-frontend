@@ -73,6 +73,24 @@ h2 {
   z-index: 2000;
 }
 
+@media screen and (max-width: 950px) {
+  #ItemBack {
+    left: 20px;
+    height: 40px;
+    width: 40px;
+    background-size: 30px 30px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #ItemBack {
+    left: 15px;
+    height: 35px;
+    width: 35px;
+    background-size: 25px 25px;
+  }
+}
+
 .articleContainer {
   width: 72%;
   padding: 10px;
