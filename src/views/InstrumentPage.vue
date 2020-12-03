@@ -15,7 +15,8 @@
       </h3>
 
       <div class="articleIngress" style="margin-top: 20px">
-        <p>
+        <p v-if="instrument.intro.value">{{ instrument.intro.value }}</p>
+        <p v-else>
           Dolor mollit culpa veniam amet. Irure mollit voluptate deserunt
           commodo in minim exercitation exercitation voluptate minim excepteur
           dolore. Duis labore incididunt ex minim dolore magna. Nulla laborum
@@ -87,7 +88,7 @@
     </ShowMore>
 
     <div class="container">
-      <div id="valsar" style="margin-top: 20px">
+      <div v-if="barrels.length" id="valsar" style="margin-top: 20px">
         <CardGrid
           title="Valsar"
           masonryId="barrels-masonry"
@@ -110,7 +111,7 @@
         />
       </div>
 
-      <div style="margin-top: 20px">
+      <div v-if="instrumentPhotos.length" style="margin-top: 20px">
         <MiniGallery
           title="Speluret"
           masonryId="masonry-speluret"
@@ -130,7 +131,7 @@
         />
       </div>
 
-      <div style="margin-top: 20px">
+      <div v-if="stopPhotos.length" style="margin-top: 20px">
         <MiniGallery
           title="Pipor"
           masonryId="masonry-speluret"
