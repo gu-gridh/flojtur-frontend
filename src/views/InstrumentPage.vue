@@ -268,7 +268,7 @@ export default {
       this.stopCount = fields.no_stop.value;
     });
     // Find barrels for this instrument.
-    search("barrel", `equals|i_nr|1`).then(({ features }) => {
+    search("barrel", `equals|i_nr|${this.id}`).then(({ features }) => {
       // For each barrel search result item, make sub-requests to complement the data.
       // Each sub-request enriches the barrel item.
       const requestsByBarrel = features.map((hit) => [
@@ -292,15 +292,26 @@ export default {
       // Only when finished, assign the enriched barrel items to the component data item.
       Promise.all(allRequests).then(() => (this.barrels = features));
     });
-    search("photo", `equals|autom_nr|1`).then(({ features }) => {
+    search("photo", `equals|autom_nr|${this.id}`).then(({ features }) => {
       this.instrumentPhotos = features;
       const heroImage = features.find((hit) => hit["tag.type"] === "main");
       if (heroImage)
         this.heroImageUrl = `https://data.dh.gu.se/flojtur/${heroImage.thumbnail}`;
     });
-    search("photo", "equals|stop_nr|22").then(({ features }) => {
-      this.stopPhotos = features;
-    });
+    this.stopPhotos = [];
+    search("division", `equals|inst_nr|${this.id}`).then(({ features }) =>
+      features.forEach((division) =>
+        search("stop", `equals|nr|${division.id}`).then(({ features }) => {
+          // TODO Remove temporary hard-coded stop ids.
+          features.push({ id: 22 }, { id: 23 });
+          features.forEach((stop) =>
+            search("photo", `equals|stop_nr|${stop.id}`).then(({ features }) =>
+              this.stopPhotos.push(...features)
+            )
+          );
+        })
+      )
+    );
   },
   methods: {
     toggleArticle() {
