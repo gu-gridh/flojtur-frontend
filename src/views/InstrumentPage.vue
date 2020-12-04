@@ -71,7 +71,7 @@
         <h2 style="margin-top: 0">Metadata</h2>
 
         <dl class="MetaContainerLong">
-          <div v-for="item in metadata2" :key="item.label">
+          <div v-for="(item, i) in metadata2" :key="i">
             <dt>{{ item.label }}:</dt>
             <dd v-if="item.href">
               <a :href="item.href">{{ item.value }}</a>
@@ -79,8 +79,6 @@
             <dd v-else>{{ item.value }}</dd>
           </div>
         </dl>
-
-        <p v-for="(paragraph, i) in comment" :key="i">{{ paragraph }}</p>
 
         <h2>Filer</h2>
         <FileGrid :files="[{}, {}]" />
@@ -99,13 +97,10 @@
               image:
                 barrel.photo &&
                 `https://data.dh.gu.se/flojtur/300x/${barrel.photo.thumbnail}`,
-              title: barrel.music
-                ? [
-                    barrel.music['music.title'],
-                    barrel.music['music.sub_title'],
-                  ].join(', ')
-                : barrel.fields && barrel.fields.bar_title.value,
-              content: barrel.music && barrel.music['music.comp'],
+              title: barrel.bar_title,
+              content:
+                barrel.music &&
+                `${barrel.music['comp.first_name']} ${barrel.music['comp.fam_name']}`,
             }))
           "
         />
@@ -191,7 +186,7 @@ export default {
   data: function () {
     return {
       instrument: null,
-      heroImageUrl: "/interface/heroes/1.jpg",
+      heroImageUrl: "/interface/heroes/1b.jpg",
       builder: null,
       clockmaker: null,
       casebuilder: null,
@@ -252,10 +247,6 @@ export default {
       // Between two dates.
       return `mellan ${date1} och ${date2}`;
     },
-    comment() {
-      if (!this.instrument) return;
-      return this.instrument.gen_info.value.split(/<br>/i).filter(Boolean);
-    },
     locationId() {
       return this.instrument && parseInt(this.instrument.loc_nr.value);
     },
@@ -276,9 +267,13 @@ export default {
         // Load each full record and add to each barrel item.
         getRecord("barrel", hit.id).then((record) => (hit.fields = record)),
         // Load full music info.
-        search("barmus", `equals|nr1|${hit.id}`).then(
-          ({ features }) => (hit.music = features[0])
-        ),
+        search("barmus", `equals|nr1|${hit.id}`).then(({ features }) => {
+          if (!features[0]) return;
+          hit.music = features[0];
+          return search("music", hit.music.id).then(({ features }) => {
+            Object.assign(hit.music, features[0]);
+          });
+        }),
         // Find photos of each barrel.
         search("photo", `equals|barrel_nr|${hit.id}`).then(
           ({ features }) =>
