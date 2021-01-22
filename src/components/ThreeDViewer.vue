@@ -1,20 +1,25 @@
 <template>
   <model-viewer
     class="model-viewer"
-    reveal="auto"
+    reveal="interaction"
     loading="eager"
     :src="src"
     :poster="poster"
-    alt="cube"
+    :alt="alt"
     camera-controls
-    auto-rotate
-    camera-orbit="-0deg 80deg 17.0m"
-    camera-target="-0.0m 0m 0m"
-    exposure="0.7"
-    shadows="true"
-    shadow-intensity="1"
-    shadow-softness="1"
+    autoplay
+    animation-name="929_flojtur_CADprep_jh_18"
+    disable-zoom
+    oncontextmenu="return false;"
+    camera-orbit="-45deg 80deg 160.0m"
+    camera-target="-20.0m 30m 0m"
+    exposure="1.0"
+    skyboxangle="120"
+    shadows="false"
+    shadow-intensity="0"
+    shadow-softness="0"
     style=""
+    ar-status="not-presenting"
   >
   </model-viewer>
 </template>
@@ -28,6 +33,7 @@ export default {
   props: {
     src: String,
     poster: String,
+    alt: String,
   },
 };
 </script>

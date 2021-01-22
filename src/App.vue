@@ -13,7 +13,11 @@ body {
   padding: 0;
   font-size: 20px;
   -webkit-text-size-adjust: 100%;
-  background: rgb(234, 234, 231);
+  background: linear-gradient(
+    to bottom,
+    rgb(215, 215, 210) 0%,
+    rgb(230, 230, 230) 100%
+  );
 }
 
 a:link,
@@ -100,7 +104,7 @@ h2 {
 }
 .articleIngress {
   font-size: 24px;
-  text-align: left;
+  /* text-align: left; */
   margin-right: auto;
   column-count: 2;
   column-gap: 40px;

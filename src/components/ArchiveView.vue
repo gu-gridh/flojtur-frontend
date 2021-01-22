@@ -6,9 +6,13 @@
         <div class="viewOption">|</div>
         <router-link class="viewOption" to="/map">Karta</router-link>
         <div class="viewOption">|</div>
-        <router-link class="viewOption" to="/search"
-          >Avancerad sökning</router-link
+        <a
+          href="https://strand.dh.gu.se/admin/"
+          target="_blank"
+          class="viewOption"
         >
+          Avancerad sökning
+        </a>
       </div>
     </div>
 
@@ -29,7 +33,7 @@ export default {
   height: 40px;
   width: 100%;
   float: left;
-  margin-top: 20px;
+  margin-top: -50px;
   margin-bottom: 20px;
 }
 .ArchiveViewOptions {
