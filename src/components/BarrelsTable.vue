@@ -1,6 +1,6 @@
 <template>
-  <div class="barrels-table">
-    <div class="valstitles">
+  <div class="barrels-table" :class="{ collapsed }">
+    <div class="valstitles outset-small">
       <div
         class="valspostitem valse sortable"
         :class="{ 'sort-active': sortField === 'label' }"
@@ -25,42 +25,53 @@
       <div class="valspostitem link">Extern l&auml;nk</div>
     </div>
 
-    <div v-for="barrel of barrelsSorted" :key="barrel.id" class="valspost">
-      <router-link :to="`barrel/${barrel.id}`" class="valspostitem valse">
-        {{ barrel.label }}
-      </router-link>
-      <div class="valspostitem piece">{{ barrel.title }}</div>
-      <div class="valspostitem composer">{{ barrel.composer }}</div>
-      <div class="valspostitem link">{{ barrel.link }}</div>
-    </div>
+    <TransitionExpand v-for="(barrel, i) of barrelsSorted" :key="barrel.id">
+      <div
+        v-show="!collapsed || i < 4"
+        class="valspost outset-small"
+        :class="{ peek: i == 3 }"
+      >
+        <router-link :to="`barrel/${barrel.id}`" class="valspostitem valse">
+          {{ barrel.label }}
+        </router-link>
+        <div class="valspostitem piece">{{ barrel.title }}</div>
+        <div class="valspostitem composer">{{ barrel.composer }}</div>
+        <div class="valspostitem link">{{ barrel.link }}</div>
+      </div>
+    </TransitionExpand>
+
+    <span class="ActivateBonusMaterialText" @click="toggle">
+      {{ collapsed ? "Visa alla valsar..." : "Visa färre valsar..." }}
+    </span>
   </div>
 </template>
 
 <script>
+import TransitionExpand from "./TransitionExpand.vue";
+
 export default {
   name: "BarrelsTable",
   props: ["barrels"],
+  components: { TransitionExpand },
   data() {
     return {
       sortField: "label",
+      collapsed: true,
     };
   },
   computed: {
-    barrelsValues() {
-      return this.barrels.map((barrel) => ({
-        id: barrel.id,
-        label: barrel.bar_title,
-        title: barrel.music && barrel.music.title,
-        composer:
-          barrel.music &&
-          `${barrel.music["comp.first_name"]} ${barrel.music["comp.fam_name"]}`,
-        link: null,
-      }));
-    },
     barrelsSorted() {
-      return [...this.barrelsValues].sort((a, b) =>
-        this.compareText(a[this.sortField], b[this.sortField])
-      );
+      return this.barrels
+        .map((barrel) => ({
+          id: barrel.id,
+          label: barrel.bar_title,
+          title: barrel.music && barrel.music.title,
+          composer:
+            barrel.music &&
+            `${barrel.music["comp.first_name"]} ${barrel.music["comp.fam_name"]}`,
+          link: null,
+        }))
+        .sort((a, b) => this.compareText(a[this.sortField], b[this.sortField]));
     },
   },
   methods: {
@@ -70,6 +81,9 @@ export default {
     /** A text comparator that handles åäö and empty strings. */
     compareText(a, b) {
       return a ? a.localeCompare(b || "", "sv") : 1;
+    },
+    toggle() {
+      this.collapsed = !this.collapsed;
     },
   },
 };
@@ -87,6 +101,23 @@ export default {
   border-radius: 10px;
   margin-bottom: 20px;
   background-color: white;
+
+  .collapsed &.peek {
+    background: transparent
+      linear-gradient(to bottom, white 0%, hsla(0 0 100% / 0) 50%);
+    margin-bottom: -2em;
+
+    .valspostitem {
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0) 50%
+      );
+      background-clip: text;
+      // -webkit-background-clip: text;
+      color: transparent;
+    }
+  }
 }
 
 .valstitles {
@@ -126,5 +157,11 @@ export default {
 
 .composer {
   width: 25%;
+}
+
+.ActivateBonusMaterialText {
+  // Make sure the button stays over the half-visible peek item.
+  position: relative;
+  z-index: 10;
 }
 </style>

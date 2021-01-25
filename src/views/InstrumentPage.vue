@@ -106,7 +106,7 @@
         />
       </div>
 
-      <BarrelsTable :barrels="barrels" class="outset-small" />
+      <BarrelsTable :barrels="barrels" />
 
       <div v-if="instrumentPhotos.length" style="margin-top: 20px">
         <MiniGallery
@@ -199,8 +199,6 @@ export default {
       barrels: [],
       instrumentPhotos: [],
       stopPhotos: [],
-      articleExpanded: false,
-      metadataExpanded: false,
     };
   },
   computed: {
@@ -314,12 +312,6 @@ export default {
     );
   },
   methods: {
-    toggleArticle() {
-      this.articleExpanded = !this.articleExpanded;
-    },
-    toggleMetadata() {
-      this.metadataExpanded = !this.metadataExpanded;
-    },
     chunk(list, n = 1) {
       const size = Math.ceil(list.length / n);
       return [...Array(n)].map((_, i) => list.slice(i * size, (i + 1) * size));
