@@ -106,6 +106,8 @@
         />
       </div>
 
+      <BarrelsTable :barrels="barrels" class="outset-small" />
+
       <div v-if="instrumentPhotos.length" style="margin-top: 20px">
         <MiniGallery
           title="Speluret"
@@ -170,6 +172,7 @@ import { getInstrument, getRecord, search } from "@/assets/db";
 import ShowMore from "@/components/ShowMore";
 import FileGrid from "@/components/FileGrid";
 import CardGrid from "@/components/CardGrid";
+import BarrelsTable from "@/components/BarrelsTable";
 import MiniGallery from "@/components/MiniGallery";
 import Map from "@/components/Map";
 
@@ -180,6 +183,7 @@ export default {
     ShowMore,
     FileGrid,
     CardGrid,
+    BarrelsTable,
     MiniGallery,
     Map,
   },

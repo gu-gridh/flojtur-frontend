@@ -81,8 +81,7 @@ header {
   background-color: RGBA(50, 50, 50, 1);
   overflow: hidden;
   transition: all 0.2s ease-in-out;
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2),
-    0 6px 40px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0px 4px 20px 0px rgb(0 0 0 / 20%), 0 6px 40px 0 rgb(0 0 0 / 19%);
 }
 
 .grid-item-pub:hover {
