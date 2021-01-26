@@ -32,7 +32,12 @@
       </div>
     </div>
 
-    <div id="menu" class="IntroItem" v-scroll-to="'#hero'">
+    <div
+      id="menu"
+      class="IntroItem"
+      style="cursor: pointer"
+      v-scroll-to="'#hero'"
+    >
       Utforska arkivet
     </div>
 
@@ -141,7 +146,6 @@ export default {
   font-style: normal;
   font-size: 35px;
   line-height: 1.8;
-  cursor: pointer;
 }
 
 .cardMiniImage {
@@ -174,8 +178,7 @@ export default {
 }
 
 #hero {
-  height: 800px;
-  overflow: hidden;
+  height: 700px;
 }
 #ItemContainer {
   width: 72%;
@@ -183,7 +186,6 @@ export default {
   margin: 100px auto 20px;
 }
 #ItemLeft {
-  overflow: hidden;
   width: 60%;
   height: 800px;
   margin-top: -150px;
