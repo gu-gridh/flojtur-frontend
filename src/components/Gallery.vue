@@ -77,7 +77,7 @@ export default {
           : `interface/heroes/8.jpg`;
 
         instrument.place = this.createPlaceString(
-          instrument["location.address"],
+          instrument["location.location"],
           instrument.fields.loc_nr.extra.split(",")[0]
         );
         instrument.year = (
