@@ -106,8 +106,6 @@
         />
       </div>
 
-      <BarrelsTable :barrels="barrels" />
-
       <div v-if="instrumentPhotos.length" style="margin-top: 20px">
         <MiniGallery
           title="Speluret"
@@ -168,11 +166,10 @@
 </template>
 
 <script>
-import { getInstrument, getRecord, search } from "@/assets/db";
+import { getInstrument, getRecord, getBarrels, search } from "@/assets/db";
 import ShowMore from "@/components/ShowMore";
 import FileGrid from "@/components/FileGrid";
 import CardGrid from "@/components/CardGrid";
-import BarrelsTable from "@/components/BarrelsTable";
 import MiniGallery from "@/components/MiniGallery";
 import Map from "@/components/Map";
 
@@ -183,7 +180,6 @@ export default {
     ShowMore,
     FileGrid,
     CardGrid,
-    BarrelsTable,
     MiniGallery,
     Map,
   },
@@ -262,34 +258,7 @@ export default {
       this.stopCount = fields.no_stop.value;
     });
     // Find barrels for this instrument.
-    search("barrel", `equals|i_nr|${this.id}`).then(({ features }) => {
-      // For each barrel search result item, make sub-requests to complement the data.
-      // Each sub-request enriches the barrel item.
-      const requestsByBarrel = features.map((hit) => [
-        // Load each full record and add to each barrel item.
-        getRecord("barrel", hit.id).then((record) => (hit.fields = record)),
-        // Load full music info.
-        search("barmus", `equals|nr1|${hit.id}`).then(({ features }) => {
-          if (!features[0]) return;
-          hit.music = features[0];
-          return search("music", hit.music.id).then(({ features }) => {
-            Object.assign(hit.music, features[0]);
-          });
-        }),
-        // Find photos of each barrel.
-        search("photo", `equals|barrel_nr|${hit.id}`).then(
-          ({ features }) =>
-            // Pick the title photo if available, otherwise any.
-            (hit.photo = features.sort((a) =>
-              a["tag.type"] === "title" ? -1 : 1
-            )[0])
-        ),
-      ]);
-      // Flatten the list of lists.
-      const allRequests = [].concat.apply([], requestsByBarrel);
-      // Only when finished, assign the enriched barrel items to the component data item.
-      Promise.all(allRequests).then(() => (this.barrels = features));
-    });
+    getBarrels(this.id).then((barrels) => (this.barrels = barrels));
     search("photo", `equals|autom_nr|${this.id}`).then(({ features }) => {
       this.instrumentPhotos = features;
       const heroImage = features.find((hit) => hit["tag.type"] === "main");

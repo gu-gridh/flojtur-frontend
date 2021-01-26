@@ -1,6 +1,6 @@
 <template>
-  <div class="barrels-table" :class="{ collapsed }">
-    <div class="valstitles outset-small">
+  <div v-if="barrels" class="barrels-table" :class="{ collapsed }">
+    <div class="valstitles">
       <div
         class="valspostitem valse sortable"
         :class="{ 'sort-active': sortField === 'label' }"
@@ -28,7 +28,7 @@
     <TransitionExpand v-for="(barrel, i) of barrelsSorted" :key="barrel.id">
       <div
         v-show="!collapsed || i < 4"
-        class="valspost outset-small"
+        class="valspost"
         :class="{ peek: i == 3 }"
       >
         <router-link :to="`barrel/${barrel.id}`" class="valspostitem valse">
@@ -40,23 +40,24 @@
       </div>
     </TransitionExpand>
 
-    <span class="ActivateBonusMaterialText" @click="toggle">
+    <!-- <span class="ActivateBonusMaterialText" @click="toggle">
       {{ collapsed ? "Visa alla valsar..." : "Visa färre valsar..." }}
-    </span>
+    </span> -->
   </div>
 </template>
 
 <script>
+import { getBarrels } from "../assets/db";
 import TransitionExpand from "./TransitionExpand.vue";
 
 export default {
   name: "BarrelsTable",
-  props: ["barrels"],
   components: { TransitionExpand },
   data() {
     return {
+      barrels: [],
       sortField: "label",
-      collapsed: true,
+      collapsed: false,
     };
   },
   computed: {
@@ -80,11 +81,16 @@ export default {
     },
     /** A text comparator that handles åäö and empty strings. */
     compareText(a, b) {
-      return a ? a.localeCompare(b || "", "sv") : 1;
+      return a
+        ? a.localeCompare(b || "", "sv", { ignorePunctuation: true })
+        : 1;
     },
     toggle() {
       this.collapsed = !this.collapsed;
     },
+  },
+  async created() {
+    this.barrels = await getBarrels();
   },
 };
 </script>
@@ -92,6 +98,7 @@ export default {
 <style lang="scss" scoped>
 .barrels-table {
   margin-top: 20px;
+  padding: 20px 10px;
 }
 
 .valspost {
@@ -104,7 +111,7 @@ export default {
 
   .collapsed &.peek {
     background: transparent
-      linear-gradient(to bottom, white 0%, hsla(0 0 100% / 0) 50%);
+      linear-gradient(to bottom, white 0%, hsla(0 0% 100% / 0) 50%);
     margin-bottom: -2em;
 
     .valspostitem {

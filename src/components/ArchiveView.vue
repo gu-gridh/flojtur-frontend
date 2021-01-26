@@ -6,6 +6,8 @@
         <div class="viewOption">|</div>
         <router-link class="viewOption" to="/map">Karta</router-link>
         <div class="viewOption">|</div>
+        <router-link class="viewOption" to="/barrels">Stiftvalsar</router-link>
+        <div class="viewOption">|</div>
         <a
           href="https://strand.dh.gu.se/admin/"
           target="_blank"
@@ -37,7 +39,6 @@ export default {
   margin-bottom: 20px;
 }
 .ArchiveViewOptions {
-  width: 370px;
   height: 30px;
   margin-left: auto;
   margin-right: auto;

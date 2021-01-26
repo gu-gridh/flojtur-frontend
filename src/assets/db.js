@@ -46,14 +46,48 @@ export function getInstrument(id) {
   return getRecord("autom", id);
 }
 
-export function search(tb, query) {
+export function search(tb, query = "") {
   return (
     get("search", {
       tb,
-      [query.includes("|") ? "query" : "sstring"]: query
+      [query && query.includes("|") ? "query" : "sstring"]: query
     })
       // Data contains `features` (list of objects) and `num`.
       .then((response) => response.data)
       .catch((error) => console.error(error))
   );
+}
+
+export async function getBarrels(instrumentId = null) {
+  // Get all barrels if no instrument id is given.
+  const query = instrumentId ? `equals|i_nr|${instrumentId}` : null;
+  const { features } = await search("barrel", query);
+
+  // For each barrel search result item, make sub-requests to complement the data.
+  // Each sub-request enriches the barrel item.
+  const requestsByBarrel = features.map((hit) => [
+    // Load each full record and add to each barrel item.
+    getRecord("barrel", hit.id).then((record) => (hit.fields = record)),
+    // Load full music info.
+    search("barmus", `equals|nr1|${hit.id}`).then(async ({ features }) => {
+      if (!features[0]) return;
+      hit.music = features[0];
+      const { features: features_1 } = await search("music", hit.music.id);
+      Object.assign(hit.music, features_1[0]);
+    }),
+    // Find photos of each barrel.
+    search("photo", `equals|barrel_nr|${hit.id}`).then(
+      ({ features }) =>
+        // Pick the title photo if available, otherwise any.
+        (hit.photo = features.sort((a) =>
+          a["tag.type"] === "title" ? -1 : 1
+        )[0])
+    )
+  ]);
+
+  // Flatten the list of lists.
+  const allRequests = [].concat.apply([], requestsByBarrel);
+  // Only when finished, return the enriched barrel items.
+  await Promise.all(allRequests);
+  return features;
 }
