@@ -25,8 +25,14 @@
 </template>
 
 <script>
+import { getBarrels } from "../assets/db";
+
 export default {
   name: "ArchiveView",
+  created() {
+    // Pre-load data.
+    getBarrels();
+  },
 };
 </script>
 

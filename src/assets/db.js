@@ -2,6 +2,9 @@ import axios from "axios";
 
 const apiUrl = process.env.VUE_APP_APIURL || "https://dh.gu.se/ws/flojtur";
 
+// Cache for barrel records.
+const allBarrels = [];
+
 function get(name, params) {
   return axios.get(`${apiUrl}/${name}.php`, { params });
 }
@@ -59,6 +62,13 @@ export function search(tb, query = "") {
 }
 
 export async function getBarrels(instrumentId = null) {
+  // Try the cache first.
+  if (allBarrels.length) {
+    return instrumentId
+      ? allBarrels.filter((barrel) => barrel.id == instrumentId)
+      : allBarrels;
+  }
+
   // Get all barrels if no instrument id is given.
   const query = instrumentId ? `equals|i_nr|${instrumentId}` : null;
   const { features } = await search("barrel", query);
@@ -87,7 +97,13 @@ export async function getBarrels(instrumentId = null) {
 
   // Flatten the list of lists.
   const allRequests = [].concat.apply([], requestsByBarrel);
-  // Only when finished, return the enriched barrel items.
+  // Only when finished, proceed with the enriched barrel items.
   await Promise.all(allRequests);
+
+  // Cache the result.
+  if (!instrumentId) {
+    allBarrels.push(...features);
+  }
+
   return features;
 }
