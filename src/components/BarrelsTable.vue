@@ -6,7 +6,7 @@
         :class="{ 'sort-active': sortField === 'label' }"
         @click="sortBy('label')"
       >
-        Vals
+        Originaltitel
       </div>
       <div
         class="valspostitem piece sortable"

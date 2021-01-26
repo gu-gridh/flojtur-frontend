@@ -202,33 +202,30 @@ export default {
       if (!this.instrument) return [];
       return [
         { label: "Typ", value: this.instrument.obj_type.extra },
+        { label: "Byggår", value: this.buildYear },
         { label: "Plats", value: this.location, href: "#location" },
         { label: "Byggd av", value: this.builder },
-        { label: "Urmakare", value: this.clockmaker },
+        {
+          label: "Signum",
+          value: this.instrument.loc_sign.value.replace("-", ""),
+        },
+        {
+          label: "Antal stiftvalsar",
+          value: this.barrels && this.barrels.length,
+        },
       ].filter((item) => item.value);
     },
     metadata2() {
       if (!this.instrument) return [];
       return [
-        { label: "Byggår", value: this.buildYear },
+        { label: "Urmakare", value: this.clockmaker },
+        { label: "Tillverkare av fodral", value: this.casebuilder },
+        { label: "Stämmor", value: this.instrument.no_stop.value },
+        { label: "Spelverk", value: this.instrument.no_div.value },
         { label: "Plats i byggnaden", value: this.instrument.loc_in_bui.value },
-        { label: "Antal verk", value: this.instrument.no_div.value },
-        { label: "Antal stämmor", value: this.instrument.no_stop.value },
-        { label: "Fodral byggt av", value: this.casebuilder },
-        { label: "Ägare", value: this.casebuilder },
-        // Repeat it...
-        { label: "Byggår", value: this.buildYear },
-        { label: "Plats i byggnaden", value: this.instrument.loc_in_bui.value },
-        { label: "Antal verk", value: this.instrument.no_div.value },
-        { label: "Antal stämmor", value: this.instrument.no_stop.value },
-        { label: "Fodral byggt av", value: this.casebuilder },
-        { label: "Ägare", value: this.casebuilder },
-        { label: "Byggår", value: this.buildYear },
-        { label: "Plats i byggnaden", value: this.instrument.loc_in_bui.value },
-        { label: "Antal verk", value: this.instrument.no_div.value },
-        { label: "Antal stämmor", value: this.instrument.no_stop.value },
-        { label: "Fodral byggt av", value: this.casebuilder },
-        { label: "Ägare", value: this.casebuilder },
+        // TODO Omfång nedre
+        // TODO Omfång övre
+        // TODO Stämnamn
       ].filter((item) => item.value);
     },
     buildYear() {

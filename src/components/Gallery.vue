@@ -41,7 +41,6 @@
                         <div class="cardInfoObject">
                           {{ instrument.place }}, {{ instrument.year }}
                         </div>
-                        <div class="cardInfoObject">Besök</div>
                       </div>
                     </div>
                   </div>
