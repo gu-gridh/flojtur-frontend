@@ -93,7 +93,8 @@ export default {
 
 <style lang="scss" scoped>
 #site-title {
-  margin-top: 250px;
+  margin-top: 0;
+  padding-top: 250px;
 }
 
 .subtitle {

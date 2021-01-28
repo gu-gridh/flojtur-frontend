@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import AdvancedSearch from "../views/AdvancedSearch";
 import Gallery from "../components/Gallery";
 
 Vue.use(VueRouter);
@@ -29,6 +30,11 @@ const routes = [
           import(
             /* webpackChunkName: "barrels" */ "../views/BarrelsOverview.vue"
           )
+      },
+      {
+        path: "search",
+        name: "Search",
+        component: AdvancedSearch
       }
     ]
   },

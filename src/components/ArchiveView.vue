@@ -8,13 +8,9 @@
         <div class="viewOption">|</div>
         <router-link class="viewOption" to="/barrels">Stiftvalsar</router-link>
         <div class="viewOption">|</div>
-        <a
-          href="https://strand.dh.gu.se/admin/"
-          target="_blank"
-          class="viewOption"
-        >
+        <router-link class="viewOption" to="/search">
           Avancerad sökning
-        </a>
+        </router-link>
       </div>
     </div>
 
