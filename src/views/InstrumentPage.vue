@@ -10,9 +10,6 @@
       <h1>
         {{ instrument.aut_title.value }}
       </h1>
-      <h3 v-if="instrument.loc_sign.value.replace('-', '')">
-        {{ instrument.loc_sign.value }}
-      </h3>
 
       <div class="articleIngress" style="margin-top: 20px">
         <p v-if="instrument.intro.value">{{ instrument.intro.value }}</p>
