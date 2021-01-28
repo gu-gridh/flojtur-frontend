@@ -27,7 +27,10 @@
 
       <ShowMore label="Läs mer...">
         <div class="articletext" style="margin-top: 30px">
-          <p>
+          <p v-if="instrument.hist_info.value">
+            {{ instrument.hist_info.value }}
+          </p>
+          <p v-else>
             Anim sunt nisi esse aliquip cupidatat exercitation nisi veniam anim
             laborum in elit. Magna reprehenderit do duis enim pariatur
             reprehenderit proident officia et ex voluptate ullamco. Amet minim
