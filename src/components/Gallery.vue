@@ -72,7 +72,7 @@ export default {
       // loop through the instruments and augument the objects with additional data
       for (let instrument of this.instruments) {
         instrument.img = instrument.thumbnail
-          ? `https://data.dh.gu.se/flojtur/${instrument.thumbnail}`
+          ? `https://data.dh.gu.se/flojtur/500x/${instrument.thumbnail}`
           : `interface/heroes/8.jpg`;
 
         instrument.place = this.createPlaceString(
