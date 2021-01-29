@@ -4,11 +4,11 @@
       <div class="ArchiveViewOptions">
         <router-link to="/" class="viewOption">Galleri</router-link>
         <div class="viewOption">|</div>
-        <router-link class="viewOption" to="/map">Karta</router-link>
+        <router-link class="viewOption" to="/karta">Karta</router-link>
         <div class="viewOption">|</div>
-        <router-link class="viewOption" to="/barrels">Stiftvalsar</router-link>
+        <router-link class="viewOption" to="/valsar">Stiftvalsar</router-link>
         <div class="viewOption">|</div>
-        <router-link class="viewOption" to="/search">
+        <router-link class="viewOption" to="/data">
           Avancerad sökning
         </router-link>
       </div>

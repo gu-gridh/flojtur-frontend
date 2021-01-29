@@ -18,13 +18,13 @@ const routes = [
         component: Gallery
       },
       {
-        path: "map",
+        path: "karta",
         name: "Map",
         component: () =>
           import(/* webpackChunkName: "map" */ "../components/Map.vue")
       },
       {
-        path: "barrels",
+        path: "valsar",
         name: "BarrelOverview",
         component: () =>
           import(
@@ -32,7 +32,7 @@ const routes = [
           )
       },
       {
-        path: "search",
+        path: "data",
         name: "Search",
         component: AdvancedSearch
       }
@@ -62,7 +62,7 @@ const routes = [
     props: true
   },
   {
-    path: "/spelur/:automId/image/:category/:imageId",
+    path: "/spelur/:automId/bild/:category/:imageId",
     name: "ImagePage",
     component: () =>
       import(/* webpackChunkName: "image" */ "../views/ImagePage.vue"),

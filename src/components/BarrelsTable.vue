@@ -2,18 +2,18 @@
   <div v-if="barrels" class="barrels-table" :class="{ collapsed }">
     <div class="valstitles">
       <div
-        class="valspostitem valse sortable"
-        :class="{ 'sort-active': sortField === 'label' }"
-        @click="sortBy('label')"
-      >
-        Originaltitel
-      </div>
-      <div
         class="valspostitem piece sortable"
         :class="{ 'sort-active': sortField === 'title' }"
         @click="sortBy('title')"
       >
         Musikstycke
+      </div>
+      <div
+        class="valspostitem valse sortable"
+        :class="{ 'sort-active': sortField === 'label' }"
+        @click="sortBy('label')"
+      >
+        Originaltitel
       </div>
       <div
         class="valspostitem composer sortable"
@@ -26,18 +26,18 @@
     </div>
 
     <TransitionExpand v-for="(barrel, i) of barrelsSorted" :key="barrel.id">
-      <div
+      <router-link
+        tag="div"
+        :to="`valsar/${barrel.id}`"
         v-show="!collapsed || i < 4"
         class="valspost"
         :class="{ peek: i == 3 }"
       >
-        <router-link :to="`barrel/${barrel.id}`" class="valspostitem valse">
-          {{ barrel.label }}
-        </router-link>
         <div class="valspostitem piece">{{ barrel.title }}</div>
+        <div class="valspostitem valse">{{ barrel.label }}</div>
         <div class="valspostitem composer">{{ barrel.composer }}</div>
         <div class="valspostitem link">{{ barrel.link }}</div>
-      </div>
+      </router-link>
     </TransitionExpand>
 
     <!-- <span class="ActivateBonusMaterialText" @click="toggle">
@@ -56,7 +56,7 @@ export default {
   data() {
     return {
       barrels: [],
-      sortField: "label",
+      sortField: "title",
       collapsed: false,
     };
   },
@@ -108,6 +108,7 @@ export default {
   border-radius: 10px;
   margin-bottom: 20px;
   background-color: white;
+  cursor: pointer;
 
   .collapsed &.peek {
     background: transparent
