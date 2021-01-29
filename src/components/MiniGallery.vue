@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header>
+    <header v-if="title">
       <h2 v-if="title">{{ title }}</h2>
       <span
         v-if="!full && items.length > limit"
@@ -28,7 +28,7 @@
         :class="{ hidden: collapsed && i >= limit }"
         :style="`width: calc(100% / ${limit} - 15px * (${limit} - 1) / ${limit})`"
       >
-        <img :src="item.image" />
+        <img :src="item.image" @load="redraw" />
       </router-link>
     </div>
   </div>

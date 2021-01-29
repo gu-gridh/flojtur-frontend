@@ -179,4 +179,10 @@ h2 {
   background-color: rgb(245, 245, 245);
   color: black;
 }
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
 </style>

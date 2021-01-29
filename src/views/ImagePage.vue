@@ -16,12 +16,15 @@
 
       <h2 style="margin-top: 70px">Bildens titel om s&aring;dan finnes</h2>
 
-      <a :href="`https://data.dh.gu.se/flojtur/${photo.filename.value}`">
-        <div class="DownloadContainer">
+      <div class="buttons">
+        <a
+          class="DownloadContainer"
+          :href="`https://data.dh.gu.se/flojtur/${photo.filename.value}`"
+        >
           <div class="DownloadButton"></div>
-          <div class="DownloadLabel">Ladda ner</div>
-        </div>
-      </a>
+          <span class="DownloadLabel">Ladda ner</span>
+        </a>
+      </div>
 
       <div id="gallery" style="margin-top: 40px">
         <MiniGallery
@@ -112,8 +115,12 @@ export default {
   margin-top: -10px;
 }
 
+.buttons {
+  display: flex;
+}
+
 .DownloadContainer {
-  width: auto;
+  display: flex;
   margin-top: 40px;
   margin-left: -10px;
   border-radius: 10px;
@@ -134,7 +141,6 @@ export default {
   background-size: 20px 20px;
   background-repeat: no-repeat;
   background-position: center;
-  float: left;
   font-size: 12px;
   width: 30px;
   height: 30px;

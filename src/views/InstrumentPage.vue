@@ -353,12 +353,6 @@ export default {
   }
 }
 
-.clearfix::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
 dt {
   display: inline;
 }
