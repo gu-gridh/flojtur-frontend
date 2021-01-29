@@ -14,7 +14,7 @@
         <div id="ItemBack"></div>
       </router-link>
 
-      <h2 style="margin-top: 70px">Bildens titel om s&aring;dan finnes</h2>
+      <h2 v-if="title" style="margin-top: 70px">{{ title }}</h2>
 
       <div class="buttons">
         <a
@@ -64,6 +64,7 @@ export default {
     return {
       viewer: null,
       photo: null,
+      title: "",
       photos: [],
     };
   },
@@ -71,10 +72,31 @@ export default {
     this.load();
   },
   methods: {
-    load() {
-      getRecord("photo", this.imageId).then((photo) => {
-        this.photo = photo;
-      });
+    async load() {
+      this.photo = await getRecord("photo", this.imageId);
+
+      // Create a title from the related record.
+      const objectId = this.photo[`${this.category}_nr`].value;
+      const object = await getRecord(this.category, objectId);
+      if (!object.id.value) return;
+
+      switch (this.category) {
+        case "autom":
+          this.title = object.aut_title.value;
+          break;
+        case "barrel":
+          this.title = object.bar_title.value;
+          break;
+        case "stop":
+          this.title = object.stop_name.value;
+
+          // Get the division to get the instrument.
+          var division = await getRecord("division", object.nr.value);
+          var autom = await getRecord("autom", division.inst_nr.value);
+          if (autom.aut_title.value) {
+            this.title = `${autom.aut_title.value}, ${object.stop_name.value}`;
+          }
+      }
     },
   },
   watch: {
@@ -85,11 +107,13 @@ export default {
       this.load();
     },
     photo() {
-      search(
-        "photo",
-        `equals|${this.category}_nr|${this.photo[`${this.category}_nr`].value}`
-      ).then(({ features }) => {
-        this.photos = features;
+      // Find related photos.
+      const objectId = this.photo[`${this.category}_nr`].value;
+      const query = `equals|${this.category}_nr|${objectId}`;
+      search("photo", query).then(({ features }) => {
+        this.photos = features.filter(
+          (feature) => feature.id != this.photo.id.value
+        );
       });
 
       if (this.viewer) this.viewer.destroy();
@@ -106,13 +130,16 @@ export default {
         },
       });
     },
+    title() {
+      document.title = this.title;
+    },
   },
 };
 </script>
 
 <style scoped>
 #ItemBack {
-  margin-top: -10px;
+  margin-top: -7px;
 }
 
 .buttons {
