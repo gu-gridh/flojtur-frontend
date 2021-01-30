@@ -62,6 +62,13 @@ const routes = [
     props: true
   },
   {
+    path: "/valsar/:id",
+    name: "BarrelPage",
+    component: () =>
+      import(/* webpackChunkName: "barrel" */ "../views/BarrelPage.vue"),
+    props: true
+  },
+  {
     path: "/spelur/:automId/bild/:category/:imageId",
     name: "ImagePage",
     component: () =>
