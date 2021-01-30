@@ -76,12 +76,8 @@
             instrument som brukar benämnas <i>självspelande instrument</i> eller
             <i>spelautomater</i>.
           </div>
-          <audio id="Player" preload="none">
-            <source src="audio/roll.m4a" type="audio/mpeg" />
-          </audio>
-          <div id="playContainer" onclick="javascript:toggleSound();">
-            <div id="PlayButton" class="PlayIcon"></div>
-            <div id="PlayLabel">Spela stycke</div>
+          <div style="display: flex; margin-top: 20px">
+            <PlayButton />
           </div>
         </div>
       </div>
@@ -90,11 +86,12 @@
 </template>
 
 <script>
-import ThreeDViewer from "@/components/ThreeDViewer";
+import ThreeDViewer from "./ThreeDViewer";
+import PlayButton from "./PlayButton";
 
 export default {
   name: "Title",
-  components: { ThreeDViewer },
+  components: { ThreeDViewer, PlayButton },
 };
 </script>
 
@@ -210,30 +207,5 @@ export default {
   .IntroItem {
     text-align: left;
   }
-}
-
-#playContainer {
-  width: auto;
-  float: left;
-  margin-left: -10px;
-  margin-top: 20px;
-  border-radius: 15px;
-  padding: 10px;
-  cursor: pointer;
-}
-#PlayButton {
-  float: left;
-  height: 50px;
-  width: 50px;
-}
-.PlayIcon {
-  background: url(../assets/playbutton.png);
-  background-size: 50px 50px;
-}
-#PlayLabel {
-  float: left;
-  font-size: 25px;
-  margin-top: 13px;
-  margin-left: 20px;
 }
 </style>

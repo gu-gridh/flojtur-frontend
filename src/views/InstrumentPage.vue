@@ -49,21 +49,7 @@
         </div>
       </ShowMore>
 
-      <div class="clearfix" style="margin-top: 40px">
-        <dl
-          v-for="(items, i) in chunk(metadata1, 2)"
-          :key="i"
-          class="MetaContainerShort"
-        >
-          <div v-for="item in items" :key="item.label">
-            <dt>{{ item.label }}:</dt>
-            <dd v-if="item.href">
-              <a :href="item.href">{{ item.value }}</a>
-            </dd>
-            <dd v-else>{{ item.value }}</dd>
-          </div>
-        </dl>
-      </div>
+      <MetadataLarge :metadata="metadata1" class="metadata-large" />
     </div>
 
     <ShowMore label="Visa all metadata..." :contain="true">
@@ -87,23 +73,7 @@
 
     <div class="container">
       <div v-if="barrels.length" id="valsar" style="margin-top: 20px">
-        <CardGrid
-          title="Valsar"
-          masonryId="barrels-masonry"
-          :cards="
-            barrels.map((barrel) => ({
-              id: barrel.id,
-              to: `barrel/${barrel.id}`,
-              image:
-                barrel.photo &&
-                `https://data.dh.gu.se/flojtur/300x/${barrel.photo.thumbnail}`,
-              title: barrel.bar_title,
-              content:
-                barrel.music &&
-                `${barrel.music['comp.first_name']} ${barrel.music['comp.fam_name']}`,
-            }))
-          "
-        />
+        <BarrelsCardGrid title="Valsar" :barrels="barrels" />
       </div>
 
       <div v-if="instrumentPhotos.length" style="margin-top: 20px">
@@ -168,8 +138,9 @@
 <script>
 import { getInstrument, getRecord, getBarrels, search } from "@/assets/db";
 import ShowMore from "@/components/ShowMore";
+import MetadataLarge from "@/components/MetadataLarge";
 import FileGrid from "@/components/FileGrid";
-import CardGrid from "@/components/CardGrid";
+import BarrelsCardGrid from "@/components/BarrelsCardGrid";
 import MiniGallery from "@/components/MiniGallery";
 import Map from "@/components/Map";
 
@@ -178,8 +149,9 @@ export default {
   props: ["id"],
   components: {
     ShowMore,
+    MetadataLarge,
     FileGrid,
-    CardGrid,
+    BarrelsCardGrid,
     MiniGallery,
     Map,
   },
@@ -326,7 +298,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #Hero {
   padding: 0px 0px 0px 0px;
   overflow: hidden;
@@ -337,18 +309,12 @@ export default {
   background-position: center 25%;
 }
 
-.MetaContainerShort {
-  float: left;
-  white-space: nowrap;
-  width: auto;
-  margin: 0px 50px 0 0;
-  font-weight: 100;
+.metadata-large {
   font-size: 32px;
-  line-height: 2;
 }
 
 @media screen and (max-width: 910px) {
-  .MetaContainerShort {
+  .metadata-large {
     font-size: 24px;
   }
 }
