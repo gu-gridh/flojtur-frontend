@@ -1,7 +1,7 @@
 <template>
   <div class="clearfix" style="margin-top: 40px">
     <dl
-      v-for="(items, i) in chunk(metadata, 2)"
+      v-for="(items, i) in chunk(metadataFiltered, 2)"
       :key="i"
       class="MetaContainerShort"
     >
@@ -20,6 +20,11 @@
 export default {
   name: "MetadataLarge",
   props: ["metadata"],
+  computed: {
+    metadataFiltered() {
+      return this.metadata.filter(({ value }) => value);
+    },
+  },
   methods: {
     chunk(list, n = 1) {
       const size = Math.ceil(list.length / n);

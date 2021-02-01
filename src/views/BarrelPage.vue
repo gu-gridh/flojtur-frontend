@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { getBarrels, search } from "../assets/db";
+import { getBarrels, search, formatValues } from "../assets/db";
 import PlayButton from "../components/PlayButton";
 import MetadataLarge from "../components/MetadataLarge";
 import BarrelsCardGrid from "../components/BarrelsCardGrid.vue";
@@ -68,11 +68,94 @@ export default {
   },
   computed: {
     metadata() {
+      const values = formatValues(this.barrel.fields);
+      const mm = (v) => v && `${v} mm`;
       return [
-        { label: "Kompositör", value: this.composerName(this.barrel) },
-        { label: "Stycke", value: "1815" },
-        { label: "Plats", value: "Årsta slott" },
-        { label: "Antal pipor", value: 8 },
+        { label: "Vals nr", value: this.id },
+        {
+          label: "Instrument",
+          value: values.i_nr,
+          href: `/spelur/${this.barrel.fields.i_nr.value}`,
+        },
+        { label: "Inventeringsid", value: values.li_nr },
+        { label: "Konstruktionstyp", value: values.const },
+        {
+          label: "Träelement",
+          value: values.piece_info,
+        },
+        { label: "Antal träelement", value: values.no_piece },
+        { label: "Originaltitel", value: values.bar_title },
+        {
+          label: "Övrigt på ovansidan",
+          value: values.lab_note,
+        },
+        {
+          label: "Anteckningar motsatt sida",
+          value: values.sec_note,
+        },
+        {
+          label: "Valsdiameter",
+          value: mm(values.diam),
+        },
+        {
+          label: "Valslängd",
+          value: mm(values.length),
+        },
+        {
+          label: "Längd tonstift",
+          value: mm(values.mpin_h),
+        },
+        {
+          label: "Längd registreringsstift",
+          value: mm(values.rpin_h),
+        },
+        {
+          label: "Position registreringsstift",
+          value: this.barrel.fields.rpin_pos.extra,
+        },
+        {
+          label: "Håldimension framsidan",
+          value: mm(values.dim_uhole),
+        },
+        {
+          label: "Håldimension baksidan",
+          value: mm(values.dim_dhole),
+        },
+        {
+          label: "Monteringsmarkering",
+          value: values.mount_mark,
+        },
+        {
+          label: "Ytbehandling",
+          value:
+            (this.barrel.fields.surf_treat.extra === "oklar" ? "Oklar. " : "") +
+            this.barrel.fields.strea_info.value,
+        },
+        {
+          label: "Rutmönster",
+          value:
+            this.barrel.fields.grid_info.value ||
+            (this.barrel.fields.grid.value === "Yes" ? "Ja" : null),
+        },
+        {
+          label: "Stämpel",
+          value:
+            this.barrel.fields.stamp_desc.extra +
+              (this.barrel.fields.stamp_info.value
+                ? ` (${this.barrel.fields.stamp_info.value})`
+                : "") ||
+            (this.barrel.fields.stamp.value === "Yes" ? "Ja" : null),
+        },
+        {
+          label: "Rillor",
+          value:
+            this.barrel.fields.groove_inf.value ||
+            (this.barrel.fields.groove.value === "Yes" ? "Ja" : null),
+        },
+        {
+          label: "Övrig info",
+          value: values.bar_info.replace("<BR>", " "),
+        },
       ];
     },
   },

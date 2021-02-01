@@ -107,3 +107,12 @@ export async function getBarrels(instrumentId = null) {
 
   return features;
 }
+
+export function formatValues(fields) {
+  const values = {};
+  Object.keys(fields).forEach((prop) => {
+    values[prop] = fields[prop].ftab ? fields[prop].extra : fields[prop].value;
+    values[prop] = values[prop].replace(/^[-?]$/, "");
+  });
+  return values;
+}
