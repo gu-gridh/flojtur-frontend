@@ -1,27 +1,31 @@
 <template>
   <div v-if="barrel">
     <div id="Valstriptyk">
-      <div
+      <router-link
         v-if="photos.title"
+        tag="div"
+        :to="photos.title.linkRoute"
         class="valsbild title"
-        :style="{ backgroundImage: `url(${photos.title})` }"
-      ></div>
-      <div
+        :style="{ backgroundImage: `url(${photos.title.imageUrl})` }"
+      ></router-link>
+      <router-link
         v-if="photos.side"
+        tag="div"
+        :to="photos.side.linkRoute"
         class="valsbild side"
-        :style="{ backgroundImage: `url(${photos.side})` }"
-      ></div>
-      <div
+        :style="{ backgroundImage: `url(${photos.side.imageUrl})` }"
+      ></router-link>
+      <router-link
         v-if="photos.back"
+        tag="div"
+        :to="photos.back.linkRoute"
         class="valsbild back"
-        :style="{ backgroundImage: `url(${photos.back})` }"
-      ></div>
+        :style="{ backgroundImage: `url(${photos.back.imageUrl})` }"
+      ></router-link>
     </div>
 
     <div class="container">
-      <a href="index.html#herogallery">
-        <div id="ItemBack"></div>
-      </a>
+      <div id="ItemBack" @click="$router.back()"></div>
 
       <h1 class="MainTitles">{{ barrel.bar_title }}</h1>
 
@@ -72,9 +76,14 @@ export default {
       ];
     },
   },
-  created() {
-    this.loadData();
-    this.loadPhotos();
+  async created() {
+    await Promise.all([this.loadData(), this.loadPhotos()]);
+    Object.keys(this.photos).forEach(
+      (type) =>
+        (this.photos[
+          type
+        ].linkRoute.params.automId = this.barrel.fields.i_nr.value)
+    );
   },
   methods: {
     async loadData() {
@@ -92,9 +101,18 @@ export default {
       this.photos = {};
       result.features.forEach((photo) => {
         const type = photo["tag.type"];
-        this.photos[
-          type
-        ] = `https://data.dh.gu.se/flojtur/1000x/${photo.filename}`;
+        this.photos[type] = {
+          imageUrl: `https://data.dh.gu.se/flojtur/1000x/${photo.filename}`,
+          linkRoute: {
+            name: "ImagePage",
+            params: {
+              // automId gets properly set when the barrel record has been loaded.
+              automId: 0,
+              category: "barrel",
+              imageId: photo.id,
+            },
+          },
+        };
       });
     },
     composerName(barrel) {
@@ -117,6 +135,7 @@ export default {
   float: left;
   height: 50vh;
   width: 33.33%;
+  cursor: pointer;
 
   &.title,
   &.back {

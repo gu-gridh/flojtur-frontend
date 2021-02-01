@@ -63,7 +63,7 @@
           />
         </div>
         <div id="ItemRight" style="">
-          <div class="IntroItem">Mekaniken</div>
+          <div class="IntroItem">Ett självspelande flöjtur</div>
           <div
             class="articleIngress"
             style="margin-top: 10px; text-align: left"
