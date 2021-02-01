@@ -26,17 +26,22 @@
 
     <div class="container">
       <div id="ItemBack" @click="$router.back()"></div>
-
       <h1 class="MainTitles">{{ barrel.bar_title }}</h1>
-
       <div class="buttons">
         <PlayButton />
       </div>
+      <MetadataLarge :items="metadata.primary" class="metadata" />
+    </div>
 
-      <MetadataLarge :metadata="metadata" class="metadata" />
+    <ShowMore label="Visa all metadata..." :contain="true">
+      <div id="metaFileEnclosure" class="outset-large">
+        <h2 style="margin-top: 0">Metadata</h2>
+        <MetadataSmall :items="metadata.secondary" />
+      </div>
+    </ShowMore>
 
+    <div class="container">
       <BarrelsCardGrid title="Valsar i samma samling" :barrels="automBarrels" />
-
       <BarrelsCardGrid
         v-if="composerName(barrel)"
         :title="`Mer av ${composerName(barrel)}`"
@@ -50,6 +55,8 @@
 import { getBarrels, search, formatValues } from "../assets/db";
 import PlayButton from "../components/PlayButton";
 import MetadataLarge from "../components/MetadataLarge";
+import MetadataSmall from "../components/MetadataSmall";
+import ShowMore from "../components/ShowMore";
 import BarrelsCardGrid from "../components/BarrelsCardGrid.vue";
 
 export default {
@@ -57,7 +64,13 @@ export default {
   props: {
     id: [String, Number],
   },
-  components: { PlayButton, MetadataLarge, BarrelsCardGrid },
+  components: {
+    PlayButton,
+    MetadataLarge,
+    MetadataSmall,
+    ShowMore,
+    BarrelsCardGrid,
+  },
   data() {
     return {
       barrel: null,
@@ -70,93 +83,98 @@ export default {
     metadata() {
       const values = formatValues(this.barrel.fields);
       const mm = (v) => v && `${v} mm`;
-      return [
-        { label: "Vals nr", value: this.id },
-        {
-          label: "Instrument",
-          value: values.i_nr,
-          href: `/spelur/${this.barrel.fields.i_nr.value}`,
-        },
-        { label: "Inventeringsid", value: values.li_nr },
-        { label: "Konstruktionstyp", value: values.const },
-        {
-          label: "Träelement",
-          value: values.piece_info,
-        },
-        { label: "Antal träelement", value: values.no_piece },
-        { label: "Originaltitel", value: values.bar_title },
-        {
-          label: "Övrigt på ovansidan",
-          value: values.lab_note,
-        },
-        {
-          label: "Anteckningar motsatt sida",
-          value: values.sec_note,
-        },
-        {
-          label: "Valsdiameter",
-          value: mm(values.diam),
-        },
-        {
-          label: "Valslängd",
-          value: mm(values.length),
-        },
-        {
-          label: "Längd tonstift",
-          value: mm(values.mpin_h),
-        },
-        {
-          label: "Längd registreringsstift",
-          value: mm(values.rpin_h),
-        },
-        {
-          label: "Position registreringsstift",
-          value: this.barrel.fields.rpin_pos.extra,
-        },
-        {
-          label: "Håldimension framsidan",
-          value: mm(values.dim_uhole),
-        },
-        {
-          label: "Håldimension baksidan",
-          value: mm(values.dim_dhole),
-        },
-        {
-          label: "Monteringsmarkering",
-          value: values.mount_mark,
-        },
-        {
-          label: "Ytbehandling",
-          value:
-            (this.barrel.fields.surf_treat.extra === "oklar" ? "Oklar. " : "") +
-            this.barrel.fields.strea_info.value,
-        },
-        {
-          label: "Rutmönster",
-          value:
-            this.barrel.fields.grid_info.value ||
-            (this.barrel.fields.grid.value === "Yes" ? "Ja" : null),
-        },
-        {
-          label: "Stämpel",
-          value:
-            this.barrel.fields.stamp_desc.extra +
-              (this.barrel.fields.stamp_info.value
-                ? ` (${this.barrel.fields.stamp_info.value})`
-                : "") ||
-            (this.barrel.fields.stamp.value === "Yes" ? "Ja" : null),
-        },
-        {
-          label: "Rillor",
-          value:
-            this.barrel.fields.groove_inf.value ||
-            (this.barrel.fields.groove.value === "Yes" ? "Ja" : null),
-        },
-        {
-          label: "Övrig info",
-          value: values.bar_info.replace("<BR>", " "),
-        },
-      ];
+      return {
+        primary: [
+          { label: "Vals nr", value: this.id },
+          {
+            label: "Instrument",
+            value: values.i_nr,
+            href: `/spelur/${this.barrel.fields.i_nr.value}`,
+          },
+          { label: "Inventeringsid", value: values.li_nr },
+          { label: "Konstruktionstyp", value: values.const },
+          {
+            label: "Träelement",
+            value: values.piece_info,
+          },
+          { label: "Antal träelement", value: values.no_piece },
+          { label: "Originaltitel", value: values.bar_title },
+        ],
+        secondary: [
+          {
+            label: "Övrigt på ovansidan",
+            value: values.lab_note,
+          },
+          {
+            label: "Anteckningar motsatt sida",
+            value: values.sec_note,
+          },
+          {
+            label: "Valsdiameter",
+            value: mm(values.diam),
+          },
+          {
+            label: "Valslängd",
+            value: mm(values.length),
+          },
+          {
+            label: "Längd tonstift",
+            value: mm(values.mpin_h),
+          },
+          {
+            label: "Längd registreringsstift",
+            value: mm(values.rpin_h),
+          },
+          {
+            label: "Position registreringsstift",
+            value: this.barrel.fields.rpin_pos.extra,
+          },
+          {
+            label: "Håldimension framsidan",
+            value: mm(values.dim_uhole),
+          },
+          {
+            label: "Håldimension baksidan",
+            value: mm(values.dim_dhole),
+          },
+          {
+            label: "Monteringsmarkering",
+            value: values.mount_mark,
+          },
+          {
+            label: "Ytbehandling",
+            value:
+              (this.barrel.fields.surf_treat.extra === "oklar"
+                ? "Oklar. "
+                : "") + this.barrel.fields.strea_info.value,
+          },
+          {
+            label: "Rutmönster",
+            value:
+              this.barrel.fields.grid_info.value ||
+              (this.barrel.fields.grid.value === "Yes" ? "Ja" : null),
+          },
+          {
+            label: "Stämpel",
+            value:
+              this.barrel.fields.stamp_desc.extra +
+                (this.barrel.fields.stamp_info.value
+                  ? ` (${this.barrel.fields.stamp_info.value})`
+                  : "") ||
+              (this.barrel.fields.stamp.value === "Yes" ? "Ja" : null),
+          },
+          {
+            label: "Rillor",
+            value:
+              this.barrel.fields.groove_inf.value ||
+              (this.barrel.fields.groove.value === "Yes" ? "Ja" : null),
+          },
+          {
+            label: "Övrig info",
+            value: values.bar_info.replace("<BR>", " "),
+          },
+        ],
+      };
     },
   },
   async created() {
@@ -236,5 +254,14 @@ export default {
 }
 .metadata {
   font-size: 24px;
+}
+
+#metaFileEnclosure {
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.2),
+    0 6px 40px 0 rgba(0, 0, 0, 0.19);
+  padding: 30px;
+  border-radius: 20px;
+  color: white;
+  background-color: RGBA(50, 50, 50, 1);
 }
 </style>   

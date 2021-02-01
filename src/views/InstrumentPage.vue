@@ -49,22 +49,14 @@
         </div>
       </ShowMore>
 
-      <MetadataLarge :metadata="metadata1" class="metadata-large" />
+      <MetadataLarge :items="metadata1" class="metadata-large" />
     </div>
 
     <ShowMore label="Visa all metadata..." :contain="true">
       <div id="metaFileEnclosure" class="outset-large">
         <h2 style="margin-top: 0">Metadata</h2>
 
-        <dl class="MetaContainerLong">
-          <div v-for="(item, i) in metadata2" :key="i">
-            <dt>{{ item.label }}:</dt>
-            <dd v-if="item.href">
-              <a :href="item.href">{{ item.value }}</a>
-            </dd>
-            <dd v-else>{{ item.value }}</dd>
-          </div>
-        </dl>
+        <MetadataSmall :items="metadata2" />
 
         <h2>Filer</h2>
         <FileGrid :files="[{}, {}]" />
@@ -138,6 +130,7 @@
 import { getInstrument, getRecord, getBarrels, search } from "@/assets/db";
 import ShowMore from "@/components/ShowMore";
 import MetadataLarge from "@/components/MetadataLarge";
+import MetadataSmall from "@/components/MetadataSmall";
 import FileGrid from "@/components/FileGrid";
 import BarrelsCardGrid from "@/components/BarrelsCardGrid";
 import MiniGallery from "@/components/MiniGallery";
@@ -149,6 +142,7 @@ export default {
   components: {
     ShowMore,
     MetadataLarge,
+    MetadataSmall,
     FileGrid,
     BarrelsCardGrid,
     MiniGallery,
@@ -315,54 +309,6 @@ export default {
 @media screen and (max-width: 910px) {
   .metadata-large {
     font-size: 24px;
-  }
-}
-
-dt {
-  display: inline;
-}
-dd {
-  display: inline;
-  margin-left: 0.2em;
-  color: #c029bb;
-}
-
-/* TODO Set this font size etc. as body default. */
-.MetaContainerLong {
-  margin-top: 10px;
-  column-count: 5;
-  column-gap: 40px;
-  font-size: 18px;
-  line-height: 2;
-  padding: 10px 0;
-}
-
-.MetaContainerLong dd {
-  color: #fd8ef9;
-}
-
-@media screen and (max-width: 1600px) {
-  .MetaContainerLong {
-    column-count: 4;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .MetaContainerLong {
-    column-count: 3;
-  }
-}
-
-@media screen and (max-width: 910px) {
-  .MetaContainerLong {
-    column-count: 2;
-  }
-}
-
-@media screen and (max-width: 610px) {
-  .MetaContainerLong {
-    column-count: 1;
-    font-size: 22px;
   }
 }
 

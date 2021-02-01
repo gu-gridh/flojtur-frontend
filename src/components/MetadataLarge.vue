@@ -1,11 +1,11 @@
 <template>
-  <div class="clearfix" style="margin-top: 40px">
+  <div v-if="items" class="clearfix" style="margin-top: 40px">
     <dl
-      v-for="(items, i) in chunk(metadataFiltered, 2)"
+      v-for="(itemsChunk, i) in chunk(itemsFiltered, 2)"
       :key="i"
       class="MetaContainerShort"
     >
-      <div v-for="item in items" :key="item.label">
+      <div v-for="item in itemsChunk" :key="item.label">
         <dt>{{ item.label }}:</dt>
         <dd v-if="item.href">
           <a :href="item.href">{{ item.value }}</a>
@@ -19,10 +19,15 @@
 <script>
 export default {
   name: "MetadataLarge",
-  props: ["metadata"],
+  props: ["items"],
   computed: {
-    metadataFiltered() {
-      return this.metadata.filter(({ value }) => value);
+    itemsFiltered() {
+      return this.items
+        .map((item) => ({
+          ...item,
+          value: item.value && String(item.value).replace(/^[-?]$/, ""),
+        }))
+        .filter(({ value }) => value);
     },
   },
   methods: {
