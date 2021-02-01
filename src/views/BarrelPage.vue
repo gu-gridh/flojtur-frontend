@@ -2,30 +2,19 @@
   <div v-if="barrel">
     <div id="Valstriptyk">
       <div
-        class="valsbild"
-        style="
-          background: url(interface/heroes/vals1.jpg);
-          background-position: 50% 65%;
-          background-size: 250%;
-          background-repeat: no-repeat;
-        "
+        v-if="photos.title"
+        class="valsbild title"
+        :style="{ backgroundImage: `url(${photos.title})` }"
       ></div>
       <div
-        class="valsbild"
-        style="
-          background: url(interface/heroes/vals2.jpg);
-          background-position: center;
-          background-size: cover;
-        "
+        v-if="photos.side"
+        class="valsbild side"
+        :style="{ backgroundImage: `url(${photos.side})` }"
       ></div>
       <div
-        class="valsbild"
-        style="
-          background: url(interface/heroes/vals3.jpg);
-          background-position: 50% 65%;
-          background-size: 250%;
-          background-repeat: no-repeat;
-        "
+        v-if="photos.back"
+        class="valsbild back"
+        :style="{ backgroundImage: `url(${photos.back})` }"
       ></div>
     </div>
 
@@ -54,7 +43,7 @@
 </template>
 
 <script>
-import { getBarrels } from "../assets/db";
+import { getBarrels, search } from "../assets/db";
 import PlayButton from "../components/PlayButton";
 import MetadataLarge from "../components/MetadataLarge";
 import BarrelsCardGrid from "../components/BarrelsCardGrid.vue";
@@ -68,6 +57,7 @@ export default {
   data() {
     return {
       barrel: null,
+      photos: {},
       automBarrels: [],
       composerBarrels: [],
     };
@@ -83,10 +73,11 @@ export default {
     },
   },
   created() {
-    this.load();
+    this.loadData();
+    this.loadPhotos();
   },
   methods: {
-    async load() {
+    async loadData() {
       const allBarrels = await getBarrels();
       this.barrel = allBarrels.find((barrel) => barrel.id === this.id);
       this.automBarrels = allBarrels.filter(
@@ -95,6 +86,16 @@ export default {
       this.composerBarrels = allBarrels.filter(
         (barrel) => this.composerName(barrel) === this.composerName(this.barrel)
       );
+    },
+    async loadPhotos() {
+      const result = await search("photo", `equals|barrel_nr|${this.id}`);
+      this.photos = {};
+      result.features.forEach((photo) => {
+        const type = photo["tag.type"];
+        this.photos[
+          type
+        ] = `https://data.dh.gu.se/flojtur/1000x/${photo.filename}`;
+      });
     },
     composerName(barrel) {
       return (
@@ -106,7 +107,28 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+#Valstriptyk {
+  width: 100%;
+  height: 50vh;
+}
+
+.valsbild {
+  float: left;
+  height: 50vh;
+  width: 33.33%;
+
+  &.title,
+  &.back {
+    background-position: 50% 65%;
+    background-size: 250%;
+    background-repeat: no-repeat;
+  }
+  &.side {
+    background-position: center;
+    background-size: cover;
+  }
+}
 .buttons {
   display: flex;
 }
