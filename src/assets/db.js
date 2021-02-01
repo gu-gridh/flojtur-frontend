@@ -65,7 +65,7 @@ export async function getBarrels(instrumentId = null) {
   // Try the cache first.
   if (allBarrels.length) {
     return instrumentId
-      ? allBarrels.filter((barrel) => barrel.id == instrumentId)
+      ? allBarrels.filter((barrel) => barrel.fields.i_nr.value == instrumentId)
       : allBarrels;
   }
 

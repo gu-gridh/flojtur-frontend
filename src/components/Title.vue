@@ -86,7 +86,8 @@
 </template>
 
 <script>
-import ThreeDViewer from "./ThreeDViewer";
+const ThreeDViewer = () =>
+  import(/* webpackChunkName: "3d" */ "./ThreeDViewer");
 import PlayButton from "./PlayButton";
 
 export default {
