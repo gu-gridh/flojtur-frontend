@@ -69,7 +69,9 @@ export default {
           title: barrel.music && barrel.music.title,
           composer:
             barrel.music &&
-            `${barrel.music["comp.first_name"]} ${barrel.music["comp.fam_name"]}`,
+            [barrel.music["comp.first_name"], barrel.music["comp.fam_name"]]
+              .filter(Boolean)
+              .join(" "),
           link: null,
         }))
         .sort((a, b) => this.compareText(a[this.sortField], b[this.sortField]));
@@ -81,9 +83,9 @@ export default {
     },
     /** A text comparator that handles åäö and empty strings. */
     compareText(a, b) {
-      return a
-        ? a.localeCompare(b || "", "sv", { ignorePunctuation: true })
-        : 1;
+      return a && b
+        ? a.localeCompare(b, "sv", { ignorePunctuation: true })
+        : !a - !b;
     },
     toggle() {
       this.collapsed = !this.collapsed;

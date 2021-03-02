@@ -25,7 +25,9 @@ export default {
         title: barrel.bar_title,
         content:
           barrel.music &&
-          `${barrel.music["comp.first_name"]} ${barrel.music["comp.fam_name"]}`,
+          [barrel.music["comp.first_name"], barrel.music["comp.fam_name"]]
+            .filter(Boolean)
+            .join(" "),
       }));
     },
   },
