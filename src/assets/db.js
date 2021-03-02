@@ -3,7 +3,7 @@ import axios from "axios";
 const apiUrl = process.env.VUE_APP_APIURL || "https://dh.gu.se/ws/flojtur";
 
 // Cache for barrel records.
-const allBarrels = [];
+let allBarrels = [];
 
 function get(name, params) {
   return axios.get(`${apiUrl}/${name}.php`, { params });
@@ -99,8 +99,11 @@ export async function getBarrels(instrumentId = null) {
   const barrelIds = barrels.map((barrel) => barrel.id);
 
   // Helper function for enriching the barrel records with associated data.
-  const zipOntoBarrels = (prop, find) =>
-    barrels.forEach((barrel) => (barrel[prop] = find(barrel.id)));
+  const zipOntoBarrels = (prop, values, getBarrelId) =>
+    barrels.forEach(
+      (barrel) =>
+        (barrel[prop] = values.find((item) => getBarrelId(item) == barrel.id))
+    );
 
   // Each barrel record is enriched with more data from related tables.
   // These requests are done in parallel.
@@ -112,13 +115,12 @@ export async function getBarrels(instrumentId = null) {
         "music",
         `in|id|${barmuses.map((barmus) => barmus.fields.nr2.value).join()}`
       );
-      zipOntoBarrels("music", (barrelId) =>
-        musicRes.features.find(
-          (music) =>
-            barrelId ==
-            barmuses.find((barmus) => barmus.fields.nr2.value == music.id)
-              .fields.nr1.value
-        )
+      zipOntoBarrels(
+        "music",
+        musicRes.features,
+        (music) =>
+          barmuses.find((barmus) => barmus.fields.nr2.value == music.id).fields
+            .nr1.value
       );
     })(),
 
@@ -131,19 +133,16 @@ export async function getBarrels(instrumentId = null) {
 
       zipOntoBarrels(
         "photo",
-        (barrelId) =>
-          photos
-            // For each short photo, find the corresponding full photo  Get the photos of this ba
-            .filter((photo) => photo.fields.barrel_nr.value == barrelId)
-            // Pick the title photo if available, otherwise any.
-            .sort((photo) => (photo["tag.type"] === "title" ? -1 : 1))[0]
+        // Put title photos before others.
+        photos.sort((photo) => (photo["tag.type"] === "title" ? -1 : 1)),
+        (photo) => photo.fields.barrel_nr.value
       );
     })()
   ]);
 
   // Cache the result.
   if (!instrumentId) {
-    allBarrels.push(...barrels);
+    allBarrels = [...barrels];
   }
 
   return barrels;

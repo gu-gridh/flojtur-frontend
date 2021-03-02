@@ -26,8 +26,8 @@ import { getBarrels } from "../assets/db";
 export default {
   name: "ArchiveView",
   created() {
-    // Pre-load data.
-    getBarrels();
+    // Pre-load data, unless starting out on the barrel page, because BarrelsTable will do it then.
+    if (this.$route.name !== "BarrelOverview") getBarrels();
   },
 };
 </script>
