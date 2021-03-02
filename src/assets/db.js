@@ -17,23 +17,34 @@ export function getRecord(table, id) {
     });
 }
 
-export function getInstruments() {
+export function getRecords(table, ids) {
+  return get("edit", { tb: table, ids: ids.join() })
+    .then((response) => response.data.map((record) => record.fields))
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
+export async function getInstruments() {
   // Each actual instrument has multiple autom records, one for each activity. Activity type 1 is "Inventering".
-  return get("search", { tb: "autom", query: "equals|act_type|1" })
-    .then((response) => {
-      return Promise.all(
-        response.data.features.map((record) =>
-          // Get the full details for each and merge them with the brief info.
-          getInstrument(record.id)
-            .then((fields) => ({ ...record, fields }))
-            .catch((error) => {
-              console.error(error);
-              return record;
-            })
-        )
-      );
-    })
-    .catch((error) => console.error(error));
+  const shorts = await get("search", {
+    tb: "autom",
+    query: "equals|act_type|1"
+  })
+    .then((response) => response.data.features)
+    .catch((error) => console.error(error) || []);
+
+  // Get full records.
+  const records = await getRecords(
+    "autom",
+    shorts.map((short) => short.id)
+  ).catch((error) => console.error(error) || []);
+
+  // Merge in the search results because they have some additional values.
+  return records.map((fields) => ({
+    fields,
+    ...shorts.find((short) => short.id == fields.id.value)
+  }));
 }
 
 export function getLocations() {
@@ -71,41 +82,88 @@ export async function getBarrels(instrumentId = null) {
 
   // Get all barrels if no instrument id is given.
   const query = instrumentId ? `equals|i_nr|${instrumentId}` : null;
-  const { features } = await search("barrel", query);
+  const { features: barrels } = await search("barrel", query);
+  const barrelIds = barrels.map((barrel) => barrel.id);
 
-  // For each barrel search result item, make sub-requests to complement the data.
-  // Each sub-request enriches the barrel item.
-  const requestsByBarrel = features.map((hit) => [
-    // Load each full record and add to each barrel item.
-    getRecord("barrel", hit.id).then((record) => (hit.fields = record)),
+  // Helper function for enriching the barrel records with associated data.
+  const zipOntoBarrels = (prop, find) =>
+    barrels.forEach((barrel) => (barrel[prop] = find(barrel.id)));
+
+  // Each barrel record is enriched with more data from related tables.
+  // These requests are done in parallel.
+  await Promise.all([
+    // Load full records.
+    (async () => {
+      const fullBarrels = await getRecords(
+        "barrel",
+        barrels.map((barrel) => barrel.id)
+      );
+      zipOntoBarrels("fields", (barrelId) =>
+        fullBarrels.find((fields) => fields.id.value == barrelId)
+      );
+    })(),
+
     // Load full music info.
-    search("barmus", `equals|nr1|${hit.id}`).then(async ({ features }) => {
-      if (!features[0]) return;
-      hit.music = features[0];
-      const { features: features_1 } = await search("music", hit.music.id);
-      Object.assign(hit.music, features_1[0]);
-    }),
-    // Find photos of each barrel.
-    search("photo", `equals|barrel_nr|${hit.id}`).then(
-      ({ features }) =>
-        // Pick the title photo if available, otherwise any.
-        (hit.photo = features.sort((a) =>
-          a["tag.type"] === "title" ? -1 : 1
-        )[0])
-    )
-  ]);
+    (async () => {
+      const barmusRes = await search("barmus", `in|nr1|${barrelIds.join()}`);
+      const barmusFullRes = await get("edit", {
+        tb: "barmus",
+        ids: barmusRes.features.map((barmus) => barmus.id).join()
+      });
+      const barmuses = barmusRes.features.map((barmus) => ({
+        ...barmus,
+        ...barmusFullRes.data.find(({ fields }) => fields.id.value == barmus.id)
+      }));
+      const musicRes = await search(
+        "music",
+        `in|id|${barmuses.map((barmus) => barmus.fields.nr2.value).join()}`
+      );
+      zipOntoBarrels("music", (barrelId) =>
+        musicRes.features.find(
+          (music) =>
+            barrelId ==
+            barmuses.find((barmus) => barmus.fields.nr2.value == music.id)
+              .fields.nr1.value
+        )
+      );
+    })(),
 
-  // Flatten the list of lists.
-  const allRequests = [].concat.apply([], requestsByBarrel);
-  // Only when finished, proceed with the enriched barrel items.
-  await Promise.all(allRequests);
+    // Find photos.
+    (async () => {
+      const photosRes = await search(
+        "photo",
+        `in|barrel_nr|${barrelIds.join()}`
+      );
+      // Load full photo records just to find the barrel reference for each photo.
+      const photosFullRes = await get("edit", {
+        tb: "photo",
+        ids: photosRes.features.map((photo) => photo.id).join()
+      });
+
+      // Merge full records into the short ones.
+      const photos = photosRes.features.map((photo) => ({
+        ...photo,
+        ...photosFullRes.data.find(({ fields }) => fields.id.value == photo.id)
+      }));
+
+      zipOntoBarrels(
+        "photo",
+        (barrelId) =>
+          photos
+            // For each short photo, find the corresponding full photo  Get the photos of this ba
+            .filter((photo) => photo.fields.barrel_nr.value == barrelId)
+            // Pick the title photo if available, otherwise any.
+            .sort((photo) => (photo["tag.type"] === "title" ? -1 : 1))[0]
+      );
+    })()
+  ]);
 
   // Cache the result.
   if (!instrumentId) {
-    allBarrels.push(...features);
+    allBarrels.push(...barrels);
   }
 
-  return features;
+  return barrels;
 }
 
 export function formatValues(fields) {

@@ -17,7 +17,10 @@ export default {
   computed: {
     itemsFiltered() {
       return this.items
-        .map((item) => ({ ...item, value: item.value.replace(/^[-?]$/, "") }))
+        .map((item) => ({
+          ...item,
+          value: item.value && item.value.replace(/^[-?]$/, ""),
+        }))
         .filter(({ value }) => value);
     },
   },
