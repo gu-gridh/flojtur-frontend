@@ -72,6 +72,19 @@ export function search(tb, query = "") {
   );
 }
 
+/** Search and then request and add the full records. */
+export async function searchFull(table, query) {
+  const resShort = await search(table, query);
+  const resFull = await get("edit", {
+    tb: table,
+    ids: resShort.features.map((short) => short.id).join()
+  });
+  return resShort.features.map((short) => ({
+    ...short,
+    ...resFull.data.find(({ fields }) => fields.id.value == short.id)
+  }));
+}
+
 export async function getBarrels(instrumentId = null) {
   // Try the cache first.
   if (allBarrels.length) {
@@ -82,7 +95,7 @@ export async function getBarrels(instrumentId = null) {
 
   // Get all barrels if no instrument id is given.
   const query = instrumentId ? `equals|i_nr|${instrumentId}` : null;
-  const { features: barrels } = await search("barrel", query);
+  const barrels = await searchFull("barrel", query);
   const barrelIds = barrels.map((barrel) => barrel.id);
 
   // Helper function for enriching the barrel records with associated data.
@@ -92,28 +105,9 @@ export async function getBarrels(instrumentId = null) {
   // Each barrel record is enriched with more data from related tables.
   // These requests are done in parallel.
   await Promise.all([
-    // Load full records.
-    (async () => {
-      const fullBarrels = await getRecords(
-        "barrel",
-        barrels.map((barrel) => barrel.id)
-      );
-      zipOntoBarrels("fields", (barrelId) =>
-        fullBarrels.find((fields) => fields.id.value == barrelId)
-      );
-    })(),
-
     // Load full music info.
     (async () => {
-      const barmusRes = await search("barmus", `in|nr1|${barrelIds.join()}`);
-      const barmusFullRes = await get("edit", {
-        tb: "barmus",
-        ids: barmusRes.features.map((barmus) => barmus.id).join()
-      });
-      const barmuses = barmusRes.features.map((barmus) => ({
-        ...barmus,
-        ...barmusFullRes.data.find(({ fields }) => fields.id.value == barmus.id)
-      }));
+      const barmuses = await searchFull("barmus", `in|nr1|${barrelIds.join()}`);
       const musicRes = await search(
         "music",
         `in|id|${barmuses.map((barmus) => barmus.fields.nr2.value).join()}`
@@ -130,21 +124,10 @@ export async function getBarrels(instrumentId = null) {
 
     // Find photos.
     (async () => {
-      const photosRes = await search(
+      const photos = await searchFull(
         "photo",
         `in|barrel_nr|${barrelIds.join()}`
       );
-      // Load full photo records just to find the barrel reference for each photo.
-      const photosFullRes = await get("edit", {
-        tb: "photo",
-        ids: photosRes.features.map((photo) => photo.id).join()
-      });
-
-      // Merge full records into the short ones.
-      const photos = photosRes.features.map((photo) => ({
-        ...photo,
-        ...photosFullRes.data.find(({ fields }) => fields.id.value == photo.id)
-      }));
 
       zipOntoBarrels(
         "photo",
