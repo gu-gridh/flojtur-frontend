@@ -1,6 +1,6 @@
 <template>
   <dl>
-    <div v-for="(item, i) in itemsFiltered" :key="i">
+    <div v-for="(item, i) in itemsFiltered" :key="i" class="item">
       <dt>{{ item.label }}:</dt>
       <dd v-if="item.href">
         <a :href="item.href">{{ item.value }}</a>
@@ -33,8 +33,12 @@ dl {
   column-count: 5;
   column-gap: 40px;
   font-size: 18px;
-  line-height: 2;
+  line-height: 1.5;
   padding: 10px 0;
+}
+
+.item {
+  margin-bottom: 0.5em;
 }
 
 dt {
