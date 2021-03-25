@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import TransitionExpand from "@/components/TransitionExpand";
+import TransitionExpand from "@/components/TransitionExpand.vue";
 
 export default {
   name: "ShowMore",

@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import { getBarrels } from "../assets/db";
-import TransitionExpand from "./TransitionExpand.vue";
+import { getBarrels } from "@/assets/db";
+import TransitionExpand from "@/components/TransitionExpand.vue";
 
 export default {
   name: "BarrelsTable",

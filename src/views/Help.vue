@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import Title from "../components/Title";
+import Title from "@/components/Title.vue";
 
 export default {
   name: "Help",

@@ -52,12 +52,12 @@
 </template>
 
 <script>
-import { getBarrels, search, formatValues } from "../assets/db";
-import PlayButton from "../components/PlayButton";
-import MetadataLarge from "../components/MetadataLarge";
-import MetadataSmall from "../components/MetadataSmall";
-import ShowMore from "../components/ShowMore";
-import BarrelsCardGrid from "../components/BarrelsCardGrid.vue";
+import { getBarrels, search, formatValues } from "@/assets/db";
+import PlayButton from "@/components/PlayButton.vue";
+import MetadataLarge from "@/components/MetadataLarge.vue";
+import MetadataSmall from "@/components/MetadataSmall.vue";
+import ShowMore from "@/components/ShowMore.vue";
+import BarrelsCardGrid from "@/components/BarrelsCardGrid.vue";
 
 export default {
   name: "BarrelPage",

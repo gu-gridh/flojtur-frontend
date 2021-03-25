@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import CardGrid from "./CardGrid";
+import CardGrid from "@/components/CardGrid.vue";
 
 export default {
   name: "BarrelsCardGrid",

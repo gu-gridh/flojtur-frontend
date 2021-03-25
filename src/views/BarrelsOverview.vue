@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import BarrelsTable from "../components/BarrelsTable";
+import BarrelsTable from "@/components/BarrelsTable.vue";
 
 export default {
   name: "BarrelsOverview",

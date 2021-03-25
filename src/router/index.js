@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import AdvancedSearch from "../views/AdvancedSearch";
-import Gallery from "../components/Gallery";
+import Home from "@/views/Home.vue";
+import AdvancedSearch from "@/views/AdvancedSearch.vue";
+import Gallery from "@/components/Gallery.vue";
 
 Vue.use(VueRouter);
 

@@ -128,13 +128,13 @@
 
 <script>
 import { getInstrument, getRecord, getBarrels, search } from "@/assets/db";
-import ShowMore from "@/components/ShowMore";
-import MetadataLarge from "@/components/MetadataLarge";
-import MetadataSmall from "@/components/MetadataSmall";
-import FileGrid from "@/components/FileGrid";
-import BarrelsCardGrid from "@/components/BarrelsCardGrid";
-import MiniGallery from "@/components/MiniGallery";
-import Map from "@/components/Map";
+import ShowMore from "@/components/ShowMore.vue";
+import MetadataLarge from "@/components/MetadataLarge.vue";
+import MetadataSmall from "@/components/MetadataSmall.vue";
+import FileGrid from "@/components/FileGrid.vue";
+import BarrelsCardGrid from "@/components/BarrelsCardGrid.vue";
+import MiniGallery from "@/components/MiniGallery.vue";
+import Map from "@/components/Map.vue";
 
 export default {
   name: "InstrumentPage",

@@ -54,7 +54,7 @@
 <script>
 import OpenSeadragon from "openseadragon";
 import { getRecord, search } from "@/assets/db";
-import MiniGallery from "@/components/MiniGallery";
+import MiniGallery from "@/components/MiniGallery.vue";
 
 export default {
   name: "ImagePage",

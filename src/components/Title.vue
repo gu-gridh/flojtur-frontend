@@ -87,8 +87,8 @@
 
 <script>
 const ThreeDViewer = () =>
-  import(/* webpackChunkName: "3d" */ "./ThreeDViewer");
-import PlayButton from "./PlayButton";
+  import(/* webpackChunkName: "3d" */ "@/components/ThreeDViewer.vue");
+import PlayButton from "@/components/PlayButton.vue";
 
 export default {
   name: "Title",
