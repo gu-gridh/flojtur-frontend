@@ -41,7 +41,10 @@
     </ShowMore>
 
     <div class="container">
-      <BarrelsCardGrid title="Valsar i samma samling" :barrels="automBarrels" />
+      <BarrelsCardGrid
+        title="Stiftvalsar i samma samling"
+        :barrels="automBarrels"
+      />
       <BarrelsCardGrid
         v-if="composerName(barrel)"
         :title="`Mer av ${composerName(barrel)}`"

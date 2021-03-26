@@ -84,7 +84,7 @@
         />
       </div>
       <div v-if="barrels.length" id="valsar" style="margin-top: 20px">
-        <BarrelsCardGrid title="Valsar" :barrels="barrels" />
+        <BarrelsCardGrid title="Stiftvalsar" :barrels="barrels" />
       </div>
 
       <div v-if="stopPhotos.length" style="margin-top: 20px">
