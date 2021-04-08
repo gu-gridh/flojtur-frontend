@@ -79,8 +79,10 @@ export default {
           instrument["location.location"],
           instrument.fields.loc_nr.extra.split(",")[1]
         );
+
         instrument.year = (
-          instrument.fields.date1.value || instrument.fields.date2.value
+          instrument._first.fields.date1.value ||
+          instrument._first.fields.date2.value
         ).slice(0, 4);
       }
     });

@@ -27,24 +27,31 @@ export function getRecords(table, ids) {
 
 export async function getInstruments() {
   // Each actual instrument has multiple autom records, one for each activity. Activity type 1 is "Inventering".
-  const shorts = await get("search", {
-    tb: "autom",
-    query: "equals|act_type|1"
-  })
-    .then((response) => response.data.features)
-    .catch((error) => console.error(error) || []);
+  const [instruments, authists] = await Promise.all([
+    searchFull("autom"),
+    searchFull("authist")
+  ]).catch((error) => console.error(error) || []);
 
-  // Get full records.
-  const records = await getRecords(
-    "autom",
-    shorts.map((short) => short.id)
-  ).catch((error) => console.error(error) || []);
+  // Helper to find first autom record (Nytt instrument).
+  const _histFindFirst = (instrument) => {
+    const authist = authists.find(
+      (authist) => authist.fields.nr2.value == instrument.id
+    );
+    if (!authist) return instrument;
+    const prev = instruments.find(
+      (instrument) => instrument.id == authist.fields.nr1.value
+    );
+    return _histFindFirst(prev);
+  };
 
-  // Merge in the search results because they have some additional values.
-  return records.map((fields) => ({
-    fields,
-    ...shorts.find((short) => short.id == fields.id.value)
-  }));
+  // Only include Inventering records, and add their corresponding Nytt instrument records.
+  return instruments.reduce(
+    (acc, instrument) =>
+      instrument.fields.act_type.value == "1"
+        ? [...acc, { ...instrument, _first: _histFindFirst(instrument) }]
+        : acc,
+    []
+  );
 }
 
 export function getLocations() {
@@ -58,6 +65,22 @@ export function getLocations() {
 
 export function getInstrument(id) {
   return getRecord("autom", id);
+}
+
+/** Follow the authist chain backwards. */
+export async function getInstrumentHistoryBack(id) {
+  const _recurse = async (automs, id) => {
+    const autom = await getPreviousInstrument(id);
+    return autom ? _recurse([autom, ...automs], autom.id.value) : automs;
+  };
+  return _recurse([], id);
+}
+
+export async function getPreviousInstrument(id) {
+  const authist = await searchFull("authist", `equals|nr2|${id}`)
+    .then((authists) => authists[0])
+    .catch((error) => console.error(error));
+  return authist && getInstrument(authist.fields.nr1.value);
 }
 
 export function search(tb, query = "") {

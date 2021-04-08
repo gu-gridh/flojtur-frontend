@@ -127,7 +127,13 @@
 </template>
 
 <script>
-import { getInstrument, getRecord, getBarrels, search } from "@/assets/db";
+import {
+  getInstrument,
+  getRecord,
+  getBarrels,
+  search,
+  getInstrumentHistoryBack,
+} from "@/assets/db";
 import ShowMore from "@/components/ShowMore.vue";
 import MetadataLarge from "@/components/MetadataLarge.vue";
 import MetadataSmall from "@/components/MetadataSmall.vue";
@@ -157,6 +163,8 @@ export default {
       casebuilder: null,
       owner: null,
       location: null,
+      /** The first record in the history of this instrument. */
+      instrumentFirst: null,
       barrels: [],
       instrumentPhotos: [],
       stopPhotos: [],
@@ -194,12 +202,13 @@ export default {
       ].filter((item) => item.value);
     },
     buildYear() {
-      if (!this.instrument) return;
+      const instrument = this.instrumentFirst || this.instrument;
+      if (!instrument) return;
       // Parse year.
-      const date1 = parseInt(this.instrument.date1.value);
-      const date2 = parseInt(this.instrument.date2.value);
+      const date1 = parseInt(instrument.date1.value);
+      const date2 = parseInt(instrument.date2.value);
       // Fixed date: has date2 and no date_sign
-      if (!this.instrument.date_sign.value) return date2;
+      if (!instrument.date_sign.value) return date2;
       // After some date.
       if (!date2) return `efter ${date1}`;
       // Before some date.
@@ -219,6 +228,9 @@ export default {
       this.divisionCount = fields.no_div.value;
       this.stopCount = fields.no_stop.value;
     });
+    getInstrumentHistoryBack(this.id).then(
+      (automs) => (this.instrumentFirst = automs[0])
+    );
     // Find barrels for this instrument.
     getBarrels(this.id).then((barrels) => (this.barrels = barrels));
     search("photo", `equals|autom_nr|${this.id}`).then(({ features }) => {
