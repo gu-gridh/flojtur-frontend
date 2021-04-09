@@ -38,7 +38,8 @@ dl {
 }
 
 .item {
-  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+  break-inside: avoid;
 }
 
 dt {
