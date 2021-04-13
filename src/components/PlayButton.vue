@@ -1,7 +1,7 @@
 <template>
   <div>
     <audio id="Player" preload="none">
-      <source src="audio/roll.m4a" type="audio/mpeg" />
+      <source src="@/assets/vivaldi.mp3" type="audio/mpeg" />
     </audio>
     <div id="playContainer" @click="toggleSound">
       <div id="PlayButton" class="PlayIcon"></div>
@@ -15,6 +15,7 @@ export default {
   methods: {
     toggleSound() {
       var audioElem = document.getElementById("Player");
+      console.log(audioElem);
       var audioIconElem = document.getElementById("PlayButton");
       var audioLabelElem = document.getElementById("PlayLabel");
       if (audioElem.paused) {
