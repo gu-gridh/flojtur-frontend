@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <audio id="Player" preload="none">
+  <div @mouseover="load">
+    <audio id="Player" preload="none" ref="audio">
       <source src="@/assets/vivaldi.mp3" type="audio/mpeg" />
     </audio>
     <div id="playContainer" @click="toggleSound">
@@ -12,20 +12,26 @@
 
 <script>
 export default {
+  computed: {
+    audio() {
+      return this.$refs.audio;
+    },
+  },
   methods: {
+    load() {
+      this.audio.setAttribute("preload", "auto");
+    },
     toggleSound() {
-      var audioElem = document.getElementById("Player");
-      console.log(audioElem);
       var audioIconElem = document.getElementById("PlayButton");
       var audioLabelElem = document.getElementById("PlayLabel");
-      if (audioElem.paused) {
+      if (this.audio.paused) {
         audioIconElem.className = "PauseIcon";
         audioLabelElem.innerHTML = "Pausa stycket";
-        audioElem.play();
+        this.audio.play();
       } else {
         audioIconElem.className = "PlayIcon";
         audioLabelElem.innerHTML = "Spela stycket";
-        audioElem.pause();
+        this.audio.pause();
       }
     },
   },
