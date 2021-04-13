@@ -29,7 +29,7 @@
 import Title from "@/components/Title.vue";
 
 export default {
-  name: "Help",
+  name: "Builder",
   components: { Title },
 };
 </script>

@@ -1,18 +1,18 @@
 <template>
   <div>
-    <h1 id="site-title">Pehr Strands spelur</h1>
+    <h1 id="site-title">
+      <router-link to="/">Pehr Strands flöjtur</router-link>
+    </h1>
     <div class="subtitle">1763–1810</div>
 
     <div class="ornament lyre"></div>
 
     <div class="articleContainer">
       <div class="articleIngress" style="margin-top: 10px">
-        Termen <em>flöjtur</em> brukar på svenska användas för de mekaniska
-        spelverk som byggts in i större golvur och där tonen alstras med hjälp
-        av pipor liknande dem man finner i traditionella piporglar. I Sverige
-        byggdes denna typ av spelverk under andra hälften av 1700-talet och en
-        bit in på 1800-talet. Flöjturet hör till en grupp instrument som brukar
-        benämnas <em>självspelande instrument</em> eller <em>spelautomater</em>.
+        Pehr Strand (c. 1758–1826) var orgel- och flöjtursbyggare i Stockholm
+        kring sekelskiftet 1800. Denna webbportal är en redovisning av ett
+        forskningsprojekt och samtidigt en källa till information om Pehr Strand
+        och i synnerhet hans flöjtur.
       </div>
       <div
         class="articleIngress"
@@ -24,26 +24,32 @@
           text-align: center;
         "
       >
-        A completeley different text than the one above, yes this is a
-        completely different text than the one above and it is smaller. A
-        completeley different text than the one above a completely different
-        text than the one above. A somewhat different text than the one above,
-        but almost the same as the text that came before.
+        Flöjtur är en klocka med ett mekaniskt spelverk som kan spela
+        musikstycken programmerade på en stiftvals. Termen flöjtur anger också
+        att tonen alstras med hjälp av pipor på samma sätt som i traditionella
+        piporglar. I Sverige byggdes denna typ av flöjtur främst under andra
+        hälften av 1700-talet och en bit in på 1800-talet, där Pehr Strand var
+        en av de mest framgångsrika byggarna.
       </div>
     </div>
 
-    <div
-      id="menu"
-      class="IntroItem"
-      style="cursor: pointer"
-      v-scroll-to="'#hero'"
-    >
-      Utforska arkivet
+    <div id="menu" class="IntroItem">
+      <a
+        v-if="isHomeChildPage"
+        style="cursor: pointer"
+        href="#model"
+        v-scroll-to="'#model'"
+      >
+        Utforska arkivet
+      </a>
+      <router-link v-else to="/#model" id="menu" class="IntroItem">
+        Utforska arkivet
+      </router-link>
     </div>
 
     <div class="IntroMenuContainer">
       <div class="MenuItem">
-        <router-link to="/introduktion">Introduktion till arkivet</router-link>
+        <router-link to="/pehr-strand">Om Pehr Strand</router-link>
       </div>
       <div class="MenuItem">|</div>
       <div class="MenuItem">
@@ -52,47 +58,24 @@
     </div>
 
     <div class="ornament laural"></div>
-
-    <div id="hero">
-      <div id="ItemContainer" style="">
-        <div id="ItemLeft" style="">
-          <ThreeDViewer
-            src="/models/flojt.glb"
-            poster="/models/poster4.png"
-            alt="Flöjtur model"
-          />
-        </div>
-        <div id="ItemRight" style="">
-          <div class="IntroItem">Ett självspelande flöjtur</div>
-          <div
-            class="articleIngress"
-            style="margin-top: 10px; text-align: left"
-          >
-            Termen <i>flöjtur</i> brukar på svenska användas för de mekaniska
-            spelverk som byggts in i större golvur och där tonen alstras med
-            hjälp av pipor liknande dem man finner i traditionella piporglar. I
-            Sverige byggdes denna typ av spelverk under andra hälften av
-            1700-talet och en bit in på 1800-talet. Flöjturet hör till en grupp
-            instrument som brukar benämnas <i>självspelande instrument</i> eller
-            <i>spelautomater</i>.
-          </div>
-          <div style="display: flex; margin-top: 20px">
-            <PlayButton />
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
-const ThreeDViewer = () =>
-  import(/* webpackChunkName: "3d" */ "@/components/ThreeDViewer.vue");
-import PlayButton from "@/components/PlayButton.vue";
+import VueScrollTo from "vue-scrollto";
 
 export default {
   name: "Title",
-  components: { ThreeDViewer, PlayButton },
+  computed: {
+    isHomeChildPage() {
+      return this.$route.matched.some((route) => route.path === "");
+    },
+  },
+  mounted() {
+    if (this.$route.hash) {
+      VueScrollTo.scrollTo(this.$route.hash);
+    }
+  },
 };
 </script>
 
@@ -179,34 +162,7 @@ export default {
   font-weight: 300;
   font-style: normal;
   line-height: 1.8;
-  float: left;
-  margin-left: 20px;
-}
-
-#hero {
-  height: 700px;
-}
-#ItemContainer {
-  width: 72%;
-  height: 500px;
-  margin: 100px auto 20px;
-}
-#ItemLeft {
-  width: 60%;
-  height: 800px;
-  margin-top: -150px;
-  margin-left: -50px;
-  float: left;
-  border-radius: 50%;
-}
-#ItemRight {
-  width: 40%;
-  height: auto;
-  margin-left: 20px;
-  float: left;
-
-  .IntroItem {
-    text-align: left;
-  }
+  margin: 0 10px;
+  display: inline-block;
 }
 </style>

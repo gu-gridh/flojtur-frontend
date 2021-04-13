@@ -45,9 +45,10 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue")
   },
   {
-    path: "/introduktion",
-    name: "Help",
-    component: () => import(/* webpackChunkName: "help" */ "../views/Help.vue")
+    path: "/pehr-strand",
+    name: "Builder",
+    component: () =>
+      import(/* webpackChunkName: "builder" */ "../views/Builder.vue")
   },
   {
     path: "/spelur/:id",
