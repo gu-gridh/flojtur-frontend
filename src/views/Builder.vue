@@ -238,6 +238,3 @@ export default {
   components: { Title },
 };
 </script>
-
-<style scoped>
-</style>

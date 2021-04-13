@@ -199,7 +199,8 @@ ul {
   break-inside: avoid;
 }
 .footnotes p {
-  margin-bottom: 0.5em;
+  margin: 0;
+  padding-bottom: 0.5em;
 }
 
 .span-columns {
