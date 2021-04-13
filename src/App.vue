@@ -101,10 +101,15 @@ h2 {
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
+  hyphens: auto;
 }
+
+.articleContainer h2 {
+  margin-bottom: 0.5em;
+}
+
 .articleIngress {
   font-size: 24px;
-  /* text-align: left; */
   margin-right: auto;
   column-count: 2;
   column-gap: 40px;
@@ -119,6 +124,7 @@ h2 {
 }
 
 .articletext {
+  margin-top: 30px;
   text-align: justify;
   column-count: 3;
   column-gap: 40px;
@@ -142,7 +148,7 @@ h2 {
 .articleIngress p {
   margin: 0;
 }
-.articletext p:not(:first-of-type),
+.articletext:not(.footnotes) p:not(:first-of-type),
 .articleIngress p:not(:first-of-type) {
   text-indent: 1em;
 }
@@ -178,6 +184,15 @@ h2 {
 .ActivateBonusMaterialText:hover {
   background-color: rgb(245, 245, 245);
   color: black;
+}
+
+blockquote {
+  margin: 1em;
+}
+
+hr {
+  border: none;
+  border-top: thin solid gray;
 }
 
 .clearfix::after {

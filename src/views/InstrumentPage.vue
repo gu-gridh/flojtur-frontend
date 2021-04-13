@@ -26,7 +26,7 @@
       </div>
 
       <ShowMore label="Läs mer...">
-        <div class="articletext" style="margin-top: 30px">
+        <div class="articletext">
           <p v-if="instrument.hist_info.value">
             {{ instrument.hist_info.value }}
           </p>
