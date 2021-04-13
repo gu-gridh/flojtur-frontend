@@ -1,38 +1,29 @@
 <template>
-  <div @mouseover="load">
+  <div @mouseover="load" :class="{ playing }">
     <audio id="Player" preload="none" ref="audio">
       <source src="@/assets/vivaldi.mp3" type="audio/mpeg" />
     </audio>
     <div id="playContainer" @click="toggleSound">
-      <div id="PlayButton" class="PlayIcon"></div>
-      <div id="PlayLabel">Spela stycke</div>
+      <div id="PlayButton"></div>
+      <div id="PlayLabel">{{ playing ? "Pausa stycket" : "Spela stycke" }}</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  computed: {
-    audio() {
-      return this.$refs.audio;
-    },
+  data() {
+    return {
+      playing: false,
+    };
   },
   methods: {
     load() {
-      this.audio.setAttribute("preload", "auto");
+      this.$refs.audio.setAttribute("preload", "auto");
     },
     toggleSound() {
-      var audioIconElem = document.getElementById("PlayButton");
-      var audioLabelElem = document.getElementById("PlayLabel");
-      if (this.audio.paused) {
-        audioIconElem.className = "PauseIcon";
-        audioLabelElem.innerHTML = "Pausa stycket";
-        this.audio.play();
-      } else {
-        audioIconElem.className = "PlayIcon";
-        audioLabelElem.innerHTML = "Spela stycket";
-        this.audio.pause();
-      }
+      this.playing ? this.$refs.audio.pause() : this.$refs.audio.play();
+      this.playing = !this.$refs.audio.paused;
     },
   },
 };
@@ -50,20 +41,18 @@ export default {
 #playContainer:hover {
   background-color: rgb(245, 245, 245);
 }
+
 #PlayButton {
   float: left;
   height: 50px;
   width: 50px;
-}
-.PlayIcon {
-  background: url(../assets/playbutton.png);
+  background-image: url(../assets/playbutton.png);
   background-size: 50px 50px;
+}
+.playing #PlayButton {
+  background-image: url(../assets/pausebutton.png);
 }
 
-.PauseIcon {
-  background: url(../assets/pausebutton.png);
-  background-size: 50px 50px;
-}
 #PlayLabel {
   float: left;
   font-size: 25px;
