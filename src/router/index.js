@@ -51,6 +51,14 @@ const routes = [
       import(/* webpackChunkName: "builder" */ "../views/Builder.vue")
   },
   {
+    path: encodeURI("/flöjtur"),
+    name: "InstrumentAbout",
+    component: () =>
+      import(
+        /* webpackChunkName: "instrument-about" */ "../views/InstrumentAbout.vue"
+      )
+  },
+  {
     path: "/spelur/:id",
     name: "InstrumentPage",
     // route level code-splitting

@@ -10,7 +10,11 @@
           />
         </div>
         <div id="ItemRight" style="">
-          <div class="IntroItem">Ett självspelande flöjtur</div>
+          <div class="IntroItem">
+            <router-link :to="{ name: 'InstrumentAbout' }"
+              >Ett självspelande flöjtur</router-link
+            >
+          </div>
           <div
             class="articleIngress"
             style="margin-top: 10px; text-align: left"
