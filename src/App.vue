@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
 body {
   font-family: "Yanone Kaffeesatz", "PT Sans Narrow", "Arial Narrow", sans-serif;
   font-weight: 100;
@@ -48,12 +48,12 @@ h1 {
   font-size: 60px;
   line-height: 1;
   margin: 60px 0 20px;
-}
 
-h1#site-title {
-  text-align: center;
-  font-size: 120px;
-  margin: 20px 0 10px;
+  &#site-title {
+    text-align: center;
+    font-size: 120px;
+    margin: 20px 0 10px;
+  }
 }
 
 h2 {
@@ -75,19 +75,14 @@ h2 {
   background-repeat: no-repeat;
   background-position: center;
   z-index: 2000;
-}
 
-@media screen and (max-width: 950px) {
-  #ItemBack {
+  @media screen and (max-width: 950px) {
     left: 20px;
     height: 40px;
     width: 40px;
     background-size: 30px 30px;
   }
-}
-
-@media screen and (max-width: 800px) {
-  #ItemBack {
+  @media screen and (max-width: 800px) {
     left: 15px;
     height: 35px;
     width: 35px;
@@ -102,10 +97,9 @@ h2 {
   margin-right: auto;
   border-radius: 10px;
   hyphens: auto;
-}
-
-.articleContainer h2 {
-  margin-bottom: 0.5em;
+  h2 {
+    margin-bottom: 0.5em;
+  }
 }
 
 .articleIngress {
@@ -115,9 +109,8 @@ h2 {
   column-gap: 40px;
   line-height: 1.3;
   font-weight: 100;
-}
-@media screen and (max-width: 1100px) {
-  .articleIngress {
+
+  @media screen and (max-width: 1100px) {
     column-count: 1;
     font-size: 24px;
   }
@@ -130,31 +123,40 @@ h2 {
   column-gap: 40px;
   line-height: 1.3;
   font-weight: 300;
-}
-@media screen and (max-width: 1100px) {
-  .articletext {
+
+  @media screen and (max-width: 1100px) {
     column-count: 2;
     orphans: 2;
   }
-}
-@media screen and (max-width: 800px) {
-  .articletext {
+
+  @media screen and (max-width: 800px) {
     column-count: 1;
     font-size: 22px;
   }
+
+  a:link {
+    text-decoration: none;
+    color: black;
+  }
 }
 
-.articletext p,
+.articletext:not(.footnotes) p,
 .articleIngress p {
   margin: 0;
+
+  & + p {
+    text-indent: 1em;
+  }
 }
-.articletext:not(.footnotes) p:not(:first-of-type),
-.articleIngress p:not(:first-of-type) {
-  text-indent: 1em;
-}
-.articletext a:link {
-  text-decoration: none;
-  color: black;
+
+.articlepage {
+  margin-bottom: 5em;
+  .articleIngress {
+    columns: 1;
+  }
+  .articletext {
+    columns: 17em;
+  }
 }
 
 .outset-small {
@@ -184,6 +186,36 @@ h2 {
 .ActivateBonusMaterialText:hover {
   background-color: rgb(245, 245, 245);
   color: black;
+}
+
+ul {
+  padding-left: 1em;
+  li {
+    text-indent: 0;
+  }
+}
+
+.footnotes > * {
+  break-inside: avoid;
+}
+.footnotes p {
+  margin-bottom: 0.5em;
+}
+
+.span-columns {
+  column-span: all;
+}
+
+.long-url {
+  word-break: break-all;
+}
+
+sup {
+  line-height: 0;
+}
+
+img {
+  max-width: 100%;
 }
 
 blockquote {

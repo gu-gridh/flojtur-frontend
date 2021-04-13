@@ -1,9 +1,9 @@
 <template>
-  <main>
+  <div class="articlepage">
     <Title />
 
     <div class="container">
-      <div class="articleContainer">
+      <article class="articleContainer">
         <h2>Om Pehr Strand</h2>
         <div class="articleIngress">
           <p>
@@ -225,9 +225,9 @@
             Fabriksberättelser, B III: 42 (1819).
           </p>
         </div>
-      </div>
+      </article>
     </div>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -240,31 +240,4 @@ export default {
 </script>
 
 <style scoped>
-main {
-  margin-bottom: 5em;
-}
-.articleIngress {
-  columns: 1;
-}
-.articletext {
-  columns: 17em;
-}
-.footnotes > * {
-  break-inside: avoid;
-}
-.footnotes p {
-  margin-bottom: 0.5em;
-}
-.span-columns {
-  column-span: all;
-}
-.long-url {
-  word-break: break-all;
-}
-sup {
-  line-height: 0;
-}
-img {
-  max-width: 100%;
-}
 </style>
