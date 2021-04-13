@@ -36,13 +36,18 @@
 
     <div class="links">
       <div class="ArchiveViewOptions">
-        <router-link to="/" class="viewOption">Galleri</router-link>
+        <router-link
+          to="/"
+          class="viewOption"
+          :class="{ 'router-link-exact-active': $route.name === 'Home' }"
+          >Galleri</router-link
+        >
         <div class="viewOption">|</div>
-        <router-link class="viewOption" to="/karta">Karta</router-link>
+        <router-link to="/karta" class="viewOption">Karta</router-link>
         <div class="viewOption">|</div>
-        <router-link class="viewOption" to="/valsar">Stiftvalsar</router-link>
+        <router-link to="/valsar" class="viewOption">Stiftvalsar</router-link>
         <div class="viewOption">|</div>
-        <router-link class="viewOption" to="/data">
+        <router-link to="/data" class="viewOption">
           Avancerad sökning
         </router-link>
       </div>
