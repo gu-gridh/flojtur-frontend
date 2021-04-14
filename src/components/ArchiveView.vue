@@ -3,11 +3,7 @@
     <div id="model">
       <div id="ItemContainer" style="">
         <div id="ItemLeft" style="">
-          <ThreeDViewer
-            src="/models/flojt.glb"
-            poster="/models/poster4.png"
-            alt="Flöjtur model"
-          />
+          <ThreeDViewer />
         </div>
         <div id="ItemRight" style="">
           <div class="IntroItem">
