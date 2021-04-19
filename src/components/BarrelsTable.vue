@@ -145,7 +145,7 @@ export default {
 .valspostitem {
   height: 100%;
   width: auto;
-  padding: 30px;
+  padding: 25px;
   box-sizing: border-box;
 
   .valstitles & {

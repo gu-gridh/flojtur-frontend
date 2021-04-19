@@ -26,7 +26,7 @@
     <div id="IntroInfoContainer">
           <div id="IntroInfoButton"></div>
       <div id="IntroInfoLabel" style="margin-bottom:40px;">
-      <a v-scroll-to="'#ArchiveViewOptions'">Arkivets flöjtur</a></div>
+      <a v-scroll-to="'.ArchiveViewOptions'">Pehr Strands flöjtur</a></div>
     </div>
     </div>
 
@@ -54,9 +54,10 @@
         </div>
       </div>
     </div>
+  
 
     <div class="links">
-      <div id="ArchiveViewOptions">
+      <div class="ArchiveViewOptions">
         <router-link
           to="/"
           class="viewOption"
@@ -73,6 +74,7 @@
         </router-link>
       </div>
     </div>
+   
 
     <keep-alive>
       <router-view />
@@ -106,7 +108,7 @@ export default {
   margin: 0px auto 20px;
 }
 #ItemLeft {
-  width: 54%;
+  width: 54.5%;
   height: 800px;
   margin-top: 0px;
   margin-left: -50px;
@@ -114,7 +116,7 @@ export default {
   border-radius: 50%;
 }
 #ItemRight {
-  width: 46%;
+  width: 45.5%;
   height: auto;
   margin-left: 20px;
   float: left;
@@ -141,12 +143,12 @@ export default {
 .links {
   height: 40px;
   width: 100%;
-  float: left;
-  margin-top: 50px;
+ 
+  margin-top: 150px;
   margin-bottom: 20px;
   font-size: 25px;
 }
-#ArchiveViewOptions {
+.ArchiveViewOptions {
   height: 30px;
   margin-left: auto;
   margin-right: auto;
