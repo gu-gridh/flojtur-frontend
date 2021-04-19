@@ -13,11 +13,7 @@ body {
   padding: 0;
   font-size: 20px;
   -webkit-text-size-adjust: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgb(215, 215, 210) 0%,
-    rgb(230, 230, 230) 100%
-  );
+  background:rgb(215, 215, 210);
 }
 
 a:link,
