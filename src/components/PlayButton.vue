@@ -44,10 +44,10 @@ export default {
 
 #PlayButton {
   float: left;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   background-image: url(../assets/playbutton.png);
-  background-size: 50px 50px;
+  background-size: 40px 40px;
 }
 .playing #PlayButton {
   background-image: url(../assets/pausebutton.png);

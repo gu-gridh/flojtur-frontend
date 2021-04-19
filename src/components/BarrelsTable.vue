@@ -99,7 +99,7 @@ export default {
 
 <style lang="scss" scoped>
 .barrels-table {
-  margin-top: 20px;
+  margin-top: 0px;
   padding: 20px 10px;
 }
 
@@ -107,10 +107,12 @@ export default {
   display: flex;
   align-items: center;
   font-size: 22px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  border-radius: 0px;
+  margin-bottom: 0px;
   background-color: white;
   cursor: pointer;
+  border-style:solid;
+  border-width:0 0 0.5px 0;
 
   .collapsed &.peek {
     background: transparent
@@ -129,11 +131,14 @@ export default {
     }
   }
 }
+.valspost:hover {
+  background-color:rgb(245 245 245);
+}
 
 .valstitles {
   display: flex;
   font-size: 22px;
-  border-radius: 10px;
+  border-radius: 0px;
   margin-bottom: 20px;
 }
 
@@ -158,7 +163,7 @@ export default {
 }
 
 .valse {
-  width: 30%;
+  width: 40%;
 }
 
 .piece {
@@ -166,7 +171,7 @@ export default {
 }
 
 .composer {
-  width: 25%;
+  width: 15%;
 }
 
 .ActivateBonusMaterialText {

@@ -39,7 +39,10 @@
                           {{ instrument.aut_title }}
                         </div>
                         <div class="cardInfoObject">
-                          {{ instrument.place }}, {{ instrument.year }}
+                          {{ instrument.place }}
+                        </div>
+                        <div class="cardInfoObject">
+                          {{ instrument.year }}
                         </div>
                       </div>
                     </div>
@@ -96,7 +99,7 @@ export default {
         .split(/[\d-]+|, */)
         .filter((x) => x)
         .pop();
-      return (place || "Okänd plats").trim() + ", " + country;
+      return (place || "Okänd plats").trim();
     },
   },
 };
@@ -244,13 +247,15 @@ export default {
 
 .cardInfoObject {
   width: 100%;
+ 
   text-align: center;
   margin-top: 10px;
 }
 
 .cardInfoObjectTitle {
-  font-size: 170%;
-  width: 100%;
+  font-size: 150%;
+  width: 80%;
+   margin-left:10%;
   text-align: center;
   margin-top: 20px;
 }

@@ -1,14 +1,15 @@
 <template>
   <div>
+    <div class="ornament lyre"></div>
     <h1 id="site-title">
       <router-link to="/">Pehr Strands flöjtur</router-link>
     </h1>
     <div class="subtitle">1763–1810</div>
 
-    <div class="ornament lyre"></div>
+  
 
     <div class="articleContainer">
-      <div class="articleIngress" style="margin-top: 10px">
+      <div class="articleIngress" style="margin-top: 30px; font-size: 35px;">
         Pehr Strand (c. 1758–1826) var orgel- och flöjtursbyggare i Stockholm
         kring sekelskiftet 1800. Denna webbportal är en redovisning av ett
         forskningsprojekt och samtidigt en källa till information om Pehr Strand
@@ -17,11 +18,13 @@
       <div
         class="articleIngress"
         style="
-          margin-top: 10px;
-          width: 70%;
+          margin-top: 20px;
+          width: 98%;
+          columns:2;
           margin-left: auto;
           margin-right: auto;
-          text-align: center;
+          text-align: justify;
+          font-size: 25px;
         "
       >
         Flöjtur är en klocka med ett mekaniskt spelverk som kan spela
@@ -33,31 +36,9 @@
       </div>
     </div>
 
-    <div id="menu" class="IntroItem">
-      <a
-        v-if="isHomeChildPage"
-        style="cursor: pointer"
-        href="#model"
-        v-scroll-to="'#model'"
-      >
-        Utforska arkivet
-      </a>
-      <router-link v-else to="/#model" id="menu" class="IntroItem">
-        Utforska arkivet
-      </router-link>
-    </div>
+    
 
-    <div class="IntroMenuContainer">
-      <div class="MenuItem">
-        <router-link to="/pehr-strand">Om Pehr Strand</router-link>
-      </div>
-      <div class="MenuItem">|</div>
-      <div class="MenuItem">
-        <router-link to="/om">Om forskningsprojektet</router-link>
-      </div>
-    </div>
-
-    <div class="ornament laural"></div>
+    
   </div>
 </template>
 
@@ -81,14 +62,15 @@ export default {
 
 <style lang="scss" scoped>
 #site-title {
-  margin-top: 0;
-  padding-top: 250px;
+  margin-top: 30px;
+  padding-top: 0px;
 }
 
 .subtitle {
   line-height: 0.5;
   text-align: center;
-  font-size: 30px;
+  font-size: 60px;
+ 
 }
 
 .ornament {
@@ -97,9 +79,9 @@ export default {
 
   &.lyre {
     background-image: url(../assets/topdetailwhite.png);
-    height: 435px;
-    width: 380px;
-    margin-top: -350px;
+    height: 235px;
+    width: 205px;
+    margin-top: 50px;
   }
   &.laural {
     background-image: url(../assets/lauraldetailwhite.png);
@@ -111,6 +93,7 @@ export default {
 .articleIngress {
   columns: 1;
   text-align: center;
+ 
   line-height: 1.2;
 }
 
@@ -125,12 +108,9 @@ export default {
 }
 
 .IntroItem {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 51%;
   padding-top: 30px;
-  width: auto;
-  height: auto;
-  text-align: center;
+  text-align: left;
   font-weight: 300;
   font-style: normal;
   font-size: 35px;
@@ -151,7 +131,7 @@ export default {
 .IntroMenuContainer {
   margin-left: auto;
   margin-right: auto;
-  width: 380px;
+  width: 580px;
   height: 50px;
   margin-top: 10px;
   text-align: center;

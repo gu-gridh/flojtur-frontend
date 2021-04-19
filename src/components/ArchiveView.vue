@@ -7,9 +7,30 @@
         </div>
         <div id="ItemRight" style="">
           <div class="IntroItem">
-            <router-link :to="{ name: 'InstrumentAbout' }"
-              >Ett självspelande flöjtur</router-link
-            >
+          <div id="menu" class="IntroItem">
+      
+        Utforska arkivet
+    
+    </div>
+
+    <div class="IntroMenuContainer">
+      <div id="IntroInfoContainer">
+        <div id="IntroInfoButton"></div>
+      <div id="IntroInfoLabel"> <router-link to="/pehr-strand">Om Pehr Strand</router-link></div>
+    </div>
+
+        <div id="IntroInfoContainer">
+          <div id="IntroInfoButton"></div>
+      <div id="IntroInfoLabel" style=""><router-link to="/om">Om forskningsprojektet</router-link></div>
+    </div>
+    <div id="IntroInfoContainer">
+          <div id="IntroInfoButton"></div>
+      <div id="IntroInfoLabel" style="margin-bottom:40px;">
+      <a v-scroll-to="'#ArchiveViewOptions'">Arkivets flöjtur</a></div>
+    </div>
+    </div>
+
+            Ett självspelande flöjtur
           </div>
           <div
             class="articleIngress"
@@ -26,12 +47,16 @@
           <div style="display: flex; margin-top: 20px">
             <PlayButton />
           </div>
+         <div id="InfoContainer">
+      <div id="InfoButton"></div>
+      <div id="InfoLabel" ><router-link :to="{ name: 'InstrumentAbout' }">Utforska mekaniken</router-link></div>
+    </div>
         </div>
       </div>
     </div>
 
     <div class="links">
-      <div class="ArchiveViewOptions">
+      <div id="ArchiveViewOptions">
         <router-link
           to="/"
           class="viewOption"
@@ -78,18 +103,18 @@ export default {
 #ItemContainer {
   width: 72%;
   height: 500px;
-  margin: 100px auto 20px;
+  margin: 0px auto 20px;
 }
 #ItemLeft {
-  width: 60%;
+  width: 54%;
   height: 800px;
-  margin-top: -150px;
+  margin-top: 0px;
   margin-left: -50px;
   float: left;
   border-radius: 50%;
 }
 #ItemRight {
-  width: 40%;
+  width: 46%;
   height: auto;
   margin-left: 20px;
   float: left;
@@ -98,7 +123,7 @@ export default {
 .IntroItem {
   margin-left: auto;
   margin-right: auto;
-  padding-top: 30px;
+  padding-top: 20px;
   width: auto;
   height: auto;
   font-weight: 300;
@@ -117,10 +142,11 @@ export default {
   height: 40px;
   width: 100%;
   float: left;
-  margin-top: -50px;
+  margin-top: 50px;
   margin-bottom: 20px;
+  font-size: 25px;
 }
-.ArchiveViewOptions {
+#ArchiveViewOptions {
   height: 30px;
   margin-left: auto;
   margin-right: auto;
@@ -143,4 +169,60 @@ export default {
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
+
+#InfoContainer {
+  display: flex;
+  width:250px;
+  margin-left: -10px;
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#InfoContainer:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+#InfoButton {
+  float: left;
+  height: 40px;
+  width: 40px;
+  background-image: url(../assets/infobutton.png);
+  background-size: 40px 40px;
+}
+
+
+#InfoLabel {
+  float: left;
+  font-size: 25px;
+  margin-top: 13px;
+  margin-left: 20px;
+}
+
+
+#IntroInfoContainer {
+  display: flex;
+  width:auto;
+  margin-left: 0px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#IntroInfoLabel {
+  float: left;
+  font-size: 25px;
+  margin-top: 0px;
+  margin-left: 20px;
+}
+
+#IntroInfoButton {
+  float: left;
+  margin-top:0px;
+  height: 40px;
+  width: 40px;
+  background-image: url(../assets/infobutton.png);
+  background-size: 40px 40px;
+}
+
 </style>
