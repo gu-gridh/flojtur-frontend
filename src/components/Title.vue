@@ -9,7 +9,7 @@
   
 
     <div class="articleContainer">
-      <div class="articleIngress" style="margin-top: 30px; font-size: 35px;">
+      <div class="articleIngress" style="margin-top: 30px; font-size: 32px;">
         Pehr Strand (c. 1758–1826) var orgel- och flöjtursbyggare i Stockholm
         kring sekelskiftet 1800. Denna webbportal är en redovisning av ett
         forskningsprojekt och samtidigt en källa till information om Pehr Strand
@@ -19,12 +19,12 @@
         class="articleIngress"
         style="
           margin-top: 20px;
-          width: 98%;
-          columns:2;
+          width: 100%;
+columns:2;
           margin-left: auto;
           margin-right: auto;
           text-align: justify;
-          font-size: 25px;
+          font-size: 22px;
         "
       >
         Flöjtur är en klocka med ett mekaniskt spelverk som kan spela
