@@ -106,7 +106,7 @@ export default {
 <style lang="scss" scoped>
 .barrels-table {
   margin-top: 0px;
-  padding: 20px 10px;
+  padding: 0px 10px;
   width:100%;
 }
 
@@ -194,6 +194,7 @@ export default {
   width: 20%;
    border-width:0 0.5px 0px 0.5px;
   border-style:solid;
+  border-color:#999999;
 }
 
 .ActivateBonusMaterialText {

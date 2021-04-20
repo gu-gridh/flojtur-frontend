@@ -1,7 +1,8 @@
 <template>
-  <div>
-    <div id="model">
+  <div style="">
+   <div id="MiddlePart">
       <div id="ItemContainer" style="">
+       <div id="model">
         <div id="ItemLeft" style="">
           <ThreeDViewer />
         </div>
@@ -54,6 +55,7 @@
         </div>
       </div>
     </div>
+       </div>
   
 
     <div class="links">
@@ -99,21 +101,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+#MiddlePart {
+  height: auto;
+  margin-bottom:10px;
+
+}
+
 #model {
-  height: 700px;
+  height: 800px;
 }
 #ItemContainer {
-  width: 72%;
-  height: 500px;
+
+  width: 80%;
+  height: auto;
   margin: 0px auto 20px;
 }
 #ItemLeft {
   width: 54.5%;
-  height: 800px;
-  margin-top: 0px;
+  height: 850px;
+ 
   margin-left: -50px;
   float: left;
-  border-radius: 50%;
+ 
 }
 #ItemRight {
   width: 45.5%;
@@ -126,8 +136,6 @@ export default {
   margin-left: auto;
   margin-right: auto;
   padding-top: 20px;
-  width: auto;
-  height: auto;
   font-weight: 300;
   font-style: normal;
   font-size: 35px;
@@ -141,18 +149,19 @@ export default {
 }
 
 .links {
-  height: 40px;
+  overflow:hidden;
+  height: 60px;
   width: 100%;
- 
-  margin-top: 150px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
   font-size: 25px;
 }
 .ArchiveViewOptions {
-  height: 30px;
+  height: 60px;
   margin-left: auto;
   margin-right: auto;
   color: black;
+  padding:30px 0 30px 0;
   text-align: center;
 }
 .viewOption {

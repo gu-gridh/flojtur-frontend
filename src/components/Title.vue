@@ -1,32 +1,24 @@
 <template>
+<div>
   <div>
     <div class="ornament lyre"></div>
     <h1 id="site-title">
       <router-link to="/">Pehr Strands flöjtur</router-link>
     </h1>
     <div class="subtitle">1763–1810</div>
-
+  </div>
   
-
-    <div class="articleContainer">
-      <div class="articleIngress" style="margin-top: 30px; font-size: 32px;">
+<div id="ItemContainer">
+  <div id="ItemLeft">
+      <div class="articleIngress" style="font-size: 30px; text-align:right;">
         Pehr Strand (c. 1758–1826) var orgel- och flöjtursbyggare i Stockholm
         kring sekelskiftet 1800. Denna webbportal är en redovisning av ett
         forskningsprojekt och samtidigt en källa till information om Pehr Strand
         och i synnerhet hans flöjtur.
       </div>
-      <div
-        class="articleIngress"
-        style="
-          margin-top: 20px;
-          width: 100%;
-columns:2;
-          margin-left: auto;
-          margin-right: auto;
-          text-align: justify;
-          font-size: 22px;
-        "
-      >
+  </div>
+  <div id="ItemRight" style="margin-top:10px;">
+      <div class="articleIngress" style=" text-align: left; font-size: 22px;">
         Flöjtur är en klocka med ett mekaniskt spelverk som kan spela
         musikstycken programmerade på en stiftvals. Termen flöjtur anger också
         att tonen alstras med hjälp av pipor på samma sätt som i traditionella
@@ -35,11 +27,13 @@ columns:2;
         en av de mest framgångsrika byggarna.
       </div>
     </div>
-
-    
-
-    
   </div>
+
+  </div>
+    
+
+    
+ 
 </template>
 
 <script>
@@ -88,6 +82,30 @@ export default {
     height: 175px;
     width: 200px;
   }
+}
+
+#ItemContainer {
+
+  width: 80%;
+  height: auto;
+  margin: 50px auto 0px;
+  overflow:hidden;
+}
+
+#ItemLeft {
+  width: 47.5%;
+  height: auto;
+ padding:0px 30px 0px 0px;
+  float: left;
+  border-style:solid;
+  border-width:0px 0.5px 0px 0px;
+ 
+}
+#ItemRight {
+  width: 45.5%;
+  height: auto;
+  margin-left: 30px;
+  float: left;
 }
 
 .articleIngress {
