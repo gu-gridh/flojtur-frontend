@@ -198,7 +198,7 @@ export default {
   float: left;
   height: 40px;
   width: 40px;
-  background-image: url(../assets/infobutton.png);
+  background-image: url(../assets/linkbutton.png);
   background-size: 40px 40px;
 }
 
@@ -232,7 +232,7 @@ export default {
   margin-top:0px;
   height: 40px;
   width: 40px;
-  background-image: url(../assets/infobutton.png);
+  background-image: url(../assets/linkbutton.png);
   background-size: 40px 40px;
 }
 
