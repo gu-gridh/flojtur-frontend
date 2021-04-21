@@ -36,7 +36,7 @@
                           :style="`background-image:url(${instrument.img});`"
                         ></div>
                         <div class="cardInfoObjectTitle">
-                          {{ instrument.aut_title }}
+                          {{ formatTitle(instrument.aut_title) }}
                         </div>
                         <div class="cardInfoObject">
                           {{ instrument.place }}
@@ -79,8 +79,7 @@ export default {
           : `interface/heroes/8.jpg`;
 
         instrument.place = this.createPlaceString(
-          instrument["location.location"],
-          instrument.fields.loc_nr.extra.split(",")[1]
+          instrument["location.location"]
         );
 
         instrument.year = (
@@ -91,10 +90,14 @@ export default {
     });
   },
   methods: {
+    formatTitle(title) {
+      console.log(title.trim());
+      return title.trim().replace(/(\S)(uret)$/, "$1\u00ad$2");
+    },
     /**
      * Create a reasonable place string from the non-normalized form in the field "address" in DB
      */
-    createPlaceString(address, country) {
+    createPlaceString(address) {
       const place = address
         .split(/[\d-]+|, */)
         .filter((x) => x)
@@ -116,6 +119,7 @@ export default {
 #herogallery {
   float: left;
   width: 100%;
+  hyphens: auto;
 }
 .masonContainer {
   width: 100%;
