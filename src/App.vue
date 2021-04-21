@@ -88,7 +88,7 @@ h2 {
 
 .articleContainer {
   width: 65%;
-  padding: 10px;
+  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;

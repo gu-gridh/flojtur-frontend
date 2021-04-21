@@ -2,6 +2,10 @@
   <div class="articlepage">
     <Title />
     <article class="articleContainer">
+      <router-link to="/">
+        <div id="ItemBack"></div>
+      </router-link>
+
       <h2>Ett självspelande flöjtur</h2>
       <div class="articleIngress">
         <p>
