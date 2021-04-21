@@ -107,7 +107,6 @@ export default {
   align-items: center;
   font-size: 22px;
   border-radius: 0px;
-  margin-bottom: 0.5px;
   background-color: rgb(85 85 85);
   color: white;
   cursor: pointer;
@@ -186,6 +185,9 @@ export default {
   border-width: 0 0.5px 0px 0.5px;
   border-style: solid;
   border-color: #999999;
+  // More margin, less padding, to fix border lengths.
+  margin-block: 10px;
+  padding-block: 15px;
 }
 
 .ActivateBonusMaterialText {
