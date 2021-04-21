@@ -30,7 +30,7 @@ a:visited {
 }
 
 .container {
-  width: 90%;
+  width: 80%;
   margin: auto;
 }
 
@@ -87,7 +87,7 @@ h2 {
 }
 
 .articleContainer {
-  width: 72%;
+  width: 65%;
   padding: 10px;
   margin-left: auto;
   margin-right: auto;
