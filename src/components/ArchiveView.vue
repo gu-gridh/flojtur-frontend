@@ -1,5 +1,6 @@
 <template>
-  <div style="">
+  <div>
+    <AppLeadin />
     <div id="MiddlePart">
       <div id="ItemContainer" style="">
         <div id="model">
@@ -91,13 +92,14 @@
 
 <script>
 import { getBarrels } from "../assets/db";
+import AppLeadin from "@/components/AppLeadin.vue";
 const ThreeDViewer = () =>
   import(/* webpackChunkName: "3d" */ "@/components/ThreeDViewer.vue");
 import PlayButton from "@/components/PlayButton.vue";
 
 export default {
   name: "ArchiveView",
-  components: { ThreeDViewer, PlayButton },
+  components: { AppLeadin, ThreeDViewer, PlayButton },
   created() {
     // Pre-load data, unless starting out on the barrel page, because BarrelsTable will do it then.
     if (this.$route.name !== "BarrelOverview") getBarrels();
