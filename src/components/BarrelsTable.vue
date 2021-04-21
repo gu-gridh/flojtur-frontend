@@ -2,11 +2,11 @@
   <div v-if="barrels" class="barrels-table" :class="{ collapsed }">
     <div class="valstitles">
       <div
-        class="valspostitem piece sortable"
-        :class="{ 'sort-active': sortField === 'title' }"
-        @click="sortBy('title')"
+        class="valspostitem valse sortable"
+        :class="{ 'sort-active': sortField === 'label' }"
+        @click="sortBy('label')"
       >
-        Musikstycke
+        Originaltitel
       </div>
       <div
         class="valspostitem composer sortable"
@@ -15,13 +15,12 @@
       >
         Komposit&ouml;r
       </div>
-
       <div
-        class="valspostitem valse sortable"
-        :class="{ 'sort-active': sortField === 'label' }"
-        @click="sortBy('label')"
+        class="valspostitem piece sortable"
+        :class="{ 'sort-active': sortField === 'title' }"
+        @click="sortBy('title')"
       >
-        Originaltitel
+        Musikstycke
       </div>
     </div>
 
@@ -33,9 +32,9 @@
         class="valspost"
         :class="{ peek: i == 3 }"
       >
-        <div class="valspostitem piece">{{ barrel.title }}</div>
-        <div class="valspostitem composer">{{ barrel.composer }}</div>
         <div class="valspostitem valse">{{ barrel.label }}</div>
+        <div class="valspostitem composer">{{ barrel.composer }}</div>
+        <div class="valspostitem piece">{{ barrel.title }}</div>
       </router-link>
     </TransitionExpand>
 
@@ -55,7 +54,7 @@ export default {
   data() {
     return {
       barrels: [],
-      sortField: "title",
+      sortField: "label",
       collapsed: false,
     };
   },
