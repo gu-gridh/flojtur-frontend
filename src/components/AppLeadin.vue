@@ -28,7 +28,7 @@ export default {};
 <style lang="scss" scoped>
 .app-leadin {
   height: auto;
-  margin-top: 50px;
+  margin: 50px auto 30px;
   line-height: 1.2;
   text-align: center;
 }

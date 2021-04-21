@@ -1,67 +1,52 @@
 <template>
   <div>
     <AppLeadin />
-    <div id="MiddlePart">
-      <div id="ItemContainer" style="">
-        <div id="model">
-          <div id="ItemLeft" style="">
-            <ThreeDViewer />
-          </div>
-          <div id="ItemRight" style="">
-            <div class="IntroItem">
-              <div id="menu" class="IntroItem">Utforska arkivet</div>
 
-              <div class="IntroMenuContainer">
-                <router-link
-                  to="/pehr-strand"
-                  tag="div"
-                  id="IntroInfoContainer"
-                >
-                  <div id="IntroInfoButton"></div>
-                  <div id="IntroInfoLabel">Om Pehr Strand</div>
-                </router-link>
+    <div class="container menu-model">
+      <div id="ItemRight" style="">
+        <div class="IntroMenuContainer IntroItem">
+          <div>Utforska arkivet</div>
 
-                <router-link to="/om" tag="div" id="IntroInfoContainer">
-                  <div id="IntroInfoButton"></div>
-                  <div id="IntroInfoLabel" style="">Om forskningsprojektet</div>
-                </router-link>
+          <router-link to="/pehr-strand" tag="div" id="IntroInfoContainer">
+            <div id="IntroInfoButton"></div>
+            <div id="IntroInfoLabel">Om Pehr Strand</div>
+          </router-link>
 
-                <div
-                  v-scroll-to="'.ArchiveViewOptions'"
-                  id="IntroInfoContainer"
-                >
-                  <div id="IntroInfoButton"></div>
-                  <div id="IntroInfoLabel">Pehr Strands flöjtur</div>
-                </div>
-              </div>
+          <router-link to="/om" tag="div" id="IntroInfoContainer">
+            <div id="IntroInfoButton"></div>
+            <div id="IntroInfoLabel" style="">Om forskningsprojektet</div>
+          </router-link>
 
-              Ett självspelande flöjtur
-            </div>
-            <div
-              class="articleIngress"
-              style="margin-top: 10px; text-align: left"
-            >
-              Termen <i>flöjtur</i> brukar på svenska användas för de mekaniska
-              spelverk som byggts in i större golvur och där tonen alstras med
-              hjälp av pipor liknande dem man finner i traditionella piporglar.
-              I Sverige byggdes denna typ av spelverk under andra hälften av
-              1700-talet och en bit in på 1800-talet. Flöjturet hör till en
-              grupp instrument som brukar benämnas
-              <i>självspelande instrument</i> eller <i>spelautomater</i>.
-            </div>
-            <div style="display: flex; margin-top: 20px">
-              <PlayButton />
-            </div>
-            <router-link
-              :to="{ name: 'InstrumentAbout' }"
-              tag="div"
-              id="InfoContainer"
-            >
-              <div id="InfoButton"></div>
-              <div id="InfoLabel">Utforska mekaniken</div>
-            </router-link>
+          <div v-scroll-to="'.ArchiveViewOptions'" id="IntroInfoContainer">
+            <div id="IntroInfoButton"></div>
+            <div id="IntroInfoLabel">Pehr Strands flöjtur</div>
           </div>
         </div>
+
+        <div class="IntroItem">Ett självspelande flöjtur</div>
+        <div class="articleIngress" style="margin-top: 10px; text-align: left">
+          Termen <i>flöjtur</i> brukar på svenska användas för de mekaniska
+          spelverk som byggts in i större golvur och där tonen alstras med hjälp
+          av pipor liknande dem man finner i traditionella piporglar. I Sverige
+          byggdes denna typ av spelverk under andra hälften av 1700-talet och en
+          bit in på 1800-talet. Flöjturet hör till en grupp instrument som
+          brukar benämnas <i>självspelande instrument</i> eller
+          <i>spelautomater</i>.
+        </div>
+        <div style="display: flex; margin-top: 20px">
+          <PlayButton />
+        </div>
+        <router-link
+          :to="{ name: 'InstrumentAbout' }"
+          tag="div"
+          id="InfoContainer"
+        >
+          <div id="InfoButton"></div>
+          <div id="InfoLabel">Utforska mekaniken</div>
+        </router-link>
+      </div>
+      <div class="model">
+        <ThreeDViewer />
       </div>
     </div>
 
@@ -108,37 +93,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#MiddlePart {
-  height: auto;
-  margin-bottom: 10px;
+@media screen and (min-width: 800px) {
+  .menu-model {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: stretch;
+
+    > * {
+      flex: 1;
+      &:not(:last-child) {
+        margin-left: 20px;
+      }
+    }
+  }
 }
 
-#model {
+.model {
   height: 800px;
-}
-#ItemContainer {
-  width: 80%;
-  height: auto;
-  margin: 0px auto 20px;
-}
-#ItemLeft {
-  width: 54.5%;
-  height: 850px;
-
-  margin-left: -50px;
-  float: left;
-}
-#ItemRight {
-  width: 45.5%;
-  height: auto;
-  margin-left: 20px;
-  float: left;
+  min-height: 50vh;
+  margin: auto;
 }
 
 .IntroItem {
   margin-left: auto;
   margin-right: auto;
-  padding-top: 20px;
   font-weight: 300;
   font-style: normal;
   font-size: 35px;
@@ -186,10 +164,8 @@ export default {
 
 #InfoContainer {
   display: flex;
-  width: 250px;
-  margin-left: -10px;
+  margin-top: 10px;
   border-radius: 15px;
-  padding: 10px;
   cursor: pointer;
 }
 
@@ -213,7 +189,7 @@ export default {
 }
 
 .IntroMenuContainer {
-  margin-bottom: 40px;
+  margin: 20px 0 40px;
 }
 
 #IntroInfoContainer {

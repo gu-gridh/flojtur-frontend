@@ -91,7 +91,6 @@ export default {
   },
   methods: {
     formatTitle(title) {
-      console.log(title.trim());
       return title.trim().replace(/(\S)(uret)$/, "$1\u00ad$2");
     },
     /**
