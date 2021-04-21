@@ -10,15 +10,15 @@
 
     <div id="ItemContainer">
       <div id="ItemLeft">
-        <div class="articleIngress" style="font-size: 30px; text-align: right">
+        <div class="articleIngress">
           Pehr Strand (c. 1758–1826) var orgel- och flöjtursbyggare i Stockholm
           kring sekelskiftet 1800. Denna webbportal är en redovisning av ett
           forskningsprojekt och samtidigt en källa till information om Pehr
           Strand och i synnerhet hans flöjtur.
         </div>
       </div>
-      <div id="ItemRight" style="margin-top: 10px">
-        <div class="articleIngress" style="text-align: left; font-size: 22px">
+      <div id="ItemRight">
+        <div class="articleIngress">
           Flöjtur är en klocka med ett mekaniskt spelverk som kan spela
           musikstycken programmerade på en stiftvals. Termen flöjtur anger också
           att tonen alstras med hjälp av pipor på samma sätt som i traditionella
@@ -96,63 +96,23 @@ export default {
 #ItemRight {
   width: 45.5%;
   height: auto;
+  margin-top: 10px;
   margin-left: 30px;
   float: left;
 }
 
 .articleIngress {
   columns: 1;
-  text-align: center;
-
   line-height: 1.2;
-}
 
-.articletext {
-  columns: 1;
-  margin-top: 10px;
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  line-height: 1.2;
-}
+  #ItemLeft & {
+    font-size: 30px;
+    text-align: right;
+  }
 
-.IntroItem {
-  margin-left: 51%;
-  padding-top: 30px;
-  text-align: left;
-  font-weight: 300;
-  font-style: normal;
-  font-size: 35px;
-  line-height: 1.8;
-}
-
-.cardMiniImage {
-  width: 200px;
-  height: 200px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 25px;
-  border-radius: 50%;
-  background-image: url(../assets/7.jpg);
-  background-size: cover;
-}
-
-.IntroMenuContainer {
-  margin-left: auto;
-  margin-right: auto;
-  width: 580px;
-  height: 50px;
-  margin-top: 10px;
-  text-align: center;
-}
-.MenuItem {
-  width: auto;
-  height: auto;
-  font-weight: 300;
-  font-style: normal;
-  line-height: 1.8;
-  margin: 0 10px;
-  display: inline-block;
+  #ItemRight & {
+    text-align: left;
+    font-size: 22px;
+  }
 }
 </style>

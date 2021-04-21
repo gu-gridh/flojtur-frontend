@@ -11,26 +11,26 @@
               <div id="menu" class="IntroItem">Utforska arkivet</div>
 
               <div class="IntroMenuContainer">
-                <div id="IntroInfoContainer">
+                <router-link
+                  to="/pehr-strand"
+                  tag="div"
+                  id="IntroInfoContainer"
+                >
                   <div id="IntroInfoButton"></div>
-                  <div id="IntroInfoLabel">
-                    <router-link to="/pehr-strand">Om Pehr Strand</router-link>
-                  </div>
-                </div>
+                  <div id="IntroInfoLabel">Om Pehr Strand</div>
+                </router-link>
 
-                <div id="IntroInfoContainer">
+                <router-link to="/om" tag="div" id="IntroInfoContainer">
                   <div id="IntroInfoButton"></div>
-                  <div id="IntroInfoLabel" style="">
-                    <router-link to="/om">Om forskningsprojektet</router-link>
-                  </div>
-                </div>
-                <div id="IntroInfoContainer">
+                  <div id="IntroInfoLabel" style="">Om forskningsprojektet</div>
+                </router-link>
+
+                <div
+                  v-scroll-to="'.ArchiveViewOptions'"
+                  id="IntroInfoContainer"
+                >
                   <div id="IntroInfoButton"></div>
-                  <div id="IntroInfoLabel" style="margin-bottom: 40px">
-                    <a v-scroll-to="'.ArchiveViewOptions'"
-                      >Pehr Strands flöjtur</a
-                    >
-                  </div>
+                  <div id="IntroInfoLabel">Pehr Strands flöjtur</div>
                 </div>
               </div>
 
@@ -51,14 +51,14 @@
             <div style="display: flex; margin-top: 20px">
               <PlayButton />
             </div>
-            <div id="InfoContainer">
+            <router-link
+              :to="{ name: 'InstrumentAbout' }"
+              tag="div"
+              id="InfoContainer"
+            >
               <div id="InfoButton"></div>
-              <div id="InfoLabel">
-                <router-link :to="{ name: 'InstrumentAbout' }"
-                  >Utforska mekaniken</router-link
-                >
-              </div>
-            </div>
+              <div id="InfoLabel">Utforska mekaniken</div>
+            </router-link>
           </div>
         </div>
       </div>
@@ -208,6 +208,10 @@ export default {
   font-size: 25px;
   margin-top: 13px;
   margin-left: 20px;
+}
+
+.IntroMenuContainer {
+  margin-bottom: 40px;
 }
 
 #IntroInfoContainer {
