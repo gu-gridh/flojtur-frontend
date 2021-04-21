@@ -247,7 +247,7 @@ export default {
 
 .cardInfoObject {
   width: 100%;
- 
+
   text-align: center;
   margin-top: 10px;
 }
@@ -255,7 +255,7 @@ export default {
 .cardInfoObjectTitle {
   font-size: 150%;
   width: 80%;
-   margin-left:10%;
+  margin-left: 10%;
   text-align: center;
   margin-top: 20px;
 }

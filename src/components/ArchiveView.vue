@@ -1,62 +1,68 @@
 <template>
   <div style="">
-   <div id="MiddlePart">
+    <div id="MiddlePart">
       <div id="ItemContainer" style="">
-       <div id="model">
-        <div id="ItemLeft" style="">
-          <ThreeDViewer />
-        </div>
-        <div id="ItemRight" style="">
-          <div class="IntroItem">
-          <div id="menu" class="IntroItem">
-      
-        Utforska arkivet
-    
-    </div>
-
-    <div class="IntroMenuContainer">
-      <div id="IntroInfoContainer">
-        <div id="IntroInfoButton"></div>
-      <div id="IntroInfoLabel"> <router-link to="/pehr-strand">Om Pehr Strand</router-link></div>
-    </div>
-
-        <div id="IntroInfoContainer">
-          <div id="IntroInfoButton"></div>
-      <div id="IntroInfoLabel" style=""><router-link to="/om">Om forskningsprojektet</router-link></div>
-    </div>
-    <div id="IntroInfoContainer">
-          <div id="IntroInfoButton"></div>
-      <div id="IntroInfoLabel" style="margin-bottom:40px;">
-      <a v-scroll-to="'.ArchiveViewOptions'">Pehr Strands flöjtur</a></div>
-    </div>
-    </div>
-
-            Ett självspelande flöjtur
+        <div id="model">
+          <div id="ItemLeft" style="">
+            <ThreeDViewer />
           </div>
-          <div
-            class="articleIngress"
-            style="margin-top: 10px; text-align: left"
-          >
-            Termen <i>flöjtur</i> brukar på svenska användas för de mekaniska
-            spelverk som byggts in i större golvur och där tonen alstras med
-            hjälp av pipor liknande dem man finner i traditionella piporglar. I
-            Sverige byggdes denna typ av spelverk under andra hälften av
-            1700-talet och en bit in på 1800-talet. Flöjturet hör till en grupp
-            instrument som brukar benämnas <i>självspelande instrument</i> eller
-            <i>spelautomater</i>.
+          <div id="ItemRight" style="">
+            <div class="IntroItem">
+              <div id="menu" class="IntroItem">Utforska arkivet</div>
+
+              <div class="IntroMenuContainer">
+                <div id="IntroInfoContainer">
+                  <div id="IntroInfoButton"></div>
+                  <div id="IntroInfoLabel">
+                    <router-link to="/pehr-strand">Om Pehr Strand</router-link>
+                  </div>
+                </div>
+
+                <div id="IntroInfoContainer">
+                  <div id="IntroInfoButton"></div>
+                  <div id="IntroInfoLabel" style="">
+                    <router-link to="/om">Om forskningsprojektet</router-link>
+                  </div>
+                </div>
+                <div id="IntroInfoContainer">
+                  <div id="IntroInfoButton"></div>
+                  <div id="IntroInfoLabel" style="margin-bottom: 40px">
+                    <a v-scroll-to="'.ArchiveViewOptions'"
+                      >Pehr Strands flöjtur</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              Ett självspelande flöjtur
+            </div>
+            <div
+              class="articleIngress"
+              style="margin-top: 10px; text-align: left"
+            >
+              Termen <i>flöjtur</i> brukar på svenska användas för de mekaniska
+              spelverk som byggts in i större golvur och där tonen alstras med
+              hjälp av pipor liknande dem man finner i traditionella piporglar.
+              I Sverige byggdes denna typ av spelverk under andra hälften av
+              1700-talet och en bit in på 1800-talet. Flöjturet hör till en
+              grupp instrument som brukar benämnas
+              <i>självspelande instrument</i> eller <i>spelautomater</i>.
+            </div>
+            <div style="display: flex; margin-top: 20px">
+              <PlayButton />
+            </div>
+            <div id="InfoContainer">
+              <div id="InfoButton"></div>
+              <div id="InfoLabel">
+                <router-link :to="{ name: 'InstrumentAbout' }"
+                  >Utforska mekaniken</router-link
+                >
+              </div>
+            </div>
           </div>
-          <div style="display: flex; margin-top: 20px">
-            <PlayButton />
-          </div>
-         <div id="InfoContainer">
-      <div id="InfoButton"></div>
-      <div id="InfoLabel" ><router-link :to="{ name: 'InstrumentAbout' }">Utforska mekaniken</router-link></div>
-    </div>
         </div>
       </div>
     </div>
-       </div>
-  
 
     <div class="links">
       <div class="ArchiveViewOptions">
@@ -76,7 +82,6 @@
         </router-link>
       </div>
     </div>
-   
 
     <keep-alive>
       <router-view />
@@ -101,18 +106,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 #MiddlePart {
   height: auto;
-  margin-bottom:10px;
-
+  margin-bottom: 10px;
 }
 
 #model {
   height: 800px;
 }
 #ItemContainer {
-
   width: 80%;
   height: auto;
   margin: 0px auto 20px;
@@ -120,10 +122,9 @@ export default {
 #ItemLeft {
   width: 54.5%;
   height: 850px;
- 
+
   margin-left: -50px;
   float: left;
- 
 }
 #ItemRight {
   width: 45.5%;
@@ -149,7 +150,7 @@ export default {
 }
 
 .links {
-  overflow:hidden;
+  overflow: hidden;
   height: 60px;
   width: 100%;
   margin-top: 10px;
@@ -161,7 +162,7 @@ export default {
   margin-left: auto;
   margin-right: auto;
   color: black;
-  padding:30px 0 30px 0;
+  padding: 30px 0 30px 0;
   text-align: center;
 }
 .viewOption {
@@ -183,7 +184,7 @@ export default {
 
 #InfoContainer {
   display: flex;
-  width:250px;
+  width: 250px;
   margin-left: -10px;
   border-radius: 15px;
   padding: 10px;
@@ -202,7 +203,6 @@ export default {
   background-size: 40px 40px;
 }
 
-
 #InfoLabel {
   float: left;
   font-size: 25px;
@@ -210,10 +210,9 @@ export default {
   margin-left: 20px;
 }
 
-
 #IntroInfoContainer {
   display: flex;
-  width:auto;
+  width: auto;
   margin-left: 0px;
   border-radius: 5px;
   margin-top: 10px;
@@ -229,11 +228,10 @@ export default {
 
 #IntroInfoButton {
   float: left;
-  margin-top:0px;
+  margin-top: 0px;
   height: 40px;
   width: 40px;
   background-image: url(../assets/linkbutton.png);
   background-size: 40px 40px;
 }
-
 </style>

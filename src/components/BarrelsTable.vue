@@ -1,15 +1,14 @@
 <template>
   <div v-if="barrels" class="barrels-table" :class="{ collapsed }">
     <div class="valstitles">
-    
-     <div
+      <div
         class="valspostitem piece sortable"
         :class="{ 'sort-active': sortField === 'title' }"
         @click="sortBy('title')"
       >
-       Musikstycke
+        Musikstycke
       </div>
- <div
+      <div
         class="valspostitem composer sortable"
         :class="{ 'sort-active': sortField === 'composer' }"
         @click="sortBy('composer')"
@@ -24,9 +23,6 @@
       >
         Originaltitel
       </div>
-     
-     
-      
     </div>
 
     <TransitionExpand v-for="(barrel, i) of barrelsSorted" :key="barrel.id">
@@ -37,12 +33,9 @@
         class="valspost"
         :class="{ peek: i == 3 }"
       >
-         <div class="valspostitem piece">{{ barrel.title }}</div>
-          <div class="valspostitem composer">{{ barrel.composer }}</div>
+        <div class="valspostitem piece">{{ barrel.title }}</div>
+        <div class="valspostitem composer">{{ barrel.composer }}</div>
         <div class="valspostitem valse">{{ barrel.label }}</div>
-       
-     
-        
       </router-link>
     </TransitionExpand>
 
@@ -107,7 +100,7 @@ export default {
 .barrels-table {
   margin-top: 0px;
   padding: 0px 10px;
-  width:100%;
+  width: 100%;
 }
 
 .valspost {
@@ -116,13 +109,14 @@ export default {
   font-size: 22px;
   border-radius: 0px;
   margin-bottom: 0.5px;
-  background-color:rgb(85 85 85);
-  color:white;
+  background-color: rgb(85 85 85);
+  color: white;
   cursor: pointer;
-  border-style:solid;
-  border-width:0 0 0px 0;
-  transition: all .2s ease-in-out;
-   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2), 0 6px 40px 0 rgba(0, 0, 0, 0.19);
+  border-style: solid;
+  border-width: 0 0 0px 0;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2),
+    0 6px 40px 0 rgba(0, 0, 0, 0.19);
 
   .collapsed &.peek {
     background: transparent
@@ -142,29 +136,27 @@ export default {
   }
 }
 .valspost:hover {
-  background-color:rgb(75 75 75);
-   transform: scale(1.005);
- 
-   
+  background-color: rgb(75 75 75);
+  transform: scale(1.005);
 }
 
 .valstitles {
   display: flex;
   font-size: 22px;
   border-radius: 15px 15px 0px 0px;
-  background-color:rgb(85 85 85);
-  color:white;
-   font-weight:300;
-   padding: 20px 0px 20px 0px;
-    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2), 0 6px 40px 0 rgba(0, 0, 0, 0.19);
- 
+  background-color: rgb(85 85 85);
+  color: white;
+  font-weight: 300;
+  padding: 20px 0px 20px 0px;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2),
+    0 6px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
 .valspostitem {
   height: 100%;
   width: auto;
   padding: 25px;
- 
+
   box-sizing: border-box;
 
   .valstitles & {
@@ -179,7 +171,7 @@ export default {
 
 .sort-active {
   text-decoration: none;
-  font-weight:600;
+  font-weight: 600;
 }
 
 .valse {
@@ -192,9 +184,9 @@ export default {
 
 .composer {
   width: 20%;
-   border-width:0 0.5px 0px 0.5px;
-  border-style:solid;
-  border-color:#999999;
+  border-width: 0 0.5px 0px 0.5px;
+  border-style: solid;
+  border-color: #999999;
 }
 
 .ActivateBonusMaterialText {
