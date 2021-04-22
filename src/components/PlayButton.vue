@@ -32,10 +32,12 @@ export default {
 <style scoped>
 #playContainer {
   display: flex;
+  width:265px;
   margin-left: -10px;
   border-radius: 15px;
   padding: 10px;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 #playContainer:hover {

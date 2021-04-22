@@ -39,7 +39,7 @@
         <router-link
           :to="{ name: 'InstrumentAbout' }"
           tag="div"
-          id="InfoContainer"
+          id="IntroInfoContainer"
         >
           <div id="InfoButton"></div>
           <div id="InfoLabel">Utforska mekaniken</div>
@@ -193,12 +193,18 @@ export default {
 }
 
 #IntroInfoContainer {
-  display: flex;
-  width: auto;
-  margin-left: 0px;
-  border-radius: 5px;
-  margin-top: 10px;
+ height:40px;
+  width: 265px;
+  border-radius: 15px;
+  padding:10px; 
+  margin-top: 2px;
+   margin-left: -10px;
   cursor: pointer;
+   transition: all 0.2s ease-in-out;
+}
+
+#IntroInfoContainer:hover {
+  background-color: rgb(245, 245, 245);
 }
 
 #IntroInfoLabel {
