@@ -36,10 +36,13 @@
                           :style="`background-image:url(${instrument.img});`"
                         ></div>
                         <div class="cardInfoObjectTitle">
-                          {{ instrument.aut_title }}
+                          {{ formatTitle(instrument.aut_title) }}
                         </div>
                         <div class="cardInfoObject">
-                          {{ instrument.place }}, {{ instrument.year }}
+                          {{ instrument.place }}
+                        </div>
+                        <div class="cardInfoObject">
+                          {{ instrument.year }}
                         </div>
                       </div>
                     </div>
@@ -76,8 +79,7 @@ export default {
           : `interface/heroes/8.jpg`;
 
         instrument.place = this.createPlaceString(
-          instrument["location.location"],
-          instrument.fields.loc_nr.extra.split(",")[1]
+          instrument["location.location"]
         );
 
         instrument.year = (
@@ -88,15 +90,18 @@ export default {
     });
   },
   methods: {
+    formatTitle(title) {
+      return title.trim().replace(/(\S)(uret)$/, "$1\u00ad$2");
+    },
     /**
      * Create a reasonable place string from the non-normalized form in the field "address" in DB
      */
-    createPlaceString(address, country) {
+    createPlaceString(address) {
       const place = address
         .split(/[\d-]+|, */)
         .filter((x) => x)
         .pop();
-      return (place || "Okänd plats").trim() + ", " + country;
+      return (place || "Okänd plats").trim();
     },
   },
 };
@@ -113,6 +118,7 @@ export default {
 #herogallery {
   float: left;
   width: 100%;
+  hyphens: auto;
 }
 .masonContainer {
   width: 100%;
@@ -244,13 +250,15 @@ export default {
 
 .cardInfoObject {
   width: 100%;
+
   text-align: center;
   margin-top: 10px;
 }
 
 .cardInfoObjectTitle {
-  font-size: 170%;
-  width: 100%;
+  font-size: 150%;
+  width: 80%;
+  margin-left: 10%;
   text-align: center;
   margin-top: 20px;
 }
