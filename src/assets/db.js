@@ -179,3 +179,11 @@ export function formatValues(fields) {
   });
   return values;
 }
+
+export function thumbnailUrl(filename) {
+  return filename
+    ? filename.substr(-4) == ".tif"
+      ? `https://img.dh.gu.se/flojtur/pyr/${filename}/full/500,/0/default.jpg`
+      : `https://data.dh.gu.se/flojtur/500x/${filename}`
+    : "/interface/heroes/1b.jpg";
+}
