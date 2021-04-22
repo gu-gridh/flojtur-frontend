@@ -179,3 +179,16 @@ export function formatValues(fields) {
   });
   return values;
 }
+
+export function imageUrl(filename, width) {
+  return filename
+    ? filename.substr(-4) == ".tif"
+      ? `https://img.dh.gu.se/flojtur/pyr/${filename}/full/${width},/0/default.jpg`
+      : `https://data.dh.gu.se/flojtur/${width}x/${filename}`
+    : "/interface/heroes/1b.jpg";
+}
+
+// These correspond to dirs on data server. When all jpgs are replaced with tifs we won't need these.
+export const imageUrlThumb = (filename) => imageUrl(filename, 300);
+export const imageUrlMedium = (filename) => imageUrl(filename, 500);
+export const imageUrlLarge = (filename) => imageUrl(filename, 1000);

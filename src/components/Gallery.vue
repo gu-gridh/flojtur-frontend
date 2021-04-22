@@ -21,19 +21,23 @@
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
                     <img
-                      :src="instrument.img"
+                      :src="imageUrl(instrument.thumbnail || '')"
                       :alt="`Bild på ${instrument.aut_title}`"
                     />
                   </div>
                   <div
                     class="flip-card-back"
-                    :style="`background-image:url(${instrument.img});`"
+                    :style="`background-image:url(${imageUrl(
+                      instrument.thumbnail || ''
+                    )});`"
                   >
                     <div class="cardBlur">
                       <div class="cardInfo">
                         <div
                           class="cardMiniImage"
-                          :style="`background-image:url(${instrument.img});`"
+                          :style="`background-image:url(${imageUrl(
+                            instrument.thumbnail || ''
+                          )});`"
                         ></div>
                         <div class="cardInfoObjectTitle">
                           {{ formatTitle(instrument.aut_title) }}
@@ -58,7 +62,7 @@
 </template>
 
 <script>
-import { getInstruments } from "@/assets/db";
+import { getInstruments, imageUrlMedium } from "@/assets/db";
 
 export default {
   name: "Gallery",
@@ -74,10 +78,6 @@ export default {
       this.instruments = instruments;
       // loop through the instruments and augument the objects with additional data
       for (let instrument of this.instruments) {
-        instrument.img = instrument.thumbnail
-          ? `https://data.dh.gu.se/flojtur/500x/${instrument.thumbnail}`
-          : `interface/heroes/8.jpg`;
-
         instrument.place = this.createPlaceString(
           instrument["location.location"]
         );
@@ -90,6 +90,7 @@ export default {
     });
   },
   methods: {
+    imageUrl: imageUrlMedium,
     formatTitle(title) {
       return title.trim().replace(/(\S)(uret)$/, "$1\u00ad$2");
     },
@@ -174,6 +175,7 @@ export default {
 .grid-item img {
   display: block;
   width: 100%;
+  height: 100%;
   object-fit: cover;
   transition: all 0.2s ease-in-out;
 }
@@ -212,6 +214,7 @@ export default {
   position: absolute;
   margin-top: -150%;
   width: 100%;
+  height: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
 }
@@ -225,7 +228,6 @@ export default {
 /* Style the back side */
 .flip-card-back {
   color: white;
-  height: 100%;
   transform: rotateY(180deg);
   background-size: cover;
 }
