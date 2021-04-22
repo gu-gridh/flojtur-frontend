@@ -147,8 +147,11 @@ export default {
 
 <style scoped>
 #ItemBack {
-  margin-top: -7px;
+  margin-top: -12px;
+ 
 }
+
+
 
 .buttons {
   display: flex;

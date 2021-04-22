@@ -71,6 +71,8 @@ h2 {
   background-repeat: no-repeat;
   background-position: center;
   z-index: 2000;
+   margin-top:-5px;
+  padding:5px;
 
   @media screen and (max-width: 950px) {
     left: 20px;
@@ -84,6 +86,11 @@ h2 {
     width: 35px;
     background-size: 25px 25px;
   }
+
+}
+
+  #ItemBack:hover {
+  background-color: rgb(245, 245, 245);
 }
 
 .articleContainer {
@@ -169,11 +176,11 @@ h2 {
   display: inline-block;
   margin-left: -10px;
   font-size: 22px;
-  line-height: 0.7;
-  color: gray;
+  line-height: 1.0;
+  color: black;
   margin-right: auto;
   height: auto;
-  padding: 10px;
+  padding: 10px 10px 8px 10px;
   border-radius: 10px;
   margin-top: 20px;
   cursor: pointer;

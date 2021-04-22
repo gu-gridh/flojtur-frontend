@@ -97,7 +97,6 @@
         </div>
       </div>
     </div>
-
     <div id="foot" style="width: 100%"></div>
   </div>
 </template>
