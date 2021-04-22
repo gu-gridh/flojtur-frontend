@@ -206,6 +206,7 @@ export default {
   font-size: 25px;
   margin-top: 0px;
   margin-left: 20px;
+  font-weight:100;
 }
 
 #IntroInfoButton {

@@ -50,6 +50,7 @@ export default {
   color: white;
   height: 100px;
   margin-left: 30px;
+  margin-bottom: 20px;
   border-radius: 10px;
   border-style: dotted;
   border-width: 0.5px;
