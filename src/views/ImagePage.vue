@@ -30,19 +30,7 @@
         <MiniGallery
           masonryId="masonry-speluret"
           full="1"
-          :items="
-            photos.map((hit) => ({
-              link: {
-                name: 'ImagePage',
-                params: {
-                  automId,
-                  category: category,
-                  imageId: hit.id,
-                },
-              },
-              image: `https://data.dh.gu.se/flojtur/300x/${hit.thumbnail}`,
-            }))
-          "
+          :items="galleryItems"
         />
       </div>
     </div>
@@ -68,6 +56,16 @@ export default {
       title: "",
       photos: [],
     };
+  },
+  computed: {
+    galleryItems() {
+      return this.photos.map((hit) => ({
+        autom: this.automId,
+        category: this.category,
+        id: hit.id,
+        filename: hit.thumbnail,
+      }));
+    },
   },
   created() {
     this.load();
@@ -115,9 +113,19 @@ export default {
       this.photos = photoResponse.features.filter(
         (feature) => feature.id != this.photo.id.value
       );
-      const iiifInfoResponse = await axios.get(
-        `https://img.dh.gu.se/flojtur/pyr/${this.photo.filename.value}/info.json`
-      );
+
+      // Full url for JPG.
+      let tileSource = {
+        type: "image",
+        url: `https://data.dh.gu.se/flojtur/${this.photo.filename.value}`,
+      };
+      // IIIF url for TIFF.
+      if (this.photo.filename.value.substr(-4) === ".tif") {
+        const iiifInfoResponse = await axios.get(
+          `https://img.dh.gu.se/flojtur/pyr/${this.photo.filename.value}/info.json`
+        );
+        tileSource = iiifInfoResponse.data;
+      }
 
       if (this.viewer) this.viewer.destroy();
       this.viewer = OpenSeadragon({
@@ -127,7 +135,7 @@ export default {
         showZoomControl: false,
         showHomeControl: false,
         prefixUrl: "/openseadragon/",
-        tileSources: [iiifInfoResponse.data],
+        tileSources: [tileSource],
       });
     },
     title() {

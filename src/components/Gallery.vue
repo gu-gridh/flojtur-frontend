@@ -21,13 +21,13 @@
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
                     <img
-                      :src="thumbnailUrl(instrument.thumbnail || '')"
+                      :src="imageUrl(instrument.thumbnail || '')"
                       :alt="`Bild på ${instrument.aut_title}`"
                     />
                   </div>
                   <div
                     class="flip-card-back"
-                    :style="`background-image:url(${thumbnailUrl(
+                    :style="`background-image:url(${imageUrl(
                       instrument.thumbnail || ''
                     )});`"
                   >
@@ -35,7 +35,7 @@
                       <div class="cardInfo">
                         <div
                           class="cardMiniImage"
-                          :style="`background-image:url(${thumbnailUrl(
+                          :style="`background-image:url(${imageUrl(
                             instrument.thumbnail || ''
                           )});`"
                         ></div>
@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import { getInstruments, thumbnailUrl } from "@/assets/db";
+import { getInstruments, imageUrlMedium } from "@/assets/db";
 
 export default {
   name: "Gallery",
@@ -90,7 +90,7 @@ export default {
     });
   },
   methods: {
-    thumbnailUrl,
+    imageUrl: imageUrlMedium,
     formatTitle(title) {
       return title.trim().replace(/(\S)(uret)$/, "$1\u00ad$2");
     },
