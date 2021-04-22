@@ -55,6 +55,7 @@
 import OpenSeadragon from "openseadragon";
 import { getRecord, search } from "@/assets/db";
 import MiniGallery from "@/components/MiniGallery.vue";
+import axios from "axios";
 
 export default {
   name: "ImagePage",
@@ -106,15 +107,17 @@ export default {
     imageId() {
       this.load();
     },
-    photo() {
+    async photo() {
       // Find related photos.
       const objectId = this.photo[`${this.category}_nr`].value;
       const query = `equals|${this.category}_nr|${objectId}`;
-      search("photo", query).then(({ features }) => {
-        this.photos = features.filter(
-          (feature) => feature.id != this.photo.id.value
-        );
-      });
+      const photoResponse = await search("photo", query);
+      this.photos = photoResponse.features.filter(
+        (feature) => feature.id != this.photo.id.value
+      );
+      const iiifInfoResponse = await axios.get(
+        `https://img.dh.gu.se/flojtur/pyr/${this.photo.filename.value}/info.json`
+      );
 
       if (this.viewer) this.viewer.destroy();
       this.viewer = OpenSeadragon({
@@ -124,10 +127,7 @@ export default {
         showZoomControl: false,
         showHomeControl: false,
         prefixUrl: "/openseadragon/",
-        tileSources: {
-          type: "image",
-          url: `https://data.dh.gu.se/flojtur/${this.photo.filename.value}`,
-        },
+        tileSources: [iiifInfoResponse.data],
       });
     },
     title() {
