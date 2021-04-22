@@ -68,19 +68,7 @@
         <MiniGallery
           title="Speluret"
           masonryId="masonry-speluret"
-          :items="
-            instrumentPhotos.map((hit) => ({
-              link: {
-                name: 'ImagePage',
-                params: {
-                  automId: id,
-                  category: 'autom',
-                  imageId: hit.id,
-                },
-              },
-              image: `https://data.dh.gu.se/flojtur/300x/${hit.thumbnail}`,
-            }))
-          "
+          :items="galleryItems(instrumentPhotos, 'autom')"
         />
       </div>
       <div v-if="barrels.length" id="valsar" style="margin-top: 20px">
@@ -91,19 +79,7 @@
         <MiniGallery
           title="Pipor"
           masonryId="masonry-speluret"
-          :items="
-            stopPhotos.map((hit) => ({
-              link: {
-                name: 'ImagePage',
-                params: {
-                  automId: id,
-                  category: 'stop',
-                  imageId: hit.id,
-                },
-              },
-              image: `https://data.dh.gu.se/flojtur/300x/${hit.thumbnail}`,
-            }))
-          "
+          :items="galleryItems(stopPhotos, 'stop')"
         />
       </div>
 
@@ -133,6 +109,8 @@ import {
   getBarrels,
   search,
   getInstrumentHistoryBack,
+  imageUrlLarge,
+  imageUrlThumb,
 } from "@/assets/db";
 import ShowMore from "@/components/ShowMore.vue";
 import MetadataLarge from "@/components/MetadataLarge.vue";
@@ -157,7 +135,7 @@ export default {
   data: function () {
     return {
       instrument: null,
-      heroImageUrl: "/interface/heroes/1b.jpg",
+      heroImageUrl: "/unknown.jpg",
       builder: null,
       clockmaker: null,
       casebuilder: null,
@@ -236,8 +214,7 @@ export default {
     search("photo", `equals|autom_nr|${this.id}`).then(({ features }) => {
       this.instrumentPhotos = features;
       const heroImage = features.find((hit) => hit["tag.type"] === "main");
-      if (heroImage)
-        this.heroImageUrl = `https://data.dh.gu.se/flojtur/${heroImage.thumbnail}`;
+      if (heroImage) this.heroImageUrl = imageUrlLarge(heroImage.thumbnail);
     });
     this.stopPhotos = [];
     search("division", `equals|inst_nr|${this.id}`).then(({ features }) =>
@@ -255,9 +232,18 @@ export default {
     );
   },
   methods: {
+    imageUrlThumb,
     chunk(list, n = 1) {
       const size = Math.ceil(list.length / n);
       return [...Array(n)].map((_, i) => list.slice(i * size, (i + 1) * size));
+    },
+    galleryItems(photos, category) {
+      return photos.map((hit) => ({
+        autom: this.id,
+        category: category,
+        id: hit.id,
+        filename: hit.thumbnail,
+      }));
     },
   },
   watch: {

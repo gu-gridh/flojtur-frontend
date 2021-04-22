@@ -21,20 +21,21 @@
     >
       <router-link
         v-for="(item, i) in items"
-        :key="item.image"
+        :key="item.filename"
         tag="div"
-        :to="item.link"
+        :to="itemRoute(item)"
         class="grid-item"
         :class="{ hidden: collapsed && i >= limit }"
         :style="`width: calc(100% / ${limit} - 15px * (${limit} - 1) / ${limit})`"
       >
-        <img :src="item.image" @load="redraw" />
+        <img :src="imageUrlThumb(item.filename)" @load="redraw" />
       </router-link>
     </div>
   </div>
 </template>
 
 <script>
+import { imageUrlThumb } from "@/assets/db";
 import { vueWindowSizeMixin } from "vue-window-size";
 
 export default {
@@ -63,6 +64,17 @@ export default {
     () => this.redraw(300);
   },
   methods: {
+    imageUrlThumb,
+    itemRoute(item) {
+      return {
+        name: "ImagePage",
+        params: {
+          automId: item.autom,
+          category: item.category,
+          imageId: item.id,
+        },
+      };
+    },
     toggle() {
       this.collapsed = !this.collapsed;
     },
