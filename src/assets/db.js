@@ -185,7 +185,7 @@ export function imageUrl(filename, width) {
     ? filename.substr(-4) == ".tif"
       ? `https://img.dh.gu.se/flojtur/pyr/${filename}/full/${width},/0/default.jpg`
       : `https://data.dh.gu.se/flojtur/${width}x/${filename}`
-    : "/interface/heroes/1b.jpg";
+    : "/unknown.jpg";
 }
 
 // These correspond to dirs on data server. When all jpgs are replaced with tifs we won't need these.

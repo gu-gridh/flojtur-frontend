@@ -9,7 +9,7 @@
           <div
             class="FilImage"
             style="
-              background: url(/graphics/thumbnails/fileInvert.png);
+              background: url(/graphics/fileInvert.png);
               background-size: cover;
             "
           ></div>
