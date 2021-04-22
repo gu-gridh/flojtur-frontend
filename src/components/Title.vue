@@ -32,10 +32,11 @@ export default {
 #site-title {
   margin-top: 30px;
   padding-top: 0px;
+  line-height: 0.9;
 }
 
 .subtitle {
-  line-height: 0.5;
+  line-height: 1.5;
   text-align: center;
   font-size: 60px;
 }
