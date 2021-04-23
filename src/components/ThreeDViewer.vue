@@ -2,9 +2,7 @@
   <model-viewer
     class="model-viewer"
     reveal="interaction"
-    loading="eager"
     src="/models/flojt.glb"
-
     alt="3d-modell av det mekaniska spelverket i ett flöjtur"
     camera-controls
     autoplay
@@ -20,10 +18,12 @@
     style=""
     ar-status="not-presenting"
   >
-  <div id="lazy-load-poster" slot="poster"></div>
+    <div id="lazy-load-poster" slot="poster"></div>
     <div id="button-load" slot="poster">
-     <div id="button-load-label">
-    Klicka här <br> för att ladda in modellen</div>
+      <div id="button-load-label">
+        Klicka här <br />
+        för att ladda in modellen
+      </div>
     </div>
   </model-viewer>
 </template>
@@ -42,61 +42,57 @@ export default {
   height: 100%;
   width: 100%;
   --poster-color: transparent;
+  --progress-mask: transparent;
 }
 
- #lazy-load-poster {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-image: url("/models/flojt-model.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+#lazy-load-poster {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url("/models/flojt-model.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 #button-load {
-    background-color: rgba(255, 255, 255, 0.8);
-    height:150px;
-    width:150px;
-    color: white;
-    cursor: pointer;
-    border-radius: 50%;
-    position: absolute;
-    left: 40%;
-    top: 35%;
-    transform: translate3d(-50%, -50%, 0);
-    z-index: 100;
-     transition: all .2s ease-in-out;
-	animation: pulse 2s infinite;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 150px;
+  width: 150px;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  left: 40%;
+  top: 35%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 100;
+  transition: all 0.2s ease-in-out;
+  animation: pulse 2s infinite;
+}
+
+#button-load-label {
+  color: black;
+  padding: 10px;
+  font-size: 26px;
+  text-align: center;
+  font-weight: 300;
+  margin-top: 20%;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
   }
 
-
-  #button-load-label {
-    
-    color: black;
-    padding:10px;
-    font-size: 26px;
-    text-align:center;
-    font-weight: 300;
-  margin-top:20%;
+  50% {
+    transform: scale(1);
   }
 
-  @keyframes pulse {
-	0% {
-		transform: scale(0.95);
-	
-	}
-
-50% {
-		transform: scale(1);
-	
-	}
-
-	100% {
-		transform: scale(0.95);
-		
-	}
+  100% {
+    transform: scale(0.95);
+  }
 }
 </style>
