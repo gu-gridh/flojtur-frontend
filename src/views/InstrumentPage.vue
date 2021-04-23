@@ -1,6 +1,8 @@
 <template>
   <div v-if="instrument">
-    <div id="Hero" :style="`background-image: url(${heroImageUrl});`"></div>
+    <div id="Hero">
+      <ZoomViewer :filename="heroImageUrl" />
+    </div>
 
     <div class="container">
       <router-link to="/">
@@ -118,6 +120,7 @@ import FileGrid from "@/components/FileGrid.vue";
 import BarrelsCardGrid from "@/components/BarrelsCardGrid.vue";
 import MiniGallery from "@/components/MiniGallery.vue";
 import Map from "@/components/Map.vue";
+import ZoomViewer from "@/components/ZoomViewer.vue";
 
 export default {
   name: "InstrumentPage",
@@ -130,6 +133,7 @@ export default {
     BarrelsCardGrid,
     MiniGallery,
     Map,
+    ZoomViewer,
   },
   data: function () {
     return {
@@ -213,7 +217,7 @@ export default {
     search("photo", `equals|autom_nr|${this.id}`).then(({ features }) => {
       this.instrumentPhotos = features;
       const heroImage = features.find((hit) => hit["tag.type"] === "main");
-      if (heroImage) this.heroImageUrl = imageUrlLarge(heroImage.thumbnail);
+      if (heroImage) this.heroImageUrl = heroImage.thumbnail;
     });
     this.stopPhotos = [];
     search("division", `equals|inst_nr|${this.id}`).then(({ features }) =>

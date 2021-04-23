@@ -21,7 +21,9 @@ export default {
     this.viewer = OpenSeadragon({
       element: this.$refs.osd,
       homeFillsViewer: this.cover,
-      minZoomImageRatio: 1,
+      immediateRender: true,
+      visibilityRatio: this.cover ? 1 : 0.5,
+      minZoomImageRatio: this.cover ? 1 : 0.5,
       showZoomControl: false,
       showHomeControl: false,
       prefixUrl: "/openseadragon/",
