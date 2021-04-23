@@ -105,11 +105,19 @@ export default {
       }
     }
   }
+
+  .model {
+    // Invert the 10% margins from the container
+    margin-inline: -12.5%;
+  }
 }
 
 .model {
-  height: 800px;
   min-height: 50vh;
+  // Model viewport ratio is approx 1:1.3.
+  max-height: min(100vh, 130vw);
+  // Model viewer needs height set, even if min- and max-height should be enough.
+  height: 800px;
   margin: auto;
 }
 
