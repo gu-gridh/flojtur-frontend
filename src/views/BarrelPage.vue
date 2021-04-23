@@ -242,16 +242,16 @@ export default {
   height: 50vh;
   width: 33.33%;
   cursor: pointer;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
-  &.title,
-  &.back {
-    background-position: 50% 65%;
-    background-size: 250%;
-    background-repeat: no-repeat;
-  }
-  &.side {
-    background-position: center;
-    background-size: cover;
+  @media screen and (min-width: 1000px) {
+    &.title,
+    &.back {
+      background-position: 50% 65%;
+      background-size: 300%;
+    }
   }
 }
 .buttons {
