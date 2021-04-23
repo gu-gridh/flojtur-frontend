@@ -96,6 +96,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.barrels-table {
+  color: white;
+
+  // Since children have box-shadow, border radius must be on first and last children, not parent.
+  :first-child {
+    border-radius: 15px 15px 0 0;
+  }
+
+  :last-child {
+    border-radius: 0 0 15px 15px;
+  }
+}
+
+.valstitles {
+  display: flex;
+  font-size: 22px;
+  background-color: rgb(85 85 85);
+  font-weight: 300;
+  padding: 20px 0px 20px 0px;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2),
+    0 6px 40px 0 rgba(0, 0, 0, 0.19);
+
+  .valspostitem {
+    &.sort-active,
+    &:hover {
+      font-weight: 600;
+    }
+  }
+}
+
 .valspost {
   display: flex;
   align-items: center;
@@ -106,7 +136,7 @@ export default {
   cursor: pointer;
   border-style: solid;
   border-width: 0 0 0px 0;
-  transition: all 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2),
     0 6px 40px 0 rgba(0, 0, 0, 0.19);
 
@@ -132,18 +162,6 @@ export default {
   transform: scale(1.005);
 }
 
-.valstitles {
-  display: flex;
-  font-size: 22px;
-  border-radius: 15px 15px 0px 0px;
-  background-color: rgb(85 85 85);
-  color: white;
-  font-weight: 300;
-  padding: 20px 0px 20px 0px;
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2),
-    0 6px 40px 0 rgba(0, 0, 0, 0.19);
-}
-
 .valspostitem {
   height: 100%;
   width: auto;
@@ -161,11 +179,6 @@ export default {
   cursor: pointer;
 }
 
-.sort-active {
-  text-decoration: none;
-  font-weight: 600;
-}
-
 .valse {
   width: 50%;
 }
@@ -180,10 +193,12 @@ export default {
   border-style: solid;
   border-color: #999999;
 
-  .valsitles & {
-    // More margin, less padding, to fix border lengths.
-    margin-block: 10px;
-    padding-block: 15px;
+  @media screen and (min-width: 800px) {
+    :not(.valstitles) > & {
+      // More margin, less padding, to fix border lengths.
+      margin-block: 10px;
+      padding-block: 15px;
+    }
   }
 }
 
@@ -191,5 +206,33 @@ export default {
   // Make sure the button stays over the half-visible peek item.
   position: relative;
   z-index: 10;
+}
+
+@media screen and (max-width: 800px) {
+  .valstitles {
+    display: none;
+  }
+
+  .valspost {
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .valspostitem {
+    width: auto;
+    padding: 0;
+    border: 0;
+    &:not(:last-child) {
+      margin-bottom: 0.75em;
+    }
+  }
+
+  .composer,
+  .piece {
+    padding: 0;
+    font-size: smaller;
+  }
 }
 </style>
