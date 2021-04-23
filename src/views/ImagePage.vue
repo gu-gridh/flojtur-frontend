@@ -1,10 +1,7 @@
 <template>
   <div>
-    <div id="ItemTopImage">
-      <div
-        id="openseadragon1"
-        style="position: relative; width: 100%; height: 70vh"
-      ></div>
+    <div v-if="photo" id="ItemTopImage">
+      <ZoomViewer :filename="photo.filename.value" :cover="false" />
     </div>
 
     <div v-if="photo" class="container">
@@ -40,18 +37,16 @@
 </template>
 
 <script>
-import OpenSeadragon from "openseadragon";
 import { getRecord, search } from "@/assets/db";
+import ZoomViewer from "@/components/ZoomViewer.vue";
 import MiniGallery from "@/components/MiniGallery.vue";
-import axios from "axios";
 
 export default {
   name: "ImagePage",
   props: ["automId", "category", "imageId"],
-  components: { MiniGallery },
+  components: { ZoomViewer, MiniGallery },
   data() {
     return {
-      viewer: null,
       photo: null,
       title: "",
       photos: [],
@@ -113,30 +108,6 @@ export default {
       this.photos = photoResponse.features.filter(
         (feature) => feature.id != this.photo.id.value
       );
-
-      // Full url for JPG.
-      let tileSource = {
-        type: "image",
-        url: `https://data.dh.gu.se/flojtur/${this.photo.filename.value}`,
-      };
-      // IIIF url for TIFF.
-      if (this.photo.filename.value.substr(-4) === ".tif") {
-        const iiifInfoResponse = await axios.get(
-          `https://img.dh.gu.se/flojtur/pyr/${this.photo.filename.value}/info.json`
-        );
-        tileSource = iiifInfoResponse.data;
-      }
-
-      if (this.viewer) this.viewer.destroy();
-      this.viewer = OpenSeadragon({
-        id: "openseadragon1",
-        homeFillsViewer: false,
-        minZoomImageRatio: 0.3,
-        showZoomControl: false,
-        showHomeControl: false,
-        prefixUrl: "/openseadragon/",
-        tileSources: [tileSource],
-      });
     },
     title() {
       document.title = this.title;

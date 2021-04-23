@@ -130,7 +130,6 @@ export default {
 }
 
 .links {
-  overflow: hidden;
   height: 60px;
   width: 100%;
   margin-top: 10px;
@@ -154,9 +153,7 @@ export default {
   transition: all 0.2s ease-in-out;
 }
 .viewOption.router-link-exact-active {
-  border-style: solid;
-  border-width: 0 0 1px 0;
-  border-color: black;
+  border-bottom: 1px solid black;
   height: 30px;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
@@ -212,7 +209,7 @@ export default {
   font-size: 25px;
   margin-top: 0px;
   margin-left: 20px;
-  font-weight:100;
+  font-weight: 100;
 }
 
 #IntroInfoButton {
