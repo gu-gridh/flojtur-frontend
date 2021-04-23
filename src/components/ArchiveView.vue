@@ -102,7 +102,7 @@ export default {
     > * {
       flex: 1;
       &:not(:last-child) {
-        margin-left: -30px;
+        margin-left: 0px;
       }
     }
   }
