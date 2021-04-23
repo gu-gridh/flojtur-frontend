@@ -29,11 +29,6 @@ a:visited {
   text-decoration-style: wavy;
 }
 
-.container {
-  width: 80%;
-  margin: auto;
-}
-
 h1 {
   font-weight: 100;
   font-style: normal;
@@ -77,15 +72,23 @@ h2 {
     background-size: 30px 30px;
   }
   @media screen and (max-width: 800px) {
-    left: 15px;
-    height: 35px;
-    width: 35px;
-    background-size: 25px 25px;
+    position: static;
+    margin: 0;
+    padding: 0;
+
+    + h1 {
+      margin-top: 25px;
+    }
   }
 }
 
 #ItemBack:hover {
   background-color: rgb(245, 245, 245);
+}
+
+.container {
+  width: 80%;
+  margin: auto;
 }
 
 .articleContainer {
@@ -97,6 +100,13 @@ h2 {
   hyphens: auto;
   h2 {
     margin-bottom: 0.5em;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container,
+  .articleContainer {
+    width: 90%;
   }
 }
 

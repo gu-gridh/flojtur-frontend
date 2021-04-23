@@ -1,5 +1,5 @@
 <template>
-  <div v-if="items" class="clearfix" style="margin-top: 40px">
+  <div v-if="items" class="metadata-large clearfix">
     <dl
       v-for="(itemsChunk, i) in chunk(itemsFiltered, 2)"
       :key="i"
@@ -40,9 +40,12 @@ export default {
 </script>
 
 <style scoped>
+.metadata-large {
+  margin-top: 40px;
+  margin-right: -40px;
+}
 .MetaContainerShort {
   float: left;
-  white-space: nowrap;
   width: auto;
   margin: 0px 50px 0 0;
   font-weight: 100;

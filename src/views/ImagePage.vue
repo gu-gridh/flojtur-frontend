@@ -7,11 +7,12 @@
     <div v-if="photo" class="container">
       <router-link
         :to="{ name: 'InstrumentPage', params: { id: this.automId } }"
+        tag="div"
+        id="ItemBack"
       >
-        <div id="ItemBack"></div>
       </router-link>
 
-      <h2 v-if="title" style="margin-top: 70px">{{ title }}</h2>
+      <h1 v-if="title">{{ title }}</h1>
 
       <div class="buttons">
         <a
@@ -117,12 +118,9 @@ export default {
 </script>
 
 <style scoped>
-#ItemBack {
-  margin-top: -12px;
- 
+#ItemTopImage {
+  margin-bottom: 40px;
 }
-
-
 
 .buttons {
   display: flex;

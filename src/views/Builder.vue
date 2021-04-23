@@ -3,11 +3,9 @@
     <Title />
 
     <article class="articleContainer">
-      <router-link to="/">
-        <div id="ItemBack"></div>
-      </router-link>
+      <router-link to="/" tag="div" id="ItemBack" />
 
-      <h2>Om Pehr Strand</h2>
+      <h1>Om Pehr Strand</h1>
       <div class="articleIngress">
         <p>
           <em>Orgel- och spelursbyggaren Pehr Strand</em> (publicerad i

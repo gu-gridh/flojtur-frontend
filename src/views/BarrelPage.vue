@@ -235,6 +235,7 @@ export default {
 #Valstriptyk {
   width: 100%;
   height: 50vh;
+  margin-bottom: 40px;
 }
 
 .valsbild {

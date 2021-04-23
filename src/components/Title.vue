@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div class="container">
       <div class="ornament lyre"></div>
       <h1 id="site-title">
         <router-link to="/">Pehr Strands flöjtur</router-link>

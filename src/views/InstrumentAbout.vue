@@ -2,11 +2,9 @@
   <div class="articlepage">
     <Title />
     <article class="articleContainer">
-      <router-link to="/">
-        <div id="ItemBack"></div>
-      </router-link>
+      <router-link to="/" tag="div" id="ItemBack" />
 
-      <h2>Ett självspelande flöjtur</h2>
+      <h1>Ett självspelande flöjtur</h1>
       <div class="articleIngress">
         <p>
           Ett <strong>flöjtur</strong> är ett golvur som har ett inbyggt

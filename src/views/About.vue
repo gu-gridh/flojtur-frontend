@@ -2,11 +2,9 @@
   <div class="articlepage">
     <Title />
     <article class="articleContainer">
-      <router-link to="/">
-        <div id="ItemBack"></div>
-      </router-link>
+      <router-link to="/" tag="div" id="ItemBack" />
 
-      <h2>Om forskningsprojektet</h2>
+      <h1>Om forskningsprojektet</h1>
       <div class="articleIngress">
         <p>
           Denna webbportal är resultatet av ett forskningsprojekt finansierat av

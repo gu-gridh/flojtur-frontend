@@ -5,9 +5,7 @@
     </div>
 
     <div class="container">
-      <router-link to="/">
-        <div id="ItemBack"></div>
-      </router-link>
+      <router-link to="/" tag="div" id="ItemBack" />
 
       <h1>
         {{ instrument.aut_title.value }}
@@ -294,7 +292,7 @@ export default {
 
 <style lang="scss" scoped>
 #Hero {
-  padding: 0px 0px 0px 0px;
+  margin-bottom: 40px;
   overflow: hidden;
   width: 100%;
   height: 70vh;
