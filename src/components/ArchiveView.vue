@@ -54,16 +54,15 @@
       <div class="ArchiveViewOptions">
         <router-link
           to="/"
-          class="viewOption"
           :class="{ 'router-link-exact-active': $route.name === 'Home' }"
           >Galleri</router-link
         >
-        <div class="viewOption">|</div>
-        <router-link to="/karta" class="viewOption">Karta</router-link>
-        <div class="viewOption">|</div>
-        <router-link to="/valsar" class="viewOption">Stiftvalsar</router-link>
-        <div class="viewOption">|</div>
-        <router-link to="/data" class="viewOption">
+        <span>|</span>
+        <router-link to="/karta">Karta</router-link>
+        <span>|</span>
+        <router-link to="/valsar">Stiftvalsar</router-link>
+        <span class="sm-hidden">|</span>
+        <router-link to="/data" class="sm-hidden">
           Avancerad sökning
         </router-link>
       </div>
@@ -141,22 +140,22 @@ export default {
   margin-left: auto;
   margin-right: auto;
   color: black;
-  padding: 30px 0 30px 0;
+  padding: 35px 0 30px 0;
   text-align: center;
-}
-.viewOption {
-  display: inline-block;
-  width: auto;
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-top: 5px;
-  transition: all 0.2s ease-in-out;
-}
-.viewOption.router-link-exact-active {
-  border-bottom: 1px solid black;
-  height: 30px;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
+
+  > * {
+    width: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+    transition: all 0.2s ease-in-out;
+
+    &.router-link-exact-active {
+      border-bottom: 1px solid black;
+      height: 30px;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+    }
+  }
 }
 
 #InfoContainer {
@@ -190,14 +189,14 @@ export default {
 }
 
 #IntroInfoContainer {
- height:40px;
+  height: 40px;
   width: 265px;
   border-radius: 15px;
-  padding:10px; 
+  padding: 10px;
   margin-top: 2px;
-   margin-left: -10px;
+  margin-left: -10px;
   cursor: pointer;
-   transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 #IntroInfoContainer:hover {

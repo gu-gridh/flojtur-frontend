@@ -34,10 +34,6 @@ a:visited {
   margin: auto;
 }
 
-.container-padded {
-  padding: 0 10%;
-}
-
 h1 {
   font-weight: 100;
   font-style: normal;
@@ -71,8 +67,8 @@ h2 {
   background-repeat: no-repeat;
   background-position: center;
   z-index: 2000;
-   margin-top:-5px;
-  padding:5px;
+  margin-top: -5px;
+  padding: 5px;
 
   @media screen and (max-width: 950px) {
     left: 20px;
@@ -86,10 +82,9 @@ h2 {
     width: 35px;
     background-size: 25px 25px;
   }
-
 }
 
-  #ItemBack:hover {
+#ItemBack:hover {
   background-color: rgb(245, 245, 245);
 }
 
@@ -176,7 +171,7 @@ h2 {
   display: inline-block;
   margin-left: -10px;
   font-size: 22px;
-  line-height: 1.0;
+  line-height: 1;
   color: black;
   margin-right: auto;
   height: auto;
@@ -212,6 +207,12 @@ ul {
 
 .long-url {
   word-break: break-all;
+}
+
+@media screen and (max-width: 800px) {
+  body .sm-hidden {
+    display: none;
+  }
 }
 
 sup {

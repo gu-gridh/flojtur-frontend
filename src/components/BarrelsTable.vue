@@ -96,12 +96,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.barrels-table {
-  margin-top: 0px;
-  padding: 0px 10px;
-  width: 100%;
-}
-
 .valspost {
   display: flex;
   align-items: center;
@@ -185,9 +179,12 @@ export default {
   border-width: 0 0.5px 0px 0.5px;
   border-style: solid;
   border-color: #999999;
-  // More margin, less padding, to fix border lengths.
-  margin-block: 10px;
-  padding-block: 15px;
+
+  .valsitles & {
+    // More margin, less padding, to fix border lengths.
+    margin-block: 10px;
+    padding-block: 15px;
+  }
 }
 
 .ActivateBonusMaterialText {
