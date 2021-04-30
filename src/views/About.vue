@@ -4,7 +4,7 @@
     <article class="articleContainer">
       <router-link to="/" tag="div" id="ItemBack" />
 
-      <h1>Om forskningsprojektet</h1>
+      <h1>Om forsknings&shy;projektet</h1>
       <div class="articleIngress">
         <p>
           Denna webbportal är resultatet av ett forskningsprojekt finansierat av
