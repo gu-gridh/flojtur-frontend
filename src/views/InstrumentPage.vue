@@ -108,8 +108,9 @@ import {
   getBarrels,
   search,
   getInstrumentHistoryBack,
-  imageUrlLarge,
   imageUrlThumb,
+  formatValues,
+  searchFull,
 } from "@/assets/db";
 import ShowMore from "@/components/ShowMore.vue";
 import MetadataLarge from "@/components/MetadataLarge.vue";
@@ -145,6 +146,7 @@ export default {
       /** The first record in the history of this instrument. */
       instrumentFirst: null,
       barrels: [],
+      division: null,
       instrumentPhotos: [],
       stopPhotos: [],
     };
@@ -169,12 +171,32 @@ export default {
     },
     metadata2() {
       if (!this.instrument) return [];
+      const values = formatValues(this.instrument);
+      const inventoryDate = ((year) =>
+        parseInt(year) > 1900 ? year : undefined)(
+        this.instrument.date2.value.substring(0, 4)
+      );
       return [
         { label: "Urmakare", value: this.clockmaker },
         { label: "Tillverkare av fodral", value: this.casebuilder },
         { label: "Stämmor", value: this.instrument.no_stop.value },
         { label: "Spelverk", value: this.instrument.no_div.value },
         { label: "Plats i byggnaden", value: this.instrument.loc_in_bui.value },
+        { label: "Inventerad", value: inventoryDate },
+        { label: "Ägare", value: this.owner },
+        { label: "Urverk", value: values.clock_info },
+        { label: "Övrig info", value: values.gen_info },
+        {
+          label: "Mer info",
+          value: "Öppna databas",
+          href: `https://strand.dh.gu.se/admin/autom/${this.id}`,
+        },
+        { label: "Valsmekanism", value: this.division.fields.barr_act.extra },
+        { label: "Spelarmar", value: this.division.fields.no_tones.extra },
+        {
+          label: "Registreringsarmar",
+          value: this.division.fields.no_reg.extra,
+        },
         // TODO Omfång nedre
         // TODO Omfång övre
         // TODO Stämnamn
@@ -218,8 +240,9 @@ export default {
       if (heroImage) this.heroImageUrl = heroImage.thumbnail;
     });
     this.stopPhotos = [];
-    search("division", `equals|inst_nr|${this.id}`).then(({ features }) =>
-      features.forEach((division) =>
+    searchFull("division", `equals|inst_nr|${this.id}`).then((divisions) =>
+      divisions.forEach((division) => {
+        this.division = division;
         search("stop", `equals|nr|${division.id}`).then(({ features }) => {
           // TODO Remove temporary hard-coded stop ids.
           features.push({ id: 22 }, { id: 23 });
@@ -228,8 +251,8 @@ export default {
               this.stopPhotos.push(...features)
             )
           );
-        })
-      )
+        });
+      })
     );
   },
   methods: {
