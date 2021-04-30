@@ -1,19 +1,19 @@
 <template>
   <div v-if="barrel">
-    <div id="Valstriptyk">
-      <router-link
-        v-if="photos.title"
-        tag="div"
-        :to="photos.title.linkRoute"
-        class="valsbild title"
-        :style="{ backgroundImage: `url(${photos.title.imageUrl})` }"
-      ></router-link>
+    <div id="Valstriptyk" class="clearfix">
       <router-link
         v-if="photos.side"
         tag="div"
         :to="photos.side.linkRoute"
         class="valsbild side"
         :style="{ backgroundImage: `url(${photos.side.imageUrl})` }"
+      ></router-link>
+      <router-link
+        v-if="photos.title"
+        tag="div"
+        :to="photos.title.linkRoute"
+        class="valsbild title"
+        :style="{ backgroundImage: `url(${photos.title.imageUrl})` }"
       ></router-link>
       <router-link
         v-if="photos.back"
@@ -234,7 +234,6 @@ export default {
 <style lang="scss" scoped>
 #Valstriptyk {
   width: 100%;
-  height: 50vh;
   margin-bottom: 40px;
 }
 
@@ -246,6 +245,33 @@ export default {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+
+  // Place side view in the middle.
+  &.side {
+    float: none;
+    margin-left: 33.33%;
+    margin-bottom: -50vh;
+  }
+  &.back {
+    float: right;
+  }
+
+  @media screen and (max-width: 600px) {
+    // On mobile, the side photo occupies full top.
+    &.side {
+      margin: 0;
+      width: 100%;
+      height: 30vh;
+      background-size: 120%;
+    }
+    &.title,
+    &.back {
+      background-position: 50% 65%;
+      background-size: 300%;
+      width: 50%;
+      height: 50vw;
+    }
+  }
 
   @media screen and (min-width: 1000px) {
     &.title,
