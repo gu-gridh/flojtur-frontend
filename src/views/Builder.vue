@@ -31,7 +31,10 @@
       </div>
       <div class="articletext">
         <figure class="span-columns">
-          <img src="http://placekitten.com/1500/1000" />
+          <img
+            src="@/assets/article/Strand_Leufsta_urtavla_DSC_1813.jpg"
+            alt="Urtavla"
+          />
           <figcaption>
             Speluret på Lövstabruks herrgård. Urtavlan signerad ”P; Strand
             Stockholm”. Foto: Johan Norrback.
@@ -90,7 +93,10 @@
           på en liten väggpendyl han själv inte byggt vore förvånande.
         </p>
         <figure class="span-columns">
-          <img src="http://placekitten.com/1500/1350" />
+          <img
+            src="@/assets/article/Strand_Henriettas_pendyl_DSC_2148.jpg"
+            alt="Väggur"
+          />
           <figcaption>
             Väggur signerat ”Pehr Strand Stockholm”. Har sannolikt tillhört
             Henriette Löfman, född Strand. Foto: Johan Norrback.
