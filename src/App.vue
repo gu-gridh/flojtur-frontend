@@ -239,6 +239,10 @@ hr {
   border-top: thin solid gray;
 }
 
+figure {
+  text-align: center;
+}
+
 .clearfix::after {
   content: "";
   display: block;
