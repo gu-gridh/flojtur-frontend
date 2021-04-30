@@ -2,7 +2,7 @@
   <div>
     <header>
       <h2 v-if="title">{{ title }}</h2>
-      <span v-if="!full" class="ActivateBonusMaterialText" @click="toggle">
+      <span v-if="!full" class="ActivateBonusMaterialText top" @click="toggle">
         {{ collapsed ? "Visa alla valsar..." : "Visa färre valsar..." }}
       </span>
     </header>
@@ -26,6 +26,9 @@
         {{ card.content }}
       </Card>
     </div>
+    <span v-if="!full" class="ActivateBonusMaterialText bottom" @click="toggle">
+      {{ collapsed ? "Visa alla valsar..." : "Visa färre valsar..." }}
+    </span>
   </div>
 </template>
 
@@ -62,7 +65,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 header {
   display: flex;
   align-items: baseline;
@@ -70,7 +73,23 @@ header {
 }
 
 .ActivateBonusMaterialText {
-  margin-left: 1em;
+  &.top {
+    margin-left: 1em;
+    display: none;
+  }
+
+  &.bottom {
+    margin: 0 0 1em;
+  }
+
+  @media screen and (min-width: 800px) {
+    &.top {
+      display: block;
+    }
+    &.bottom {
+      display: none;
+    }
+  }
 }
 
 .grid-item-pub {
