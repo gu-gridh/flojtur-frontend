@@ -1,13 +1,11 @@
 <template>
-  <dl>
+  <div class="metadata-small">
     <div v-for="(item, i) in itemsFiltered" :key="i" class="item">
-      <dt>{{ item.label }}:</dt>
-      <dd v-if="item.href">
-        <a :href="item.href">{{ item.value }}</a>
-      </dd>
-      <dd v-else>{{ item.value }}</dd>
+      <span class="label">{{ item.label }}:</span>
+      <a v-if="item.href" :href="item.href" class="value">{{ item.value }}</a>
+      <span v-else class="value">{{ item.value }}</span>
     </div>
-  </dl>
+  </div>
 </template>
 
 <script>
@@ -28,9 +26,9 @@ export default {
 </script>
 
 <style scoped>
-dl {
+.metadata-small {
   margin-top: 10px;
-  column-count: 5;
+  columns: 300px 5;
   column-gap: 40px;
   font-size: 18px;
   line-height: 1.5;
@@ -42,36 +40,13 @@ dl {
   break-inside: avoid;
 }
 
-dt {
-  display: inline;
-}
-dd {
-  display: inline;
+.value {
   margin-left: 0.2em;
   color: #fd8ef9;
 }
 
-@media screen and (max-width: 1600px) {
-  dl {
-    column-count: 4;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  dl {
-    column-count: 3;
-  }
-}
-
-@media screen and (max-width: 910px) {
-  dl {
-    column-count: 2;
-  }
-}
-
 @media screen and (max-width: 610px) {
-  dl {
-    column-count: 1;
+  .metadata-small {
     font-size: 22px;
   }
 }

@@ -1,18 +1,16 @@
 <template>
   <div v-if="items" class="metadata-large clearfix">
-    <dl
+    <div
       v-for="(itemsChunk, i) in chunk(itemsFiltered, 2)"
       :key="i"
       class="MetaContainerShort"
     >
-      <div v-for="item in itemsChunk" :key="item.label">
-        <dt>{{ item.label }}:</dt>
-        <dd v-if="item.href">
-          <a :href="item.href">{{ item.value }}</a>
-        </dd>
-        <dd v-else>{{ item.value }}</dd>
+      <div v-for="item in itemsChunk" :key="item.label" class="item">
+        <span class="label">{{ item.label }}:</span>
+        <a v-if="item.href" :href="item.href" class="value">{{ item.value }}</a>
+        <span v-else class="value">{{ item.value }}</span>
       </div>
-    </dl>
+    </div>
   </div>
 </template>
 
@@ -49,14 +47,14 @@ export default {
   width: auto;
   margin: 0px 50px 0 0;
   font-weight: 100;
-  line-height: 2;
+  line-height: 1.5;
 }
 
-dt {
-  display: inline;
+.item {
+  padding-bottom: 0.5em;
 }
-dd {
-  display: inline;
+
+.value {
   margin-left: 0.2em;
   color: #c029bb;
 }

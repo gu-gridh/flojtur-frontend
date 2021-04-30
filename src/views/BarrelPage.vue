@@ -174,7 +174,7 @@ export default {
           },
           {
             label: "Övrig info",
-            value: values.bar_info.replace("<BR>", " "),
+            value: values.bar_info,
           },
         ],
       };

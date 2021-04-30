@@ -175,7 +175,9 @@ export function formatValues(fields) {
   const values = {};
   Object.keys(fields).forEach((prop) => {
     values[prop] = fields[prop].ftab ? fields[prop].extra : fields[prop].value;
-    values[prop] = values[prop].replace(/^[-?]$/, "");
+    values[prop] = values[prop]
+      .replace(/^[-?]$/, "")
+      .replaceAll(/(\s*<br>)+/gi, ". ");
   });
   return values;
 }
