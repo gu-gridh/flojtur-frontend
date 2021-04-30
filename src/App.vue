@@ -37,9 +37,6 @@ h1 {
   margin: 60px 0 20px;
 
   &#site-title {
-    text-align: center;
-    font-size: 120px;
-    margin: 20px 0 10px;
   }
 }
 

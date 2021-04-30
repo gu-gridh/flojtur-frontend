@@ -30,7 +30,9 @@ export default {
 
 <style lang="scss" scoped>
 #site-title {
-  margin-top: 30px;
+  font-size: 70px;
+  text-align: center;
+  margin: 20px 0 10px;
   padding-top: 0px;
   line-height: 0.9;
 }
@@ -38,16 +40,19 @@ export default {
 .subtitle {
   line-height: 1.5;
   text-align: center;
-  font-size: 60px;
+  font-size: 40px;
 }
 
 .ornament {
   margin: 0 auto;
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 
   &.lyre {
     background-image: url(../assets/topdetailwhite.png);
     height: 235px;
+    max-height: 20vh;
     width: 205px;
     margin-top: 50px;
   }
@@ -55,6 +60,16 @@ export default {
     background-image: url(../assets/lauraldetailwhite.png);
     height: 175px;
     width: 200px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #site-title {
+    font-size: 120px;
+  }
+
+  .subtitle {
+    font-size: 60px;
   }
 }
 </style>
