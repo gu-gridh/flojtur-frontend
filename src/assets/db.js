@@ -28,7 +28,8 @@ export function getRecords(table, ids) {
 export async function getInstruments() {
   // Each actual instrument has multiple autom records, one for each activity. Activity type 1 is "Inventering".
   const [instruments, authists] = await Promise.all([
-    searchFull("autom"),
+    // TODO Define inclusion/exclusion as a set in db.
+    searchFull("autom", "not||equals|id|9"),
     searchFull("authist")
   ]).catch((error) => console.error(error) || []);
 
