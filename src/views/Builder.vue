@@ -32,6 +32,14 @@
       <div class="articletext">
         <figure class="span-columns">
           <img
+            src="@/assets/article/Strand_Leufsta_DSC_1876.jpg"
+            alt="Flöjtur"
+          />
+          <figcaption></figcaption>
+        </figure>
+
+        <figure class="span-columns">
+          <img
             src="@/assets/article/Strand_Leufsta_urtavla_DSC_1813.jpg"
             alt="Urtavla"
           />
@@ -40,6 +48,7 @@
             Stockholm”. Foto: Johan Norrback.
           </figcaption>
         </figure>
+
         <p>
           Pehr (Petrus/Petter/Per) Strand föddes i Arnäs församling, strax
           utanför Örnsköldsvik i Ångermanland.<sup>2</sup> Hans födelse och dop
@@ -132,6 +141,17 @@
           hemförsamlingen Arnäs strax utanför Örnsköldsvik. Orgeln stod målad
           och klar 1808.<sup>12</sup>
         </p>
+
+        <figure class="span-columns">
+          <img
+            src="@/assets/article/Strand_Sundals-Ryr_DSC_0211.jpg"
+            alt="Orgel"
+          />
+          <figcaption>
+            Orgeln i Sundal-Ryrs gamla kyrka i Dalsland. Foto: Johan Norrback.
+          </figcaption>
+        </figure>
+
         <p>
           Ur källorna framträder en bild av lärlingen, sedermera direktören,
           Pehr Strand som en driftig person med många olika kompetenser. Mot
