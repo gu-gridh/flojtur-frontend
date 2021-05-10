@@ -7,17 +7,17 @@
         <div class="IntroMenuContainer IntroItem">
           <div>Utforska arkivet</div>
 
-          <router-link to="/pehr-strand" tag="div" id="IntroInfoContainer">
+          <router-link to="/pehr-strand" tag="div" class="IntroInfoContainer">
             <div id="IntroInfoButton"></div>
             <div id="IntroInfoLabel">Om Pehr Strand</div>
           </router-link>
 
-          <router-link to="/om" tag="div" id="IntroInfoContainer">
+          <router-link to="/om" tag="div" class="IntroInfoContainer">
             <div id="IntroInfoButton"></div>
             <div id="IntroInfoLabel" style="">Om forskningsprojektet</div>
           </router-link>
 
-          <div v-scroll-to="'.ArchiveViewOptions'" id="IntroInfoContainer">
+          <div v-scroll-to="'.ArchiveViewOptions'" class="IntroInfoContainer">
             <div id="IntroInfoButton"></div>
             <div id="IntroInfoLabel">Pehr Strands flöjtur</div>
           </div>
@@ -39,7 +39,7 @@
         <router-link
           :to="{ name: 'InstrumentAbout' }"
           tag="div"
-          id="IntroInfoContainer"
+          class="IntroInfoContainer"
         >
           <div id="InfoButton"></div>
           <div id="InfoLabel">Utforska mekaniken</div>
@@ -196,7 +196,7 @@ export default {
   margin: 20px 0 40px;
 }
 
-#IntroInfoContainer {
+.IntroInfoContainer {
   height: 40px;
   width: 265px;
   border-radius: 15px;
@@ -207,7 +207,7 @@ export default {
   transition: all 0.2s ease-in-out;
 }
 
-#IntroInfoContainer:hover {
+.IntroInfoContainer:hover {
   background-color: rgb(245, 245, 245);
 }
 
