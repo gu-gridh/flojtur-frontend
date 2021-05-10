@@ -37,15 +37,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+$gap: 50px;
+
 .metadata-large {
   margin-top: 40px;
-  margin-right: -40px;
+  margin-left: -$gap;
 }
 .MetaContainerShort {
   float: left;
-  width: auto;
-  margin: 0px 50px 0 0;
+  margin-left: $gap;
   font-weight: 100;
   line-height: 1.5;
 }

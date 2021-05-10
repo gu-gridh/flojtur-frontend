@@ -8,14 +8,12 @@
     autoplay
     animation-name="929_flojtur_CADprep_jh_18"
     disable-zoom
-   
     camera-orbit="-45deg 80deg 160.0m"
     exposure="1.0"
     skyboxangle="120"
     shadows="false"
     shadow-intensity="0"
     shadow-softness="0"
-    
     ar-status="not-presenting"
   >
     <div id="lazy-load-poster" slot="poster"></div>
@@ -41,9 +39,9 @@ export default {
 .model-viewer {
   height: 100%;
   width: 100%;
-  --progress-bar-color:rgba(0,0,0,0);
-  --progress-bar-height:0px;
-  --progress-mask:fff;
+  --progress-bar-color: rgba(0, 0, 0, 0);
+  --progress-bar-height: 0px;
+  --progress-mask: fff;
   --poster-color: transparent;
   --progress-mask: transparent;
 }
@@ -68,8 +66,8 @@ export default {
   cursor: pointer;
   border-radius: 50%;
   position: absolute;
-  left: 40%;
-  top: 35%;
+  left: calc(50% - 75px);
+  top: calc(50% - 75px);
   transform: translate3d(-50%, -50%, 0);
   z-index: 100;
   transition: all 0.2s ease-in-out;
