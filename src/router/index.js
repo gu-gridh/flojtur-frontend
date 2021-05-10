@@ -86,12 +86,18 @@ const routes = [
   }
 ];
 
+/** Identify frontpage routes. */
+export const isHomeRoute = (route) =>
+  route.matched.some((route) => route.path === "");
+
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
   scrollBehavior(to, from, savedPosition) {
-    return savedPosition || { x: 0, y: 0 };
+    // Do not scroll if going from one frontpage route to another.
+    const stayHome = isHomeRoute(from) && isHomeRoute(to);
+    return stayHome ? null : savedPosition || { x: 0, y: 0 };
   }
 });
 

@@ -15,11 +15,6 @@ import VueScrollTo from "vue-scrollto";
 
 export default {
   name: "Title",
-  computed: {
-    isHomeChildPage() {
-      return this.$route.matched.some((route) => route.path === "");
-    },
-  },
   mounted() {
     if (this.$route.hash) {
       VueScrollTo.scrollTo(this.$route.hash);
