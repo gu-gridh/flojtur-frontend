@@ -14,7 +14,7 @@
 
           <router-link to="/om" tag="div" class="IntroInfoContainer">
             <div id="IntroInfoButton"></div>
-            <div id="IntroInfoLabel" style="">Om forskningsprojektet</div>
+            <div id="IntroInfoLabel">Om forskningsprojektet</div>
           </router-link>
 
           <div v-scroll-to="'.ArchiveViewOptions'" class="IntroInfoContainer">
@@ -198,7 +198,7 @@ export default {
 
 .IntroInfoContainer {
   height: 40px;
-  width: 265px;
+  width: 280px;
   border-radius: 15px;
   padding: 10px;
   margin-top: 2px;
