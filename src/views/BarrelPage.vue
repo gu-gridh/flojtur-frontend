@@ -33,11 +33,9 @@
       <MetadataLarge :items="metadata.primary" class="metadata" />
     </div>
 
-    <ShowMore label="Visa all metadata..." :contain="true">
-      <div id="metaFileEnclosure" class="outset-large">
-        <h2 style="margin-top: 0">Metadata</h2>
-        <MetadataSmall :items="metadata.secondary" />
-      </div>
+    <ShowMore label="Visa all metadata..." :dark="true">
+      <h2 style="margin-top: 0">Metadata</h2>
+      <MetadataSmall :items="metadata.secondary" />
     </ShowMore>
 
     <div class="container">

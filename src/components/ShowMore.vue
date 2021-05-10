@@ -1,7 +1,7 @@
 <template>
-  <aside>
+  <aside :class="{ dark }">
     <TransitionExpand>
-      <div v-show="!expanded" :class="{ container: contain }">
+      <div v-show="!expanded" :class="{ container: dark }">
         <span class="ActivateBonusMaterialText" @click="toggle">
           {{ label }}
         </span>
@@ -10,9 +10,11 @@
 
     <TransitionExpand>
       <div v-show="expanded" class="enclosure">
-        <div :class="{ container: contain }">
-          <div class="deactivateBonusMaterial" @click="toggle"></div>
-          <slot></slot>
+        <div :class="{ container: dark }">
+          <div :class="dark ? ['dark-plate', 'outset-large'] : []">
+            <div class="deactivateBonusMaterial" @click="toggle"></div>
+            <slot />
+          </div>
         </div>
       </div>
     </TransitionExpand>
@@ -26,8 +28,7 @@ export default {
   name: "ShowMore",
   props: {
     label: String,
-    /** Whether to add a .container div wrapping the content. */
-    contain: Boolean,
+    dark: Boolean,
   },
   components: { TransitionExpand },
   data() {
@@ -59,15 +60,16 @@ export default {
   }
 
   @media screen and (max-width: 800px) {
-    position: absolute;
+    float: none;
+    position: relative;
     top: 15px;
-    right: 15px;
     height: 25px;
     width: 25px;
     margin-left: 0;
-    background-image: url(../assets/close-white.png);
-    .container > & {
+    .dark-plate > & {
+      position: absolute;
       right: calc(5% + 5px);
+      background-image: url(../assets/close-white.png);
     }
   }
 }

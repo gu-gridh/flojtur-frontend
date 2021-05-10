@@ -52,15 +52,13 @@
       <MetadataLarge :items="metadata1" class="metadata-large" />
     </div>
 
-    <ShowMore label="Visa all metadata..." :contain="true">
-      <div id="metaFileEnclosure" class="outset-large">
-        <h2 style="margin-top: 0">Metadata</h2>
+    <ShowMore label="Visa all metadata..." :dark="true">
+      <h2 style="margin-top: 0">Metadata</h2>
 
-        <MetadataSmall :items="metadata2" />
+      <MetadataSmall :items="metadata2" />
 
-        <h2>Filer</h2>
-        <FileGrid :files="[{}, {}]" />
-      </div>
+      <h2>Filer</h2>
+      <FileGrid :files="[{}, {}]" />
     </ShowMore>
 
     <div class="container">
@@ -338,15 +336,6 @@ export default {
   .metadata-large {
     font-size: 24px;
   }
-}
-
-#metaFileEnclosure {
-  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.2),
-    0 6px 40px 0 rgba(0, 0, 0, 0.19);
-  padding: 30px;
-  border-radius: 20px;
-  color: white;
-  background-color: RGBA(50, 50, 50, 1);
 }
 
 /* Map */

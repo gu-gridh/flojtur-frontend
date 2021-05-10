@@ -193,6 +193,15 @@ h2 {
   color: black;
 }
 
+.dark-plate {
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.2),
+    0 6px 40px 0 rgba(0, 0, 0, 0.19);
+  padding: 30px;
+  border-radius: 20px;
+  color: white;
+  background-color: RGBA(50, 50, 50, 1);
+}
+
 ul {
   padding-left: 1em;
   li {
