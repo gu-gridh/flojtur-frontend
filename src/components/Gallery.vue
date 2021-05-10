@@ -1,8 +1,12 @@
 <template>
-  <div id="galleries" v-if="instruments.length > 0">
+  <div id="galleries">
     <div id="herogallery">
+      <div v-if="!instruments.length">
+        <Spinner />
+      </div>
       <!-- masonry container, change masonry paramters here -->
       <div
+        v-else
         v-masonry="containerId"
         class="masonContainer"
         item-selector=".grid-item"
@@ -63,9 +67,11 @@
 
 <script>
 import { getInstruments, imageUrlMedium } from "@/assets/db";
+import Spinner from "./Spinner.vue";
 
 export default {
   name: "Gallery",
+  components: { Spinner },
   data: function () {
     return {
       containerId: "masonryContainer",
@@ -111,14 +117,8 @@ export default {
 <style scoped>
 #galleries {
   color: black;
-  float: left;
-  width: 100%;
-  padding: 0px 0 0px 0;
-  background: rgba(234, 234, 231, 1);
 }
 #herogallery {
-  float: left;
-  width: 100%;
   hyphens: auto;
 }
 .masonContainer {
