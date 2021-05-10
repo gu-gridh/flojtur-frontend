@@ -135,7 +135,7 @@ export default {
   data: function () {
     return {
       instrument: null,
-      heroImageUrl: "/unknown.jpg",
+      heroImageUrl: null,
       builder: null,
       clockmaker: null,
       casebuilder: null,
