@@ -191,11 +191,17 @@ export default {
           value: "Öppna databas",
           href: `https://strand.dh.gu.se/admin/autom/${this.id}`,
         },
-        { label: "Valsmekanism", value: this.division.fields.barr_act.extra },
-        { label: "Spelarmar", value: this.division.fields.no_tones.extra },
+        {
+          label: "Valsmekanism",
+          value: this.division && this.division.fields.barr_act.extra,
+        },
+        {
+          label: "Spelarmar",
+          value: this.division && this.division.fields.no_tones.extra,
+        },
         {
           label: "Registreringsarmar",
-          value: this.division.fields.no_reg.extra,
+          value: this.division && this.division.fields.no_reg.extra,
         },
         // TODO Omfång nedre
         // TODO Omfång övre
