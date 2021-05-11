@@ -24,9 +24,8 @@ export default {
 
 <style scoped>
 .grid-item-pub {
-  float: left;
   color: white;
-  height: 140px;
+  min-height: 140px;
   border-radius: 10px;
   background-color: RGBA(50, 50, 50, 1);
   overflow: hidden;
@@ -43,40 +42,30 @@ export default {
 }
 
 .PublicationInfoContainer {
-  width: 55%;
-  float: left;
-  margin-top: 20px;
+  margin: 20px;
+  margin-left: calc(40% + 20px);
 }
 
 .PublicationTitle {
-  margin-left: 20px;
-  float: left;
   min-height: 60px;
   line-height: 1.2;
   font-weight: 200;
   font-style: normal;
   font-size: 24px;
-  width: 90%;
   overflow: hidden;
 }
 
 .PubBigMetaContainer {
   cursor: pointer;
-  width: 100%;
-  margin-left: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
-  float: left;
   font-weight: 200;
   font-style: normal;
   font-size: 18px;
 }
 
 .PubBigMeta {
-  width: 80%;
-  margin-left: 0px;
   margin-bottom: 6px;
-  float: left;
   font-weight: 200;
   font-style: normal;
   font-size: 16px;
@@ -86,9 +75,10 @@ export default {
 .PubBigImage {
   background-repeat: no-repeat;
   background-position: center 60%;
-  background-size: 200%;
-  height: 100%;
+  background-size: auto 280px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   width: 40%;
-  float: left;
 }
 </style>

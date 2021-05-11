@@ -163,11 +163,4 @@ export default {
   font-size: 25px;
   position: relative;
 }
-
-@media screen and (max-width: 800px) {
-  .DownloadLabel {
-    margin-top: -4px;
-    font-size: 32px;
-  }
-}
 </style>

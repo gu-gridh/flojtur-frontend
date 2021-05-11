@@ -94,20 +94,6 @@ header {
 
 .grid-item-pub {
   float: left;
-  color: white;
-  height: 140px;
-  border-radius: 10px;
-  background-color: RGBA(50, 50, 50, 1);
-  overflow: hidden;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0px 4px 20px 0px rgb(0 0 0 / 20%), 0 6px 40px 0 rgb(0 0 0 / 19%);
-}
-
-.grid-item-pub:hover {
-  display: block;
-  filter: brightness(120%);
-  transform: scale(1.04);
-  background-color: RGBA(80, 80, 80, 1);
 }
 
 .gridPub {
@@ -153,6 +139,7 @@ header {
 @media screen and (max-width: 800px) {
   .grid-item-pub {
     width: 100%;
+    height: 160px;
   }
 }
 </style>
