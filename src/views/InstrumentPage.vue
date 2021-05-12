@@ -182,13 +182,6 @@ export default {
         { label: "Plats i byggnaden", value: this.instrument.loc_in_bui.value },
         { label: "Inventerad", value: inventoryDate },
         { label: "Ägare", value: this.owner },
-        { label: "Urverk", value: values.clock_info },
-        { label: "Övrig info", value: values.gen_info },
-        {
-          label: "Mer info",
-          value: "Öppna databas",
-          href: `https://strand.dh.gu.se/admin/autom/${this.id}`,
-        },
         {
           label: "Valsmekanism",
           value: this.division && this.division.fields.barr_act.extra,
@@ -204,6 +197,13 @@ export default {
         // TODO Omfång nedre
         // TODO Omfång övre
         // TODO Stämnamn
+        { label: "Urverk", value: values.clock_info },
+        { label: "Övrig info", value: values.gen_info },
+        {
+          label: "Mer info",
+          value: "Öppna databas",
+          href: `https://strand.dh.gu.se/admin/autom/${this.id}`,
+        },
       ].filter((item) => item.value);
     },
     buildYear() {
