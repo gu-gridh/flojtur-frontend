@@ -84,7 +84,7 @@ import PlayButton from "@/components/PlayButton.vue";
 export default {
   name: "ArchiveView",
   components: { AppLeadin, ThreeDViewer, PlayButton },
-  created() {
+  mounted() {
     // Pre-load data, unless starting out on the barrel page, because BarrelsTable will do it then.
     if (this.$route.name !== "BarrelOverview") getBarrels();
   },

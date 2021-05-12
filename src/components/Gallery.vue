@@ -49,7 +49,7 @@
                         <div class="cardInfoObject">
                           {{ instrument.place }}
                         </div>
-                        <div class="cardInfoObject">
+                        <div class="cardInfoObject secondary">
                           {{ instrument.year }}
                         </div>
                       </div>
@@ -157,7 +157,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   /* fluid 5 columns */
   .grid-sizer,
   .grid-item {
@@ -252,7 +252,6 @@ export default {
 
 .cardInfoObject {
   width: 100%;
-
   text-align: center;
   margin-top: 10px;
 }
@@ -260,7 +259,8 @@ export default {
 .cardInfoObjectTitle {
   font-size: 150%;
   width: 80%;
-  margin-left: 10%;
+  min-width: 228px; /* Max two lines of text. */
+  margin: auto;
   text-align: center;
   margin-top: 20px;
 }
@@ -270,8 +270,20 @@ export default {
   height: 200px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 25px;
   border-radius: 50%;
   background-size: cover;
+}
+
+@media screen and (max-width: 800px) {
+  .cardMiniImage {
+    width: 150px;
+    height: 150px;
+  }
+  .cardInfoObjectTitle {
+    font-size: 130%;
+  }
+  .cardInfoObject.secondary {
+    display: none;
+  }
 }
 </style>
