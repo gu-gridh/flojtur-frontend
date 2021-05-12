@@ -11,8 +11,8 @@
     <TransitionExpand>
       <div v-show="expanded" class="enclosure">
         <div :class="{ container: dark }">
+          <div class="deactivateBonusMaterial" @click="toggle"></div>
           <div :class="dark ? ['dark-plate', 'outset-large'] : []">
-            <div class="deactivateBonusMaterial" @click="toggle"></div>
             <slot />
           </div>
         </div>
@@ -47,8 +47,7 @@ export default {
 <style lang="scss" scoped>
 .deactivateBonusMaterial {
   float: left;
-  margin-left: -85px;
-  margin-top: -30px;
+  margin-left: -77px;
   background: url(/interface/close.png);
   background-size: contain;
   width: 40px;
@@ -57,7 +56,7 @@ export default {
   cursor: pointer;
 
   @media screen and (max-width: 1000px) {
-    margin-left: -70px;
+    margin-left: -65px;
   }
 
   @media screen and (max-width: 800px) {
@@ -66,9 +65,8 @@ export default {
     top: 15px;
     height: 25px;
     width: 25px;
-    margin-top: 0px;
-    margin-left: 0px;
-    .dark-plate > & {
+    margin-left: 0;
+    .dark & {
       position: absolute;
       right: calc(5% + 5px);
       background-image: url(../assets/close-white.png);
