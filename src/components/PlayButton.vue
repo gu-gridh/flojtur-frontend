@@ -1,7 +1,7 @@
 <template>
   <div @mouseover="load" :class="{ playing }">
     <audio id="Player" preload="none" ref="audio">
-      <source src="@/assets/vivaldi.mp3" type="audio/mpeg" />
+      <source src="@/assets/quadril.mp3" type="audio/mp3" />
     </audio>
     <div id="playContainer" @click="toggleSound">
       <div id="PlayButton"></div>
