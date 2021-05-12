@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { imageUrlMedium } from "@/assets/db";
 import CardGrid from "@/components/CardGrid.vue";
 
 export default {
@@ -19,9 +20,7 @@ export default {
       return this.barrels.map((barrel) => ({
         id: barrel.id,
         to: `/valsar/${barrel.id}`,
-        image:
-          barrel.photo &&
-          `https://data.dh.gu.se/flojtur/300x/${barrel.photo.thumbnail}`,
+        image: barrel.photo && imageUrlMedium(barrel.photo.thumbnail),
         title: barrel.bar_title,
         content:
           barrel.music &&

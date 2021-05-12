@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { getBarrels, search, formatValues } from "@/assets/db";
+import { getBarrels, search, formatValues, imageUrlLarge } from "@/assets/db";
 import PlayButton from "@/components/PlayButton.vue";
 import MetadataLarge from "@/components/MetadataLarge.vue";
 import MetadataSmall from "@/components/MetadataSmall.vue";
@@ -204,7 +204,7 @@ export default {
       result.features.forEach((photo) => {
         const type = photo["tag.type"];
         this.photos[type] = {
-          imageUrl: `https://data.dh.gu.se/flojtur/1000x/${photo.filename}`,
+          imageUrl: imageUrlLarge(photo.filename),
           linkRoute: {
             name: "ImagePage",
             params: {
