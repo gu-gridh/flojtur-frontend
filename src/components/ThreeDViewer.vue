@@ -2,6 +2,7 @@
   <model-viewer
     class="model-viewer"
     reveal="interaction"
+    loading="lazy"
     src="/models/flojt.glb"
     alt="3d-modell av det mekaniska spelverket i ett flöjtur"
     camera-controls
