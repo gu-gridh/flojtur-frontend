@@ -47,7 +47,8 @@ export default {
 <style lang="scss" scoped>
 .deactivateBonusMaterial {
   float: left;
-  margin-left: -77px;
+  margin-left: -85px;
+  margin-top: -30px;
   background: url(/interface/close.png);
   background-size: contain;
   width: 40px;
@@ -56,7 +57,7 @@ export default {
   cursor: pointer;
 
   @media screen and (max-width: 1000px) {
-    margin-left: -65px;
+    margin-left: -70px;
   }
 
   @media screen and (max-width: 800px) {
@@ -65,7 +66,8 @@ export default {
     top: 15px;
     height: 25px;
     width: 25px;
-    margin-left: 0;
+    margin-top: 0px;
+    margin-left: 0px;
     .dark-plate > & {
       position: absolute;
       right: calc(5% + 5px);
