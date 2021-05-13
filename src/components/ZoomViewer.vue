@@ -31,6 +31,18 @@ export default {
       prefixUrl: "/openseadragon/",
       tileSources: [this.tileSource()],
     });
+
+    // Zoom in a bit over the middle.
+    if (this.cover) {
+      // Thanks https://github.com/openseadragon/openseadragon/issues/979
+      this.viewer.addHandler("open", function (event) {
+        const oldBounds = event.eventSource.viewport.getBounds();
+        const height = oldBounds.height / oldBounds.width;
+        // Args are (x, y, width, height) as fractions of full image width/height
+        const newBounds = new OpenSeadragon.Rect(0, 0.1, 1, height);
+        event.eventSource.viewport.fitBounds(newBounds, true);
+      });
+    }
   },
   methods: {
     tileSource() {
