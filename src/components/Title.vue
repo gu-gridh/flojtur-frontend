@@ -6,7 +6,7 @@
         <router-link to="/">Pehr Strands flöjtur</router-link>
       </h1>
       <div class="subtitle">1791–1824</div>
-       <div class="author"><i>Johan Norrback</i></div>
+      <div class="author"><i>Johan Norrback</i></div>
     </div>
   </div>
 </template>
@@ -37,16 +37,16 @@ export default {
   line-height: 1.5;
   text-align: center;
   font-size: 40px;
-    margin-top:-10px;
+  margin-top: -10px;
 }
 
 .author {
   line-height: 1.5;
   text-align: center;
   font-size: 39px;
-  margin-top:30px;
-  margin-left:-10px;
-  margin-bottom:100px;
+  margin-top: 30px;
+  margin-left: -10px;
+  margin-bottom: 100px;
 }
 
 .ornament {

@@ -2,14 +2,15 @@
   <section class="app-leadin container">
     <div class="first">
       <p>
-        Pehr Strand (c. 1758–1826) var orgel- och flöjtursbyggare i Stockholm kring sekelskiftet 1800. 
-        Strand fick privilegium att bygga spelur 1791, 
-        och lämnade 1824 över sin verkstad till sonen Pehr Zacharias Strand (1797–1844). 
-        Denna webbportal är en redovisning av ett forskningsprojekt 
-        och samtidigt en källa till information om Pehr Strand och i synnerhet hans flöjtur.
+        Pehr Strand (c. 1758–1826) var orgel- och flöjtursbyggare i Stockholm
+        kring sekelskiftet 1800. Strand fick privilegium att bygga spelur 1791,
+        och lämnade 1824 över sin verkstad till sonen Pehr Zacharias Strand
+        (1797–1844). Denna webbportal är en redovisning av ett forskningsprojekt
+        och samtidigt en källa till information om Pehr Strand och i synnerhet
+        hans flöjtur.
       </p>
     </div>
-  <!--   <div class="second">
+    <!--   <div class="second">
       <p>
        Flöjtur är en klocka med ett mekaniskt spelverk som kan spela musikstycken programmerade på en stiftvals. 
        Termen flöjtur anger också att tonen alstras med hjälp av pipor på samma sätt som i traditionella piporglar. 
