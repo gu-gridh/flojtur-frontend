@@ -35,7 +35,7 @@
                       instrument.thumbnail || ''
                     )});`"
                   >
-                    <div class="cardBlur">
+                    <div class="cardBlur" :class="[`autom-${instrument.id}`]">
                       <div class="cardInfo">
                         <div
                           class="cardMiniImage"
@@ -235,6 +235,10 @@ export default {
 .cardBlur {
   height: 100%;
   backdrop-filter: blur(35px);
+}
+.cardBlur.autom-3 {
+  /* Masreliezuret blueprint is brighter and has lower contrast. */
+  backdrop-filter: blur(10px) saturate(150%) brightness(80%);
 }
 
 .cardInfo {
