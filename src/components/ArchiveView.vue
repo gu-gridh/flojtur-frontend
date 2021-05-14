@@ -36,9 +36,7 @@
           <i>självspelande instrument</i> eller <i>spelautomater</i>.
         </div>
         <div style="display: flex; margin-top: 20px">
-          <PlayButton
-            url="https://data.dh.gu.se/flojtur/015_bar_Pleyel_Sonata_VI.wav"
-          />
+          <PlayButton default-sound />
         </div>
         <router-link
           :to="{ name: 'InstrumentAbout' }"

@@ -1,7 +1,12 @@
 <template>
   <div @mouseover="load" :class="{ playing }">
     <audio id="Player" preload="none" ref="audio">
-      <source :src="url" type="audio/mp3" />
+      <source
+        v-if="defaultSound"
+        src="@/assets/quadril.mp3"
+        type="audio/mpeg"
+      />
+      <source v-else :src="url" type="audio/wav" />
     </audio>
     <div id="playContainer" @click="toggleSound">
       <div id="PlayButton"></div>
@@ -12,7 +17,7 @@
 
 <script>
 export default {
-  props: ["url"],
+  props: { defaultSound: Boolean, url: String },
   data() {
     return {
       playing: false,
