@@ -4,7 +4,7 @@
     style="color: white; margin-top: 20px; margin-bottom: 10px"
   >
     <div>
-      <a v-for="(file, i) in files" :key="i" href="">
+      <a v-for="(file, i) in files" :key="i" :href="file.url">
         <div class="grid-item-fil">
           <div
             class="FilImage"
@@ -14,11 +14,11 @@
             "
           ></div>
           <div class="FilInfoContainer">
-            <div class="FilTitle">Typ av information</div>
+            <div class="FilTitle">{{ file.title || "Fil" }}</div>
 
             <div class="FilMetaContainer">
-              <div class="PubBigMeta">Filtyp</div>
-              <div class="PubBigMeta">Storlek</div>
+              <div v-if="file.type" class="PubBigMeta">{{ file.type }}</div>
+              <div v-if="file.size" class="PubBigMeta">{{ file.size }}</div>
             </div>
           </div>
         </div>
@@ -75,7 +75,6 @@ export default {
 
 .FilTitle {
   float: left;
-  height: 30px;
   font-weight: 200;
   font-style: normal;
   width: 90%;

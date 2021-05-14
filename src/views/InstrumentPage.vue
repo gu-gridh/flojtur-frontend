@@ -58,7 +58,7 @@
       <MetadataSmall :items="metadata2" />
 
       <h2>Filer</h2>
-      <FileGrid :files="[{}, {}]" />
+      <FileGrid :files="files" />
     </ShowMore>
 
     <div class="container">
@@ -223,6 +223,19 @@ export default {
     },
     locationId() {
       return this.instrument && parseInt(this.instrument.loc_nr.value);
+    },
+    files() {
+      return this.id == 1
+        ? [
+            {
+              url:
+                "https://data.dh.gu.se/flojtur/001_Aarsta_stop_002_003_pm.xls",
+              title: "Pipmensur, täckt stämma (#004)",
+              type: "Kalkylblad",
+              size: "31 KB",
+            },
+          ]
+        : [];
     },
   },
   created() {

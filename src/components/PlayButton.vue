@@ -1,7 +1,7 @@
 <template>
   <div @mouseover="load" :class="{ playing }">
     <audio id="Player" preload="none" ref="audio">
-      <source src="@/assets/quadril.mp3" type="audio/mp3" />
+      <source :src="url" type="audio/mp3" />
     </audio>
     <div id="playContainer" @click="toggleSound">
       <div id="PlayButton"></div>
@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  props: ["url"],
   data() {
     return {
       playing: false,
@@ -32,7 +33,7 @@ export default {
 <style scoped>
 #playContainer {
   display: flex;
-  width:265px;
+  width: 265px;
   margin-left: -10px;
   border-radius: 15px;
   padding: 10px;

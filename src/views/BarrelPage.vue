@@ -27,8 +27,8 @@
     <div class="container">
       <div id="ItemBack" @click="$router.back()"></div>
       <h1 class="MainTitles">{{ barrel.bar_title }}</h1>
-      <div class="buttons">
-        <PlayButton />
+      <div v-if="soundUrl" class="buttons">
+        <PlayButton :url="soundUrl" />
       </div>
       <MetadataLarge :items="metadata.primary" class="metadata" />
     </div>
@@ -176,6 +176,11 @@ export default {
           },
         ],
       };
+    },
+    soundUrl() {
+      return this.id == 15
+        ? "https://data.dh.gu.se/flojtur/015_bar_Pleyel_Sonata_VI.wav"
+        : null;
     },
   },
   async created() {
