@@ -26,8 +26,7 @@
         <div class="IntroItem">Ett självspelande flöjtur</div>
         <div class="articleIngress" style="margin-top: 10px; text-align: left">
           Flöjtur är en klocka med ett mekaniskt spelverk som kan spela musikstycken programmerade på en stiftvals.
-          Termen <i>flöjtur</i> brukar på svenska användas för de mekaniska
-          spelverk som byggts in i större golvur och där tonen alstras med hjälp
+          Termen <i>flöjtur</i> brukar på svenska användas för de spelverk som byggts in i större golvur och där tonen alstras med hjälp
           av pipor liknande dem man finner i traditionella piporglar. I Sverige
           byggdes denna typ av spelverk under andra hälften av 1700-talet och en
           bit in på 1800-talet, där Pehr Strand var en av de mest framgångsrika byggarna. 
