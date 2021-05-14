@@ -45,6 +45,8 @@ export default {
   text-align: center;
   font-size: 39px;
   margin-top:30px;
+  margin-left:-10px;
+  margin-bottom:100px;
 }
 
 .ornament {
@@ -58,7 +60,7 @@ export default {
     height: 235px;
     max-height: 20vh;
     width: 205px;
-    margin-top: 50px;
+    margin-top: 80px;
   }
   &.laural {
     background-image: url(../assets/lauraldetailwhite.png);
