@@ -5,6 +5,14 @@ const apiUrl = process.env.VUE_APP_APIURL || "https://dh.gu.se/ws/flojtur";
 // Cache for barrel records.
 let allBarrels = [];
 
+/** List of relevant instrument ids. Fetched from API; use with await. */
+const automIds = search(
+  "collection_autom",
+  "equals|collection_id|1"
+).then((collectionAutoms) =>
+  collectionAutoms.features.map((rec) => rec["autom.id"])
+);
+
 function get(name, params) {
   return axios.get(`${apiUrl}/${name}.php`, { params });
 }
@@ -28,8 +36,7 @@ export function getRecords(table, ids) {
 export async function getInstruments() {
   // Each actual instrument has multiple autom records, one for each activity. Activity type 1 is "Inventering".
   const [instruments, authists] = await Promise.all([
-    // TODO Define inclusion/exclusion as a set in db.
-    searchFull("autom", "not||in|id|9,17,19"),
+    searchFull("autom", `in|id|${await automIds}`),
     searchFull("authist")
   ]).catch((error) => console.error(error) || []);
 
@@ -46,13 +53,12 @@ export async function getInstruments() {
   };
 
   // Only include Inventering records, and add their corresponding Nytt instrument records.
-  return instruments.reduce(
-    (acc, instrument) =>
-      instrument.fields.act_type.value == "1"
-        ? [...acc, { ...instrument, _first: _histFindFirst(instrument) }]
-        : acc,
-    []
-  );
+  return instruments
+    .filter((instrument) => instrument.fields.act_type.value == "1")
+    .map((instrument) => ({
+      ...instrument,
+      _first: _histFindFirst(instrument)
+    }));
 }
 
 export function getLocations() {
@@ -118,7 +124,9 @@ export async function getBarrels(instrumentId = null) {
   }
 
   // Get all barrels if no instrument id is given.
-  const query = instrumentId ? `equals|i_nr|${instrumentId}` : null;
+  const query = instrumentId
+    ? `equals|i_nr|${instrumentId}`
+    : `in|i_nr|${await automIds}`;
   const barrels = await searchFull("barrel", query);
   const barrelIds = barrels.map((barrel) => barrel.id);
 
