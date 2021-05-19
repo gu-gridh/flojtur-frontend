@@ -83,7 +83,13 @@ export default {
   computed: {
     metadata() {
       const values = formatValues(this.barrel.fields);
-      const mm = (v) => v && `${v} mm`;
+
+      /** Format a numeric value for display. */
+      const fnum = (v) =>
+        /^[0-9-x,\s]+$/.test(v) ? v.replace("x", " × ").replace("-", "–") : v;
+      /** Format a millimeter measure. */
+      const mm = (v) => v && `${fnum(v)} mm`;
+
       return {
         primary: [
           { label: "Vals nr", value: this.id },
@@ -92,56 +98,28 @@ export default {
             value: values.i_nr,
             href: `/spelur/${this.barrel.fields.i_nr.value}`,
           },
-          { label: "Inventeringsid", value: values.li_nr },
           { label: "Konstruktionstyp", value: values.const },
-          {
-            label: "Träelement",
-            value: values.piece_info,
-          },
+          { label: "Träelement", value: values.piece_info },
           { label: "Antal träelement", value: values.no_piece },
-          { label: "Originaltitel", value: values.bar_title },
+          {
+            label: "Originaltitel",
+            value: ((a, b) => (b ? `${a} "${b}"` : a))(
+              this.barrel["music.title"],
+              this.barrel["music.sub_title"]
+            ),
+          },
         ],
         secondary: [
-          {
-            label: "Övrigt på ovansidan",
-            value: values.lab_note,
-          },
-          {
-            label: "Anteckningar motsatt sida",
-            value: values.sec_note,
-          },
-          {
-            label: "Valsdiameter",
-            value: mm(values.diam),
-          },
-          {
-            label: "Valslängd",
-            value: mm(values.length),
-          },
-          {
-            label: "Längd tonstift",
-            value: mm(values.mpin_h),
-          },
-          {
-            label: "Längd registreringsstift",
-            value: mm(values.rpin_h),
-          },
-          {
-            label: "Position registreringsstift",
-            value: this.barrel.fields.rpin_pos.extra,
-          },
-          {
-            label: "Håldimension framsidan",
-            value: mm(values.dim_uhole),
-          },
-          {
-            label: "Håldimension baksidan",
-            value: mm(values.dim_dhole),
-          },
-          {
-            label: "Monteringsmarkering",
-            value: values.mount_mark,
-          },
+          { label: "Övrigt på ovansidan", value: values.lab_note },
+          { label: "Anteckningar motsatt sida", value: values.sec_note },
+          { label: "Valsdiameter", value: mm(values.diam) },
+          { label: "Valslängd", value: mm(values.length) },
+          { label: "Längd tonstift", value: mm(values.mpin_h) },
+          { label: "Längd registreringsstift", value: mm(values.rpin_h) },
+          { label: "Position registreringsstift", value: values.rpin_pos },
+          { label: "Håldimension framsidan", value: mm(values.dim_uhole) },
+          { label: "Håldimension baksidan", value: mm(values.dim_dhole) },
+          { label: "Monteringsmarkering", value: values.mount_mark },
           {
             label: "Ytbehandling",
             value:
@@ -170,10 +148,7 @@ export default {
               this.barrel.fields.groove_inf.value ||
               (this.barrel.fields.groove.value === "Yes" ? "Ja" : null),
           },
-          {
-            label: "Övrig info",
-            value: values.bar_info,
-          },
+          { label: "Övrig info", value: values.bar_info },
         ],
       };
     },

@@ -146,6 +146,7 @@ export async function getBarrels(instrumentId = null) {
   return barrels;
 }
 
+/** Guess the most reasonable way to present the field values of a database record. */
 export function formatValues(fields) {
   const values = {};
   Object.keys(fields).forEach((prop) => {
