@@ -49,7 +49,7 @@ export async function getInstruments() {
     const prev = instruments.find(
       (instrument) => instrument.id == authist.fields.nr1.value
     );
-    return _histFindFirst(prev);
+    return prev && _histFindFirst(prev);
   };
 
   // Only include Inventering records, and add their corresponding Nytt instrument records.
