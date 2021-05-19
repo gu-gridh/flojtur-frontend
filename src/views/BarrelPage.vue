@@ -197,7 +197,7 @@ export default {
       const allBarrels = await getBarrels();
       this.barrel = allBarrels.find((barrel) => barrel.id === this.id);
       this.automBarrels = allBarrels.filter(
-        (barrel) => barrel.fields.i_nr.value === this.barrel.fields.i_nr.value
+        (barrel) => barrel.i_nr === this.barrel.i_nr
       );
       this.composerBarrels = allBarrels.filter(
         (barrel) => this.composerName(barrel) === this.composerName(this.barrel)
@@ -223,12 +223,9 @@ export default {
       });
     },
     composerName(barrel) {
-      return (
-        barrel.music &&
-        [barrel.music["comp.first_name"], barrel.music["comp.fam_name"]]
-          .filter(Boolean)
-          .join(" ")
-      );
+      return [barrel["comp.first_name"], barrel["comp.fam_name"]]
+        .filter(Boolean)
+        .join(" ");
     },
   },
 };

@@ -22,11 +22,9 @@ export default {
         to: `/valsar/${barrel.id}`,
         image: barrel.photo && imageUrlMedium(barrel.photo.thumbnail),
         title: barrel.bar_title,
-        content:
-          barrel.music &&
-          [barrel.music["comp.first_name"], barrel.music["comp.fam_name"]]
-            .filter(Boolean)
-            .join(" "),
+        content: [barrel["comp.first_name"], barrel["comp.fam_name"]]
+          .filter(Boolean)
+          .join(" "),
       }));
     },
   },

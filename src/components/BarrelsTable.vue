@@ -64,13 +64,10 @@ export default {
         .map((barrel) => ({
           id: barrel.id,
           label: barrel.bar_title,
-          title: barrel.music && barrel.music.title,
-          composer:
-            barrel.music &&
-            [barrel.music["comp.first_name"], barrel.music["comp.fam_name"]]
-              .filter(Boolean)
-              .join(" "),
-          link: null,
+          title: barrel["music.title"],
+          composer: [barrel["comp.first_name"], barrel["comp.fam_name"]]
+            .filter(Boolean)
+            .join(" "),
         }))
         .sort((a, b) => this.compareText(a[this.sortField], b[this.sortField]));
     },

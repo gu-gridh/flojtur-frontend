@@ -113,7 +113,7 @@ export async function getBarrels(instrumentId = null) {
   // Try the cache first.
   if (allBarrels.length) {
     return instrumentId
-      ? allBarrels.filter((barrel) => barrel.fields.i_nr.value == instrumentId)
+      ? allBarrels.filter((barrel) => barrel.i_nr == instrumentId)
       : allBarrels;
   }
 
@@ -129,40 +129,14 @@ export async function getBarrels(instrumentId = null) {
         (barrel[prop] = values.find((item) => getBarrelId(item) == barrel.id))
     );
 
-  // Each barrel record is enriched with more data from related tables.
-  // These requests are done in parallel.
-  await Promise.all([
-    // Load full music info.
-    (async () => {
-      const barmuses = await searchFull("barmus", `in|nr1|${barrelIds.join()}`);
-      const musicRes = await search(
-        "music",
-        `in|id|${barmuses.map((barmus) => barmus.fields.nr2.value).join()}`
-      );
-      zipOntoBarrels(
-        "music",
-        musicRes.features,
-        (music) =>
-          barmuses.find((barmus) => barmus.fields.nr2.value == music.id).fields
-            .nr1.value
-      );
-    })(),
-
-    // Find photos.
-    (async () => {
-      const photos = await searchFull(
-        "photo",
-        `in|barrel_nr|${barrelIds.join()}`
-      );
-
-      zipOntoBarrels(
-        "photo",
-        // Put title photos before others.
-        photos.sort((photo) => (photo["tag.type"] === "title" ? -1 : 1)),
-        (photo) => photo.fields.barrel_nr.value
-      );
-    })()
-  ]);
+  // Find photos.
+  const photos = await searchFull("photo", `in|barrel_nr|${barrelIds.join()}`);
+  zipOntoBarrels(
+    "photo",
+    // Put title photos before others.
+    photos.sort((photo) => (photo["tag.type"] === "title" ? -1 : 1)),
+    (photo) => photo.fields.barrel_nr.value
+  );
 
   // Cache the result.
   if (!instrumentId) {
