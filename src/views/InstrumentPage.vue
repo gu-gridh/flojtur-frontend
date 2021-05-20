@@ -57,8 +57,10 @@
 
       <MetadataSmall :items="metadata2" />
 
-      <h2>Filer</h2>
-      <FileGrid :files="files" />
+      <div v-if="files.length">
+        <h2>Filer</h2>
+        <FileGrid :files="files" />
+      </div>
     </ShowMore>
 
     <div class="container">
@@ -110,6 +112,7 @@ import {
   formatValues,
   searchFull,
   formatDates,
+  fetchFileSize,
 } from "@/assets/db";
 import ShowMore from "@/components/ShowMore.vue";
 import MetadataLarge from "@/components/MetadataLarge.vue";
@@ -148,6 +151,7 @@ export default {
       division: null,
       instrumentPhotos: [],
       stopPhotos: [],
+      files: [],
     };
   },
   computed: {
@@ -219,19 +223,6 @@ export default {
     locationId() {
       return this.instrument && parseInt(this.instrument.loc_nr.value);
     },
-    files() {
-      return this.id == 1
-        ? [
-            {
-              url:
-                "https://data.dh.gu.se/flojtur/001_Aarsta_stop_002_003_pm.xls",
-              title: "Pipmensur, täckt stämma (#004)",
-              type: "Kalkylblad",
-              size: "31 KB",
-            },
-          ]
-        : [];
-    },
   },
   created() {
     getInstrument(this.id).then((fields) => {
@@ -266,6 +257,36 @@ export default {
         });
       })
     );
+
+    // Find files.
+    // Relationships: autom <- autdoc -> document <- doclink
+    search("autdoc", `equals|nr1|${this.id}`).then(async (autdocRes) => {
+      const documentIds = autdocRes.features.map(
+        (autdoc) => autdoc["document.id"]
+      );
+      if (!documentIds.length) {
+        this.files = [];
+        return;
+      }
+
+      const [documents, doclinks] = await Promise.all([
+        searchFull("document", `in|id|${documentIds}`),
+        searchFull("doclink", `in|nr|${documentIds}`),
+      ]);
+      this.files = doclinks.map((doclink) => {
+        const document = documents.find(
+          (document) => document.id == doclink["document.id"]
+        );
+        return {
+          title: document.subject,
+          url: doclink.fields.laddr.value,
+          type: document.fields.docty_info.value,
+        };
+      });
+      this.files.forEach(async (file) => {
+        this.$set(file, "size", await fetchFileSize(file.url));
+      });
+    });
   },
   methods: {
     imageUrlThumb,

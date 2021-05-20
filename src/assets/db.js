@@ -1,4 +1,5 @@
 import axios from "axios";
+import fileSize from "filesize";
 
 const apiUrl = process.env.VUE_APP_APIURL || "https://dh.gu.se/ws/flojtur";
 
@@ -192,3 +193,9 @@ export function imageUrl(filename, width) {
 export const imageUrlThumb = (filename) => imageUrl(filename, 300);
 export const imageUrlMedium = (filename) => imageUrl(filename, 500);
 export const imageUrlLarge = (filename) => imageUrl(filename, 1000);
+
+export async function fetchFileSize(url) {
+  const response = await axios.head(url);
+  const bytes = response.headers["content-length"];
+  return bytes ? fileSize(bytes) : undefined;
+}
