@@ -109,6 +109,7 @@ import {
   imageUrlThumb,
   formatValues,
   searchFull,
+  formatDates,
 } from "@/assets/db";
 import ShowMore from "@/components/ShowMore.vue";
 import MetadataLarge from "@/components/MetadataLarge.vue";
@@ -209,17 +210,11 @@ export default {
     buildYear() {
       const instrument = this.instrumentFirst || this.instrument;
       if (!instrument) return;
-      // Parse year.
-      const date1 = parseInt(instrument.date1.value);
-      const date2 = parseInt(instrument.date2.value);
-      // Fixed date: has date2 and no date_sign
-      if (!instrument.date_sign.value) return date2;
-      // After some date.
-      if (!date2) return `efter ${date1}`;
-      // Before some date.
-      if (!date1) return `före ${date2}`;
-      // Between two dates.
-      return `mellan ${date1} och ${date2}`;
+      return formatDates(
+        instrument.date1.value,
+        instrument.date2.value,
+        instrument.date_sign.value
+      );
     },
     locationId() {
       return this.instrument && parseInt(this.instrument.loc_nr.value);

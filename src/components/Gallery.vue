@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import { getInstruments, imageUrlMedium } from "@/assets/db";
+import { formatDates, getInstruments, imageUrlMedium } from "@/assets/db";
 import Spinner from "./Spinner.vue";
 
 export default {
@@ -88,10 +88,14 @@ export default {
           instrument["location.location"]
         );
 
-        instrument.year = (
-          instrument._first.fields.date1.value ||
-          instrument._first.fields.date2.value
-        ).slice(0, 4);
+        instrument.year =
+          instrument._first &&
+          formatDates(
+            instrument._first.fields.date1.value,
+            instrument._first.fields.date2.value,
+            instrument._first.fields.date_sign.value,
+            true
+          );
       }
     });
   },

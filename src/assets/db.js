@@ -166,6 +166,20 @@ export function formatValues(fields) {
   return values;
 }
 
+export function formatDates(date1, date2, sign, short = false) {
+  // Get year part
+  date1 = parseInt(date1);
+  date2 = parseInt(date2);
+  // Fixed date: has date2 and no date_sign
+  if (!sign) return date2;
+  // After some date
+  if (!date2) return `efter ${date1}`;
+  // Before some date
+  if (!date1) return `före ${date2}`;
+  // Between two dates
+  return short ? `${date1}–${date2}` : `mellan ${date1} och ${date2}`;
+}
+
 export function imageUrl(filename, width) {
   return filename
     ? filename.substr(-4) == ".tif"
