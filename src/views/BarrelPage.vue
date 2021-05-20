@@ -27,8 +27,12 @@
     <div class="container">
       <div id="ItemBack" @click="$router.back()"></div>
       <h1 class="MainTitles">{{ barrel.bar_title }}</h1>
-      <div v-if="soundUrl" class="buttons">
-        <PlayButton :url="soundUrl" />
+      <div v-if="audioFiles.length" class="buttons">
+        <PlayButton
+          v-for="file in audioFiles"
+          :key="file.url"
+          :url="file.url"
+        />
       </div>
       <MetadataLarge :items="metadata.primary" class="metadata" />
     </div>
@@ -78,6 +82,7 @@ export default {
       photos: {},
       automBarrels: [],
       composerBarrels: [],
+      audioFiles: [],
     };
   },
   computed: {
@@ -152,20 +157,20 @@ export default {
         ],
       };
     },
-    soundUrl() {
-      return this.id == 15
-        ? "https://data.dh.gu.se/flojtur/015_bar_Pleyel_Sonata_VI.wav"
-        : null;
-    },
   },
-  async created() {
-    await Promise.all([this.loadData(), this.loadPhotos()]);
-    Object.keys(this.photos).forEach(
-      (type) =>
-        (this.photos[
-          type
-        ].linkRoute.params.automId = this.barrel.fields.i_nr.value)
-    );
+  created() {
+    // TODO The automId link param doesn't get set.
+    Promise.all([this.loadData(), this.loadPhotos()]).then(() => {
+      Object.keys(this.photos).forEach(
+        (type) =>
+          (this.photos[
+            type
+          ].linkRoute.params.automId = this.barrel.fields.i_nr.value)
+      );
+    });
+
+    // Find audio.
+    this.loadAudio();
   },
   methods: {
     async loadData() {
@@ -196,6 +201,13 @@ export default {
           },
         };
       });
+    },
+    async loadAudio() {
+      const audioRes = await search("audio", `equals|barrel|${this.id}`);
+      this.audioFiles = audioRes.features.map((audio) => ({
+        type: audio.type,
+        url: `https://data.dh.gu.se/flojtur/${audio.filename}`,
+      }));
     },
     composerName(barrel) {
       return [barrel["comp.first_name"], barrel["comp.fam_name"]]
