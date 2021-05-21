@@ -172,7 +172,7 @@ export function formatDates(date1, date2, sign, short = false) {
   date1 = parseInt(date1);
   date2 = parseInt(date2);
   // Fixed date: has date2 and no date_sign
-  if (!sign) return date2;
+  if (!sign) return date2 || date1 || undefined;
   // After some date
   if (!date2) return `efter ${date1}`;
   // Before some date

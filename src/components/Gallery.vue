@@ -46,10 +46,13 @@
                         <div class="cardInfoObjectTitle">
                           {{ formatTitle(instrument.aut_title) }}
                         </div>
-                        <div class="cardInfoObject">
+                        <div v-if="instrument.place" class="cardInfoObject">
                           {{ instrument.place }}
                         </div>
-                        <div class="cardInfoObject secondary">
+                        <div
+                          v-if="instrument.year"
+                          class="cardInfoObject secondary"
+                        >
                           {{ instrument.year }}
                         </div>
                       </div>
@@ -66,7 +69,12 @@
 </template>
 
 <script>
-import { formatDates, getInstruments, imageUrlMedium } from "@/assets/db";
+import {
+  formatDates,
+  getInstruments,
+  imageUrlMedium,
+  searchFull,
+} from "@/assets/db";
 import Spinner from "./Spinner.vue";
 
 export default {
@@ -78,26 +86,37 @@ export default {
       instruments: [],
     };
   },
-  created: function () {
+  async created() {
     // get the instruments from database
-    getInstruments().then((instruments) => {
-      this.instruments = instruments;
-      // loop through the instruments and augument the objects with additional data
-      for (let instrument of this.instruments) {
-        instrument.place = this.createPlaceString(
-          instrument["location.location"]
+    const [instruments, photosRes] = await Promise.all([
+      getInstruments(),
+      searchFull("photo", "equals|tag.type|main"),
+    ]);
+
+    this.instruments = instruments;
+    // loop through the instruments and augument the objects with additional data
+    for (let instrument of this.instruments) {
+      instrument.place = this.createPlaceString(
+        instrument["location.location"]
+      );
+
+      instrument.year =
+        instrument._first &&
+        formatDates(
+          instrument._first.fields.date1.value,
+          instrument._first.fields.date2.value,
+          instrument._first.fields.date_sign.value,
+          true
         );
 
-        instrument.year =
-          instrument._first &&
-          formatDates(
-            instrument._first.fields.date1.value,
-            instrument._first.fields.date2.value,
-            instrument._first.fields.date_sign.value,
-            true
-          );
+      // Default thumbnail is random. Replace with correct image (tagged "main").
+      const photo = photosRes.find(
+        (photo) => photo.fields.autom_nr.value == instrument.id
+      );
+      if (photo) {
+        instrument.thumbnail = photo.filename;
       }
-    });
+    }
   },
   methods: {
     imageUrl: imageUrlMedium,
