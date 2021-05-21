@@ -92,7 +92,7 @@
           <title>Location</title>
 
           <div id="MapInterface" style="">
-            <Map :locationId="locationId" />
+            <Map :locationId="id" />
           </div>
         </div>
       </div>

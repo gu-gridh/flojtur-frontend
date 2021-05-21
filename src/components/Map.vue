@@ -11,6 +11,7 @@ export default {
   name: "Map",
   props: {
     // If given, zoom in on this location.
+    // TODO: This is actually an instrument id!
     locationId: Number,
   },
   data: function () {
