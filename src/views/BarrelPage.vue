@@ -159,22 +159,19 @@ export default {
     },
   },
   created() {
-    // TODO The automId link param doesn't get set.
-    Promise.all([this.loadData(), this.loadPhotos()]).then(() => {
-      Object.keys(this.photos).forEach(
-        (type) =>
-          (this.photos[
-            type
-          ].linkRoute.params.automId = this.barrel.fields.i_nr.value)
-      );
-    });
+    // Load barrel data and photo records.
+    this.load();
 
     // Find audio.
     this.loadAudio();
   },
   methods: {
-    async loadData() {
-      const allBarrels = await getBarrels();
+    async load() {
+      const [allBarrels, photoRes] = await Promise.all([
+        getBarrels(),
+        search("photo", `equals|barrel_nr|${this.id}`),
+      ]);
+
       this.barrel = allBarrels.find((barrel) => barrel.id === this.id);
       this.automBarrels = allBarrels.filter(
         (barrel) => barrel.i_nr === this.barrel.i_nr
@@ -182,11 +179,9 @@ export default {
       this.composerBarrels = allBarrels.filter(
         (barrel) => this.composerName(barrel) === this.composerName(this.barrel)
       );
-    },
-    async loadPhotos() {
-      const result = await search("photo", `equals|barrel_nr|${this.id}`);
+
       this.photos = {};
-      result.features.forEach((photo) => {
+      photoRes.features.forEach((photo) => {
         const type = photo["tag.type"];
         this.photos[type] = {
           imageUrl: imageUrlLarge(photo.filename),
@@ -194,7 +189,7 @@ export default {
             name: "ImagePage",
             params: {
               // automId gets properly set when the barrel record has been loaded.
-              automId: 0,
+              automId: this.barrel.fields.i_nr.value,
               category: "barrel",
               imageId: photo.id,
             },
