@@ -75,28 +75,30 @@ export function getInstrument(id) {
   return getRecord("autom", id);
 }
 
-/** Follow the authist chain backwards. */
-export async function getInstrumentHistoryBack(id) {
-  const _recurse = async (automs, id) => {
-    const autom = await getPreviousInstrument(id);
-    return autom ? _recurse([autom, ...automs], autom.id.value) : automs;
+/** Get full authist chain including a given autom. */
+export async function getInstrumentHistory(automId) {
+  // Fetch all authist records.
+  const authists = (await search("authist")).features;
+  // Recursive helpers for getting ids going forwards and backwards from the given id.
+  const forward = (automId) => {
+    const authist = authists.find((authist) => authist["nr1.id"] == automId);
+    const nextAutomId = (authist && authist["nr2.id"]) || null;
+    return nextAutomId ? [automId, ...forward(nextAutomId)] : [automId];
   };
-  return _recurse([], id);
-}
-
-export async function getPreviousInstrument(id) {
-  const authist = await searchFull("authist", `equals|nr2|${id}`)
-    .then((authists) => authists[0])
-    .catch((error) => console.error(error));
-  return authist && getInstrument(authist.fields.nr1.value);
+  const backward = (automId) => {
+    const authist = authists.find((authist) => authist["nr2.id"] == automId);
+    const prevAutomId = (authist && authist["nr1.id"]) || null;
+    return prevAutomId ? [...backward(prevAutomId), automId] : [automId];
+  };
+  // Collect ids and fetch the full instrument of each.
+  const automIds = [...backward(automId), ...forward(automId).slice(1)];
+  return Promise.all(automIds.map(getInstrument));
 }
 
 export function search(tb, query = "") {
+  const queryParamName = query && query.includes("|") ? "query" : "sstring";
   return (
-    get("search", {
-      tb,
-      [query && query.includes("|") ? "query" : "sstring"]: query
-    })
+    get("search", { tb, [queryParamName]: query, size: 0 })
       // Data contains `features` (list of objects) and `num`.
       .then((response) => response.data)
       .catch((error) => console.error(error))

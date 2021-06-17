@@ -107,7 +107,7 @@ import {
   getRecord,
   getBarrels,
   search,
-  getInstrumentHistoryBack,
+  getInstrumentHistory,
   imageUrlThumb,
   formatValues,
   searchFull,
@@ -232,7 +232,7 @@ export default {
       this.divisionCount = fields.no_div.value;
       this.stopCount = fields.no_stop.value;
     });
-    getInstrumentHistoryBack(this.id).then(
+    getInstrumentHistory(this.id).then(
       (automs) => (this.instrumentFirst = automs[0])
     );
     // Find barrels for this instrument.
