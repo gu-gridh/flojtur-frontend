@@ -14,6 +14,8 @@
 
       <h1 v-if="title">{{ title }}</h1>
 
+      <MetadataLarge :items="metadata" />
+
       <div class="buttons">
         <a
           class="DownloadContainer"
@@ -38,14 +40,15 @@
 </template>
 
 <script>
-import { getRecord, search } from "@/assets/db";
+import { formatValues, getRecord, search } from "@/assets/db";
 import ZoomViewer from "@/components/ZoomViewer.vue";
+import MetadataLarge from "@/components/MetadataLarge.vue";
 import MiniGallery from "@/components/MiniGallery.vue";
 
 export default {
   name: "ImagePage",
   props: ["automId", "category", "imageId"],
-  components: { ZoomViewer, MiniGallery },
+  components: { ZoomViewer, MetadataLarge, MiniGallery },
   data() {
     return {
       photo: null,
@@ -54,6 +57,12 @@ export default {
     };
   },
   computed: {
+    metadata() {
+      const values = formatValues(this.photo);
+      return [{ label: "Licens", value: values.copyright }].filter(
+        (item) => item.value
+      );
+    },
     galleryItems() {
       return this.photos.map((hit) => ({
         autom: this.automId,

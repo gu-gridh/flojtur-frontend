@@ -159,10 +159,9 @@ export async function getBarrels(instrumentId = null) {
 export function formatValues(fields) {
   const values = {};
   Object.keys(fields).forEach((prop) => {
-    values[prop] = fields[prop].ftab ? fields[prop].extra : fields[prop].value;
-    values[prop] = values[prop]
-      .replace(/^[-?]$/, "")
-      .replaceAll(/(\s*<br>)+/gi, ". ");
+    const value = fields[prop].ftab ? fields[prop].extra : fields[prop].value;
+    values[prop] =
+      value && value.replace(/^[-?]$/, "").replaceAll(/(\s*<br>)+/gi, ". ");
   });
   return values;
 }
