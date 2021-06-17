@@ -12,7 +12,8 @@ export default {
   name: "AdvancedSearch",
   data() {
     return {
-      scrollable: false,
+      // Must be initially true, because Safari ignores dynamic modification of the scrolling attribute.
+      scrollable: true,
     };
   },
   mounted() {
