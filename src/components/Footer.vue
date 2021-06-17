@@ -1,7 +1,12 @@
 <template>
   <footer id="footer">
     <div class="container">
-      <div>Pehr Strands flöjtur</div>
+      <div>
+        <router-link to="/"> Pehr Strands flöjtur</router-link>
+      </div>
+      <div>
+        <router-link to="/om">Om forskningsprojektet</router-link>
+      </div>
     </div>
 
     <div class="container">
@@ -22,9 +27,10 @@ export default {};
 footer {
   background-color: #222;
   color: white;
-  padding-top: 2.5rem;
+  padding-block: 2.5rem;
+  line-height: 1.3;
 }
-.container {
-  padding-bottom: 2.5rem;
+.container:not(:last-child) {
+  padding-bottom: 1rem;
 }
 </style>
