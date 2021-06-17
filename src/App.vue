@@ -1,8 +1,17 @@
 <template>
   <div id="app">
     <router-view :key="$route.path" />
+    <Footer />
   </div>
 </template>
+
+<script>
+import Footer from "@/components/Footer.vue";
+
+export default {
+  components: { Footer },
+};
+</script>
 
 <style lang="scss">
 body {

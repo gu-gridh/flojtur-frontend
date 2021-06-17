@@ -6,7 +6,7 @@
         <router-link to="/">Pehr Strands flöjtur</router-link>
       </h1>
       <div class="subtitle">1791–1824</div>
-      <div class="author"><i>Johan Norrback</i></div>
+      <div class="author" @click="scrollToFooter"><i>Johan Norrback</i></div>
     </div>
   </div>
 </template>
@@ -20,6 +20,11 @@ export default {
     if (this.$route.hash) {
       VueScrollTo.scrollTo(this.$route.hash);
     }
+  },
+  methods: {
+    scrollToFooter() {
+      VueScrollTo.scrollTo("#footer");
+    },
   },
 };
 </script>
@@ -47,6 +52,7 @@ export default {
   margin-top: 30px;
   margin-left: -10px;
   margin-bottom: 100px;
+  cursor: pointer;
 }
 
 .ornament {
