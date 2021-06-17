@@ -11,12 +11,6 @@
         humaniora, Göteborgs universitet. https://strand.dh.gu.se/
       </div>
     </div>
-
-    <div class="container logos">
-      <a href="https://dh.gu.se/">
-        <img src="@/assets/cdh-white.png" alt="Centre for Digital Humanities" />
-      </a>
-    </div>
   </footer>
 </template>
 
@@ -32,16 +26,5 @@ footer {
 }
 .container {
   padding-bottom: 2.5rem;
-}
-.logos {
-  display: flex;
-  align-content: center;
-  justify-content: space-between;
-
-  > * {
-    display: block;
-    max-height: 8rem;
-    max-width: 12rem;
-  }
 }
 </style>
