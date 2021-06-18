@@ -18,31 +18,25 @@ const automIds = search(
 );
 
 function get(name, params) {
-  return axios.get(`${apiUrl}/${name}.php`, { params });
+  return axios
+    .get(`${apiUrl}/${name}.php`, { params })
+    .catch((error) => console.error(error));
 }
 
-export function getRecord(table, id) {
-  return get("edit", { tb: table, id: parseInt(id) })
-    .then((response) => response.data.fields)
-    .catch((error) => {
-      console.error(error);
-    });
-}
+export const getRecord = (table, id) =>
+  get("edit", { tb: table, id: parseInt(id) }).then(
+    (response) => response.data.fields
+  );
 
-export function getRecords(table, ids) {
-  return get("edit", { tb: table, ids: ids.join() })
-    .then((response) => response.data.map((record) => record.fields))
-    .catch((error) => {
-      console.error(error);
-    });
-}
+export const getRecords = (table, ids) =>
+  get("edit", { tb: table, ids: ids.join() }).then((response) =>
+    response.data.map((record) => record.fields)
+  );
 
 export async function getInstruments() {
   // Each actual instrument has multiple autom records, one for each activity. Activity type 1 is "Inventering".
-  const instruments = await searchFull(
-    "autom",
-    `in|id|${await automIds}`
-  ).catch((error) => console.error(error) || []);
+  const instruments = await searchFull("autom", `in|id|${await automIds}`);
+  if (!instruments) return [];
 
   // Helper to find first autom record (Nytt instrument).
   const findFirst = (automId) =>
@@ -68,9 +62,7 @@ const findParallel = async (xs, f) =>
   xs[(await Promise.all(xs.map(f))).findIndex(Boolean)];
 
 export const getAutomLocations = async () =>
-  get("map", { layer: "autom" })
-    .then((response) => response.data)
-    .catch((error) => console.error(error));
+  get("map", { layer: "autom" }).then((response) => response.data);
 
 export function getInstrument(id) {
   return getRecord("autom", id);
@@ -102,7 +94,6 @@ export function search(tb, query = "") {
     get("search", { tb, [queryParamName]: query, size: 0 })
       // Data contains `features` (list of objects) and `num`.
       .then((response) => response.data)
-      .catch((error) => console.error(error))
   );
 }
 
