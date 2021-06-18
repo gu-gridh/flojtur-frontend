@@ -21,7 +21,7 @@ const routes = [
         path: "karta",
         name: "Map",
         component: () =>
-          import(/* webpackChunkName: "map" */ "../components/Map.vue")
+          import(/* webpackChunkName: "map" */ "../views/OverviewMap.vue")
       },
       {
         path: "valsar",

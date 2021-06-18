@@ -83,7 +83,7 @@
         />
       </div>
 
-      <div v-if="locationId">
+      <div v-if="mapFeatures.length">
         <div
           id="location"
           style="margin-top: 50px; margin-bottom: 40px"
@@ -92,7 +92,7 @@
           <title>Location</title>
 
           <div id="MapInterface" style="">
-            <Map :locationId="parseInt(id)" />
+            <Map :features="mapFeatures" />
           </div>
         </div>
       </div>
@@ -113,6 +113,7 @@ import {
   searchFull,
   formatDates,
   fetchFileSize,
+  getAutomLocations,
 } from "@/assets/db";
 import ShowMore from "@/components/ShowMore.vue";
 import MetadataLarge from "@/components/MetadataLarge.vue";
@@ -145,8 +146,9 @@ export default {
       casebuilder: null,
       owner: null,
       location: null,
-      /** The first record in the history of this instrument. */
-      instrumentFirst: null,
+      /** All autom records in the authist chain. */
+      history: [],
+      mapFeatures: [],
       barrels: [],
       division: null,
       instrumentPhotos: [],
@@ -212,16 +214,14 @@ export default {
       ].filter((item) => item.value);
     },
     buildYear() {
-      const instrument = this.instrumentFirst || this.instrument;
-      if (!instrument) return;
-      return formatDates(
-        instrument.date1.value,
-        instrument.date2.value,
-        instrument.date_sign.value
+      return (
+        this.history.length &&
+        formatDates(
+          this.history[0].date1.value,
+          this.history[0].date2.value,
+          this.history[0].date_sign.value
+        )
       );
-    },
-    locationId() {
-      return this.instrument && parseInt(this.instrument.loc_nr.value);
     },
   },
   created() {
@@ -232,9 +232,9 @@ export default {
       this.divisionCount = fields.no_div.value;
       this.stopCount = fields.no_stop.value;
     });
-    getInstrumentHistory(this.id).then(
-      (automs) => (this.instrumentFirst = automs[0])
-    );
+    const historyPromise = getInstrumentHistory(this.id);
+    historyPromise.then((automs) => (this.history = automs));
+
     // Find barrels for this instrument.
     getBarrels(this.id).then((barrels) => (this.barrels = barrels));
     search("photo", `equals|autom_nr|${this.id}`).then(({ features }) => {
@@ -256,6 +256,14 @@ export default {
           );
         });
       })
+    );
+
+    // Get all autom locations and then pick the ones included in this autom history.
+    Promise.all([historyPromise, getAutomLocations()]).then(
+      ([history, featureCollection]) =>
+        (this.mapFeatures = featureCollection.features.filter((feature) =>
+          history.find((autom) => autom.id.value == feature.properties.id)
+        ))
     );
 
     // Find files.

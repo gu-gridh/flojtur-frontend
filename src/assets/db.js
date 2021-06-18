@@ -62,14 +62,10 @@ export async function getInstruments() {
     }));
 }
 
-export function getLocations() {
-  // TODO these values should come from map
-  const bbox =
-    "-17.752108500000002,26.719871179878666,47.6385165,77.34475721800521";
-  return get("map", { layer: "autom", bbox })
+export const getAutomLocations = async () =>
+  get("map", { layer: "autom" })
     .then((response) => response.data)
     .catch((error) => console.error(error));
-}
 
 export function getInstrument(id) {
   return getRecord("autom", id);

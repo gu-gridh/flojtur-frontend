@@ -5,29 +5,14 @@
 <script>
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { getLocations } from "@/assets/db";
 
 export default {
   name: "Map",
   props: {
-    // If given, zoom in on this location.
-    // TODO: This is actually an instrument id!
-    locationId: Number,
+    features: Array,
   },
-  data: function () {
-    return {};
-  },
-  created: function () {
-    getLocations().then((geojson) => {
-      if (this.locationId) {
-        geojson.features = geojson.features.filter(
-          (feature) => feature.properties.id == this.locationId
-        );
-        this.map.panTo(
-          geojson.features[0].geometry.coordinates.slice().reverse()
-        );
-      }
-
+  methods: {
+    load() {
       function onEachFeature(feature, layer) {
         // called for every marker/instrument, set up click handlers
         layer.bindPopup(feature.properties.name);
@@ -42,18 +27,20 @@ export default {
         fillOpacity: 0.8,
       };
 
-      L.geoJSON(geojson, {
+      const geojsonLayer = L.geoJSON(this.features, {
         pointToLayer: function (feature, latlng) {
           return L.circleMarker(latlng, geojsonMarkerOptions);
         },
         onEachFeature: onEachFeature,
       }).addTo(this.map);
-    });
+
+      // Zoom and pan to fit.
+      this.map.fitBounds(geojsonLayer.getBounds());
+    },
   },
   mounted: function () {
     const map = L.map("map", {
-      // TODO Calculate from features.
-      zoom: this.locationId ? 16 : 4,
+      zoom: 4,
       center: [60.702098, 14.943204],
     });
 
@@ -64,6 +51,15 @@ export default {
     }).addTo(map);
 
     this.map = map;
+    this.load();
+  },
+  watch: {
+    features: {
+      immediate: true,
+      handler() {
+        if (this.map) this.load();
+      },
+    },
   },
 };
 </script>
