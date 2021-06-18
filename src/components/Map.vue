@@ -11,13 +11,17 @@ export default {
   props: {
     features: Array,
   },
+  data: () => ({
+    map: null,
+    layer: null,
+  }),
   methods: {
-    load() {
-      function onEachFeature(feature, layer) {
-        // called for every marker/instrument, set up click handlers
-        layer.bindPopup(feature.properties.name);
-      }
+    loadFeatures() {
+      // Remove any previously loaded layer.
+      if (this.layer) this.map.removeLayer(this.layer);
 
+      // Create and add layer.
+      if (!this.features.length) return;
       const geojsonMarkerOptions = {
         radius: 8,
         fillColor: "#ff7800",
@@ -26,39 +30,31 @@ export default {
         opacity: 1,
         fillOpacity: 0.8,
       };
-
-      const geojsonLayer = L.geoJSON(this.features, {
-        pointToLayer: function (feature, latlng) {
-          return L.circleMarker(latlng, geojsonMarkerOptions);
-        },
-        onEachFeature: onEachFeature,
+      this.layer = L.geoJSON(this.features, {
+        pointToLayer: (feature, latlng) =>
+          L.circleMarker(latlng, geojsonMarkerOptions),
+        onEachFeature: (feature, layer) =>
+          layer.bindPopup(feature.properties.name),
       }).addTo(this.map);
 
       // Zoom and pan to fit.
-      this.map.fitBounds(geojsonLayer.getBounds());
+      this.map.fitBounds(this.layer.getBounds());
     },
   },
-  mounted: function () {
-    const map = L.map("map", {
-      zoom: 4,
-      center: [60.702098, 14.943204],
-    });
+  mounted() {
+    this.map = L.map("map");
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       subdomains: ["a", "b", "c"],
-    }).addTo(map);
+    }).addTo(this.map);
 
-    this.map = map;
-    this.load();
+    this.loadFeatures();
   },
   watch: {
-    features: {
-      immediate: true,
-      handler() {
-        if (this.map) this.load();
-      },
+    features() {
+      if (this.map) this.loadFeatures();
     },
   },
 };
