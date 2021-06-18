@@ -3,8 +3,11 @@ import fileSize from "filesize";
 
 const apiUrl = process.env.VUE_APP_APIURL || "https://dh.gu.se/ws/flojtur";
 
-// Cache for barrel records.
+// Cache for records.
 let allBarrels = [];
+
+/** Fetch authist records asap so they can be used when needed. */
+const authistPromise = search("authist");
 
 /** List of relevant instrument ids. Fetched from API; use with await. */
 const automIds = search(
@@ -36,31 +39,33 @@ export function getRecords(table, ids) {
 
 export async function getInstruments() {
   // Each actual instrument has multiple autom records, one for each activity. Activity type 1 is "Inventering".
-  const [instruments, authists] = await Promise.all([
-    searchFull("autom", `in|id|${await automIds}`),
-    searchFull("authist")
-  ]).catch((error) => console.error(error) || []);
+  const instruments = await searchFull(
+    "autom",
+    `in|id|${await automIds}`
+  ).catch((error) => console.error(error) || []);
 
   // Helper to find first autom record (Nytt instrument).
-  const _histFindFirst = (instrument) => {
-    const authist = authists.find(
-      (authist) => authist.fields.nr2.value == instrument.id
+  const findFirst = (automId) =>
+    findParallel(
+      instruments,
+      async (instrument) =>
+        instrument.id == (await getInstrumentHistory(automId))[0]
     );
-    if (!authist) return instrument;
-    const prev = instruments.find(
-      (instrument) => instrument.id == authist.fields.nr1.value
-    );
-    return prev && _histFindFirst(prev);
-  };
 
   // Only include Inventering records, and add their corresponding Nytt instrument records.
-  return instruments
-    .filter((instrument) => instrument.fields.act_type.value == "1")
-    .map((instrument) => ({
-      ...instrument,
-      _first: _histFindFirst(instrument)
-    }));
+  return Promise.all(
+    instruments
+      .filter((instrument) => instrument.fields.act_type.value == "1")
+      .map(async (instrument) => ({
+        ...instrument,
+        _first: await findFirst(instrument.id)
+      }))
+  );
 }
+
+/** Find with async filter function by applying to all elements in parallel. */
+const findParallel = async (xs, f) =>
+  xs[(await Promise.all(xs.map(f))).findIndex(Boolean)];
 
 export const getAutomLocations = async () =>
   get("map", { layer: "autom" })
@@ -71,10 +76,10 @@ export function getInstrument(id) {
   return getRecord("autom", id);
 }
 
-/** Get full authist chain including a given autom. */
+/** Get autom ids for full authist chain including a given autom id. */
 export async function getInstrumentHistory(automId) {
   // Fetch all authist records.
-  const authists = (await search("authist")).features;
+  const authists = (await authistPromise).features;
   // Recursive helpers for getting ids going forwards and backwards from the given id.
   const forward = (automId) => {
     const authist = authists.find((authist) => authist["nr1.id"] == automId);
@@ -88,7 +93,7 @@ export async function getInstrumentHistory(automId) {
   };
   // Collect ids and fetch the full instrument of each.
   const automIds = [...backward(automId), ...forward(automId).slice(1)];
-  return Promise.all(automIds.map(getInstrument));
+  return automIds;
 }
 
 export function search(tb, query = "") {

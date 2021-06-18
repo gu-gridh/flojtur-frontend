@@ -232,7 +232,9 @@ export default {
       this.divisionCount = fields.no_div.value;
       this.stopCount = fields.no_stop.value;
     });
-    const historyPromise = getInstrumentHistory(this.id);
+    const historyPromise = getInstrumentHistory(this.id).then((automIds) =>
+      Promise.all(automIds.map(getInstrument))
+    );
     historyPromise.then((automs) => (this.history = automs));
 
     // Find barrels for this instrument.
