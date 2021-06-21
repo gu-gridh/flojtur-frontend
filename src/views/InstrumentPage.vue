@@ -83,19 +83,7 @@
         />
       </div>
 
-      <div v-if="mapFeatures.length">
-        <div
-          id="location"
-          style="margin-top: 50px; margin-bottom: 40px"
-          class="outset-large"
-        >
-          <title>Location</title>
-
-          <div id="MapInterface" style="">
-            <Map :features="mapFeatures" />
-          </div>
-        </div>
-      </div>
+      <InstrumentMap v-if="history.length" :automs="history" />
     </div>
     <div id="foot" style="width: 100%"></div>
   </div>
@@ -113,7 +101,6 @@ import {
   searchFull,
   formatDates,
   fetchFileSize,
-  getAutomLocations,
 } from "@/assets/db";
 import ShowMore from "@/components/ShowMore.vue";
 import MetadataLarge from "@/components/MetadataLarge.vue";
@@ -121,7 +108,7 @@ import MetadataSmall from "@/components/MetadataSmall.vue";
 import FileGrid from "@/components/FileGrid.vue";
 import BarrelsCardGrid from "@/components/BarrelsCardGrid.vue";
 import MiniGallery from "@/components/MiniGallery.vue";
-import Map from "@/components/Map.vue";
+import InstrumentMap from "@/components/InstrumentMap.vue";
 import ZoomViewer from "@/components/ZoomViewer.vue";
 
 export default {
@@ -134,7 +121,7 @@ export default {
     FileGrid,
     BarrelsCardGrid,
     MiniGallery,
-    Map,
+    InstrumentMap,
     ZoomViewer,
   },
   data: function () {
@@ -148,7 +135,6 @@ export default {
       location: null,
       /** All autom records in the authist chain. */
       history: [],
-      mapFeatures: [],
       barrels: [],
       division: null,
       instrumentPhotos: [],
@@ -232,10 +218,9 @@ export default {
       this.divisionCount = fields.no_div.value;
       this.stopCount = fields.no_stop.value;
     });
-    const historyPromise = getInstrumentHistory(this.id).then((automIds) =>
-      Promise.all(automIds.map(getInstrument))
-    );
-    historyPromise.then((automs) => (this.history = automs));
+    getInstrumentHistory(this.id)
+      .then((automIds) => Promise.all(automIds.map(getInstrument)))
+      .then((automs) => (this.history = automs));
 
     // Find barrels for this instrument.
     getBarrels(this.id).then((barrels) => (this.barrels = barrels));
@@ -258,14 +243,6 @@ export default {
           );
         });
       })
-    );
-
-    // Get all autom locations and then pick the ones included in this autom history.
-    Promise.all([historyPromise, getAutomLocations()]).then(
-      ([history, featureCollection]) =>
-        (this.mapFeatures = featureCollection.features.filter((feature) =>
-          history.find((autom) => autom.id.value == feature.properties.id)
-        ))
     );
 
     // Find files.
@@ -375,30 +352,5 @@ export default {
   .metadata-large {
     font-size: 24px;
   }
-}
-
-/* Map */
-
-#MapInterface {
-  border-radius: 20px;
-  width: 100%;
-  height: 500px;
-  background-size: cover;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.2),
-    0 6px 40px 0 rgba(0, 0, 0, 0.19);
-}
-
-#MapInterface:hover {
-  transition: all 0.2s ease-in-out;
-  filter: brightness(110%);
-  transform: scale(1.02);
-}
-
-/** Override Map component style. */
-#MapInterface #map {
-  height: 100%;
-  border-radius: 20px;
-  z-index: 0; /* Fixes border-radius in Safari. */
 }
 </style>

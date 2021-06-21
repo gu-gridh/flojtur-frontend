@@ -6,10 +6,26 @@
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
+const markerOptions = {
+  radius: 8,
+  fillColor: "#ff7800",
+  color: "#000",
+  weight: 1,
+  opacity: 1,
+  fillOpacity: 0.8,
+};
+
+const markerOptionsFocus = {
+  ...markerOptions,
+  fillColor: "#00ff88",
+  radius: 10,
+};
+
 export default {
   name: "Map",
   props: {
     features: Array,
+    focus: null,
   },
   data: () => ({
     map: null,
@@ -22,17 +38,9 @@ export default {
 
       // Create and add layer.
       if (!this.features.length) return;
-      const geojsonMarkerOptions = {
-        radius: 8,
-        fillColor: "#ff7800",
-        color: "#000",
-        weight: 1,
-        opacity: 1,
-        fillOpacity: 0.8,
-      };
       this.layer = L.geoJSON(this.features, {
         pointToLayer: (feature, latlng) =>
-          L.circleMarker(latlng, geojsonMarkerOptions),
+          L.circleMarker(latlng, markerOptions),
         onEachFeature: (feature, layer) =>
           layer.bindPopup(feature.properties.name),
       }).addTo(this.map);
@@ -55,6 +63,13 @@ export default {
   watch: {
     features() {
       if (this.map) this.loadFeatures();
+    },
+    focus() {
+      const isFeatureFocus = (feature) =>
+        this.focus && feature.properties.id == this.focus.properties.id;
+      const style = (feature) =>
+        isFeatureFocus(feature) ? markerOptionsFocus : markerOptions;
+      this.layer.setStyle(style);
     },
   },
 };
