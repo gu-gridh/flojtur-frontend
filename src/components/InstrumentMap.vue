@@ -2,7 +2,13 @@
   <div class="instrument-map">
     <div class="outset-large">
       <div id="MapInterface">
-        <Map :features="mapFeatures" :focus="focusFeature" />
+        <Map
+          :features="mapFeatures"
+          :focus="focusFeature"
+          :popup="false"
+          @focus="focus"
+          @unfocus="unfocus"
+        />
       </div>
     </div>
     <table class="history">
@@ -103,7 +109,6 @@ export default {
 #MapInterface:hover {
   transition: all 0.2s ease-in-out;
   filter: brightness(110%);
-  transform: scale(1.02);
 }
 
 /** Override Map component style. */

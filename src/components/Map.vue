@@ -25,7 +25,8 @@ export default {
   name: "Map",
   props: {
     features: Array,
-    focus: null,
+    focus: Object,
+    popup: Boolean,
   },
   data: () => ({
     map: null,
@@ -40,9 +41,12 @@ export default {
       if (!this.features.length) return;
       this.layer = L.geoJSON(this.features, {
         pointToLayer: (feature, latlng) =>
-          L.circleMarker(latlng, markerOptions),
-        onEachFeature: (feature, layer) =>
-          layer.bindPopup(feature.properties.name),
+          L.circleMarker(latlng, markerOptions)
+            .on("mouseover", () => this.$emit("focus", feature.properties.id))
+            .on("mouseout", () => this.$emit("unfocus", feature.properties.id)),
+        onEachFeature: this.popup
+          ? (feature, layer) => layer.bindPopup(feature.properties.name)
+          : null,
       }).addTo(this.map);
 
       // Zoom and pan to fit.
