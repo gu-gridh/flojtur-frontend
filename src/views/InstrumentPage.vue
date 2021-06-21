@@ -234,8 +234,6 @@ export default {
       divisions.forEach((division) => {
         this.division = division;
         search("stop", `equals|nr|${division.id}`).then(({ features }) => {
-          // TODO Remove temporary hard-coded stop ids.
-          features.push({ id: 22 }, { id: 23 });
           features.forEach((stop) =>
             search("photo", `equals|stop_nr|${stop.id}`).then(({ features }) =>
               this.stopPhotos.push(...features)
