@@ -3,6 +3,7 @@
     <div id="MapInterface">
       <InstrumentMap
         :features="mapFeatures"
+        :history="automFeatureZip"
         :focusId="focusId"
         @focus="focus"
         @unfocus="unfocus"
@@ -31,6 +32,7 @@
 
 <script>
 import { getAutomLocations, formatDates } from "@/assets/db";
+import { uniqAs } from "@/assets/util";
 import InstrumentMap from "@/components/InstrumentMap.vue";
 
 export default {
@@ -40,7 +42,7 @@ export default {
   components: { InstrumentMap },
   data: () => ({
     mapFeatures: [],
-    path: [],
+    automFeatureZip: [],
     focusId: null,
   }),
   created() {
@@ -59,41 +61,26 @@ export default {
       // Get all autom locations.
       const featureCollection = await getAutomLocations();
 
-      // We have automs placed on map. Use full autom records to collect the actual locations.
-      const features = [];
-      for (const feature of featureCollection.features) {
-        // Only include locations for the automs given in props.
-        const autom = this.automs.find(
-          (autom) => autom.id.value == feature.properties.id
-        );
-        if (!autom) continue;
+      // Zip GeoJSON features with full autom records.
+      this.automFeatureZip = this.automs.map((autom) => ({
+        autom,
+        feature: featureCollection.features.find(
+          (feature) => feature.properties.id == autom.id.value
+        ),
+      }));
 
-        feature.properties.locationId = autom.loc_nr.value;
-        feature.properties.name = autom.loc_nr.extra;
-
-        // An autom may have multiple history records at the same location. Skip duplictae locations.
-        if (
-          !features.find(
-            (feature2) =>
-              feature2.properties.locationId == feature.properties.locationId
-          )
-        )
-          features.push(feature);
-
-        this.mapFeatures = features;
-      }
-    },
-    enrichFeature(feature) {
-      // Find full autom record.
-      const autom = this.automs.find(
-        (autom) => autom.id.value == feature.properties.id
+      // Add more location info to the features.
+      const enrichedFeatures = this.automFeatureZip.map(
+        ({ autom, feature }) => {
+          feature.properties.locationId = autom.loc_nr.value;
+          feature.properties.name = autom.loc_nr.extra;
+          return feature;
+        }
       );
-      if (!autom) return;
-
-      // Add location info from autom to the feature.
-      feature.properties.locationId = autom.loc_nr.value;
-      feature.properties.name = autom.loc_nr.extra;
-      return feature;
+      this.mapFeatures = uniqAs(
+        enrichedFeatures,
+        (feature) => feature.properties.locationId
+      );
     },
     focus(id) {
       this.focusId = id;

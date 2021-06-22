@@ -21,7 +21,6 @@ export function resetMap(map) {
 }
 
 export function addGeojson(map, geojson, popup, onmouseover, onmouseout) {
-  resetMap(map);
   const layer = L.geoJSON(geojson, {
     pointToLayer: (feature, latlng) =>
       L.circleMarker(latlng, markerOptions)

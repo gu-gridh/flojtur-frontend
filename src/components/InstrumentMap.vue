@@ -3,12 +3,14 @@
 </template>
 
 <script>
-import { addGeojson, focusLocation, makeMap } from "@/assets/map";
+import L from "leaflet";
+import { addGeojson, focusLocation, makeMap, resetMap } from "@/assets/map";
 
 export default {
   name: "Map",
   props: {
     features: Array,
+    history: Array,
     focusId: [Number, String],
     popup: Boolean,
   },
@@ -18,6 +20,15 @@ export default {
   }),
   methods: {
     loadFeatures() {
+      resetMap(this.map);
+
+      L.polyline(
+        this.history.map(({ feature }) =>
+          [...feature.geometry.coordinates].reverse()
+        ),
+        { color: "#00000040" }
+      ).addTo(this.map);
+
       const onmouseover = (feature) =>
         this.$emit("focus", feature.properties.locationId);
       const onmouseout = (feature) =>
