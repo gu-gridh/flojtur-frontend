@@ -4,7 +4,15 @@
 
 <script>
 import L from "leaflet";
-import { addGeojson, focusLocation, makeMap, resetMap } from "@/assets/map";
+import "@elfalem/leaflet-curve";
+import {
+  addGeojson,
+  curve,
+  curveMidpoint,
+  focusLocation,
+  makeMap,
+  resetMap,
+} from "@/assets/map";
 
 export default {
   name: "Map",
@@ -22,12 +30,12 @@ export default {
     loadFeatures() {
       resetMap(this.map);
 
-      L.polyline(
-        this.history.map(({ feature }) =>
-          [...feature.geometry.coordinates].reverse()
-        ),
-        { color: "#00000040" }
-      ).addTo(this.map);
+      if (!this.history.length) return;
+
+      // Add a smooth curve between points.
+      const getPoint = ({ feature }) =>
+        [...feature.geometry.coordinates].reverse();
+      curve(this.history.map(getPoint), { color: "#00000040" }).addTo(this.map);
 
       const onmouseover = (feature) =>
         this.$emit("focus", feature.properties.locationId);
