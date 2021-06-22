@@ -25,8 +25,8 @@ export function addGeojson(map, geojson, popup, onmouseover, onmouseout) {
   const layer = L.geoJSON(geojson, {
     pointToLayer: (feature, latlng) =>
       L.circleMarker(latlng, markerOptions)
-        .on("mouseover", () => onmouseover(feature))
-        .on("mouseout", () => onmouseout(feature)),
+        .on("mouseover", () => onmouseover && onmouseover(feature))
+        .on("mouseout", () => onmouseout && onmouseout(feature)),
     onEachFeature: popup
       ? (feature, layer) => layer.bindPopup(feature.properties.name)
       : null

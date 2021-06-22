@@ -83,7 +83,7 @@
         />
       </div>
 
-      <InstrumentMap v-if="history.length" :automs="history" />
+      <InstrumentMapContainer v-if="history.length" :automs="history" />
     </div>
     <div id="foot" style="width: 100%"></div>
   </div>
@@ -108,7 +108,7 @@ import MetadataSmall from "@/components/MetadataSmall.vue";
 import FileGrid from "@/components/FileGrid.vue";
 import BarrelsCardGrid from "@/components/BarrelsCardGrid.vue";
 import MiniGallery from "@/components/MiniGallery.vue";
-import InstrumentMap from "@/components/InstrumentMap.vue";
+import InstrumentMapContainer from "@/components/InstrumentMapContainer.vue";
 import ZoomViewer from "@/components/ZoomViewer.vue";
 
 export default {
@@ -121,7 +121,7 @@ export default {
     FileGrid,
     BarrelsCardGrid,
     MiniGallery,
-    InstrumentMap,
+    InstrumentMapContainer,
     ZoomViewer,
   },
   data: function () {
