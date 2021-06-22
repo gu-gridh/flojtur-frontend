@@ -35,7 +35,7 @@
             src="@/assets/article/Strand_Leufsta_DSC_1876.jpg"
             alt="Flöjtur"
           />
-          <figcaption></figcaption>
+          <figcaption>Foto: Johan Norrback. Licens: CC BY-NC 4.0.</figcaption>
         </figure>
 
         <figure class="span-columns">
@@ -45,7 +45,7 @@
           />
           <figcaption>
             Speluret på Lövstabruks herrgård. Urtavlan signerad ”P; Strand
-            Stockholm”. Foto: Johan Norrback.
+            Stockholm”. Foto: Johan Norrback. Licens: CC BY-NC 4.0.
           </figcaption>
         </figure>
 
@@ -108,7 +108,8 @@
           />
           <figcaption>
             Väggur signerat ”Pehr Strand Stockholm”. Har sannolikt tillhört
-            Henriette Löfman, född Strand. Foto: Johan Norrback.
+            Henriette Löfman, född Strand. Foto: Johan Norrback. Licens: CC
+            BY-NC 4.0.
           </figcaption>
         </figure>
         <p>
@@ -149,6 +150,7 @@
           />
           <figcaption>
             Orgeln i Sundal-Ryrs gamla kyrka i Dalsland. Foto: Johan Norrback.
+            Licens: CC BY-NC 4.0.
           </figcaption>
         </figure>
 

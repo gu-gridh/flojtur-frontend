@@ -16,6 +16,15 @@
         humaniora, Göteborgs universitet. https://strand.dh.gu.se/
       </div>
     </div>
+
+    <div class="container">
+      <div>
+        Licens:
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/"
+          >CC BY-NC 4.0</a
+        >, om inget annat anges
+      </div>
+    </div>
   </footer>
 </template>
 
