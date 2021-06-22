@@ -83,6 +83,6 @@ const markerOptions = {
 
 const markerOptionsFocus = {
   ...markerOptions,
-  fillColor: "#00ff88",
+  fillColor: "white",
   radius: 10
 };
