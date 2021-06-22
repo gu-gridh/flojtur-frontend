@@ -4,8 +4,7 @@
       <div id="MapInterface">
         <Map
           :features="mapFeatures"
-          :focus="focusFeature"
-          :popup="false"
+          :focusId="focusId"
           @focus="focus"
           @unfocus="unfocus"
         />
@@ -17,8 +16,8 @@
           v-for="autom in automs"
           :key="autom.id.value"
           class="history-item"
-          :class="{ focus: focusId === autom.id.value }"
-          @mouseover="focus(autom.id.value)"
+          :class="{ focus: focusId === autom.loc_nr.value }"
+          @mouseover="focus(autom.loc_nr.value)"
           @mouseleave="unfocus()"
         >
           <td>
@@ -43,15 +42,9 @@ export default {
   components: { Map },
   data: () => ({
     mapFeatures: [],
+    path: [],
     focusId: null,
   }),
-  computed: {
-    focusFeature() {
-      return this.mapFeatures.find(
-        (feature) => feature.properties.id === this.focusId
-      );
-    },
-  },
   created() {
     this.load();
   },
@@ -65,15 +58,44 @@ export default {
       );
     },
     async load() {
-      // Get all autom locations and then pick the ones included in this autom history.
+      // Get all autom locations.
       const featureCollection = await getAutomLocations();
-      const idAutom = (id) => this.automs.find((autom) => autom.id.value == id);
-      const idYear = (id) => idAutom(id) && parseInt(idAutom(id).date2.value);
-      this.mapFeatures = featureCollection.features
-        .filter((feature) =>
-          this.automs.find((autom) => autom.id.value == feature.properties.id)
+
+      // We have automs placed on map. Use full autom records to collect the actual locations.
+      const features = [];
+      for (const feature of featureCollection.features) {
+        // Only include locations for the automs given in props.
+        const autom = this.automs.find(
+          (autom) => autom.id.value == feature.properties.id
+        );
+        if (!autom) continue;
+
+        feature.properties.locationId = autom.loc_nr.value;
+        feature.properties.name = autom.loc_nr.extra;
+
+        // An autom may have multiple history records at the same location. Skip duplictae locations.
+        if (
+          !features.find(
+            (feature2) =>
+              feature2.properties.locationId == feature.properties.locationId
+          )
         )
-        .sort((a, b) => idYear(a.properties.id) - idYear(b.properties.id));
+          features.push(feature);
+
+        this.mapFeatures = features;
+      }
+    },
+    enrichFeature(feature) {
+      // Find full autom record.
+      const autom = this.automs.find(
+        (autom) => autom.id.value == feature.properties.id
+      );
+      if (!autom) return;
+
+      // Add location info from autom to the feature.
+      feature.properties.locationId = autom.loc_nr.value;
+      feature.properties.name = autom.loc_nr.extra;
+      return feature;
     },
     focus(id) {
       this.focusId = id;
@@ -121,10 +143,10 @@ export default {
 .history {
   margin: 1rem -1rem;
   table-layout: fixed;
-  width: 100%;
+  width: calc(100% + 2rem);
   font-size: 24px;
   transition: all 0.2s ease-in-out;
-  border-collapse: collapse;
+  border-spacing: 0 0.5rem;
 
   tr.focus {
     background-color: #fff2;

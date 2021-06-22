@@ -1,5 +1,5 @@
 <template>
-  <Map :features="features" />
+  <Map :features="features" :popup="true" />
 </template>
 
 <script>
