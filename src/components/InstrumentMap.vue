@@ -34,8 +34,10 @@ export default {
 
       // Add a smooth curve between points.
       const getPoint = ({ feature }) =>
-        [...feature.geometry.coordinates].reverse();
-      curve(this.history.map(getPoint), { color: "#00000040" }).addTo(this.map);
+        feature.geometry && [...feature.geometry.coordinates].reverse();
+      curve(this.history.map(getPoint).filter(Boolean), {
+        color: "#00000040",
+      }).addTo(this.map);
 
       const onmouseover = (feature) =>
         this.$emit("focus", feature.properties.locationId);
