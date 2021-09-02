@@ -52,7 +52,7 @@
         <router-link
           to="/"
           :class="{ 'router-link-exact-active': $route.name === 'Home' }"
-          >Galleri</router-link
+          >Flöjtur</router-link
         >
         <span>|</span>
         <router-link to="/karta">Karta</router-link>
