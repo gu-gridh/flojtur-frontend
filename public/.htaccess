@@ -1,5 +1,5 @@
 AuthType Basic
-AuthName "Pehr Strands spelur"
+AuthName "Pehr Strands flöjtur"
 AuthUserFile "/var/www/htpasswd"
 Require valid-user
 

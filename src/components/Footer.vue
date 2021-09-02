@@ -12,7 +12,7 @@
     <div class="container">
       <div>Citera:</div>
       <div>
-        Norrback, J. (2021). <em>Pehr Strands spelur</em>. Centrum för digital
+        Norrback, J. (2021). <em>Pehr Strands flöjtur</em>. Centrum för digital
         humaniora, Göteborgs universitet. https://strand.dh.gu.se/
       </div>
     </div>
