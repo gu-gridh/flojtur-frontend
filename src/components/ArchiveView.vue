@@ -185,7 +185,7 @@ export default {
 #InfoLabel {
   float: left;
   font-size: 25px;
-  margin-top: 13px;
+  margin-top: 10px;
   margin-left: 20px;
 }
 
