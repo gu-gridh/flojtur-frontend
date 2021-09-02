@@ -49,9 +49,9 @@ export default {
   line-height: 1.5;
   text-align: center;
   font-size: 39px;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-left: -10px;
-  margin-bottom: 100px;
+  margin-bottom: 70px;
   cursor: pointer;
 }
 

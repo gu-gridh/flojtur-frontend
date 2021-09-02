@@ -3,25 +3,8 @@
     <AppLeadin />
 
     <div class="container menu-model">
-      <div id="ItemRight" style="">
-        <div class="IntroMenuContainer IntroItem">
-          <div>Utforska arkivet</div>
-
-          <router-link to="/pehr-strand" tag="div" class="IntroInfoContainer">
-            <div id="IntroInfoButton"></div>
-            <div id="IntroInfoLabel">Om Pehr Strand</div>
-          </router-link>
-
-          <router-link to="/om" tag="div" class="IntroInfoContainer">
-            <div id="IntroInfoButton"></div>
-            <div id="IntroInfoLabel">Om forskningsprojektet</div>
-          </router-link>
-
-          <div v-scroll-to="'.ArchiveViewOptions'" class="IntroInfoContainer">
-            <div id="IntroInfoButton"></div>
-            <div id="IntroInfoLabel">Pehr Strands flöjtur</div>
-          </div>
-        </div>
+      <div id="ItemRight" style="margin-top:50px;">
+        
 
         <div class="IntroItem">Ett självspelande flöjtur</div>
         <div class="articleIngress" style="margin-top: 10px; text-align: left">
@@ -34,18 +17,30 @@
           1800-talet, där Pehr Strand var en av de mest framgångsrika byggarna.
           Flöjturet hör till en grupp instrument som brukar benämnas
           <i>självspelande instrument</i> eller <i>spelautomater</i>.
-        </div>
-        <div style="display: flex; margin-top: 20px">
-          <PlayButton default-sound />
+        <br>      <br>
+               Flöjtur är en klocka med ett mekaniskt spelverk som kan spela
+          musikstycken programmerade på en stiftvals. Termen
+          <i>flöjtur</i> brukar på svenska användas för de spelverk som byggts
+          in i större golvur och där tonen alstras med hjälp av pipor liknande
+          dem man finner i traditionella piporglar.
         </div>
         <router-link
           :to="{ name: 'InstrumentAbout' }"
           tag="div"
           class="IntroInfoContainer"
+          style="margin-top:20px;"
         >
           <div id="InfoButton"></div>
-          <div id="InfoLabel">Utforska mekaniken</div>
+          <div id="InfoLabel">Läs mer om mekaniken...</div>
         </router-link>
+        <div style="display: flex; margin-top: 2px">
+          <PlayButton default-sound />
+        </div>
+        <div v-scroll-to="'.ArchiveViewOptions'" class="IntroInfoContainer">
+            <div id="IntroInfoButton" style=""></div>
+            <div id="IntroInfoLabel" style="margin-top:10px;">Utforska arkivet</div>
+          </div>
+        
       </div>
       <div class="model">
         <ThreeDViewer />
@@ -226,7 +221,7 @@ export default {
   margin-top: 0px;
   height: 40px;
   width: 40px;
-  background-image: url(../assets/linkbutton.png);
+background-image: url(../assets/infobutton.png);
   background-size: 40px 40px;
 }
 </style>

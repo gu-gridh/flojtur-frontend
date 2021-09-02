@@ -10,14 +10,7 @@
         hans flöjtur.
       </p>
     </div>
-    <!--   <div class="second">
-      <p>
-       Flöjtur är en klocka med ett mekaniskt spelverk som kan spela musikstycken programmerade på en stiftvals. 
-       Termen flöjtur anger också att tonen alstras med hjälp av pipor på samma sätt som i traditionella piporglar. 
-       I Sverige byggdes denna typ av flöjtur främst under andra hälften av 1700-talet och en bit in på 1800-talet, 
-       där Pehr Strand var en av de mest framgångsrika byggarna.
-      </p>
-    </div> -->
+  
   </section>
 </template>
 
