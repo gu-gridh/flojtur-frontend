@@ -12,14 +12,14 @@
           </router-link>
     </div>
 
-    <div class="container" style="width:450px;   padding-top: 0.2rem;">
+    <div class="container" style="width:400px;   padding-top: 0.3rem;">
    
       <div> Norrback, J. (2021). <em>Pehr Strands spelur</em>. Centrum för digital
-        humaniora, Göteborgs universitet. https://strand.dh.gu.se/  </div>
+        humaniora, Göteborgs universitet. https://strand.dh.gu.se/  (version 1).</div>
 
   
         <div style="padding-top:0.8rem;">
-          <div>Version: 1.</div>
+          <div></div>
        <div> Licens: <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>, om inget annat anges.</div>
        
       </div>
