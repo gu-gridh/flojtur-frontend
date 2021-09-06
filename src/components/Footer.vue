@@ -1,7 +1,7 @@
 <template>
   <footer id="footer">
       <div id="SuperContainer">  
-    <div class="container" style="width:300px; height:100%; border-style:solid; border-width:0 0.5px 0 0; border-color:white;">  
+    <div class="container" style="width:250px; height:100%; ">  
     <router-link to="/pehr-strand" tag="div" class="IntroInfoContainer">
             <div id="IntroInfoButton"></div>
             <div id="IntroInfoLabel">Om Pehr Strand</div>
@@ -12,7 +12,7 @@
           </router-link>
     </div>
 
-    <div class="container" style="width:400px;   padding-top: 0.3rem;">
+    <div class="CitateContainer" style="width:400px;   padding-top: 0.3rem;">
    
       <div> Norrback, J. (2021). <em>Pehr Strands spelur</em>. Centrum för digital
         humaniora, Göteborgs universitet. https://strand.dh.gu.se/  (version 1).</div>
@@ -49,14 +49,37 @@ padding-top:1.5rem;
 padding-bottom:1.5rem;
  
 }
-.container {
+
+ .container {
   float:left;
   margin-left:50px;
+
+}
+
+ .CitateContainer {
+  float:left;
+  margin-left:50px;
+  border-style:solid; 
+  border-width:0 0px 0 0.5px; 
+  border-color:white;
+  padding:0px 0px 0px 50px;
+}
+
+@media screen and (max-width: 800px) {
+    .CitateContainer {
+
+margin-top:20px;
+  border-style:solid; 
+  border-width:0 0px 0 0; 
+  border-color:white;
+    padding:0px 0px 0px 0px;
+}
+
 }
 
 .IntroInfoContainer {
   height: 30px;
-  width: 280px;
+  width: 260px;
   border-radius: 15px;
   padding: 10px;
   margin-top: 5px;

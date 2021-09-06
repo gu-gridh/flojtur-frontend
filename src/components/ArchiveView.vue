@@ -139,7 +139,11 @@ export default {
   margin-top: 10px;
   margin-bottom: 30px;
   font-size: 25px;
+
 }
+
+
+
 .ArchiveViewOptions {
   height: 60px;
   margin-left: auto;
@@ -147,21 +151,39 @@ export default {
   color: black;
   padding: 35px 0 30px 0;
   text-align: center;
+   
 
   > * {
     width: auto;
     margin-left: 15px;
     margin-right: 15px;
     transition: all 0.2s ease-in-out;
+ border-radius:8px 10px 8px 10px;
+  padding:10px;
+   
 
     &.router-link-exact-active {
-      border-bottom: 1px solid black;
+    
       height: 30px;
       transition: all 0.2s ease-in-out;
       cursor: pointer;
+     border-radius:8px 10px 8px 10px;
+       border-radius:10px;
+       background-color: rgb(245, 245, 245);
     }
   }
+> *:hover{
+ background-color: rgb(235, 235, 235);
 }
+
+
+
+}
+
+
+
+
+
 
 #InfoContainer {
   display: flex;
@@ -171,7 +193,7 @@ export default {
 }
 
 #InfoContainer:hover {
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(235, 235, 235);
 }
 
 #InfoButton {
@@ -205,7 +227,7 @@ export default {
 }
 
 .IntroInfoContainer:hover {
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(235, 235, 235);
 }
 
 #IntroInfoLabel {
