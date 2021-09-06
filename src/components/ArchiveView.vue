@@ -59,9 +59,9 @@
         <span>|</span>
         <router-link to="/valsar">Stiftvalsar</router-link>
         <span class="sm-hidden">|</span>
-        <router-link to="/data" class="sm-hidden">
+        <a href="https://strand.dh.gu.se/admin" class="sm-hidden">
           Avancerad sökning
-        </router-link>
+        </a>
       </div>
     </div>
 
