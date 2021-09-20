@@ -3,9 +3,7 @@
     <AppLeadin />
 
     <div class="container menu-model">
-      <div id="ItemRight" style="margin-top:50px;">
-        
-
+      <div id="ItemRight" style="margin-top: 50px">
         <div class="IntroItem">Ett självspelande flöjtur</div>
         <div class="articleIngress" style="margin-top: 10px; text-align: left">
           Flöjtur är en klocka med ett mekaniskt spelverk som kan spela
@@ -16,9 +14,9 @@
           av spelverk under andra hälften av 1700-talet och en bit in på
           1800-talet, där Pehr Strand var en av de mest framgångsrika byggarna.
           Flöjturet hör till en grupp instrument som brukar benämnas
-          <i>självspelande instrument</i> eller <i>spelautomater</i>.
-        <br>      <br>
-               Flöjtur är en klocka med ett mekaniskt spelverk som kan spela
+          <i>självspelande instrument</i> eller <i>spelautomater</i>. <br />
+          <br />
+          Flöjtur är en klocka med ett mekaniskt spelverk som kan spela
           musikstycken programmerade på en stiftvals. Termen
           <i>flöjtur</i> brukar på svenska användas för de spelverk som byggts
           in i större golvur och där tonen alstras med hjälp av pipor liknande
@@ -28,7 +26,7 @@
           :to="{ name: 'InstrumentAbout' }"
           tag="div"
           class="IntroInfoContainer"
-          style="margin-top:20px;"
+          style="margin-top: 20px"
         >
           <div id="InfoButton"></div>
           <div id="InfoLabel">Läs mer om mekaniken...</div>
@@ -37,10 +35,11 @@
           <PlayButton default-sound />
         </div>
         <div v-scroll-to="'.ArchiveViewOptions'" class="IntroInfoContainer">
-            <div id="IntroInfoButton" style=""></div>
-            <div id="IntroInfoLabel" style="margin-top:10px;">Utforska arkivet</div>
+          <div id="IntroInfoButton" style=""></div>
+          <div id="IntroInfoLabel" style="margin-top: 10px">
+            Utforska arkivet
           </div>
-        
+        </div>
       </div>
       <div class="model">
         <ThreeDViewer />
@@ -51,17 +50,20 @@
       <div class="ArchiveViewOptions">
         <router-link
           to="/"
+          class="links-button"
           :class="{ 'router-link-exact-active': $route.name === 'Home' }"
           >Flöjtur</router-link
         >
-        <span>|</span>
-        <router-link to="/karta">Karta</router-link>
-        <span>|</span>
-        <router-link to="/valsar">Stiftvalsar</router-link>
-        <span class="sm-hidden">|</span>
-        <a href="https://strand.dh.gu.se/admin" class="sm-hidden">
-          Avancerad sökning
-        </a>
+        |
+        <router-link to="/karta" class="links-button">Karta</router-link>
+        |
+        <router-link to="/valsar" class="links-button">Stiftvalsar</router-link>
+        <span class="sm-hidden">
+          |
+          <a href="https://strand.dh.gu.se/admin" class="links-button">
+            Avancerad sökning
+          </a>
+        </span>
       </div>
     </div>
 
@@ -139,10 +141,7 @@ export default {
   margin-top: 10px;
   margin-bottom: 30px;
   font-size: 25px;
-
 }
-
-
 
 .ArchiveViewOptions {
   height: 60px;
@@ -151,39 +150,32 @@ export default {
   color: black;
   padding: 35px 0 30px 0;
   text-align: center;
-   
 
-  > * {
+  .links-button {
     width: auto;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-inline: 5px;
     transition: all 0.2s ease-in-out;
- border-radius:8px 10px 8px 10px;
-  padding:10px;
-   
+    border-radius: 8px 10px 8px 10px;
+    padding: 10px;
+
+    @media screen and (min-width: 800px) {
+      margin-inline: 30px;
+    }
 
     &.router-link-exact-active {
-    
       height: 30px;
       transition: all 0.2s ease-in-out;
       cursor: pointer;
-     border-radius:8px 10px 8px 10px;
-       border-radius:10px;
-       background-color: rgb(245, 245, 245);
+      border-radius: 8px 10px 8px 10px;
+      border-radius: 10px;
+      background-color: rgb(245, 245, 245);
+    }
+
+    &:hover {
+      background-color: rgb(235, 235, 235);
     }
   }
-> *:hover{
- background-color: rgb(235, 235, 235);
 }
-
-
-
-}
-
-
-
-
-
 
 #InfoContainer {
   display: flex;
@@ -243,7 +235,7 @@ export default {
   margin-top: 0px;
   height: 40px;
   width: 40px;
-background-image: url(../assets/infobutton.png);
+  background-image: url(../assets/infobutton.png);
   background-size: 40px 40px;
 }
 </style>
