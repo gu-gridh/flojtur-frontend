@@ -162,8 +162,8 @@ export function formatValues(fields) {
 
 export function formatDates(date1, date2, sign, short = false) {
   // Get year part
-  date1 = parseInt(date1);
-  date2 = parseInt(date2);
+  date1 = String(parseInt(date1) || "");
+  date2 = String(parseInt(date2) || "");
   // Fixed date: has date2 and no date_sign
   if (!sign) return date2 || date1 || undefined;
   // After some date

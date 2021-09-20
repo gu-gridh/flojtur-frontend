@@ -107,7 +107,7 @@ export default {
           instrument._first.fields.date2.value,
           instrument._first.fields.date_sign.value,
           true
-        );
+        ).replace(/./, (s) => s.toUpperCase());
 
       // Default thumbnail is random. Replace with correct image (tagged "main").
       const photo = photosRes.find(

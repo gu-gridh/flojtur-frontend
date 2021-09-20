@@ -55,7 +55,7 @@ export default {
         autom.date2.value,
         autom.date_sign.value,
         true
-      );
+      ).replace(/./, (s) => s.toUpperCase());
     },
     async load() {
       // Get all autom locations.
