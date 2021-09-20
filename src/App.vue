@@ -149,8 +149,14 @@ h2 {
   }
 
   a:link {
-    text-decoration: none;
+    text-decoration: underline;
     color: black;
+  }
+}
+
+.footnotes {
+  a:link {
+    text-decoration: none;
   }
 }
 

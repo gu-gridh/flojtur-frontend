@@ -192,8 +192,8 @@
         </p>
         <p>
           Här finns en dokumentärfilm om rekonstruktionen av spelverket och
-          piporna till Kungl. Vitterhetsakademiens flöjtur.
-          [https://youtu.be/FIbxJ5GKR0M]
+          piporna till Kungl. Vitterhetsakademiens flöjtur:
+          <a href="https://youtu.be/FIbxJ5GKR0M">"Flöjturet går igen"</a>
         </p>
       </div>
     </article>
