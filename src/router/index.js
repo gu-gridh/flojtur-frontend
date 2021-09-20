@@ -53,6 +53,12 @@ const routes = [
       )
   },
   {
+    path: encodeURI("/bygga"),
+    name: "Construction",
+    component: () =>
+      import(/* webpackChunkName: "construction" */ "../views/Construction.vue")
+  },
+  {
     path: "/spelur/:id",
     name: "InstrumentPage",
     // route level code-splitting
