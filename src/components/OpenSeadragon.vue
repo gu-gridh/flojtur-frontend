@@ -12,7 +12,7 @@ export default {
     src: String,
     cover: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
   data: () => ({
@@ -32,12 +32,12 @@ export default {
       prefixUrl: "/openseadragon/",
       // If a proper tileSource is not given, use src prop.
       tileSources: this.tileSources || { type: "image", url: this.src },
-      sequenceMode: this.tileSources && this.tileSources.length > 1,
+      sequenceMode: this.isMultiple,
       preserveViewport: true,
     });
 
     // Zoom in a bit over the middle.
-    if (this.cover) {
+    if (this.cover && !this.isMultiple) {
       // Thanks https://github.com/openseadragon/openseadragon/issues/979
       this.viewer.addHandler("open", function (event) {
         // Args are (x, y, width, height) as fractions of full image width/height
@@ -45,6 +45,11 @@ export default {
         event.eventSource.viewport.fitBoundsWithConstraints(newBounds, true);
       });
     }
+  },
+  computed: {
+    isMultiple() {
+      return this.tileSources && this.tileSources.length > 1;
+    },
   },
   watch: {
     tileSources() {

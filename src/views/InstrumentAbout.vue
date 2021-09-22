@@ -73,7 +73,9 @@
         </p>
 
         <Figure>
-          <OpenSeadragon :src="image.Image1" />
+          <Square>
+            <OpenSeadragon :src="image.Image1" />
+          </Square>
           <figcaption>
             Flöjturet på bilden är 628 mm från botten av bälgstolen till toppen
             av den längsta pipan. Pallbrädan som spelmekaniken och orgeln vilar
@@ -102,12 +104,14 @@
           fastnar i mässingsstiften på trävalsen.
         </p>
         <Figure>
-          <OpenSeadragon
-            :tileSources="[
-              { type: 'image', url: image.Image11 },
-              { type: 'image', url: image.Image12 },
-            ]"
-          />
+          <Square>
+            <OpenSeadragon
+              :tileSources="[
+                { type: 'image', url: image.Image11 },
+                { type: 'image', url: image.Image12 },
+              ]"
+            />
+          </Square>
           <figcaption>
             Mellan de två verkplåtarna av mässing ligger motorn med kugghjul av
             olika storlek i bestämda proportioner. Illustration: Olof Pipping.
@@ -132,12 +136,14 @@
         </p>
 
         <Figure>
-          <OpenSeadragon
-            :tileSources="[
-              { type: 'image', url: image.Image21 },
-              { type: 'image', url: image.Image22 },
-            ]"
-          />
+          <Square>
+            <OpenSeadragon
+              :tileSources="[
+                { type: 'image', url: image.Image21 },
+                { type: 'image', url: image.Image22 },
+              ]"
+            />
+          </Square>
           <figcaption>
             Stiftvalsen av trä innehåller ett musikstycke, och vanligtvis finns
             det flera valsar som kan bytas ut. Läsarmarna påverkas av stiften på
@@ -158,12 +164,13 @@
           övertoner. Den dynamiska skillnaden är marginell.
         </p>
         <Figure>
-          <OpenSeadragon
-            :tileSources="[
-              { type: 'image', url: image.Image31 },
-              { type: 'image', url: image.Image32 },
-            ]"
-          />
+          <Square>
+            <OpenSeadragon
+              :tileSources="[
+                { type: 'image', url: image.Image31 },
+                { type: 'image', url: image.Image32 },
+              ]"
+          /></Square>
           <figcaption>
             Tryckpinnarna går ner i ventilkistan bakom spåntluckan, och öppnar
             ventilen så luften kan komma till orgelpipan. Illustration: Olof
@@ -188,6 +195,7 @@
 <script>
 import Title from "@/components/Title.vue";
 import Figure from "@/components/Figure.vue";
+import Square from "@/components/Square.vue";
 import OpenSeadragon from "@/components/OpenSeadragon.vue";
 import Image1 from "@/assets/article/IllustrationTotal_1001_4kx4k.png";
 import Image11 from "@/assets/article/IllustrationClose_10012_4kx4k.png";
@@ -198,7 +206,7 @@ import Image31 from "@/assets/article/IllustrationClose_3001_4kx4k.png";
 import Image32 from "@/assets/article/IllustrationClose_3002_4kx4k.png";
 
 export default {
-  components: { Title, Figure, OpenSeadragon },
+  components: { Title, Figure, Square, OpenSeadragon },
   computed: {
     image() {
       return { Image1, Image11, Image12, Image21, Image22, Image31, Image32 };
@@ -213,6 +221,6 @@ figure {
 }
 
 .osd {
-  height: 15em;
+  height: 100%;
 }
 </style>
