@@ -72,14 +72,14 @@
           Berlinska.
         </p>
 
-        <figure>
+        <Figure>
+          <OpenSeadragon :src="image.Image1" />
           <figcaption>
             Flöjturet på bilden är 628 mm från botten av bälgstolen till toppen
             av den längsta pipan. Pallbrädan som spelmekaniken och orgeln vilar
             på är 480 mm bred och 390 mm djup.
           </figcaption>
-          <OpenSeadragon :src="image.Image1" />
-        </figure>
+        </Figure>
         <p>
           Det finns tre viktiga delar i ett självspelande flöjtur: motorn, eller
           det mekaniska spelverket; musiken, programmerad på en trävals; orgeln,
@@ -101,7 +101,7 @@
           så att stiftvalsen och musiken kan bytas utan att läsarmarnas stift
           fastnar i mässingsstiften på trävalsen.
         </p>
-        <figure>
+        <Figure>
           <OpenSeadragon
             :tileSources="[
               { type: 'image', url: image.Image11 },
@@ -112,7 +112,7 @@
             Mellan de två verkplåtarna av mässing ligger motorn med kugghjul av
             olika storlek i bestämda proportioner. Illustration: Olof Pipping.
           </figcaption>
-        </figure>
+        </Figure>
         <p>
           Stiftvalsen: på trävalsen programmeras musik genom mässingsstift av
           olika längd; från vassa stift för mycket korta toner, till långa
@@ -131,7 +131,7 @@
           ner en pinne på en spelventil i den lilla orgeln, och en ton ljuder.
         </p>
 
-        <figure>
+        <Figure>
           <OpenSeadragon
             :tileSources="[
               { type: 'image', url: image.Image21 },
@@ -144,7 +144,7 @@
             trävalsen och trycker ner ventilen i den lilla orgeln. Illustration:
             Olof Pipping.
           </figcaption>
-        </figure>
+        </Figure>
         <p>
           Orgeln: musikinstrumentet i alla Strands bevarade spelur är en liten
           orgel, vanligen med 31 toner. I vissa fall med två rader av stämmor,
@@ -157,7 +157,7 @@
           kompletterar grundstämman och ger en färgrikare klang med fler
           övertoner. Den dynamiska skillnaden är marginell.
         </p>
-        <figure>
+        <Figure>
           <OpenSeadragon
             :tileSources="[
               { type: 'image', url: image.Image31 },
@@ -169,7 +169,7 @@
             ventilen så luften kan komma till orgelpipan. Illustration: Olof
             Pipping.
           </figcaption>
-        </figure>
+        </Figure>
         <p style="text-align: center">* * *</p>
         <p>
           Hela 3D-modellen kan laddas ner här (Licens: CC BY-NC 4.0.
@@ -187,6 +187,7 @@
 
 <script>
 import Title from "@/components/Title.vue";
+import Figure from "@/components/Figure.vue";
 import OpenSeadragon from "@/components/OpenSeadragon.vue";
 import Image1 from "@/assets/article/IllustrationTotal_1001_4kx4k.png";
 import Image11 from "@/assets/article/IllustrationClose_10012_4kx4k.png";
@@ -197,7 +198,7 @@ import Image31 from "@/assets/article/IllustrationClose_3001_4kx4k.png";
 import Image32 from "@/assets/article/IllustrationClose_3002_4kx4k.png";
 
 export default {
-  components: { Title, OpenSeadragon },
+  components: { Title, Figure, OpenSeadragon },
   computed: {
     image() {
       return { Image1, Image11, Image12, Image21, Image22, Image31, Image32 };
