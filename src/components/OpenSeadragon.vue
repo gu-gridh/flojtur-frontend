@@ -9,6 +9,7 @@ export default {
   name: "OpenSeadragon",
   props: {
     tileSources: Array,
+    src: String,
     cover: {
       type: Boolean,
       default: true,
@@ -29,7 +30,8 @@ export default {
       showHomeControl: false,
       showFullPageControl: !!this.filename,
       prefixUrl: "/openseadragon/",
-      tileSources: this.tileSources,
+      // If a proper tileSource is not given, use src prop.
+      tileSources: this.tileSources || { type: "image", url: this.src },
     });
 
     // Zoom in a bit over the middle.
@@ -49,9 +51,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.osd {
-  height: 70vh;
-}
-</style>

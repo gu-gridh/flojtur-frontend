@@ -78,10 +78,7 @@
             av den längsta pipan. Pallbrädan som spelmekaniken och orgeln vilar
             på är 480 mm bred och 390 mm djup.
           </figcaption>
-          <img
-            src="@/assets/article/IllustrationTotal_1001_4kx4k.png"
-            alt="Flöjtur"
-          />
+          <OpenSeadragon :src="image.Image1" />
         </figure>
         <p>
           Det finns tre viktiga delar i ett självspelande flöjtur: motorn, eller
@@ -106,14 +103,8 @@
         </p>
         <figure>
           <div class="figure-twopart">
-            <img
-              src="@/assets/article/IllustrationClose_10012_4kx4k.png"
-              alt="Flöjtur"
-            />
-            <img
-              src="@/assets/article/IllustrationClose_10022_4kx4k.png"
-              alt="Flöjtur"
-            />
+            <OpenSeadragon :src="image.Image11" />
+            <OpenSeadragon :src="image.Image12" />
           </div>
           <figcaption>
             Mellan de två verkplåtarna av mässing ligger motorn med kugghjul av
@@ -140,14 +131,8 @@
 
         <figure>
           <div class="figure-twopart">
-            <img
-              src="@/assets/article/IllustrationClose_2001_4kx4k.png"
-              alt="Flöjtur"
-            />
-            <img
-              src="@/assets/article/IllustrationClose_2002_4kx4k.png"
-              alt="Flöjtur"
-            />
+            <OpenSeadragon :src="image.Image21" />
+            <OpenSeadragon :src="image.Image22" />
           </div>
           <figcaption>
             Stiftvalsen av trä innehåller ett musikstycke, och vanligtvis finns
@@ -170,14 +155,8 @@
         </p>
         <figure>
           <div class="figure-twopart">
-            <img
-              src="@/assets/article/IllustrationClose_3001_4kx4k.png"
-              alt="Flöjtur"
-            />
-            <img
-              src="@/assets/article/IllustrationClose_3002_4kx4k.png"
-              alt="Flöjtur"
-            />
+            <OpenSeadragon :src="image.Image31" />
+            <OpenSeadragon :src="image.Image32" />
           </div>
           <figcaption>
             Tryckpinnarna går ner i ventilkistan bakom spåntluckan, och öppnar
@@ -202,9 +181,22 @@
 
 <script>
 import Title from "@/components/Title.vue";
+import OpenSeadragon from "@/components/OpenSeadragon.vue";
+import Image1 from "@/assets/article/IllustrationTotal_1001_4kx4k.png";
+import Image11 from "@/assets/article/IllustrationClose_10012_4kx4k.png";
+import Image12 from "@/assets/article/IllustrationClose_10022_4kx4k.png";
+import Image21 from "@/assets/article/IllustrationClose_2001_4kx4k.png";
+import Image22 from "@/assets/article/IllustrationClose_2002_4kx4k.png";
+import Image31 from "@/assets/article/IllustrationClose_3001_4kx4k.png";
+import Image32 from "@/assets/article/IllustrationClose_3002_4kx4k.png";
 
 export default {
-  components: { Title },
+  components: { Title, OpenSeadragon },
+  computed: {
+    image() {
+      return { Image1, Image11, Image12, Image21, Image22, Image31, Image32 };
+    },
+  },
 };
 </script>
 
@@ -213,9 +205,13 @@ export default {
   display: flex;
   max-width: 100%;
 
-  img {
+  > * {
     max-width: 50%;
     flex: 1;
   }
+}
+
+.osd {
+  height: 15em;
 }
 </style>

@@ -1,5 +1,9 @@
 <template>
-  <OpenSeadragon :tileSources="[tileSource()]" :cover="cover" />
+  <OpenSeadragon
+    :tileSources="[tileSource()]"
+    :cover="cover"
+    class="zoom-viewer"
+  />
 </template>
 
 <script>
@@ -34,8 +38,8 @@ export default {
 };
 </script>
 
-<style>
-.osd {
+<style scoped>
+.zoom-viewer {
   height: 70vh;
 }
 </style>
