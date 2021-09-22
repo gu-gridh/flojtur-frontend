@@ -12,7 +12,7 @@ export default {
     src: String,
     cover: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
   data: () => ({
@@ -32,6 +32,8 @@ export default {
       prefixUrl: "/openseadragon/",
       // If a proper tileSource is not given, use src prop.
       tileSources: this.tileSources || { type: "image", url: this.src },
+      sequenceMode: this.tileSources && this.tileSources.length > 1,
+      preserveViewport: true,
     });
 
     // Zoom in a bit over the middle.

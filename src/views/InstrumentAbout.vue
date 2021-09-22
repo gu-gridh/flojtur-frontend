@@ -102,10 +102,12 @@
           fastnar i mässingsstiften på trävalsen.
         </p>
         <figure>
-          <div class="figure-twopart">
-            <OpenSeadragon :src="image.Image11" />
-            <OpenSeadragon :src="image.Image12" />
-          </div>
+          <OpenSeadragon
+            :tileSources="[
+              { type: 'image', url: image.Image11 },
+              { type: 'image', url: image.Image12 },
+            ]"
+          />
           <figcaption>
             Mellan de två verkplåtarna av mässing ligger motorn med kugghjul av
             olika storlek i bestämda proportioner. Illustration: Olof Pipping.
@@ -130,10 +132,12 @@
         </p>
 
         <figure>
-          <div class="figure-twopart">
-            <OpenSeadragon :src="image.Image21" />
-            <OpenSeadragon :src="image.Image22" />
-          </div>
+          <OpenSeadragon
+            :tileSources="[
+              { type: 'image', url: image.Image21 },
+              { type: 'image', url: image.Image22 },
+            ]"
+          />
           <figcaption>
             Stiftvalsen av trä innehåller ett musikstycke, och vanligtvis finns
             det flera valsar som kan bytas ut. Läsarmarna påverkas av stiften på
@@ -154,10 +158,12 @@
           övertoner. Den dynamiska skillnaden är marginell.
         </p>
         <figure>
-          <div class="figure-twopart">
-            <OpenSeadragon :src="image.Image31" />
-            <OpenSeadragon :src="image.Image32" />
-          </div>
+          <OpenSeadragon
+            :tileSources="[
+              { type: 'image', url: image.Image31 },
+              { type: 'image', url: image.Image32 },
+            ]"
+          />
           <figcaption>
             Tryckpinnarna går ner i ventilkistan bakom spåntluckan, och öppnar
             ventilen så luften kan komma till orgelpipan. Illustration: Olof
@@ -201,14 +207,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.figure-twopart {
-  display: flex;
-  max-width: 100%;
-
-  > * {
-    max-width: 50%;
-    flex: 1;
-  }
+figure {
+  break-inside: avoid;
 }
 
 .osd {
