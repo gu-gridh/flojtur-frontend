@@ -201,20 +201,11 @@ import Title from "@/components/Title.vue";
 import Figure from "@/components/Figure.vue";
 import Square from "@/components/Square.vue";
 import OpenSeadragon from "@/components/OpenSeadragon.vue";
-import Image11 from "@/assets/article/IllustrationClose_10012_4kx4k.png";
-import Image12 from "@/assets/article/IllustrationClose_10022_4kx4k.png";
-import Image21 from "@/assets/article/IllustrationClose_2001_4kx4k.png";
-import Image22 from "@/assets/article/IllustrationClose_2002_4kx4k.png";
-import Image31 from "@/assets/article/IllustrationClose_3001_4kx4k.png";
-import Image32 from "@/assets/article/IllustrationClose_3002_4kx4k.png";
 
 export default {
   components: { Title, Figure, Square, OpenSeadragon },
   computed: {
     publicPath: () => process.env.BASE_URL,
-    image() {
-      return { Image11, Image12, Image21, Image22, Image31, Image32 };
-    },
   },
 };
 </script>
