@@ -74,7 +74,11 @@
 
         <Figure>
           <Square>
-            <OpenSeadragon :src="image.Image1" />
+            <OpenSeadragon
+              :tileSources="[
+                publicPath + 'zoom/IllustrationTotal_1001_4kx4k.dzi',
+              ]"
+            />
           </Square>
           <figcaption>
             Flöjturet på bilden är 628 mm från botten av bälgstolen till toppen
@@ -107,8 +111,8 @@
           <Square>
             <OpenSeadragon
               :tileSources="[
-                { type: 'image', url: image.Image11 },
-                { type: 'image', url: image.Image12 },
+                publicPath + 'zoom/IllustrationClose_10012_4kx4k.dzi',
+                publicPath + 'zoom/IllustrationClose_10022_4kx4k.dzi',
               ]"
             />
           </Square>
@@ -139,8 +143,8 @@
           <Square>
             <OpenSeadragon
               :tileSources="[
-                { type: 'image', url: image.Image21 },
-                { type: 'image', url: image.Image22 },
+                publicPath + 'zoom/IllustrationClose_2001_4kx4k.dzi',
+                publicPath + 'zoom/IllustrationClose_2002_4kx4k.dzi',
               ]"
             />
           </Square>
@@ -167,8 +171,8 @@
           <Square>
             <OpenSeadragon
               :tileSources="[
-                { type: 'image', url: image.Image31 },
-                { type: 'image', url: image.Image32 },
+                publicPath + 'zoom/IllustrationClose_3001_4kx4k.dzi',
+                publicPath + 'zoom/IllustrationClose_3002_4kx4k.dzi',
               ]"
           /></Square>
           <figcaption>
@@ -197,7 +201,6 @@ import Title from "@/components/Title.vue";
 import Figure from "@/components/Figure.vue";
 import Square from "@/components/Square.vue";
 import OpenSeadragon from "@/components/OpenSeadragon.vue";
-import Image1 from "@/assets/article/IllustrationTotal_1001_4kx4k.png";
 import Image11 from "@/assets/article/IllustrationClose_10012_4kx4k.png";
 import Image12 from "@/assets/article/IllustrationClose_10022_4kx4k.png";
 import Image21 from "@/assets/article/IllustrationClose_2001_4kx4k.png";
@@ -208,8 +211,9 @@ import Image32 from "@/assets/article/IllustrationClose_3002_4kx4k.png";
 export default {
   components: { Title, Figure, Square, OpenSeadragon },
   computed: {
+    publicPath: () => process.env.BASE_URL,
     image() {
-      return { Image1, Image11, Image12, Image21, Image22, Image31, Image32 };
+      return { Image11, Image12, Image21, Image22, Image31, Image32 };
     },
   },
 };
