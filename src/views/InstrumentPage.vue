@@ -5,7 +5,7 @@
     </div>
 
     <div class="container">
-      <router-link to="/" tag="div" id="ItemBack" />
+      <router-link to="/#archive-menu" tag="div" id="ItemBack" />
 
       <h1>
         {{ instrument.aut_title.value }}

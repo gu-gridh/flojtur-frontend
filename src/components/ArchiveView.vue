@@ -2,7 +2,7 @@
   <div>
     <AppLeadin />
 
-    <div class="container menu-model">
+    <div id="menu-model" class="container">
       <div id="ItemRight" style="margin-top: 50px">
         <div class="IntroItem">Ett självspelande flöjtur</div>
         <div class="articleIngress" style="margin-top: 10px; text-align: left">
@@ -82,7 +82,7 @@
     </div>
 
     <div class="links">
-      <div class="ArchiveViewOptions">
+      <div id="archive-menu" class="ArchiveViewOptions">
         <router-link
           to="/"
           class="links-button"
@@ -125,7 +125,7 @@ export default {
 
 <style lang="scss" scoped>
 @media screen and (min-width: 800px) {
-  .menu-model {
+  #menu-model {
     display: flex;
     flex-direction: row-reverse;
     align-items: stretch;
