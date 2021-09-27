@@ -16,25 +16,57 @@
           Flöjturet hör till en grupp instrument som brukar benämnas
           <i>självspelande instrument</i> eller <i>spelautomater</i>. <br />
           <br />
-          Flöjtur är en klocka med ett mekaniskt spelverk som kan spela
-          musikstycken programmerade på en stiftvals. Termen
-          <i>flöjtur</i> brukar på svenska användas för de spelverk som byggts
-          in i större golvur och där tonen alstras med hjälp av pipor liknande
-          dem man finner i traditionella piporglar.
         </div>
+         <div style="display: flex; margin-top: 0px">
+          <PlayButton default-sound />
+        </div>
+        <router-link
+          :to="{ name: 'builder' }"
+          tag="div"
+          class="IntroInfoContainer"
+          style="margin-top:15px;"
+        >
+          <div id="InfoLabel">1. Om Pehr Strand</div>
+        </router-link>
+
         <router-link
           :to="{ name: 'InstrumentAbout' }"
           tag="div"
           class="IntroInfoContainer"
-          style="margin-top: 20px"
+          style=""
         >
-          <div id="InfoButton"></div>
-          <div id="InfoLabel">Läs mer om mekaniken...</div>
+          <div id="InfoLabel">2. Ett självspelande flöjtur</div>
         </router-link>
-        <div style="display: flex; margin-top: 2px">
-          <PlayButton default-sound />
-        </div>
-        <div v-scroll-to="'.ArchiveViewOptions'" class="IntroInfoContainer">
+
+        <router-link
+          :to="{ name: 'InstrumentAbout' }"
+          tag="div"
+          class="IntroInfoContainer"
+          style=""
+        >
+          <div id="InfoLabel">3. Att bygga ett fl&ouml;jtur</div>
+        </router-link>
+
+        <router-link
+          :to="{ name: 'InstrumentAbout' }"
+          tag="div"
+          class="IntroInfoContainer"
+          style=""
+        >
+          <div id="InfoLabel">4. Att programmera en stiftvals</div>
+        </router-link>
+
+        <router-link
+          :to="{ name: 'InstrumentAbout' }"
+          tag="div"
+          class="IntroInfoContainer"
+          style=""
+        >
+          <div id="InfoLabel">5. En optisk valsl&auml;sare</div>
+        </router-link>
+       
+       
+        <div v-scroll-to="'.ArchiveViewOptions'" class="IntroInfoContainer" style="margin-top: 20px; height:40px;">
           <div id="IntroInfoButton" style=""></div>
           <div id="IntroInfoLabel" style="margin-top: 10px">
             Utforska arkivet
@@ -199,8 +231,8 @@ export default {
 #InfoLabel {
   float: left;
   font-size: 25px;
-  margin-top: 10px;
-  margin-left: 20px;
+  margin-top: 2px;
+  margin-left: 15px;
 }
 
 .IntroMenuContainer {
@@ -208,7 +240,7 @@ export default {
 }
 
 .IntroInfoContainer {
-  height: 40px;
+  height: 20px;
   width: 280px;
   border-radius: 15px;
   padding: 10px;
@@ -235,7 +267,7 @@ export default {
   margin-top: 0px;
   height: 40px;
   width: 40px;
-  background-image: url(../assets/infobutton.png);
+  background-image: url(../assets/downbutton.png);
   background-size: 40px 40px;
 }
 </style>
