@@ -74,16 +74,33 @@
 
         <Figure>
           <Square>
-            <OpenSeadragon
-              :tileSources="[
-                publicPath + 'zoom/IllustrationTotal_1001_4kx4k.dzi',
-              ]"
-            />
+             <model-viewer
+    class="model-viewer"
+    reveal="interaction"
+    loading="lazy"
+    src="/models/flojt.glb"
+    alt="3d-modell av det mekaniska spelverket i ett flöjtur"
+    camera-controls
+    autoplay
+    animation-name="929_flojtur_CADprep_jh_18"
+
+    camera-orbit="-150deg 70deg 160.0m"
+    exposure="0.9"
+    skyboxangle="220"
+    shadows="false"
+    shadow-intensity="0"
+    shadow-softness="0"
+    ar-status="not-presenting"
+  >
+    <div id="lazy-load-poster" slot="poster"></div>
+   
+  </model-viewer>
           </Square>
           <figcaption>
             Flöjturet på bilden är 628 mm från botten av bälgstolen till toppen
             av den längsta pipan. Pallbrädan som spelmekaniken och orgeln vilar
-            på är 480 mm bred och 390 mm djup.
+            på är 480 mm bred och 390 mm djup. Klicka på bilden för att ladda 
+            in en 3d-modell som du kan rotera. Scrolla för att förstora och förminska modellen.
           </figcaption>
         </Figure>
         <p>
@@ -182,21 +199,46 @@
           </figcaption>
         </Figure>
         <p style="text-align: center">* * *</p>
-        <p>
-          Hela 3D-modellen kan laddas ner här (Licens: CC BY-NC 4.0.
-          Dokumentation och CAD-ritning av Olof Pipping.): [Lägg till stp-filen]
-        </p>
-        <p>
-          Här finns en dokumentärfilm om rekonstruktionen av spelverket och
-          piporna till Kungl. Vitterhetsakademiens flöjtur:
-          <a href="https://youtu.be/FIbxJ5GKR0M">"Flöjturet går igen"</a>
-        </p>
+     
+      <a href="https://youtu.be/FIbxJ5GKR0M"> <div class="IntroInfoContainer" style="margin-top: 20px; height:40px;">
+          <div id="IntroLinkButton" style=""></div>
+          <div id="IntroInfoLabel" style="">
+            "Flöjturet går igen"
+          </div>
+        </div>
+        </a>
+        <div class="ButtonInfo">En dokumentärfilm om rekonstruktionen av spelverket och piporna till Kungl. Vitterhetsakademiens flöjtur.</div>
+         
+     
+
+        <div class="IntroInfoContainer" style="margin-top: 20px; height:40px;">
+          <div id="IntroInfoButton" style=""></div>
+          <div id="IntroInfoLabel" style="">
+            Ladda ner CAD-modellen
+          </div>
+        </div>
+
+      <div class="ButtonInfo">Licens: CC BY-NC 4.0. Dokumentation och CAD-ritning av Olof Pipping.    </div>
+
+            <div class="IntroInfoContainer" style="margin-top: 20px; height:40px;">
+          <div id="IntroInfoButton" style=""></div>
+          <div id="IntroInfoLabel" style="">
+            Ladda ner 3D-modellen
+          </div>
+        </div>
+      <div class="ButtonInfo">Licens: CC BY-NC 4.0 </div>
+
+
+       
       </div>
     </article>
   </div>
 </template>
 
 <script>
+import "@google/model-viewer";
+import "focus-visible";
+
 import Title from "@/components/Title.vue";
 import Figure from "@/components/Figure.vue";
 import Square from "@/components/Square.vue";
@@ -210,12 +252,127 @@ export default {
 };
 </script>
 
+
 <style lang="scss" scoped>
+.model-viewer {
+  height: 100%;
+  width: 100%;
+  --progress-bar-color: rgba(0, 0, 0, 0);
+  --progress-bar-height: 0px;
+  --progress-mask: fff;
+  --poster-color: transparent;
+  --progress-mask: transparent;
+}
+
+#lazy-load-poster {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url("/models/flojt-model-scale.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#button-load {
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 150px;
+  width: 150px;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  left: calc(50% - 75px);
+  top: calc(50% - 75px);
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 100;
+  transition: all 0.2s ease-in-out;
+  animation: pulse 2s infinite;
+}
+
+#button-load-label {
+  color: black;
+  padding: 10px;
+  font-size: 22px;
+  text-align: center;
+  font-weight: 300;
+  margin-top: 17%;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.95);
+  }
+}
+
+
+
 figure {
   break-inside: avoid;
 }
 
 .osd {
   height: 100%;
+}
+
+.IntroInfoContainer {
+  height: 20px;
+  width: 320px;
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 2px;
+  margin-bottom:5px;
+  margin-left: 0px;
+  cursor: pointer;
+ 
+  transition: all 0.2s ease-in-out;
+}
+
+.IntroInfoContainer:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+#IntroInfoLabel {
+  float: left;
+  font-size: 25px;
+  margin-top: 8px;
+  margin-left: 20px;
+  font-weight: 100;
+}
+
+.ButtonInfo {
+
+  font-size:18px;
+  margin-top: 5px;
+  margin-left: 10px;
+width:100&;
+}
+
+#IntroInfoButton {
+  float: left;
+  margin-top: 0px;
+  height: 35px;
+  width: 35px;
+  background-image: url(../assets/download.png);
+  background-size: 35px 35px;
+}
+
+#IntroLinkButton {
+  float: left;
+  margin-top: 0px;
+  height: 40px;
+  width: 40px;
+  background-image: url(../assets/linkbutton.png);
+  background-size: 40px 40px;
 }
 </style>
