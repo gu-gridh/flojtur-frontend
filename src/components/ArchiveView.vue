@@ -17,14 +17,14 @@
           <i>självspelande instrument</i> eller <i>spelautomater</i>. <br />
           <br />
         </div>
-         <div style="display: flex; margin-top: 0px">
+        <div style="display: flex; margin-top: 0px">
           <PlayButton default-sound />
         </div>
         <router-link
           :to="{ name: 'builder' }"
           tag="div"
           class="IntroInfoContainer"
-          style="margin-top:15px;"
+          style="margin-top: 15px"
         >
           <div id="InfoLabel">1. Om Pehr Strand</div>
         </router-link>
@@ -64,9 +64,12 @@
         >
           <div id="InfoLabel">5. En optisk valsl&auml;sare</div>
         </router-link>
-       
-       
-        <div v-scroll-to="'.ArchiveViewOptions'" class="IntroInfoContainer" style="margin-top: 20px; height:40px;">
+
+        <div
+          v-scroll-to="'.ArchiveViewOptions'"
+          class="IntroInfoContainer"
+          style="margin-top: 20px; height: 40px"
+        >
           <div id="IntroInfoButton" style=""></div>
           <div id="IntroInfoLabel" style="margin-top: 10px">
             Utforska arkivet
@@ -90,12 +93,10 @@
         <router-link to="/karta" class="links-button">Karta</router-link>
         |
         <router-link to="/valsar" class="links-button">Stiftvalsar</router-link>
-        <span class="sm-hidden">
-          |
-          <a href="https://strand.dh.gu.se/admin" class="links-button">
-            Avancerad sökning
-          </a>
-        </span>
+        |
+        <a href="https://strand.dh.gu.se/admin" class="links-button">
+          Avancerad sökning
+        </a>
       </div>
     </div>
 
