@@ -240,12 +240,6 @@ ul {
   word-break: break-all;
 }
 
-@media screen and (max-width: 800px) {
-  body .sm-hidden {
-    display: none;
-  }
-}
-
 sup {
   line-height: 0;
 }

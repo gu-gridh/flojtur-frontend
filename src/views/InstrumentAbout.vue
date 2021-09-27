@@ -2,7 +2,7 @@
   <div class="articlepage">
     <Title />
     <article class="articleContainer">
-      <router-link to="/" tag="div" id="ItemBack" />
+      <router-link to="/#menu-model" tag="div" id="ItemBack" />
 
       <h1>Ett självspelande flöjtur</h1>
       <div class="articleIngress">
