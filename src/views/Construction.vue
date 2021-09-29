@@ -180,8 +180,10 @@
           Ljung är det möjligt att han själv gjorde dessa utsmyckningar. En
           annan möjlighet är att de är gjorda av Pehr Ljung (1743–1819). Pehr
           Ljung har en del karaktäristiska arbeten som brukar indikera att han
-          varit upphovsman. Ett tydligt sådant exempel finns på Ljungbyuret.
-          Bården som avslutar mellandelen under urtavlan har den typiskt
+          varit upphovsman. Ett tydligt sådant exempel finns på
+          <router-link :to="{ name: 'InstrumentPage', params: { id: 22 } }"
+            >Ljungbyuret</router-link
+          >. Bården som avslutar mellandelen under urtavlan har den typiskt
           Ljungska vinlövsrankan. Dessutom är mellandelens bas, i övergången
           från sockeln, mycket lik den komposition Pehr Ljung gjorde till Adelsö
           kyrkas altare 1802. Både urfodret och altaruppsatsen har två
@@ -239,18 +241,27 @@
           </li>
         </ul>
         <p>
-          Ett av speluren, det så kallade Masreliezska flöjturet på Göteborgs
-          stadsmuseum, har en förlaga i form av en ritning av Louis Masreliez. I
-          detta fall är det otvetydigt så att designen är gjord av Masreliez,
-          medan det är oklart vem som utförde arbetet med urfodralet. Speluret
-          bär många av de särdrag som Pehr Strands spelur har, särskilt då
-          kallstämpeln ”P: STRAND” på två av stiftvalsarna, och dessutom var det
-          han som hade privilegium att bygga spelur vid tidpunkten för detta
+          Ett av speluren, det så kallade
+          <router-link :to="{ name: 'InstrumentPage', params: { id: 3 } }"
+            >Masreliezska flöjturet</router-link
+          >
+          på Göteborgs stadsmuseum, har en förlaga i form av en ritning av Louis
+          Masreliez. I detta fall är det otvetydigt så att designen är gjord av
+          Masreliez, medan det är oklart vem som utförde arbetet med urfodralet.
+          Speluret bär många av de särdrag som Pehr Strands spelur har, särskilt
+          då kallstämpeln ”P: STRAND” på två av stiftvalsarna, och dessutom var
+          det han som hade privilegium att bygga spelur vid tidpunkten för detta
           spelur från slutet av 1790-talet.
         </p>
 
         <Figure>
-          <Square>?</Square>
+          <Square>
+            <OpenSeadragon
+              :tileSources="[
+                'https://img.dh.gu.se/flojtur/pyr/003_masreliez_gen_Sthlm_KB_Ritning_Masreliez.tif/info.json',
+              ]"
+            />
+          </Square>
           <figcaption>Ritning av Louis Masreliez till flöjtur.</figcaption>
         </Figure>
 
