@@ -51,24 +51,24 @@
         </p>
 
             <Figure>
-          <Square>
+    
             <img
             src="@/assets/article/Strand_Leufsta_DSC_1876.jpg"
             alt="Flöjtur"
           />
-          </Square>
+     
           <figcaption>
             Foto: Johan Norrback. Licens: CC BY-NC 4.0.
           </figcaption>
         </Figure>
 
         <Figure>
-          <Square>
+     
             <img
             src="@/assets/article/Strand_Leufsta_urtavla_DSC_1813.jpg"
             alt="Urtavla"
           />
-          </Square>
+    
           <figcaption>
             Speluret på Lövstabruks herrgård. Urtavlan signerad ”P; Strand
             Stockholm”. Foto: Johan Norrback. Licens: CC BY-NC 4.0.
@@ -113,12 +113,12 @@
           på en liten väggpendyl han själv inte byggt vore förvånande.
         </p>
            <Figure>
-          <Square>
+      
             <img
            src="@/assets/article/Strand_Henriettas_pendyl_DSC_2148.jpg"
             alt=""
           />
-          </Square>
+       
           <figcaption>
             Väggur signerat ”Pehr Strand Stockholm”. Har sannolikt tillhört
             Henriette Löfman, född Strand. Foto: Johan Norrback. Licens: CC
@@ -160,12 +160,12 @@
         </p>
 
                <Figure>
-          <Square>
+   
             <img
           src="@/assets/article/Strand_Sundals-Ryr_DSC_0211.jpg"
             alt="Orgel"
           />
-          </Square>
+       
           <figcaption>
             Orgeln i Sundal-Ryrs gamla kyrka i Dalsland. Foto: Johan Norrback.
             Licens: CC BY-NC 4.0.
