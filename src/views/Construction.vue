@@ -59,14 +59,26 @@
           enligt den berlinska traditionen så är Sprengels beskrivning av stort
           värde för de svenska förhållandena.
         </p>
-        <p>
-          [BILD: Plansch ur P. N. Sprengels Handwerke med ett flöjtur nere till
-          vänster, uppe till höger ett dulcimerur, och däremellan olika vyer av
-          mekanik och stiftvals. Illustrationen är ur utgåvan från 1771.
-          (Digitaliserat av Bayerische Staatsbibliothek, och publicerat under
-          licensen http://rightsstatements.org/vocab/NoC-NC/1.0/,
-          https://mdz-nbn-resolving.de/details:bsb11279046.)
-        </p>
+        <Figure>
+          <Square>
+            <OpenSeadragon
+              :tileSources="[
+                publicPath + 'bygga/Sprengel_1794_2uppl_sIMG_4151.dzi',
+              ]"
+            />
+          </Square>
+          <figcaption>
+            Plansch ur P. N. Sprengels <em>Handwerke</em> med ett flöjtur nere
+            till vänster, uppe till höger ett dulcimerur, och däremellan olika
+            vyer av mekanik och stiftvals. Illustrationen är ur utgåvan från
+            1771. (Digitaliserat av Bayerische Staatsbibliothek, och publicerat
+            under licensen
+            <a href="http://rightsstatements.org/vocab/NoC-NC/1.0/"
+              >NoC-NC 1.0</a
+            >,
+            <a href="https://mdz-nbn-resolving.de/details:bsb11279046">MDZ</a>.)
+          </figcaption>
+        </Figure>
         <p>
           Det finns två svenska skriftliga källor inom ämnet som ger oss viktig
           information. Den första källan härrör från 1731. Det är en avhandling,
@@ -141,10 +153,26 @@
           stiftvalsen och den lilla orgeln. Antingen bakom urtavlan, eller i
           sockeln på golvuret. I det senare fallet är sockeln märkbart större.
         </p>
-        <p>
-          [Bild: Bremerska uret med spelverket bakom urtavalan och Alingsåsuret
-          med spelverket i sockeln.]
-        </p>
+        <Figure>
+          <Square>
+            <OpenSeadragon
+              :tileSources="[
+                publicPath + 'bygga/Bremerska_uret_DSC_1432.dzi',
+                publicPath + 'bygga/Alingsaasuret_fodral_DSC_6983.dzi',
+              ]"
+            />
+          </Square>
+          <figcaption>
+            <router-link :to="{ name: 'InstrumentPage', params: { id: 1 } }"
+              >Bremerska uret</router-link
+            >
+            med spelverket bakom urtavalan och
+            <router-link :to="{ name: 'InstrumentPage', params: { id: 2 } }"
+              >Alingsåsuret</router-link
+            >
+            med spelverket i sockeln.
+          </figcaption>
+        </Figure>
         <p>
           Vidare har flera av uren en mellandel som är pylonformad – den är
           vidare vid basen än vid toppen. Många spelurfodral har utsmyckningar
@@ -159,10 +187,20 @@
           kyrkas altare 1802. Både urfodret och altaruppsatsen har två
           skulpterade ansikten i ytterkant med en liggande triangel däremellan.
         </p>
-        <p>
-          [Bild: Ljungbyuret med de ovanliga skärningarna och altaruppsatsen i
-          Adelsö kyrka av Pehr Ljung, 1802. ]
-        </p>
+        <Figure>
+          <Square>
+            <OpenSeadragon
+              :tileSources="[publicPath + 'bygga/Ljungbyuret_Img0109.dzi']"
+            />
+          </Square>
+          <figcaption>
+            <router-link :to="{ name: 'InstrumentPage', params: { id: 22 } }"
+              >Ljungbyuret</router-link
+            >
+            med de ovanliga skärningarna och altaruppsatsen i Adelsö kyrka av
+            Pehr Ljung, 1802.
+          </figcaption>
+        </Figure>
         <p>
           Flera av de andra Strandska uren har utsmyckningar i den gustavianska
           stil som förknippas med bröderna Louis Masreliez (1748–1810) och Jean
@@ -210,7 +248,12 @@
           han som hade privilegium att bygga spelur vid tidpunkten för detta
           spelur från slutet av 1790-talet.
         </p>
-        <p>Bild: Ritning av Louis Masreliez till flöjtur.</p>
+
+        <Figure>
+          <Square>?</Square>
+          <figcaption>Ritning av Louis Masreliez till flöjtur.</figcaption>
+        </Figure>
+
         <p>
           Urtavlorna på speluren är ibland emaljerade och ibland målade; ibland
           med romerska och ibland med arabiska siffror. I några fall används
@@ -219,10 +262,32 @@
           Pehr eller Petter Strand. I ett fall är urtavlan signerad ”Gust: Er:
           Andersson” (Gustav Erik Andersson). Övriga urtavlor är inte signerade.
         </p>
-        <p>
-          [Bilder: Urtavlorna på det Gustavianska uret från SMKf, Speelklokuret
-          och Alingsåsuret.]
-        </p>
+
+        <Figure>
+          <Square>
+            <OpenSeadragon
+              :tileSources="[
+                publicPath + 'bygga/Gustavianska_uret_SMF_0090.dzi',
+                publicPath + 'bygga/Speelklokuret_Utrecht__0714.dzi',
+                publicPath + 'bygga/Alingsaasuret_urtavla_DSC_6923.dzi',
+              ]"
+            />
+          </Square>
+          <figcaption>
+            Urtavlorna på det
+            <router-link :to="{ name: 'InstrumentPage', params: { id: 12 } }"
+              >Gustavianska uret</router-link
+            >
+            från SMKf,
+            <router-link :to="{ name: 'InstrumentPage', params: { id: 8 } }"
+              >Speelklokuret</router-link
+            >
+            och
+            <router-link :to="{ name: 'InstrumentPage', params: { id: 2 } }"
+              >Alingsåsuret</router-link
+            >.
+          </figcaption>
+        </Figure>
         <p>
           Den som signerade urtavlan torde vara den som mottog beställningen,
           och ansvarade för att samordna de olika hantverkskompetensser som
@@ -341,8 +406,14 @@
 
 <script>
 import Title from "@/components/Title.vue";
+import Figure from "@/components/Figure.vue";
+import OpenSeadragon from "@/components/OpenSeadragon.vue";
+import Square from "@/components/Square.vue";
 export default {
-  components: { Title },
+  components: { Title, Figure, Square, OpenSeadragon },
+  computed: {
+    publicPath: () => process.env.BASE_URL,
+  },
 };
 </script>
 
