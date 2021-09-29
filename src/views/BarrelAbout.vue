@@ -13,14 +13,14 @@
           En av de mest utförliga skriftliga beskrivningar av hur man
           programmerar en stiftvals görs av benediktinmunken François Bédos de
           Celles (1709–79) i samband med att han i den fjärde och sista volymen
-          av hans välkända verk <i>L’art du facteur d’orgues</i> (1766–78)<sup
+          av hans välkända verk <em>L’art du facteur d’orgues</em> (1766–78)<sup
             >1</sup
           >
           beskriver hur man bygger en mekanisk orgel. Metoden för att förbereda
           och programmera musiken, benämnd tonotechnie, var utvecklad av
           kollegan augustinmunken Marie-Dominique-Joseph Engramelle (1727–1805).
           Bédos skriver att Engramelle var delaktig i arbetet med avsnittet om
-          musikprogrammeringen i <i>L’art du facteur d’orgues.</i> Det system
+          musikprogrammeringen i <em>L’art du facteur d’orgues.</em> Det system
           Bédos beskriver utgår från att musiken analyseras, och därefter
           indelas i mindre delar. När detta är gjort används en skiva med
           indelningar för att kunna orientera sig när man sakta roterar valsen.
@@ -44,7 +44,7 @@
           </Square>
           <figcaption>
             Gravyr ur Engramelles bok
-            <i>La Tonotechnie ou L’Art Denoter Les Cylindres</i> (Paris: P. M.
+            <em>La Tonotechnie ou L’Art Denoter Les Cylindres</em> (Paris: P. M.
             Delaguette, 1775). I verkstaden ser vi olika mekaniska instrument
             och en klocka. Vid bordet sitter två personer – till vänster arbetas
             det med en serinett med en delningsskiva på veven och till höger
@@ -76,7 +76,7 @@
           Kircher<sup>4</sup> (1602–80). Denna metod återfinns även hos de kända
           byggarna av mekaniska instrument Veit Langenbucher (1587–1631) och
           Samuel Bidermann (1540–1622) i Augsburg.<sup>5</sup> Kircher beskriver
-          i <i>Musurgia Universalis</i> hur man för över musiken till
+          i <em>Musurgia Universalis</em> hur man för över musiken till
           stiftvalsen genom att vira ett papper med ett rutmönster runt
           stiftvalsen.<sup>6</sup>
         </p>
@@ -92,7 +92,7 @@
           </Square>
           <figcaption>
             Exempel på musik transkriberad till papper för en vals. Ur
-            Athanasius Kircher, <i>Musurgia Universalis</i>, vol. 2 (1650), s.
+            Athanasius Kircher, <em>Musurgia Universalis</em>, vol. 2 (1650), s.
             313 och 315 (beskurna). Noterna läses som brukligt från vänster till
             höger, medan transkriberingen läses uppifrån ner. Första taktens
             fyra långa toner kan lätt identifieras i de långa strecken i den
@@ -107,7 +107,7 @@
           Samma teknik beskrivs i en svensk avhandling från 1731 av Magnus
           Aspelind (okänd) under överinseende av Anders Celsius (1701–44).
           Avhandlingen,
-          <i>Disputatio mechanica de horologiis musico-automatis</i
+          <em>Disputatio mechanica de horologiis musico-automatis</em
           ><sup>7</sup>, exemplifierar processen att transkribera en melodi för
           en vals till ett klockspel.
         </p>
@@ -122,7 +122,7 @@
             />
           </Square>
           <figcaption>
-            Ur <i>Disputatio mechanica</i>, början av psalmmelodin till ”Far
+            Ur <em>Disputatio mechanica</em>, början av psalmmelodin till ”Far
             thin weg thu arga werld”, nr 271 i psalmboken 1697, samt
             transkribering till papper för en vals (s. 11 och utvik på s. 13,
             beskruna). Valsen är avsedd för ett klockspel då tonerna inte har
@@ -253,11 +253,11 @@
           personer med denna specifika kompetens verksamma i Stockholm vid
           slutet av 1700-ttalet. Detta är i linje med vad som rapporteras från
           andra länder. I Berlin fanns det ett begrepp för dessa,
-          <i>Walzensetzer</i> (valssättare)<sup>10</sup>, och i London verkar de
-          också ha funnits en liknande praxis med papper som referenssystem, och
-          professionella valsprogrammerare. I Edinburgh skriver Thomas Reid 1826
-          om att han inte haft erfarenhet av att som i London “…getting music
-          pricked on the barrels by any professional person.”<sup>11</sup>
+          <em>Walzensetzer</em> (valssättare)<sup>10</sup>, och i London verkar
+          de också ha funnits en liknande praxis med papper som referenssystem,
+          och professionella valsprogrammerare. I Edinburgh skriver Thomas Reid
+          1826 om att han inte haft erfarenhet av att som i London “…getting
+          music pricked on the barrels by any professional person.”<sup>11</sup>
           Engelskans ”pricker” går tillbaka på prick som betyder syl eller pryl,
           eller som i Tobias Langs text en ”Jern Griffel” vilket snarare är vad
           vi i modernt språkbruk skulle kalla gravstickel, alltså ett vasst
@@ -268,8 +268,8 @@
           Senare under 1800-talet utvecklades metoderna för en ökad
           produktionstakt och då konstrueras specialiserade arbetsstationer med
           valshållare och referensskivor för tidsindelningen och placeringen av
-          stiften. I tyskan benämns dessa <i>Zeichenstuhl</i> (från
-          <i>Zeichen</i>, tecken eller märke).<sup>12</sup>
+          stiften. I tyskan benämns dessa <em>Zeichenstuhl</em> (från
+          <em>Zeichen</em>, tecken eller märke).<sup>12</sup>
         </p>
 
         <p>
@@ -348,7 +348,7 @@
           </Square>
           <figcaption>
             Exempel på verktyg som behövs för stiftning av valsar enligt Dom
-            Bédos <i>L’art du facteur d’orgues</i> från 1778, band 4,
+            Bédos <em>L’art du facteur d’orgues</em> från 1778, band 4,
             planscherna 51 och 53. (Herbert Blomstedt Collection, Göteborgs
             universitetsbibliotek).
           </figcaption>
@@ -403,31 +403,31 @@
           bland annat hos Bibliothèque nationale de France och Library of
           Congress, och här är en direktlänkt till volym 4:
           https://www.europeana.eu/sv/item/9200520/12148_bpt6k10732882. En
-          engelsk översättning är också tillgängli: François Bedos de Celles,
+          engelsk översättning är också tillgänglig: François Bedos de Celles,
           The Organ-Builder, trans. Charles Ferguson (Raleigh: The Sunbury,
           1977).
         </p>
         <p>
           2. Verkstadsboken finns i en faksimilutgåva med kommentarer: Ignaz
           Blasius Bruder och Hermann Brommer,
-          <i>Handbuch der Orgelbaukunst</i> (Waldkirch: Waldkircher
+          <em>Handbuch der Orgelbaukunst</em> (Waldkirch: Waldkircher
           Orgelstiftung, 2006).
         </p>
         <p>
-          3. Salomon de Caus, <i>Les raisons des forces mouvantes</i>, 1615,
+          3. Salomon de Caus, <em>Les raisons des forces mouvantes</em>, 1615,
           https://doi.org/10.11588/ diglit.1445. Det finns även en tysk utgåva
-          från 1615, <i>Von gewaltsamen Bewegungen</i>,
+          från 1615, <em>Von gewaltsamen Bewegungen</em>,
           https://doi.org/10.11588/diglit.16267.
         </p>
         <p>
-          4. Athanasius Kircher, <i>Musurgia Universalis</i>, vol. 1 (1650),
+          4. Athanasius Kircher, <em>Musurgia Universalis</em>, vol. 1 (1650),
           https://doi.org/10.11588/ diglit.27668 och vol. 2 (1650),
           https://doi.org/10.11588/diglit.27669. En tysk översättning (2018) av
           Günter Scheibel finns på https://www.hmt-leipzig.de/de/home/
           fachrichtungen/institut-fuer-musikwissenschaft/forschung/musurgia-universalis/volltextseite.
         </p>
         <p>
-          5. Se Albert Protz, <i>Mechanische Musikinstrumente</i> (Kassel,
+          5. Se Albert Protz, <em>Mechanische Musikinstrumente</em> (Kassel,
           1943).
         </p>
         <p>
@@ -436,12 +436,12 @@
         </p>
         <p>
           7. Celsius, Anders,
-          <i
+          <em
             >Disputatio mechanica de horologiis musico-automatis, quam cum
             consensu ampliss. facult. philos. in regio Upsaliensi lyceo, sub
             præsidio ... Andreæ Celsii ... publice ventilandam sistit Magnus D.
             Aspelind Dalekarlus. In audit. Gust. maj. ad diem IX. Julii anni
-            MDCCXXXI. Horis ante meridiem solitis.</i
+            MDCCXXXI. Horis ante meridiem solitis.</em
           >, Diss. Uppsala : Uppsala universitet, 1731,Upsaliæ literis
           Wernerianis., 1731. urn:nbn:se:uu:diva-345736
         </p>
@@ -455,19 +455,19 @@
           9. ViLA, Tobias Langs arkiv, Ämnesordnade handlingar, Fysikaliska,
           kemiska och färgtekniska rön, F 1:6, n.p.
         </p>
-        <p>10. Heyde, <i>Musikinstrumentenbau</i>, 330.</p>
+        <p>10. Heyde, <em>Musikinstrumentenbau</em>, 330.</p>
         <p>
           11. Thomas Reid,
-          <i>Treatise on Clock and Watch Making, Theoretical and Practical</i>
+          <em>Treatise on Clock and Watch Making, Theoretical and Practical</em>
           (Edin¬burgh: John Fairbairn, 1826), 412–13,
           https://archive.org/download/treatiseonclock00reidgoog/
           treatiseonclock00reidgoog.pdf.
         </p>
         <p>
           12. Se till exempel Herbert Jüttemann,
-          <i
+          <em
             >Mechanische Musikinstrumente: Einführung in Technik und
-            Geschichte</i
+            Geschichte</em
           >
           (Frankfurt/M.: Bochinsky, 1987), 93–4.
         </p>
