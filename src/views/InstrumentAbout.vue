@@ -74,33 +74,32 @@
 
         <Figure>
           <Square>
-             <model-viewer
-    class="model-viewer"
-    reveal="interaction"
-    loading="lazy"
-    src="/models/flojt.glb"
-    alt="3d-modell av det mekaniska spelverket i ett flöjtur"
-    camera-controls
-    autoplay
-    animation-name="929_flojtur_CADprep_jh_18"
-
-    camera-orbit="-150deg 70deg 160.0m"
-    exposure="0.9"
-    skyboxangle="220"
-    shadows="false"
-    shadow-intensity="0"
-    shadow-softness="0"
-    ar-status="not-presenting"
-  >
-    <div id="lazy-load-poster" slot="poster"></div>
-   
-  </model-viewer>
+            <model-viewer
+              class="model-viewer"
+              reveal="interaction"
+              loading="lazy"
+              src="/models/flojt.glb"
+              alt="3d-modell av det mekaniska spelverket i ett flöjtur"
+              camera-controls
+              autoplay
+              animation-name="929_flojtur_CADprep_jh_18"
+              camera-orbit="-150deg 70deg 160.0m"
+              exposure="0.9"
+              skyboxangle="220"
+              shadows="false"
+              shadow-intensity="0"
+              shadow-softness="0"
+              ar-status="not-presenting"
+            >
+              <div id="lazy-load-poster" slot="poster"></div>
+            </model-viewer>
           </Square>
           <figcaption>
             Flöjturet på bilden är 628 mm från botten av bälgstolen till toppen
             av den längsta pipan. Pallbrädan som spelmekaniken och orgeln vilar
-            på är 480 mm bred och 390 mm djup. Klicka på bilden för att ladda 
-            in en 3d-modell som du kan rotera. Scrolla för att förstora och förminska modellen.
+            på är 480 mm bred och 390 mm djup. Klicka på bilden för att ladda in
+            en 3d-modell som du kan rotera. Scrolla för att förstora och
+            förminska modellen.
           </figcaption>
         </Figure>
         <p>
@@ -199,37 +198,35 @@
           </figcaption>
         </Figure>
         <p style="text-align: center">* * *</p>
-     
-      <a href="https://youtu.be/FIbxJ5GKR0M"> <div class="IntroInfoContainer" style="margin-top: 20px; height:40px;">
-          <div id="IntroLinkButton" style=""></div>
-          <div id="IntroInfoLabel" style="">
-            "Flöjturet går igen"
+
+        <a href="https://youtu.be/FIbxJ5GKR0M">
+          <div
+            class="IntroInfoContainer"
+            style="margin-top: 20px; height: 40px"
+          >
+            <div id="IntroLinkButton" style=""></div>
+            <div id="IntroInfoLabel" style="">"Flöjturet går igen"</div>
           </div>
-        </div>
         </a>
-        <div class="ButtonInfo">En dokumentärfilm om rekonstruktionen av spelverket och piporna till Kungl. Vitterhetsakademiens flöjtur.</div>
-         
-     
-
-        <div class="IntroInfoContainer" style="margin-top: 20px; height:40px;">
-          <div id="IntroInfoButton" style=""></div>
-          <div id="IntroInfoLabel" style="">
-            Ladda ner CAD-modellen
-          </div>
+        <div class="ButtonInfo">
+          En dokumentärfilm om rekonstruktionen av spelverket och piporna till
+          Kungl. Vitterhetsakademiens flöjtur.
         </div>
 
-      <div class="ButtonInfo">Licens: CC BY-NC 4.0. Dokumentation och CAD-ritning av Olof Pipping.    </div>
-
-            <div class="IntroInfoContainer" style="margin-top: 20px; height:40px;">
+        <div class="IntroInfoContainer" style="margin-top: 20px; height: 40px">
           <div id="IntroInfoButton" style=""></div>
-          <div id="IntroInfoLabel" style="">
-            Ladda ner 3D-modellen
-          </div>
+          <div id="IntroInfoLabel" style="">Ladda ner CAD-modellen</div>
         </div>
-      <div class="ButtonInfo">Licens: CC BY-NC 4.0 </div>
 
+        <div class="ButtonInfo">
+          Licens: CC BY-NC 4.0. Dokumentation och CAD-ritning av Olof Pipping.
+        </div>
 
-       
+        <div class="IntroInfoContainer" style="margin-top: 20px; height: 40px">
+          <div id="IntroInfoButton" style=""></div>
+          <div id="IntroInfoLabel" style="">Ladda ner 3D-modellen</div>
+        </div>
+        <div class="ButtonInfo">Licens: CC BY-NC 4.0</div>
       </div>
     </article>
   </div>
@@ -315,26 +312,16 @@ export default {
   }
 }
 
-
-
-figure {
-  break-inside: avoid;
-}
-
-.osd {
-  height: 100%;
-}
-
 .IntroInfoContainer {
   height: 20px;
   width: 320px;
   border-radius: 15px;
   padding: 10px;
   margin-top: 2px;
-  margin-bottom:5px;
+  margin-bottom: 5px;
   margin-left: 0px;
   cursor: pointer;
- 
+
   transition: all 0.2s ease-in-out;
 }
 
@@ -351,11 +338,10 @@ figure {
 }
 
 .ButtonInfo {
-
-  font-size:18px;
+  font-size: 18px;
   margin-top: 5px;
   margin-left: 10px;
-width:100&;
+  width: 100&;
 }
 
 #IntroInfoButton {

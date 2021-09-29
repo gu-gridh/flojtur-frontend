@@ -148,6 +148,14 @@ h2 {
     font-size: 22px;
   }
 
+  figure {
+    break-inside: avoid;
+  }
+
+  .osd {
+    height: 100%;
+  }
+
   a:link {
     text-decoration: underline;
     color: black;
