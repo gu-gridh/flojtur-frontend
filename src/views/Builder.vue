@@ -30,24 +30,9 @@
         </p>
       </div>
       <div class="articletext">
-        <figure class="span-columns">
-          <img
-            src="@/assets/article/Strand_Leufsta_DSC_1876.jpg"
-            alt="Flöjtur"
-          />
-          <figcaption>Foto: Johan Norrback. Licens: CC BY-NC 4.0.</figcaption>
-        </figure>
 
-        <figure class="span-columns">
-          <img
-            src="@/assets/article/Strand_Leufsta_urtavla_DSC_1813.jpg"
-            alt="Urtavla"
-          />
-          <figcaption>
-            Speluret på Lövstabruks herrgård. Urtavlan signerad ”P; Strand
-            Stockholm”. Foto: Johan Norrback. Licens: CC BY-NC 4.0.
-          </figcaption>
-        </figure>
+    
+
 
         <p>
           Pehr (Petrus/Petter/Per) Strand föddes i Arnäs församling, strax
@@ -64,6 +49,32 @@
           år gammal då han avled. Dessa uppgifter pekar entydigt på att Strand
           föddes 1758, troligen i januari.
         </p>
+
+            <Figure>
+          <Square>
+            <img
+            src="@/assets/article/Strand_Leufsta_DSC_1876.jpg"
+            alt="Flöjtur"
+          />
+          </Square>
+          <figcaption>
+            Foto: Johan Norrback. Licens: CC BY-NC 4.0.
+          </figcaption>
+        </Figure>
+
+        <Figure>
+          <Square>
+            <img
+            src="@/assets/article/Strand_Leufsta_urtavla_DSC_1813.jpg"
+            alt="Urtavla"
+          />
+          </Square>
+          <figcaption>
+            Speluret på Lövstabruks herrgård. Urtavlan signerad ”P; Strand
+            Stockholm”. Foto: Johan Norrback. Licens: CC BY-NC 4.0.
+          </figcaption>
+        </Figure>
+
         <p>
           Pehr Strands far var båtsman, vilket innebar att han periodvis
           tjänstgjorde i den svenska örlogsflottan. Med detta följde rätten till
@@ -101,17 +112,22 @@
           Henriette, som fortfarande finns i släktens ägo. Att signera urtavlan
           på en liten väggpendyl han själv inte byggt vore förvånande.
         </p>
-        <figure class="span-columns">
-          <img
-            src="@/assets/article/Strand_Henriettas_pendyl_DSC_2148.jpg"
-            alt="Väggur"
+           <Figure>
+          <Square>
+            <img
+           src="@/assets/article/Strand_Henriettas_pendyl_DSC_2148.jpg"
+            alt=""
           />
+          </Square>
           <figcaption>
             Väggur signerat ”Pehr Strand Stockholm”. Har sannolikt tillhört
             Henriette Löfman, född Strand. Foto: Johan Norrback. Licens: CC
             BY-NC 4.0.
           </figcaption>
-        </figure>
+        </Figure>
+
+
+
         <p>
           Mindre känt har det varit att Strand även ansökt om och beviljats
           ytterligare ett privilegium. Det gällde korkskäreri, och den
@@ -143,16 +159,20 @@
           och klar 1808.<sup>12</sup>
         </p>
 
-        <figure class="span-columns">
-          <img
-            src="@/assets/article/Strand_Sundals-Ryr_DSC_0211.jpg"
+               <Figure>
+          <Square>
+            <img
+          src="@/assets/article/Strand_Sundals-Ryr_DSC_0211.jpg"
             alt="Orgel"
           />
+          </Square>
           <figcaption>
             Orgeln i Sundal-Ryrs gamla kyrka i Dalsland. Foto: Johan Norrback.
             Licens: CC BY-NC 4.0.
           </figcaption>
-        </figure>
+        </Figure>
+
+      
 
         <p>
           Ur källorna framträder en bild av lärlingen, sedermera direktören,
@@ -255,10 +275,12 @@
 
 <script>
 import Title from "@/components/Title.vue";
+import Figure from "@/components/Figure.vue";
+import Square from "@/components/Square.vue";
 import UrlLink from "@/components/UrlLink.vue";
 
 export default {
   name: "Builder",
-  components: { Title, UrlLink },
+  components: { Title, UrlLink, Figure, Square },
 };
 </script>
