@@ -427,8 +427,10 @@ import Title from "@/components/Title.vue";
 import Figure from "@/components/Figure.vue";
 import OpenSeadragon from "@/components/OpenSeadragon.vue";
 import Square from "@/components/Square.vue";
+import UrlLink from "@/components/UrlLink.vue";
+
 export default {
-  components: { Title, Figure, Square, OpenSeadragon },
+  components: { Title, Figure, Square, OpenSeadragon, UrlLink },
   computed: {
     publicPath: () => process.env.BASE_URL,
   },

@@ -56,14 +56,12 @@ h2 {
   margin: 40px 0 0;
 }
 
-
-
 #ItemBack {
   cursor: pointer;
   position: sticky;
   top: 50px;
   margin-left: -110px;
- float:left;
+  float: left;
   height: 50px;
   width: 50px;
   border-radius: 50%;

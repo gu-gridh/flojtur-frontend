@@ -1,12 +1,9 @@
 <template>
   <div class="articlepage">
-
     <Title />
-    
+
     <article class="articleContainer">
-    
       <router-link to="/#menu-model" tag="div" id="ItemBack" />
-     
 
       <h1>Att programmera en stiftvals</h1>
       <div class="articleIngress">
