@@ -247,10 +247,6 @@ ul {
   column-span: all;
 }
 
-.long-url {
-  word-break: break-all;
-}
-
 sup {
   line-height: 0;
 }

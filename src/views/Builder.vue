@@ -170,18 +170,19 @@
       <div class="articletext footnotes">
         <hr class="span-columns" />
         <p>
-          1. Pehr Tham, Anteckningar under Och i Anledning Af En Resa Ifrån
-          Westergöthland Til Stockholm, Gjord Åren 1796 Och 1797 : Notes Made
-          during a Journey from Westergöthland to Stockholm in the Years 1796
-          and 1797, (Stockholm: Rediviva, 1980), s. 78.
+          1. Pehr Tham,
+          <em
+            >Anteckningar under Och i Anledning Af En Resa Ifrån Westergöthland
+            Til Stockholm, Gjord Åren 1796 Och 1797 : Notes Made during a
+            Journey from Westergöthland to Stockholm in the Years 1796 and
+            1797</em
+          >, (Stockholm: Rediviva, 1980), s. 78.
         </p>
         <p>
           2. För en introduktion till Pehr Strand se Johan Norrback, “The Pinned
-          Barrel as Music Archive”, i A Festschrift for Prof. Kerala J. Snyder,
-          (Göteborg, 2019).
-          <a href="http://hdl.handle.net/2077/60576">
-            http://hdl.handle.net/2077/60576
-          </a>
+          Barrel as Music Archive”, i
+          <em>A Festschrift for Prof. Kerala J. Snyder</em>, (Göteborg, 2019).
+          <UrlLink url="http://hdl.handle.net/2077/60576" />
           [hämtad 18 januari 2021]
         </p>
         <p>
@@ -190,14 +191,14 @@
           Bouppteckningar (1827) F 1 A/449, bild 27–37.
         </p>
         <p>
-          4. Post- och Inrikes Tidningar, 8 september 1826.
-          <a href="https://tidningar.kb.se/">https://tidningar.kb.se/</a>
+          4. <em>Post- och Inrikes Tidningar</em>, 8 september 1826.
+          <UrlLink url="https://tidningar.kb.se/" />
           [hämtad 18 januari 2021]
         </p>
         <p>
           5. För en översikt över Ljungs verksamhet se Hertha Boman, ”Två
           Stockholmskonstnärer på 1700-talet. Ornamentbildhuggarna Johan Ljung
-          och Pehr Ljung.”, Sankt Eriks Årsbok (1964), s. 41–78.
+          och Pehr Ljung.”, <em>Sankt Eriks Årsbok</em> (1964), s. 41–78.
         </p>
         <p>
           6. SSA, Klara kyrkoarkiv, Lysnings- och vigselböcker, E I:3
@@ -211,10 +212,10 @@
         <p>
           8. För en översikt över skråväsendets uppgång och fall ur ett
           Stockholmsperspektiv se Åke Abrahamsson, ”Gå på skrå - En Historisk
-          Återvandring”, S:t Eriks Årsbok (2000), s 13–34. För
+          Återvandring”, <em>S:t Eriks Årsbok</em> (2000), s 13–34. För
           instrumentbyggeriet se Eva Helenius-Öberg, ”Svenskt instrumentmakeri
-          1720–1800”, STM (1977:1), s. 5–43 och Eva Helenius-Öberg, Svenskt
-          Klavikordbygge 1720–1820 (Stockholm, 1986).
+          1720–1800”, <em>STM</em> (1977:1), s. 5–43 och Eva Helenius-Öberg,
+          <em>Svenskt Klavikordbygge 1720–1820</em> (Stockholm, 1986).
         </p>
         <p>
           9. ”2 September 1789. Uti ingifwen Skrift anhölt … om Tillstånd att,
@@ -223,22 +224,21 @@
         </p>
         <p>
           10. Se s. 23–25 i Irene Sigurdsson, ”Manufakturer i Stockholm år
-          1740”, Stadsvandringar, 1982 (5), s. 9–29, 1982.
-          <a
-            href="https://stockholmskallan.stockholm.se/post/8189"
-            class="long-url"
-          >
-            https://stockholmskallan.stockholm.se/post/8189
-          </a>
+          1740”, <em>Stadsvandringar</em>, 1982 (5), s. 9–29, 1982.
+          <UrlLink url="https://stockholmskallan.stockholm.se/post/8189" />
           [hämtad 18 januari 2021]
         </p>
         <p>
-          11. Carl Theodor Söderberg, Matrikel öfver folkskolelärare-, klockare-
-          och organist-beställningarne inom Strengnäs stift med afseende på
-          boställen och lönevilkor; innefattande jemväl orgelverkens ålder,
-          storlek och beskaffenhet (Nyköping, 1851), s. 18, samt Einar Erici och
-          R. Axel Unnerbäck, Orgelinventarium: bevarade klassiska kyrkorglar i
-          Sverige (Stockholm, 1988), s. 495.
+          11. Carl Theodor Söderberg,
+          <em>
+            Matrikel öfver folkskolelärare-, klockare- och
+            organist-beställningarne inom Strengnäs stift med afseende på
+            boställen och lönevilkor; innefattande jemväl orgelverkens ålder,
+            storlek och beskaffenhet
+          </em>
+          (Nyköping, 1851), s. 18, samt Einar Erici och R. Axel Unnerbäck,
+          <em>Orgelinventarium: bevarade klassiska kyrkorglar i Sverige</em>
+          (Stockholm, 1988), s. 495.
         </p>
         <p>
           12. Se dokumentationen i Härnösands landsarkiv (HLA), Arnäs
@@ -255,9 +255,10 @@
 
 <script>
 import Title from "@/components/Title.vue";
+import UrlLink from "@/components/UrlLink.vue";
 
 export default {
   name: "Builder",
-  components: { Title },
+  components: { Title, UrlLink },
 };
 </script>

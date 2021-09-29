@@ -376,34 +376,41 @@
       <div class="articletext footnotes">
         <hr class="span-columns" />
         <p>
-          1. Herbert Heyde, Musikinstrumentenbau in Preußen, Tutzing: Hans
-          Schneider, 1994.
+          1. Herbert Heyde, <em>Musikinstrumentenbau in Preußen</em>, Tutzing:
+          Hans Schneider, 1994.
         </p>
         <p>
-          2. B. Lindberg, ”Om dissertationer”, i Bevara för framtiden : texter
-          från en seminarieserie om specialsamlingar, Uppsala: Uppsala
-          universitetsbibliotek, 2016, s. 13–39. urn:nbn:se:uu:diva-306218.
+          2. B. Lindberg, ”Om dissertationer”, i
+          <em>
+            Bevara för framtiden: texter från en seminarieserie om
+            specialsamlingar </em
+          >, Uppsala: Uppsala universitetsbibliotek, 2016, s. 13–39.
+          urn:nbn:se:uu:diva-306218.
         </p>
         <p>
-          3. Celsius, Anders, Disputatio mechanica de horologiis
-          musico-automatis, quam cum consensu ampliss. facult. philos. in regio
-          Upsaliensi lyceo, sub præsidio ... Andreæ Celsii ... publice
-          ventilandam sistit Magnus D. Aspelind Dalekarlus. In audit. Gust. maj.
-          ad diem IX. Julii anni MDCCXXXI. Horis ante meridiem solitis., Diss.
-          Uppsala : Uppsala universitet, 1731,Upsaliæ literis Wernerianis.,
-          1731. urn:nbn:se:uu:diva-345736
-        </p>
-        <p>
-          4. Augsburgska konstskåpet på Gustavianum, Uppsala universitet.
+          3. Celsius, Anders,
+          <em>
+            Disputatio mechanica de horologiis musico-automatis, quam cum
+            consensu ampliss. facult. philos. in regio Upsaliensi lyceo, sub
+            præsidio ... Andreæ Celsii ... publice ventilandam sistit Magnus D.
+            Aspelind Dalekarlus. In audit. Gust. maj. ad diem IX. Julii anni
+            MDCCXXXI. Horis ante meridiem solitis. </em
+          >, Diss. Uppsala : Uppsala universitet, 1731,Upsaliæ literis
+          Wernerianis., 1731.
           <a
-            href="https://www.gustavianum.uu.se/samlingar/konstsamlingar/utstallningar/augsburgska-konstsk%C3%A5pet/"
-            class="long-url"
-            >https://www.gustavianum.uu.se/samlingar/konstsamlingar/utstallningar/augsburgska-konstsk%C3%A5pet/</a
+            href="http://urn.kb.se/resolve?urn=urn%3Anbn%3Ase%3Auu%3Adiva-345736"
+            >urn:nbn:se:uu:diva-345736</a
           >
         </p>
         <p>
-          5. Celsius-Aspelind, Disputatio mechanica, s. 12. Översättningen från
-          latinet är gjord med stöd av Erik Wiberg.
+          4. Augsburgska konstskåpet på Gustavianum, Uppsala universitet.
+          <UrlLink
+            url="https://www.gustavianum.uu.se/samlingar/konstsamlingar/utstallningar/augsburgska-konstsk%C3%A5pet/"
+          />
+        </p>
+        <p>
+          5. Celsius-Aspelind, <em>Disputatio mechanica</em>, s. 12.
+          Översättningen från latinet är gjord med stöd av Erik Wiberg.
         </p>
         <p>6. Riksarkivet/Landsarkivet Visby, SE ViLA 11248 FI 6.</p>
         <p>
