@@ -21,7 +21,7 @@
           <PlayButton default-sound />
         </div>
         <router-link
-          :to="{ name: 'builder' }"
+          :to="{ name: 'Builder' }"
           tag="div"
           class="IntroInfoContainer"
           style="margin-top: 15px"
@@ -39,7 +39,7 @@
         </router-link>
 
         <router-link
-          :to="{ name: 'InstrumentAbout' }"
+          :to="{ name: 'Construction' }"
           tag="div"
           class="IntroInfoContainer"
           style=""
@@ -48,7 +48,7 @@
         </router-link>
 
         <router-link
-          :to="{ name: 'InstrumentAbout' }"
+          :to="{ name: 'BarrelAbout' }"
           tag="div"
           class="IntroInfoContainer"
           style=""
@@ -57,7 +57,7 @@
         </router-link>
 
         <router-link
-          :to="{ name: 'InstrumentAbout' }"
+          :to="{ name: 'Scanner' }"
           tag="div"
           class="IntroInfoContainer"
           style=""

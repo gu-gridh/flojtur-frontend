@@ -45,7 +45,7 @@ const routes = [
       import(/* webpackChunkName: "builder" */ "../views/Builder.vue")
   },
   {
-    path: encodeURI("/flöjtur"),
+    path: "/flojtur",
     name: "InstrumentAbout",
     component: () =>
       import(
@@ -53,10 +53,22 @@ const routes = [
       )
   },
   {
-    path: encodeURI("/bygga"),
+    path: "/bygga",
     name: "Construction",
     component: () =>
       import(/* webpackChunkName: "construction" */ "../views/Construction.vue")
+  },
+  {
+    path: "/stiftvals",
+    name: "BarrelAbout",
+    component: () =>
+      import(/* webpackChunkName: "barrel-about" */ "../views/BarrelAbout.vue")
+  },
+  {
+    path: "/valslasare",
+    name: "Scanner",
+    component: () =>
+      import(/* webpackChunkName: "scanner" */ "../views/Scanner.vue")
   },
   {
     path: "/spelur/:id",
