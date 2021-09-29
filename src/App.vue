@@ -56,10 +56,14 @@ h2 {
   margin: 40px 0 0;
 }
 
+
+
 #ItemBack {
   cursor: pointer;
-  position: absolute;
-  left: 30px;
+  position: sticky;
+  top: 50px;
+  margin-left: -110px;
+ float:left;
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -68,7 +72,6 @@ h2 {
   background-repeat: no-repeat;
   background-position: center;
   z-index: 2000;
-  margin-top: -5px;
   padding: 5px;
 
   @media screen and (max-width: 950px) {
