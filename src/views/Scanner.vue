@@ -4,7 +4,7 @@
     <article class="articleContainer">
       <router-link to="/#menu-model" tag="div" id="ItemBack" />
 
-      <h1>En optisk valsläsare</h1>
+      <h1>En optisk valsl&auml;sare</h1>
       <div class="articleIngress">
         <p>
           Flera av Strands flöjtur är idag museiföremål och många är inte i
