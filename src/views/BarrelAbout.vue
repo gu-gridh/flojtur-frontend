@@ -41,8 +41,7 @@
           <Square>
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'zoom/IllustrationClose_10012_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_10022_4kx4k.dzi',
+                publicPath + 'barrel/Engramelle_La_Tonotechnie.dzi',
               ]"
             />
           </Square>
@@ -52,8 +51,11 @@
             Delaguette, 1775). I verkstaden ser vi olika mekaniska instrument
             och en klocka. Vid bordet sitter två personer – till vänster arbetas
             det med en serinett med en delningsskiva på veven och till höger
-            programmeras en stiftvals i en särskild valshållare. Källa:
-            https://archive.org/details/latonotechnieoul0000engr/page/n13/mode/1up.
+            programmeras en stiftvals i en särskild valshållare.
+            <a
+              href="https://archive.org/details/latonotechnieoul0000engr/page/n13/mode/1up"
+              >Källa</a
+            >
           </figcaption>
         </Figure>
 
@@ -89,8 +91,8 @@
           <Square>
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'zoom/IllustrationClose_10012_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_10022_4kx4k.dzi',
+                publicPath + 'barrel/kircher1650bd2-0320.dzi',
+                publicPath + 'barrel/kircher1650bd2-0322.dzi',
               ]"
             />
           </Square>
@@ -120,8 +122,8 @@
           <Square>
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'zoom/IllustrationClose_10012_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_10022_4kx4k.dzi',
+                publicPath + 'barrel/Aspelind_1731_s11_NLS14A019060_17.dzi',
+                publicPath + 'barrel/Aspelind_1731_s13utv_NLS14A019060_19.dzi',
               ]"
             />
           </Square>
@@ -129,7 +131,7 @@
             Ur <em>Disputatio mechanica</em>, början av psalmmelodin till ”Far
             thin weg thu arga werld”, nr 271 i psalmboken 1697, samt
             transkribering till papper för en vals (s. 11 och utvik på s. 13,
-            beskruna). Valsen är avsedd för ett klockspel då tonerna inte har
+            beskurna). Valsen är avsedd för ett klockspel då tonerna inte har
             någon tonlängd utan endast en impuls för slaget på klangskålen.
           </figcaption>
         </Figure>
@@ -148,14 +150,7 @@
         </p>
 
         <Figure>
-          <Square>
-            <OpenSeadragon
-              :tileSources="[
-                publicPath + 'zoom/IllustrationClose_10012_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_10022_4kx4k.dzi',
-              ]"
-            />
-          </Square>
+          <img :src="publicPath + 'barrel/Aspelind_s13_transkriberad.png'" />
           <figcaption>
             Punktnotationen för en vals transkriberad till noter. Pilarna anger
             felen i transkriptionen.
@@ -163,14 +158,7 @@
         </Figure>
 
         <Figure>
-          <Square>
-            <OpenSeadragon
-              :tileSources="[
-                publicPath + 'zoom/IllustrationClose_10012_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_10022_4kx4k.dzi',
-              ]"
-            />
-          </Square>
+          <img :src="publicPath + 'barrel/Aspelind_utvik_Logic.png'" />
           <figcaption>
             Transkriptionen av utviket i Logic Pro i vyn Piano Roll. Pilarna
             anger felen.
@@ -178,14 +166,7 @@
         </Figure>
 
         <Figure>
-          <Square>
-            <OpenSeadragon
-              :tileSources="[
-                publicPath + 'zoom/IllustrationClose_10012_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_10022_4kx4k.dzi',
-              ]"
-            />
-          </Square>
+          <PlayButton :url="publicPath + 'barrel/Aspelind_s13.wav'" />
           <figcaption>
             Transkriptionen exporterad som ljudfil med ett klockspel ur
             ljudbiblioteket.
@@ -204,8 +185,7 @@
           <Square>
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'zoom/IllustrationClose_10012_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_10022_4kx4k.dzi',
+                publicPath + 'barrel/Pappersrester_KVHAA_4980.dzi',
               ]"
             />
           </Square>
@@ -286,10 +266,7 @@
         <Figure>
           <Square>
             <OpenSeadragon
-              :tileSources="[
-                publicPath + 'zoom/IllustrationClose_10012_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_10022_4kx4k.dzi',
-              ]"
+              :tileSources="[publicPath + 'barrel/Tidsindelning_IMG_3765.dzi']"
             />
           </Square>
           <figcaption>
@@ -310,8 +287,10 @@
           <Square>
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'zoom/IllustrationClose_10012_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_10022_4kx4k.dzi',
+                publicPath + 'barrel/Taktnumrering_IMG_3766.tiff.dzi',
+                publicPath + 'barrel/Anfang_priv_IMG_3763.dzi',
+                publicPath + 'barrel/Ende_priv_IMG_3764.dzi',
+                publicPath + 'barrel/Anfang_Skärvauret_NM_DSC_7769.dzi',
               ]"
             />
           </Square>
@@ -330,10 +309,7 @@
         <Figure>
           <Square>
             <OpenSeadragon
-              :tileSources="[
-                publicPath + 'zoom/IllustrationClose_10012_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_10022_4kx4k.dzi',
-              ]"
+              :tileSources="[publicPath + 'barrel/Verktygsspaar_IMG_3770.dzi']"
             />
           </Square>
           <figcaption>
@@ -345,8 +321,8 @@
           <Square>
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'zoom/IllustrationClose_10012_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_10022_4kx4k.dzi',
+                publicPath + 'barrel/Bedos_Lart_v4_51_002.dzi',
+                publicPath + 'barrel/Bedos_Lart_v4_53_003.dzi',
               ]"
             />
           </Square>
@@ -369,8 +345,7 @@
           <Square>
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'zoom/IllustrationClose_10012_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_10022_4kx4k.dzi',
+                publicPath + 'barrel/Slaepspaar_GMH_GM5464_0425.dzi',
               ]"
             />
           </Square>
@@ -405,11 +380,12 @@
         <p>
           1. Det finns flera digitaliserade exemplar i hög upplösning på webben,
           bland annat hos Bibliothèque nationale de France och Library of
-          Congress, och här är en direktlänkt till volym 4:
-          https://www.europeana.eu/sv/item/9200520/12148_bpt6k10732882. En
-          engelsk översättning är också tillgänglig: François Bedos de Celles,
-          The Organ-Builder, trans. Charles Ferguson (Raleigh: The Sunbury,
-          1977).
+          Congress, och här är en direktlänkt till
+          <a href="https://www.europeana.eu/sv/item/9200520/12148_bpt6k10732882"
+            >volym 4</a
+          >. En engelsk översättning är också tillgänglig: François Bedos de
+          Celles, The Organ-Builder, trans. Charles Ferguson (Raleigh: The
+          Sunbury, 1977).
         </p>
         <p>
           2. Verkstadsboken finns i en faksimilutgåva med kommentarer: Ignaz
@@ -419,16 +395,18 @@
         </p>
         <p>
           3. Salomon de Caus, <em>Les raisons des forces mouvantes</em>, 1615,
-          https://doi.org/10.11588/ diglit.1445. Det finns även en tysk utgåva
-          från 1615, <em>Von gewaltsamen Bewegungen</em>,
-          https://doi.org/10.11588/diglit.16267.
+          <UrlLink url="https://doi.org/10.11588/diglit.1445" />. Det finns även
+          en tysk utgåva från 1615, <em>Von gewaltsamen Bewegungen</em>,
+          <UrlLink url="https://doi.org/10.11588/diglit.16267" />.
         </p>
         <p>
           4. Athanasius Kircher, <em>Musurgia Universalis</em>, vol. 1 (1650),
-          https://doi.org/10.11588/ diglit.27668 och vol. 2 (1650),
-          https://doi.org/10.11588/diglit.27669. En tysk översättning (2018) av
-          Günter Scheibel finns på https://www.hmt-leipzig.de/de/home/
-          fachrichtungen/institut-fuer-musikwissenschaft/forschung/musurgia-universalis/volltextseite.
+          <UrlLink url="https://doi.org/10.11588/diglit.27668" /> och vol. 2
+          (1650), <UrlLink url="https://doi.org/10.11588/diglit.27669" />. En
+          tysk översättning (2018) av Günter Scheibel finns på
+          <UrlLink
+            url="https://www.hmt-leipzig.de/de/home/fachrichtungen/institut-fuer-musikwissenschaft/forschung/musurgia-universalis/volltextseite"
+          />.
         </p>
         <p>
           5. Se Albert Protz, <em>Mechanische Musikinstrumente</em> (Kassel,
@@ -436,7 +414,9 @@
         </p>
         <p>
           6. Kircher, Musurgia, Buch IX (2018), 172–73,
-          https://www.hmt-leipzig.de/home/fachrichtungen/institut-fuer-musikwissenschaft/forschung/musurgia-universalis/volltextseite/content_961686/D_B09.pdf.
+          <UrlLink
+            url="https://www.hmt-leipzig.de/home/fachrichtungen/institut-fuer-musikwissenschaft/forschung/musurgia-universalis/volltextseite/content_961686/D_B09.pdf"
+          />.
         </p>
         <p>
           7. Celsius, Anders,
@@ -464,8 +444,10 @@
           11. Thomas Reid,
           <em>Treatise on Clock and Watch Making, Theoretical and Practical</em>
           (Edin¬burgh: John Fairbairn, 1826), 412–13,
-          https://archive.org/download/treatiseonclock00reidgoog/
-          treatiseonclock00reidgoog.pdf.
+          <UrlLink
+            url="https://archive.org/download/treatiseonclock00reidgoog/treatiseonclock00reidgoog.pdf"
+          />
+          .
         </p>
         <p>
           12. Se till exempel Herbert Jüttemann,
@@ -485,9 +467,14 @@ import Title from "@/components/Title.vue";
 import Figure from "@/components/Figure.vue";
 import Square from "@/components/Square.vue";
 import OpenSeadragon from "@/components/OpenSeadragon.vue";
+import PlayButton from "@/components/PlayButton.vue";
+import UrlLink from "@/components/UrlLink.vue";
 
 export default {
-  components: { Title, Figure, Square, OpenSeadragon },
+  components: { Title, Figure, Square, OpenSeadragon, PlayButton, UrlLink },
+  computed: {
+    publicPath: () => process.env.BASE_URL,
+  },
 };
 </script>
 
