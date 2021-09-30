@@ -65,6 +65,7 @@
               :tileSources="[
                 publicPath + 'bygga/Sprengel_1794_2uppl_sIMG_4151.dzi',
               ]"
+              :cover="false"
             />
           </Square>
           <figcaption>

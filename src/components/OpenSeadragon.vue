@@ -12,8 +12,9 @@ export default {
     src: String,
     cover: {
       type: Boolean,
-      default: true,
+      default: false,
     },
+    fullPage: Boolean,
   },
   data: () => ({
     viewer: null,
@@ -24,11 +25,11 @@ export default {
       element: this.$refs.osd,
       homeFillsViewer: this.cover,
       immediateRender: true,
-      visibilityRatio: this.cover ? 1 : 0.5,
-      minZoomImageRatio: this.cover ? 1 : 0.5,
+      visibilityRatio: 1,
+      minZoomImageRatio: 1,
       showZoomControl: false,
       showHomeControl: false,
-      showFullPageControl: !!this.filename,
+      showFullPageControl: this.fullPage,
       prefixUrl: "/openseadragon/",
       // If a proper tileSource is not given, use src prop.
       tileSources: this.tileSources || { type: "image", url: this.src },

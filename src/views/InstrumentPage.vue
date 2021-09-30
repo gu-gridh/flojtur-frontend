@@ -1,7 +1,7 @@
 <template>
   <div v-if="instrument">
     <div id="Hero">
-      <ZoomViewer :filename="heroImageUrl" />
+      <ZoomViewer :filename="heroImageUrl" :cover="true" />
     </div>
 
     <div class="container">

@@ -2,6 +2,7 @@
   <OpenSeadragon
     :tileSources="[tileSource()]"
     :cover="cover"
+    :fullPage="!cover"
     class="zoom-viewer"
   />
 </template>
