@@ -319,7 +319,21 @@
           utifrån en bedömning av Strands kompetenser.
         </p>
 
-        <Figure class="span-columns">
+        <Figure>
+          <Ratio :ratio="4 / 3">
+            <OpenSeadragon
+              :tileSources="[
+                publicPath + 'bygga/Uhrmacherwerkstatt_Schwarzwald_00.dzi',
+              ]"
+            />
+          </Ratio>
+          <figcaption>
+            Scen ur en flöjtursverkstad i Schwarzwald (ca 1825). Källa
+            wikipedia.
+          </figcaption>
+        </Figure>
+
+        <Figure class="span-columns" style="margin-top:50px;">
           <table>
             <thead>
               <th>Arbetsmoment</th>
@@ -362,9 +376,9 @@
               </tr>
             </tbody>
           </table>
-        </Figure>
+       
 
-        <p>
+        <figcaption>
           Kompetensen i verkstaden var dock inte statisk och över åren hade
           Strand flera anställda. I Schwarzwald är det väl känt att hela
           familjer var delaktiga i produktionen av de kända speluren, ofta med
@@ -372,21 +386,10 @@
           tituleras spelursfabrikör, sägs hans son Johan Samuel vara ”utlärling
           af samma yrke.” Jonas Samuel var 24-åring vid tidpunkten för
           mantalslängden, och var säkert delaktig som boende i hushållet.
-        </p>
+            </figcaption>
+         </Figure>
 
-        <Figure>
-          <Ratio :ratio="4 / 3">
-            <OpenSeadragon
-              :tileSources="[
-                publicPath + 'bygga/Uhrmacherwerkstatt_Schwarzwald_00.dzi',
-              ]"
-            />
-          </Ratio>
-          <figcaption>
-            Scen ur en flöjtursverkstad i Schwarzwald (ca 1825). Källa
-            wikipedia.
-          </figcaption>
-        </Figure>
+        
       </div>
 
       <div class="articletext footnotes">
