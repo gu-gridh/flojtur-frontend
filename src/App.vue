@@ -126,13 +126,18 @@ h2 {
   column-count: 2;
   column-gap: 40px;
   line-height: 1.3;
-  font-weight: 100;
+  font-weight: 300;
 
   @media screen and (max-width: 1100px) {
     column-count: 1;
     font-size: 24px;
   }
 }
+
+@media screen and (min-width: 800px) {
+.articleIngress {
+  font-weight: 100;
+}}
 
 .articletext {
   margin-top: 30px;

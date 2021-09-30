@@ -153,6 +153,9 @@ export default {
   margin: auto;
 }
 
+
+
+
 .IntroItem {
   margin-left: auto;
   margin-right: auto;
@@ -164,9 +167,10 @@ export default {
 
 .articleIngress {
   columns: 1;
-  text-align: center;
   line-height: 1.2;
+  font-weight:300;
 }
+
 
 .links {
   height: auto;
@@ -174,6 +178,7 @@ export default {
   margin-top: 10px;
   margin-bottom: -10px;
   font-size: 25px;
+  font-weight:300;
 }
 
 .ArchiveViewOptions {
@@ -211,6 +216,8 @@ export default {
     }
   }
 }
+
+
 
 #InfoContainer {
   display: flex;
@@ -250,6 +257,7 @@ export default {
   margin-top: 2px;
   margin-left: -10px;
   cursor: pointer;
+    
   transition: all 0.2s ease-in-out;
 }
 
@@ -262,7 +270,7 @@ export default {
   font-size: 25px;
   margin-top: 0px;
   margin-left: 20px;
-  font-weight: 100;
+
 }
 
 #IntroInfoButton {
@@ -272,5 +280,21 @@ export default {
   width: 40px;
   background-image: url(../assets/downbutton.png);
   background-size: 40px 40px;
+}
+
+.container{
+font-weight: 300;
+}
+
+@media screen and (min-width: 800px) {
+.container{
+  font-weight:100;
+}
+.articleIngress {
+ font-weight:100;
+}
+.links {
+ font-weight:100;
+}
 }
 </style>

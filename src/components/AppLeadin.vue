@@ -23,18 +23,19 @@ export default {};
   height: auto;
   margin: 50px auto 30px;
   line-height: 1.2;
-  text-align: center;
+  text-align: justify;
+  font-weight:300;
 }
 
 .first {
-  font-size: 30px;
+  font-size: 26px;
 }
 
 .second {
   font-size: 22px;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 800px) {
   .app-leadin {
     display: flex;
     align-items: center;
@@ -46,6 +47,8 @@ export default {};
     //border-right: 0.5px solid;
     //text-align: right;
     text-align: center;
+    font-weight:100;
+    font-size: 30px;
   }
 
   .second {
