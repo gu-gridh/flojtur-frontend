@@ -320,7 +320,7 @@
         </p>
       
   
-        <table class="span-columns" style="margin-top:80px; ">
+        <table class="span-columns" style="margin-top:50px; ">
           
           <thead>
             <th>Arbetsmoment</th>
@@ -444,4 +444,8 @@ export default {
 </script>
 
 <style>
+table, th, td {
+
+  padding: 5px 30px 0px 0px;
+}
 </style>
