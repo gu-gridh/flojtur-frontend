@@ -318,7 +318,10 @@
           försöker sammanfatta de olika arbetsmomenten och hantverkskompetensen
           utifrån en bedömning av Strands kompetenser.
         </p>
-        <table class="span-columns">
+      
+  
+        <table class="span-columns" style="margin-top:80px; ">
+          
           <thead>
             <th>Arbetsmoment</th>
             <th>Kompetens i verkstaden</th>
@@ -360,7 +363,8 @@
             </tr>
           </tbody>
         </table>
-        <p>
+         
+    <div style="  font-size: smaller;text-align: left;margin-top: 0.75em; column-span: all;">
           Kompetensen i verkstaden var dock inte statisk och över åren hade
           Strand flera anställda. I Schwarzwald är det väl känt att hela
           familjer var delaktiga i produktionen av de kända speluren, ofta med
@@ -368,11 +372,12 @@
           tituleras spelursfabrikör, sägs hans son Johan Samuel vara ”utlärling
           af samma yrke.” Jonas Samuel var 24-åring vid tidpunkten för
           mantalslängden, och var säkert delaktig som boende i hushållet.
-        </p>
-        <p>
-          Bild. Scen ur en flöjtursverkstad i Schwarzwald (ca 1825). Källa
-          wikipedia.
-        </p>
+      </div>
+
+  
+          
+         
+     
       </div>
       <div class="articletext footnotes">
         <hr class="span-columns" />
