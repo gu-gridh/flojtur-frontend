@@ -287,8 +287,8 @@ export default {
   cursor: pointer;
   border-radius: 50%;
   position: absolute;
-  left: calc(20% - 75px);
-  top: calc(20% - 75px);
+  left: 0%;
+  top: 0%;
   transform: translate3d(-50%, -50%, 0);
   z-index: 100;
   transition: all 0.2s ease-in-out;
@@ -309,8 +309,8 @@ export default {
     #button-load {
   height: 150px;
   width: 150px;
-    left: calc(15% - 75px);
-  top: calc(15% - 75px);
+    left: 0%;
+  top: 0%;
   
 }
 #button-load-label {
