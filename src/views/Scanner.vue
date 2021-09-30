@@ -80,14 +80,14 @@
         <Figure>
           <video controls>
             <source
-              :src="publicPath + 'scanner/Plastbit_1.mov'"
-              type="video/quicktime"
+              :src="publicPath + 'scanner/Plastbit_1.webm'"
+              type="video/webm"
             />
           </video>
           <video controls>
             <source
-              :src="publicPath + 'scanner/Plastbit_2.mov'"
-              type="video/quicktime"
+              :src="publicPath + 'scanner/Plastbit_2.webm'"
+              type="video/webm"
             />
           </video>
           <figcaption>
@@ -108,8 +108,8 @@
         <Figure>
           <video controls>
             <source
-              :src="publicPath + 'scanner/Metallarm.mov'"
-              type="video/quicktime"
+              :src="publicPath + 'scanner/Metallarm.webm'"
+              type="video/webm"
             />
           </video>
         </Figure>
