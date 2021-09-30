@@ -33,19 +33,19 @@ const routes = [
     ]
   },
   {
-    path: "/om",
+    path: "/om-forskningsprojektet",
     name: "About",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue")
   },
   {
-    path: "/pehr-strand",
+    path: "/om-pehr-strand",
     name: "Builder",
     component: () =>
       import(/* webpackChunkName: "builder" */ "../views/Builder.vue")
   },
   {
-    path: "/flojtur",
+    path: "/ett-sjalvspelande-flojtur",
     name: "InstrumentAbout",
     component: () =>
       import(
@@ -53,19 +53,19 @@ const routes = [
       )
   },
   {
-    path: "/bygga",
+    path: "/att-bygga-ett-flojtur",
     name: "Construction",
     component: () =>
       import(/* webpackChunkName: "construction" */ "../views/Construction.vue")
   },
   {
-    path: "/stiftvals",
+    path: "/att-programmera-en-stiftvals",
     name: "BarrelAbout",
     component: () =>
       import(/* webpackChunkName: "barrel-about" */ "../views/BarrelAbout.vue")
   },
   {
-    path: "/valslasare",
+    path: "/en-optisk-valslasare",
     name: "Scanner",
     component: () =>
       import(/* webpackChunkName: "scanner" */ "../views/Scanner.vue")
