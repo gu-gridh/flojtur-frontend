@@ -318,53 +318,53 @@
           försöker sammanfatta de olika arbetsmomenten och hantverkskompetensen
           utifrån en bedömning av Strands kompetenser.
         </p>
-      
-  
-        <table class="span-columns" style="margin-top:50px; ">
-          
-          <thead>
-            <th>Arbetsmoment</th>
-            <th>Kompetens i verkstaden</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td>spelmekanik</td>
-              <td>ja</td>
-            </tr>
-            <tr>
-              <td>orgel</td>
-              <td>ja</td>
-            </tr>
-            <tr>
-              <td>stiftvalsprogrammering</td>
-              <td>oklart, två olika programmeringsmetoder förekommer</td>
-            </tr>
-            <tr>
-              <td>urverk</td>
-              <td>
-                ja, men inte tillåtet inledningsvis, urverk i delar fanns även
-                till salu
-              </td>
-            </tr>
-            <tr>
-              <td>urfodral</td>
-              <td>ja</td>
-            </tr>
-            <tr>
-              <td>bildhuggeri</td>
-              <td>ja, men även kopplingar till Masreliez och Ljung</td>
-            </tr>
-            <tr>
-              <td>bemålning</td>
-              <td>
-                ja enklare, men kineserier troligen av en expert som Jonas
-                Klefverström (verksam 1774–94)
-              </td>
-            </tr>
-          </tbody>
-        </table>
-         
-    <div style="  font-size: smaller;text-align: left;margin-top: 0.75em; column-span: all;">
+
+        <Figure class="span-columns">
+          <table>
+            <thead>
+              <th>Arbetsmoment</th>
+              <th>Kompetens i verkstaden</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>spelmekanik</td>
+                <td>ja</td>
+              </tr>
+              <tr>
+                <td>orgel</td>
+                <td>ja</td>
+              </tr>
+              <tr>
+                <td>stiftvals&shy;programmering</td>
+                <td>oklart, två olika programmeringsmetoder förekommer</td>
+              </tr>
+              <tr>
+                <td>urverk</td>
+                <td>
+                  ja, men inte tillåtet inledningsvis, urverk i delar fanns även
+                  till salu
+                </td>
+              </tr>
+              <tr>
+                <td>urfodral</td>
+                <td>ja</td>
+              </tr>
+              <tr>
+                <td>bildhuggeri</td>
+                <td>ja, men även kopplingar till Masreliez och Ljung</td>
+              </tr>
+              <tr>
+                <td>bemålning</td>
+                <td>
+                  ja enklare, men kineserier troligen av en expert som Jonas
+                  Klefverström (verksam 1774–94)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </Figure>
+
+        <p>
           Kompetensen i verkstaden var dock inte statisk och över åren hade
           Strand flera anställda. I Schwarzwald är det väl känt att hela
           familjer var delaktiga i produktionen av de kända speluren, ofta med
@@ -372,13 +372,23 @@
           tituleras spelursfabrikör, sägs hans son Johan Samuel vara ”utlärling
           af samma yrke.” Jonas Samuel var 24-åring vid tidpunkten för
           mantalslängden, och var säkert delaktig som boende i hushållet.
+        </p>
+
+        <Figure>
+          <Ratio :ratio="4 / 3">
+            <OpenSeadragon
+              :tileSources="[
+                publicPath + 'bygga/Uhrmacherwerkstatt_Schwarzwald_00.dzi',
+              ]"
+            />
+          </Ratio>
+          <figcaption>
+            Scen ur en flöjtursverkstad i Schwarzwald (ca 1825). Källa
+            wikipedia.
+          </figcaption>
+        </Figure>
       </div>
 
-  
-          
-         
-     
-      </div>
       <div class="articletext footnotes">
         <hr class="span-columns" />
         <p>
@@ -443,9 +453,12 @@ export default {
 };
 </script>
 
-<style>
-table, th, td {
-
+<style scoped>
+table {
+  text-align: left;
+}
+th,
+td {
   padding: 5px 30px 0px 0px;
 }
 </style>
