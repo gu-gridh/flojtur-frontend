@@ -191,7 +191,7 @@
           skulpterade ansikten i ytterkant med en liggande triangel däremellan.
         </p>
         <Figure>
-          <Ratio :ratio="2 / 3">
+          <Ratio :ratio="2 / 3.5">
             <OpenSeadragon
               :tileSources="[publicPath + 'bygga/Ljungbyuret_Img0109.dzi']"
             />
