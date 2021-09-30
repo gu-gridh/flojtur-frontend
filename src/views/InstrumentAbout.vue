@@ -92,6 +92,12 @@
               ar-status="not-presenting"
             >
               <div id="lazy-load-poster" slot="poster"></div>
+              <div id="button-load" slot="poster">
+      <div id="button-load-label">
+        Klicka här <br />
+        för att ladda in modellen
+      </div>
+    </div>
             </model-viewer>
           </Ratio>
           <figcaption>
@@ -275,14 +281,14 @@ export default {
 
 #button-load {
   background-color: rgba(255, 255, 255, 0.8);
-  height: 150px;
-  width: 150px;
+  height: 110px;
+  width: 110px;
   color: white;
   cursor: pointer;
   border-radius: 50%;
   position: absolute;
-  left: calc(50% - 75px);
-  top: calc(50% - 75px);
+  left: calc(20% - 75px);
+  top: calc(20% - 75px);
   transform: translate3d(-50%, -50%, 0);
   z-index: 100;
   transition: all 0.2s ease-in-out;
@@ -292,11 +298,29 @@ export default {
 #button-load-label {
   color: black;
   padding: 10px;
-  font-size: 22px;
+  font-size: 18px;
+  line-height:1.1;
   text-align: center;
   font-weight: 300;
   margin-top: 17%;
 }
+
+  @media screen and (max-width: 1100px) {
+    #button-load {
+  height: 150px;
+  width: 150px;
+    left: calc(15% - 75px);
+  top: calc(15% - 75px);
+  
+}
+#button-load-label {
+  color: black;
+  padding: 10px;
+  font-size: 24px;
+  line-height:1.1;
+
+}
+  }
 
 @keyframes pulse {
   0% {
