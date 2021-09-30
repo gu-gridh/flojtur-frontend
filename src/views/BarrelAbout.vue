@@ -116,10 +116,19 @@
         </p>
 
         <Figure>
-          <Ratio>
+          <Ratio :ratio="4 / 5">
             <OpenSeadragon
               :tileSources="[
                 publicPath + 'barrel/Aspelind_1731_s11_NLS14A019060_17.dzi',
+              ]"
+            />
+          </Ratio>
+          <Ratio :ratio="4936 / 1132">
+            <OpenSeadragon :src="publicPath + 'barrel/Aspelind_s11.png'" />
+          </Ratio>
+          <Ratio :ratio="3 / 2">
+            <OpenSeadragon
+              :tileSources="[
                 publicPath + 'barrel/Aspelind_1731_s13utv_NLS14A019060_19.dzi',
                 publicPath + 'barrel/Utvik_Aspelind-Celsius_s13_71070.dzi',
               ]"
