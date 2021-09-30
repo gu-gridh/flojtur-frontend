@@ -248,7 +248,7 @@
           </figcaption>
         </Figure>
 
-        <h2 class="span-columns">
+        <h2 class="span-columns" style="margin-top:100px;">
           Specifikationer på valsläsarens hård- och mjukvara
         </h2>
 
