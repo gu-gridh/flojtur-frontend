@@ -88,8 +88,8 @@
           <Ratio :ratio="2 / 3">
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'barrel/kircher1650bd2-0320.dzi',
-                publicPath + 'barrel/kircher1650bd2-0322.dzi',
+                publicPath + 'barrel/kircher1650bd2_0320.dzi',
+                publicPath + 'barrel/kircher1650bd2_0322.dzi',
               ]"
             />
           </Ratio>
@@ -121,6 +121,7 @@
               :tileSources="[
                 publicPath + 'barrel/Aspelind_1731_s11_NLS14A019060_17.dzi',
                 publicPath + 'barrel/Aspelind_1731_s13utv_NLS14A019060_19.dzi',
+                publicPath + 'barrel/Utvik_Aspelind-Celsius_s13_71070.dzi',
               ]"
             />
           </Ratio>
