@@ -113,7 +113,7 @@
             />
           </video>
         </Figure>
-        <h2 class="span-columns" style="margin-top:100px;">Konstruktionen</h2>
+        <h2 class="span-columns">Konstruktionen</h2>
         <Figure>
           <Ratio :ratio="3 / 2">
             <OpenSeadragon
@@ -243,12 +243,13 @@
         </Figure>
 
         <Figure>
+          <PlayButton default-sound />
           <figcaption>
-            WAV-fil med samplat orgelljud ur Logics ljudbibliotek
+            MP3-fil med samplat orgelljud ur Logics ljudbibliotek
           </figcaption>
         </Figure>
 
-        <h2 class="span-columns" style="margin-top:100px;">
+        <h2 class="span-columns">
           Specifikationer på valsläsarens hård- och mjukvara
         </h2>
 
@@ -299,9 +300,10 @@ import Title from "@/components/Title.vue";
 import Figure from "@/components/Figure.vue";
 import Ratio from "@/components/Ratio.vue";
 import OpenSeadragon from "@/components/OpenSeadragon.vue";
+import PlayButton from "@/components/PlayButton.vue";
 
 export default {
-  components: { Title, Figure, Ratio, OpenSeadragon },
+  components: { Title, Figure, Ratio, OpenSeadragon, PlayButton },
   computed: {
     publicPath: () => process.env.BASE_URL,
   },

@@ -71,18 +71,18 @@ h2 {
   background-position: center;
   z-index: 2000;
   padding: 5px;
-  margin-top:-5px;
+  margin-top: -5px;
 
   @media screen and (max-width: 950px) {
     left: 20px;
-   
+
     height: 40px;
     width: 40px;
     background-size: 30px 30px;
   }
   @media screen and (max-width: 800px) {
     position: static;
-     float: none;
+    float: none;
     margin: 0;
     padding: 0;
 
@@ -188,6 +188,9 @@ h2 {
   }
   .articletext {
     columns: 17em;
+  }
+  h2.span-columns {
+    margin-top: 100px;
   }
 }
 
