@@ -44,11 +44,20 @@ $gap: 50px;
   margin-top: 40px;
   margin-left: -$gap;
 }
+
 .MetaContainerShort {
   float: left;
   margin-left: $gap;
-  font-weight: 100;
+  font-weight: 300;
   line-height: 1.5;
+}
+
+@media screen and (min-width: 800px) {
+.MetaContainerShort {
+
+  font-weight: 100;
+
+}
 }
 
 .item {
