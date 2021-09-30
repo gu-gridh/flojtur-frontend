@@ -60,7 +60,7 @@
           värde för de svenska förhållandena.
         </p>
         <Figure>
-          <Ratio>
+          <Ratio :ratio="2 / 1.7">
             <OpenSeadragon
               :tileSources="[
                 publicPath + 'bygga/Sprengel_1794_2uppl_sIMG_4151.dzi',
