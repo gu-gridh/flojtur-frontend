@@ -113,7 +113,7 @@
             />
           </video>
         </Figure>
-        <h2 class="span-columns">Konstruktionen</h2>
+        <h2 class="span-columns" style="margin-top:100px;">Konstruktionen</h2>
         <Figure>
           <Ratio :ratio="3 / 2">
             <OpenSeadragon
