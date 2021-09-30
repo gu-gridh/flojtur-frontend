@@ -4,7 +4,7 @@
     <article class="articleContainer">
       <router-link to="/#menu-model" tag="div" id="ItemBack" />
 
-      <h1>En optisk valsl&auml;sare</h1>
+      <h1>En optisk valsläsare</h1>
       <div class="articleIngress">
         <p>
           Flera av Strands flöjtur är idag museiföremål och många är inte i
@@ -78,7 +78,18 @@
           stiften och anläggningsvinkel testades.
         </p>
         <Figure>
-          <div>[FILM: Plastbit 1] [FILM: Plastbit 2]</div>
+          <video controls>
+            <source
+              :src="publicPath + 'scanner/Plastbit_1.mov'"
+              type="video/quicktime"
+            />
+          </video>
+          <video controls>
+            <source
+              :src="publicPath + 'scanner/Plastbit_2.mov'"
+              type="video/quicktime"
+            />
+          </video>
           <figcaption>
             Filmerna visar en avläsning med de två olika plastbitarna på samma
             stiftvals och samma passage. De fyra sista stiften och byglarna är
@@ -94,10 +105,23 @@
           den automatiska funktionen för kvantisering. Inställningen sattes till
           notvärdet 1/8.
         </p>
-        <Figure>[FILM: Samma passage som ovan med metallarm.]</Figure>
+        <Figure>
+          <video controls>
+            <source
+              :src="publicPath + 'scanner/Metallarm.mov'"
+              type="video/quicktime"
+            />
+          </video>
+        </Figure>
         <h2 class="span-columns">Konstruktionen</h2>
         <Figure>
-          <div>[BILD: Principskiss_valsläsare.pdf]</div>
+          <Ratio :ratio="3 / 2">
+            <OpenSeadragon
+              :tileSources="[
+                publicPath + 'scanner/Principskiss_valslaesare.dzi',
+              ]"
+            />
+          </Ratio>
           <figcaption>
             Principskiss till valsläsarens konstruktion. En stegmotor roterar
             valsen och en annan stegmotor flyttar lasergivaren i sidled. En
@@ -110,7 +134,17 @@
           </figcaption>
         </Figure>
         <Figure>
-          <div>[5 bilder: Valslaesare_1_DSC_0542 …Valslaesare_5_DSC_0552]</div>
+          <Ratio :ratio="3 / 2">
+            <OpenSeadragon
+              :tileSources="[
+                publicPath + 'scanner/Valslaesare_1_DSC_0542.dzi',
+                publicPath + 'scanner/Valslaesare_2_DSC_0543.dzi',
+                publicPath + 'scanner/Valslaesare_3_DSC_0544.dzi',
+                publicPath + 'scanner/Valslaesare_4_DSC_0545.dzi',
+                publicPath + 'scanner/Valslaesare_5_DSC_0546.dzi',
+              ]"
+            />
+          </Ratio>
           <figcaption>
             Överst ser vi den färdiga valsläsaren, med en bärbar dator för
             insamling av mätdata. Den vita skivan ovanför stiftvalsen är till
@@ -118,7 +152,11 @@
           </figcaption>
         </Figure>
         <Figure>
-          <div>[Bild Valslaesare_6_DSC_0547]</div>
+          <Ratio :ratio="3 / 2">
+            <OpenSeadragon
+              :tileSources="[publicPath + 'scanner/Valslaesare_6_DSC_0547.dzi']"
+            />
+          </Ratio>
           <figcaption>
             Panel för positionering och start av läsare. Från vänster: summer
             av/på; positionering av lasergivare vänster/höger; brytare för start
@@ -126,14 +164,22 @@
           </figcaption>
         </Figure>
         <Figure>
-          <div>[Bild Valslaesare_7_DSC_0551]</div>
+          <Ratio :ratio="3 / 2">
+            <OpenSeadragon
+              :tileSources="[publicPath + 'scanner/Valslaesare_7_DSC_0551.dzi']"
+            />
+          </Ratio>
           <figcaption>
             USB-ingång. Från vänster: insamling av mätdata; inställning av
             respektive stegmotor.
           </figcaption>
         </Figure>
         <Figure>
-          <div>Bild Valslaesare_8_DSC_0552]</div>
+          <Ratio :ratio="3 / 2">
+            <OpenSeadragon
+              :tileSources="[publicPath + 'scanner/Valslaesare_8_DSC_0552.dzi']"
+            />
+          </Ratio>
           <figcaption>
             Väska med hjul och teleskophandtag för transport av valsläsare.
           </figcaption>
@@ -147,9 +193,15 @@
           med mjukvaran DAQExpress, National Instruments.
         </p>
         <Figure>
-          <div>[Bild: Skärmdump från Excel]</div>
-          <div>[Skärmdump från Ementool]</div>
-          <div>[Skärmdump från DAQExpress]</div>
+          <Ratio :ratio="16 / 9">
+            <OpenSeadragon
+              :tileSources="[
+                publicPath + 'scanner/Bild_Excel.dzi',
+                publicPath + 'scanner/Bild_Ementool.dzi',
+                publicPath + 'scanner/Bild_DAQExpress.dzi',
+              ]"
+            />
+          </Ratio>
         </Figure>
         <p>
           Nedan följer exempelfiler från mätningen som gjordes för den ljudfil
@@ -159,21 +211,47 @@
           toner med stift (data), av ett totalt tonomfång i orgel om 27 toner,
           som sedan skulle korreleras enligt specifikationen för en MIDI-fil.
         </p>
-        <pre>
-          [FILER:
-CSVfil ur DAQExpress;
-Bearbetad CSVfil för slutlig samordning i databasen; 
-CSV-output ur databasen, 
-MIDIFIL konverterad med CSVMIDI
-        </pre>
+
+        <ul>
+          <li>
+            <a :href="publicPath + 'scanner/DAQ_CSV.csv'">
+              CSVfil ur DAQExpress
+            </a>
+          </li>
+          <li>
+            <a :href="publicPath + 'scanner/Bearb_CSV.csv'">
+              Bearbetad CSVfil för slutlig samordning i databasen
+            </a>
+          </li>
+          <li>
+            <a :href="publicPath + 'scanner/Databas_out_CSV.csv'">
+              CSV-output ur databasen
+            </a>
+          </li>
+          <li>
+            <a :href="publicPath + 'scanner/Konv_MID.mid'">
+              MIDIFIL konverterad med CSVMIDI
+            </a>
+          </li>
+        </ul>
+
         <Figure>
-          <div>Bild: Skärmdump Logic</div>
+          <Ratio :ratio="16 / 9">
+            <OpenSeadragon :src="publicPath + 'scanner/Bild_Logic.png'" />
+          </Ratio>
           <figcaption>MIDI-filen importerad i Logic.</figcaption>
         </Figure>
-        <pre>Waw-fil med samplat orgelljud ur Logics ljudbibliotek]</pre>
+
+        <Figure>
+          <figcaption>
+            WAV-fil med samplat orgelljud ur Logics ljudbibliotek
+          </figcaption>
+        </Figure>
+
         <h2 class="span-columns">
           Specifikationer på valsläsarens hård- och mjukvara
         </h2>
+
         <div style="break-inside: avoid">
           <p>Hårdvara:</p>
           <ul>
@@ -217,13 +295,21 @@ MIDIFIL konverterad med CSVMIDI
 </template>
 
 <script>
-import Figure from "@/components/Figure.vue";
 import Title from "@/components/Title.vue";
+import Figure from "@/components/Figure.vue";
+import Ratio from "@/components/Ratio.vue";
+import OpenSeadragon from "@/components/OpenSeadragon.vue";
 
 export default {
-  components: { Title, Figure },
+  components: { Title, Figure, Ratio, OpenSeadragon },
+  computed: {
+    publicPath: () => process.env.BASE_URL,
+  },
 };
 </script>
 
 <style>
+video {
+  width: 100%;
+}
 </style>
