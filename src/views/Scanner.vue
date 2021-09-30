@@ -113,6 +113,9 @@
             />
           </video>
         </Figure>
+      </div>
+
+      <div class="articletext">
         <h2 class="span-columns">Konstruktionen</h2>
         <Figure>
           <Ratio :ratio="3 / 2">
@@ -254,7 +257,9 @@
             MP3-fil med samplat orgelljud ur Logics ljudbibliotek
           </figcaption>
         </Figure>
+      </div>
 
+      <div class="articletext">
         <h2 class="span-columns">
           Specifikationer på valsläsarens hård- och mjukvara
         </h2>
