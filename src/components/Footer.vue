@@ -6,7 +6,11 @@
           <div id="IntroInfoButton"></div>
           <div id="IntroInfoLabel">Startsidan</div>
         </router-link>
-        <router-link to="/om" tag="div" class="IntroInfoContainer">
+        <router-link
+          to="/om-forskningsprojektet"
+          tag="div"
+          class="IntroInfoContainer"
+        >
           <div id="IntroInfoButton"></div>
           <div id="IntroInfoLabel">Om forskningsprojektet</div>
         </router-link>
@@ -14,9 +18,9 @@
 
       <div class="CitateContainer">
         <div>
-          Norrback, J. (2021). <em>Pehr Strands flöjtur</em>. Centrum för digital
-          humaniora, Göteborgs universitet. https://strand.dh.gu.se/ (version
-          1).
+          Norrback, J. (2021). <em>Pehr Strands flöjtur</em>. Centrum för
+          digital humaniora, Göteborgs universitet. https://strand.dh.gu.se/
+          (version 1).
         </div>
 
         <div style="padding-top: 0.8rem">
