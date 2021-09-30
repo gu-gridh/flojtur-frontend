@@ -303,14 +303,25 @@ export default {
 
 @media screen and (max-width: 800px) {
   .cardMiniImage {
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
   }
   .cardInfoObjectTitle {
-    font-size: 130%;
+    font-size: 150%;
+    width: 100%;
+      margin-left:-20px;
   }
   .cardInfoObject.secondary {
     display: none;
   }
+
+  .cardInfo {
+  font-size: 110%;
+  -webkit-text-size-adjust: 80%;
+
+}
+.cardInfoObject {
+  margin-left:0px;
+}
 }
 </style>
