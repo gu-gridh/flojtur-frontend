@@ -196,9 +196,15 @@
           <Ratio :ratio="16 / 9">
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'scanner/Bild_Excel.dzi',
-                publicPath + 'scanner/Bild_Ementool.dzi',
-                publicPath + 'scanner/Bild_DAQExpress.dzi',
+                { type: 'image', url: publicPath + 'scanner/Bild_Excel.png' },
+                {
+                  type: 'image',
+                  url: publicPath + 'scanner/Bild_Ementool.png',
+                },
+                {
+                  type: 'image',
+                  url: publicPath + 'scanner/Bild_DAQExpress.png',
+                },
               ]"
             />
           </Ratio>
