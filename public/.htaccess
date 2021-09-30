@@ -1,8 +1,3 @@
-AuthType Basic
-AuthName "Pehr Strands spelur"
-AuthUserFile "/var/www/htpasswd"
-Require valid-user
-
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
