@@ -35,10 +35,10 @@
         </p>
 
         <Figure>
-          <Ratio :ratio="2 / 3">
+          <Ratio :ratio="3 / 5">
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'barrel/Engramelle_La_Tonotechnie.dzi',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Engramelle_La_Tonotechnie.tif/info.json',
               ]"
             />
           </Ratio>
@@ -88,8 +88,8 @@
           <Ratio :ratio="2 / 3">
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'barrel/kircher1650bd2_0320.dzi',
-                publicPath + 'barrel/kircher1650bd2_0322.dzi',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/kircher1650bd2_0320.jpg/info.json',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/kircher1650bd2_0322.jpg/info.json',
               ]"
             />
           </Ratio>
@@ -130,7 +130,7 @@
             <OpenSeadragon
               :tileSources="[
                 publicPath + 'barrel/Aspelind_1731_s13utv_NLS14A019060_19.dzi',
-                publicPath + 'barrel/Utvik_Aspelind-Celsius_s13_71070.dzi',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Utvik_Aspelind-Celsius_s13_71070.jpg/info.json',
               ]"
             />
           </Ratio>
@@ -165,7 +165,11 @@
         </Figure>
 
         <Figure>
-          <img :src="publicPath + 'barrel/Aspelind_utvik_Logic.png'" />
+          <Ratio :ratio="16 / 9">
+            <OpenSeadragon
+              :src="publicPath + 'barrel/Aspelind_utvik_Logic.png'"
+            />
+          </Ratio>
           <figcaption>
             Transkriptionen av utviket i Logic Pro i vyn Piano Roll. Pilarna
             anger felen.
@@ -192,7 +196,7 @@
           <Ratio :ratio="3 / 2">
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'barrel/Pappersrester_KVHAA_4980.dzi',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Pappersrester_KVHAA_4980.jpg/info.json',
               ]"
             />
           </Ratio>
@@ -273,7 +277,9 @@
         <Figure>
           <Ratio :ratio="4 / 3">
             <OpenSeadragon
-              :tileSources="[publicPath + 'barrel/Tidsindelning_IMG_3765.dzi']"
+              :tileSources="[
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Tidsindelning_IMG_3765.tiff/info.json',
+              ]"
             />
           </Ratio>
           <figcaption>
@@ -294,10 +300,10 @@
           <Ratio :ratio="4 / 3">
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'barrel/Taktnumrering_IMG_3766.dzi',
-                publicPath + 'barrel/Anfang_priv_IMG_3763.dzi',
-                publicPath + 'barrel/Ende_priv_IMG_3764.dzi',
-                publicPath + 'barrel/Anfang_Skärvauret_NM_DSC_7769.dzi',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Taktnumrering_IMG_3766.tiff/info.json',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Anfang_priv_IMG_3763.tiff/info.json',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Ende_priv_IMG_3764.tiff/info.json',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Anfang_Skarvauret_NM_DSC_7769.jpg/info.json',
               ]"
             />
           </Ratio>
@@ -316,7 +322,9 @@
         <Figure>
           <Ratio :ratio="3 / 4">
             <OpenSeadragon
-              :tileSources="[publicPath + 'barrel/Verktygsspaar_IMG_3770.dzi']"
+              :tileSources="[
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Verktygsspaar_IMG_3770.tiff/info.json',
+              ]"
             />
           </Ratio>
           <figcaption>
@@ -328,8 +336,8 @@
           <Ratio :ratio="2 / 3">
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'barrel/Bedos_Lart_v4_51_002.dzi',
-                publicPath + 'barrel/Bedos_Lart_v4_53_003.dzi',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Bedos_Lart_v4_51_002.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Bedos_Lart_v4_53_003.tif/info.json',
               ]"
             />
           </Ratio>
@@ -352,7 +360,7 @@
           <Ratio :ratio="3 / 2">
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'barrel/Slaepspaar_GMH_GM5464_0425.dzi',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Slaepspaar_GMH_GM5464_0425.jpg/info.json',
               ]"
             />
           </Ratio>
