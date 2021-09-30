@@ -60,14 +60,14 @@
           värde för de svenska förhållandena.
         </p>
         <Figure>
-          <Square>
+          <Ratio>
             <OpenSeadragon
               :tileSources="[
                 publicPath + 'bygga/Sprengel_1794_2uppl_sIMG_4151.dzi',
               ]"
               :cover="false"
             />
-          </Square>
+          </Ratio>
           <figcaption>
             Plansch ur P. N. Sprengels <em>Handwerke</em> med ett flöjtur nere
             till vänster, uppe till höger ett dulcimerur, och däremellan olika
@@ -155,14 +155,14 @@
           sockeln på golvuret. I det senare fallet är sockeln märkbart större.
         </p>
         <Figure>
-          <Square>
+          <Ratio :ratio="2 / 3">
             <OpenSeadragon
               :tileSources="[
                 publicPath + 'bygga/Bremerska_uret_DSC_1432.dzi',
                 publicPath + 'bygga/Alingsaasuret_fodral_DSC_6983.dzi',
               ]"
             />
-          </Square>
+          </Ratio>
           <figcaption>
             <router-link :to="{ name: 'InstrumentPage', params: { id: 1 } }"
               >Bremerska uret</router-link
@@ -191,11 +191,11 @@
           skulpterade ansikten i ytterkant med en liggande triangel däremellan.
         </p>
         <Figure>
-          <Square>
+          <Ratio :ratio="2 / 3">
             <OpenSeadragon
               :tileSources="[publicPath + 'bygga/Ljungbyuret_Img0109.dzi']"
             />
-          </Square>
+          </Ratio>
           <figcaption>
             <router-link :to="{ name: 'InstrumentPage', params: { id: 22 } }"
               >Ljungbyuret</router-link
@@ -256,13 +256,13 @@
         </p>
 
         <Figure>
-          <Square>
+          <Ratio :ratio="2 / 3">
             <OpenSeadragon
               :tileSources="[
                 'https://img.dh.gu.se/flojtur/pyr/003_masreliez_gen_Sthlm_KB_Ritning_Masreliez.tif/info.json',
               ]"
             />
-          </Square>
+          </Ratio>
           <figcaption>Ritning av Louis Masreliez till flöjtur.</figcaption>
         </Figure>
 
@@ -276,7 +276,7 @@
         </p>
 
         <Figure>
-          <Square>
+          <Ratio :ratio="3 / 2">
             <OpenSeadragon
               :tileSources="[
                 publicPath + 'bygga/Gustavianska_uret_SMF_0090.dzi',
@@ -284,7 +284,7 @@
                 publicPath + 'bygga/Alingsaasuret_urtavla_DSC_6923.dzi',
               ]"
             />
-          </Square>
+          </Ratio>
           <figcaption>
             Urtavlorna på det
             <router-link :to="{ name: 'InstrumentPage', params: { id: 12 } }"
@@ -427,11 +427,11 @@
 import Title from "@/components/Title.vue";
 import Figure from "@/components/Figure.vue";
 import OpenSeadragon from "@/components/OpenSeadragon.vue";
-import Square from "@/components/Square.vue";
 import UrlLink from "@/components/UrlLink.vue";
+import Ratio from "@/components/Ratio.vue";
 
 export default {
-  components: { Title, Figure, Square, OpenSeadragon, UrlLink },
+  components: { Title, Figure, Ratio, OpenSeadragon, UrlLink },
   computed: {
     publicPath: () => process.env.BASE_URL,
   },

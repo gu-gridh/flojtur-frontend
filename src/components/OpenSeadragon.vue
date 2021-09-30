@@ -59,3 +59,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.osd {
+  cursor: zoom-in;
+}
+</style>

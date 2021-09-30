@@ -35,13 +35,13 @@
         </p>
 
         <Figure>
-          <Square>
+          <Ratio :ratio="2 / 3">
             <OpenSeadragon
               :tileSources="[
                 publicPath + 'barrel/Engramelle_La_Tonotechnie.dzi',
               ]"
             />
-          </Square>
+          </Ratio>
           <figcaption>
             Gravyr ur Engramelles bok
             <em>La Tonotechnie ou L’Art Denoter Les Cylindres</em> (Paris: P. M.
@@ -85,14 +85,14 @@
         </p>
 
         <Figure>
-          <Square>
+          <Ratio :ratio="2 / 3">
             <OpenSeadragon
               :tileSources="[
                 publicPath + 'barrel/kircher1650bd2-0320.dzi',
                 publicPath + 'barrel/kircher1650bd2-0322.dzi',
               ]"
             />
-          </Square>
+          </Ratio>
           <figcaption>
             Exempel på musik transkriberad till papper för en vals. Ur
             Athanasius Kircher, <em>Musurgia Universalis</em>, vol. 2 (1650), s.
@@ -116,14 +116,14 @@
         </p>
 
         <Figure>
-          <Square>
+          <Ratio>
             <OpenSeadragon
               :tileSources="[
                 publicPath + 'barrel/Aspelind_1731_s11_NLS14A019060_17.dzi',
                 publicPath + 'barrel/Aspelind_1731_s13utv_NLS14A019060_19.dzi',
               ]"
             />
-          </Square>
+          </Ratio>
           <figcaption>
             Ur <em>Disputatio mechanica</em>, början av psalmmelodin till ”Far
             thin weg thu arga werld”, nr 271 i psalmboken 1697, samt
@@ -179,13 +179,13 @@
         </p>
 
         <Figure>
-          <Square>
+          <Ratio :ratio="3 / 2">
             <OpenSeadragon
               :tileSources="[
                 publicPath + 'barrel/Pappersrester_KVHAA_4980.dzi',
               ]"
             />
-          </Square>
+          </Ratio>
           <figcaption>
             En stiftvals till Kungl. Vitterhetsakademiens spelur, med rester av
             papper under några stift.
@@ -261,11 +261,11 @@
         </p>
 
         <Figure>
-          <Square>
+          <Ratio :ratio="4 / 3">
             <OpenSeadragon
               :tileSources="[publicPath + 'barrel/Tidsindelning_IMG_3765.dzi']"
             />
-          </Square>
+          </Ratio>
           <figcaption>
             Markeringar för tidsindelningen gjorda med en vass spets runt hela
             valsen.
@@ -281,16 +281,16 @@
         </p>
 
         <Figure>
-          <Square>
+          <Ratio :ratio="4 / 3">
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'barrel/Taktnumrering_IMG_3766.tiff.dzi',
+                publicPath + 'barrel/Taktnumrering_IMG_3766.dzi',
                 publicPath + 'barrel/Anfang_priv_IMG_3763.dzi',
                 publicPath + 'barrel/Ende_priv_IMG_3764.dzi',
                 publicPath + 'barrel/Anfang_Skärvauret_NM_DSC_7769.dzi',
               ]"
             />
-          </Square>
+          </Ratio>
           <figcaption>
             Exempel på takternumrering och texten Anfang och Ende på två olika
             stiftvalsar till olika flöjtur.
@@ -304,25 +304,25 @@
         </p>
 
         <Figure>
-          <Square>
+          <Ratio :ratio="3 / 4">
             <OpenSeadragon
               :tileSources="[publicPath + 'barrel/Verktygsspaar_IMG_3770.dzi']"
             />
-          </Square>
+          </Ratio>
           <figcaption>
             Spår av verktyg för placering, eller höjdjustering, av stiften.
           </figcaption>
         </Figure>
 
         <Figure>
-          <Square>
+          <Ratio :ratio="2 / 3">
             <OpenSeadragon
               :tileSources="[
                 publicPath + 'barrel/Bedos_Lart_v4_51_002.dzi',
                 publicPath + 'barrel/Bedos_Lart_v4_53_003.dzi',
               ]"
             />
-          </Square>
+          </Ratio>
           <figcaption>
             Exempel på verktyg som behövs för stiftning av valsar enligt Dom
             Bédos <em>L’art du facteur d’orgues</em> från 1778, band 4,
@@ -339,14 +339,13 @@
         </p>
 
         <Figure>
-          <Square>
+          <Ratio :ratio="3 / 2">
             <OpenSeadragon
               :tileSources="[
                 publicPath + 'barrel/Slaepspaar_GMH_GM5464_0425.dzi',
               ]"
             />
-          </Square>
-          <figcaption></figcaption>
+          </Ratio>
         </Figure>
 
         <p>
@@ -462,13 +461,13 @@
 <script>
 import Title from "@/components/Title.vue";
 import Figure from "@/components/Figure.vue";
-import Square from "@/components/Square.vue";
+import Ratio from "@/components/Ratio.vue";
 import OpenSeadragon from "@/components/OpenSeadragon.vue";
 import PlayButton from "@/components/PlayButton.vue";
 import UrlLink from "@/components/UrlLink.vue";
 
 export default {
-  components: { Title, Figure, Square, OpenSeadragon, PlayButton, UrlLink },
+  components: { Title, Figure, Ratio, OpenSeadragon, PlayButton, UrlLink },
   computed: {
     publicPath: () => process.env.BASE_URL,
   },

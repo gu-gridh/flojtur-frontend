@@ -30,10 +30,6 @@
         </p>
       </div>
       <div class="articletext">
-
-    
-
-
         <p>
           Pehr (Petrus/Petter/Per) Strand föddes i Arnäs församling, strax
           utanför Örnsköldsvik i Ångermanland.<sup>2</sup> Hans födelse och dop
@@ -50,25 +46,21 @@
           föddes 1758, troligen i januari.
         </p>
 
-            <Figure>
-    
-            <img
+        <Figure>
+          <img
             src="@/assets/article/Strand_Leufsta_DSC_1876.jpg"
             alt="Flöjtur"
           />
-     
-          <figcaption>
-            Foto: Johan Norrback. Licens: CC BY-NC 4.0.
-          </figcaption>
+
+          <figcaption>Foto: Johan Norrback. Licens: CC BY-NC 4.0.</figcaption>
         </Figure>
 
         <Figure>
-     
-            <img
+          <img
             src="@/assets/article/Strand_Leufsta_urtavla_DSC_1813.jpg"
             alt="Urtavla"
           />
-    
+
           <figcaption>
             Speluret på Lövstabruks herrgård. Urtavlan signerad ”P; Strand
             Stockholm”. Foto: Johan Norrback. Licens: CC BY-NC 4.0.
@@ -112,21 +104,18 @@
           Henriette, som fortfarande finns i släktens ägo. Att signera urtavlan
           på en liten väggpendyl han själv inte byggt vore förvånande.
         </p>
-           <Figure>
-      
-            <img
-           src="@/assets/article/Strand_Henriettas_pendyl_DSC_2148.jpg"
+        <Figure>
+          <img
+            src="@/assets/article/Strand_Henriettas_pendyl_DSC_2148.jpg"
             alt=""
           />
-       
+
           <figcaption>
             Väggur signerat ”Pehr Strand Stockholm”. Har sannolikt tillhört
             Henriette Löfman, född Strand. Foto: Johan Norrback. Licens: CC
             BY-NC 4.0.
           </figcaption>
         </Figure>
-
-
 
         <p>
           Mindre känt har det varit att Strand även ansökt om och beviljats
@@ -159,20 +148,17 @@
           och klar 1808.<sup>12</sup>
         </p>
 
-               <Figure>
-   
-            <img
-          src="@/assets/article/Strand_Sundals-Ryr_DSC_0211.jpg"
+        <Figure>
+          <img
+            src="@/assets/article/Strand_Sundals-Ryr_DSC_0211.jpg"
             alt="Orgel"
           />
-       
+
           <figcaption>
             Orgeln i Sundal-Ryrs gamla kyrka i Dalsland. Foto: Johan Norrback.
             Licens: CC BY-NC 4.0.
           </figcaption>
         </Figure>
-
-      
 
         <p>
           Ur källorna framträder en bild av lärlingen, sedermera direktören,
@@ -276,11 +262,10 @@
 <script>
 import Title from "@/components/Title.vue";
 import Figure from "@/components/Figure.vue";
-import Square from "@/components/Square.vue";
 import UrlLink from "@/components/UrlLink.vue";
 
 export default {
   name: "Builder",
-  components: { Title, UrlLink, Figure, Square },
+  components: { Title, UrlLink, Figure },
 };
 </script>
