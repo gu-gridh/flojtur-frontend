@@ -169,20 +169,21 @@ export default {
 }
 
 .links {
-  height: 60px;
+  height: auto;
   width: 100%;
   margin-top: 10px;
-  margin-bottom: 30px;
+  margin-bottom: -10px;
   font-size: 25px;
 }
 
 .ArchiveViewOptions {
-  height: 60px;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
   color: black;
   padding: 35px 0 30px 0;
   text-align: center;
+  line-height:2.0;
 
   .links-button {
     width: auto;
@@ -190,6 +191,7 @@ export default {
     transition: all 0.2s ease-in-out;
     border-radius: 8px 10px 8px 10px;
     padding: 10px;
+ 
 
     @media screen and (min-width: 800px) {
       margin-inline: 30px;
