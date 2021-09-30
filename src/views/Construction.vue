@@ -2,7 +2,7 @@
   <div class="articlepage">
     <Title />
     <article class="articleContainer">
-      <router-link to="/" tag="div" id="ItemBack" />
+      <router-link to="/#menu-model" tag="div" id="ItemBack" />
 
       <h1>Att bygga ett flöjtur</h1>
       <div class="articleIngress">
@@ -333,7 +333,7 @@
           </figcaption>
         </Figure>
 
-        <Figure class="span-columns" style="margin-top:50px;">
+        <Figure class="span-columns" style="margin-top: 50px">
           <table>
             <thead>
               <th>Arbetsmoment</th>
@@ -376,20 +376,17 @@
               </tr>
             </tbody>
           </table>
-       
 
-        <figcaption>
-          Kompetensen i verkstaden var dock inte statisk och över åren hade
-          Strand flera anställda. I Schwarzwald är det väl känt att hela
-          familjer var delaktiga i produktionen av de kända speluren, ofta med
-          rörliga figurer. I mantalslängden från Stockholm 1810, där Pehr Strand
-          tituleras spelursfabrikör, sägs hans son Johan Samuel vara ”utlärling
-          af samma yrke.” Jonas Samuel var 24-åring vid tidpunkten för
-          mantalslängden, och var säkert delaktig som boende i hushållet.
-            </figcaption>
-         </Figure>
-
-        
+          <figcaption>
+            Kompetensen i verkstaden var dock inte statisk och över åren hade
+            Strand flera anställda. I Schwarzwald är det väl känt att hela
+            familjer var delaktiga i produktionen av de kända speluren, ofta med
+            rörliga figurer. I mantalslängden från Stockholm 1810, där Pehr
+            Strand tituleras spelursfabrikör, sägs hans son Johan Samuel vara
+            ”utlärling af samma yrke.” Jonas Samuel var 24-åring vid tidpunkten
+            för mantalslängden, och var säkert delaktig som boende i hushållet.
+          </figcaption>
+        </Figure>
       </div>
 
       <div class="articletext footnotes">

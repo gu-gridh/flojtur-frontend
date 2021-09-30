@@ -3,7 +3,7 @@
     <Title />
 
     <article class="articleContainer">
-      <router-link to="/" tag="div" id="ItemBack" />
+      <router-link to="/#menu-model" tag="div" id="ItemBack" />
 
       <h1>Om Pehr Strand</h1>
       <div class="articleIngress">
