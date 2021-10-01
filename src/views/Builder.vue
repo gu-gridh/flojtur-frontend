@@ -7,11 +7,6 @@
 
       <h1>Om Pehr Strand</h1>
       <div class="articleIngress">
-        <p>
-          <em>Orgel- och spelursbyggaren Pehr Strand</em> (publicerad i
-          <em>1700-tal: Nordic Journal for Eighteenth-Century Studies</em>
-          hösten 2021)
-        </p>
         <blockquote>
           ”Herr Strand är en märkelig Instrumentmakare, som nu (d. 1 Febr. 1797)
           redan förfärdigat 14 Spel-Ur, de flesta efter Berlinske Methoden,
