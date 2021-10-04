@@ -63,7 +63,7 @@
           <Ratio :ratio="2 / 1.7">
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'bygga/Sprengel_1794_2uppl_sIMG_4151.dzi',
+                'https://img.dh.gu.se/flojtur/article/construction/pyr/Sprengel_1794_2uppl_sIMG_4151.tif/info.json',
               ]"
               :cover="false"
             />
@@ -158,8 +158,8 @@
           <Ratio :ratio="2 / 3">
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'bygga/Bremerska_uret_DSC_1432.dzi',
-                publicPath + 'bygga/Alingsaasuret_fodral_DSC_6983.dzi',
+                'https://img.dh.gu.se/flojtur/article/construction/pyr/Bremerska_uret_DSC_1432.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/construction/pyr/Alingsaasuret_fodral_DSC_6983.tif/info.json',
               ]"
             />
           </Ratio>
@@ -193,7 +193,9 @@
         <Figure>
           <Ratio :ratio="2 / 3.5">
             <OpenSeadragon
-              :tileSources="[publicPath + 'bygga/Ljungbyuret_Img0109.dzi']"
+              :tileSources="[
+                'https://img.dh.gu.se/flojtur/article/construction/pyr/Ljungbyuret_Img0109.tif/info.json',
+              ]"
             />
           </Ratio>
           <figcaption>
@@ -279,9 +281,9 @@
           <Ratio :ratio="3 / 2">
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'bygga/Gustavianska_uret_SMF_0090.dzi',
-                publicPath + 'bygga/Speelklokuret_Utrecht__0714.dzi',
-                publicPath + 'bygga/Alingsaasuret_urtavla_DSC_6923.dzi',
+                'https://img.dh.gu.se/flojtur/article/construction/pyr/Gustavianska_uret_SMF_0090.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/construction/pyr/Speelklokuret_Utrecht__0714.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/construction/pyr/Alingsaasuret_urtavla_DSC_6923.tif/info.json',
               ]"
             />
           </Ratio>
@@ -323,7 +325,7 @@
           <Ratio :ratio="4 / 3">
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'bygga/Uhrmacherwerkstatt_Schwarzwald_00.dzi',
+                'https://img.dh.gu.se/flojtur/article/construction/pyr/Uhrmacherwerkstatt_Schwarzwald_00.tif/info.json',
               ]"
             />
           </Ratio>
