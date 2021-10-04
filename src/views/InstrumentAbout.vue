@@ -93,11 +93,11 @@
             >
               <div id="lazy-load-poster" slot="poster"></div>
               <div id="button-load" slot="poster">
-      <div id="button-load-label">
-        Klicka här <br />
-        för att ladda in modellen
-      </div>
-    </div>
+                <div id="button-load-label">
+                  Klicka här <br />
+                  för att ladda in modellen
+                </div>
+              </div>
             </model-viewer>
           </Ratio>
           <figcaption>
@@ -133,8 +133,8 @@
           <Ratio>
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'zoom/IllustrationClose_10012_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_10022_4kx4k.dzi',
+                'https://img.dh.gu.se/flojtur/article/instrument/pyr/IllustrationClose_10012_4kx4k.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/instrument/pyr/IllustrationClose_10022_4kx4k.tif/info.json',
               ]"
             />
           </Ratio>
@@ -165,8 +165,8 @@
           <Ratio>
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'zoom/IllustrationClose_2001_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_2002_4kx4k.dzi',
+                'https://img.dh.gu.se/flojtur/article/instrument/pyr/IllustrationClose_2001_4kx4k.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/instrument/pyr/IllustrationClose_2002_4kx4k.tif/info.json',
               ]"
             />
           </Ratio>
@@ -193,8 +193,8 @@
           <Ratio>
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'zoom/IllustrationClose_3001_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_3002_4kx4k.dzi',
+                'https://img.dh.gu.se/flojtur/article/instrument/pyr/IllustrationClose_3001_4kx4k.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/instrument/pyr/IllustrationClose_3002_4kx4k.tif/info.json',
               ]"
           /></Ratio>
           <figcaption>
@@ -299,28 +299,26 @@ export default {
   color: black;
   padding: 10px;
   font-size: 18px;
-  line-height:1.1;
+  line-height: 1.1;
   text-align: center;
   font-weight: 300;
   margin-top: 17%;
 }
 
-  @media screen and (max-width: 1100px) {
-    #button-load {
-  height: 150px;
-  width: 150px;
+@media screen and (max-width: 1100px) {
+  #button-load {
+    height: 150px;
+    width: 150px;
     left: 0%;
-  top: 0%;
-  
-}
-#button-load-label {
-  color: black;
-  padding: 10px;
-  font-size: 24px;
-  line-height:1.1;
-
-}
+    top: 0%;
   }
+  #button-load-label {
+    color: black;
+    padding: 10px;
+    font-size: 24px;
+    line-height: 1.1;
+  }
+}
 
 @keyframes pulse {
   0% {
