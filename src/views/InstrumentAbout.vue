@@ -206,10 +206,7 @@
         <p style="text-align: center">* * *</p>
 
         <a href="https://youtu.be/FIbxJ5GKR0M">
-          <div
-            class="IntroInfoContainer"
-            style="margin-top: 20px; height: 40px"
-          >
+          <div class="IntroInfoContainer">
             <div id="IntroLinkButton" style=""></div>
             <div id="IntroInfoLabel" style="">"Flöjturet går igen"</div>
           </div>
@@ -219,19 +216,29 @@
           Kungl. Vitterhetsakademiens flöjtur.
         </div>
 
-        <div class="IntroInfoContainer" style="margin-top: 20px; height: 40px">
+        <a
+          :href="publicPath + 'models/StrandSpelverkSTEPfil_210919.stp'"
+          type="application/STEP"
+          download
+          class="IntroInfoContainer"
+        >
           <div id="IntroInfoButton" style=""></div>
           <div id="IntroInfoLabel" style="">Ladda ner CAD-modellen</div>
-        </div>
+        </a>
 
         <div class="ButtonInfo">
           Licens: CC BY-NC 4.0. Dokumentation och CAD-ritning av Olof Pipping.
         </div>
 
-        <div class="IntroInfoContainer" style="margin-top: 20px; height: 40px">
+        <a
+          :href="publicPath + 'models/flojt.glb'"
+          type="model/gltf-binary"
+          download
+          class="IntroInfoContainer"
+        >
           <div id="IntroInfoButton" style=""></div>
           <div id="IntroInfoLabel" style="">Ladda ner 3D-modellen</div>
-        </div>
+        </a>
         <div class="ButtonInfo">Licens: CC BY-NC 4.0</div>
       </div>
     </article>
@@ -335,11 +342,12 @@ export default {
 }
 
 .IntroInfoContainer {
-  height: 20px;
+  display: block;
+  height: 40px;
   width: 320px;
   border-radius: 15px;
   padding: 10px;
-  margin-top: 2px;
+  margin-top: 20px;
   margin-bottom: 5px;
   margin-left: 0px;
   cursor: pointer;
