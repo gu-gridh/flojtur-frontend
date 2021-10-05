@@ -88,8 +88,8 @@
           <Ratio :ratio="2 / 3">
             <OpenSeadragon
               :tileSources="[
-                'https://img.dh.gu.se/flojtur/article/barrel/pyr/kircher1650bd2_0320.jpg/info.json',
-                'https://img.dh.gu.se/flojtur/article/barrel/pyr/kircher1650bd2_0322.jpg/info.json',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/kircher1650bd2_0320.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/kircher1650bd2_0322.tif/info.json',
               ]"
             />
           </Ratio>
@@ -130,7 +130,7 @@
             <OpenSeadragon
               :tileSources="[
                 publicPath + 'barrel/Aspelind_1731_s13utv_NLS14A019060_19.dzi',
-                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Utvik_Aspelind-Celsius_s13_71070.jpg/info.json',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Utvik_Aspelind-Celsius_s13_71070.tif/info.json',
               ]"
             />
           </Ratio>
@@ -196,7 +196,7 @@
           <Ratio :ratio="3 / 2">
             <OpenSeadragon
               :tileSources="[
-                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Pappersrester_KVHAA_4980.jpg/info.json',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Pappersrester_KVHAA_4980.tif/info.json',
               ]"
             />
           </Ratio>
@@ -278,7 +278,7 @@
           <Ratio :ratio="4 / 3">
             <OpenSeadragon
               :tileSources="[
-                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Tidsindelning_IMG_3765.tiff/info.json',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Tidsindelning_IMG_3765.tif/info.json',
               ]"
             />
           </Ratio>
@@ -300,10 +300,10 @@
           <Ratio :ratio="4 / 3">
             <OpenSeadragon
               :tileSources="[
-                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Taktnumrering_IMG_3766.tiff/info.json',
-                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Anfang_priv_IMG_3763.tiff/info.json',
-                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Ende_priv_IMG_3764.tiff/info.json',
-                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Anfang_Skarvauret_NM_DSC_7769.jpg/info.json',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Taktnumrering_IMG_3766.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Anfang_priv_IMG_3763.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Ende_priv_IMG_3764.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Anfang_Skarvauret_NM_DSC_7769.tif/info.json',
               ]"
             />
           </Ratio>
@@ -323,7 +323,7 @@
           <Ratio :ratio="3 / 4">
             <OpenSeadragon
               :tileSources="[
-                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Verktygsspaar_IMG_3770.tiff/info.json',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Verktygsspaar_IMG_3770.tif/info.json',
               ]"
             />
           </Ratio>
@@ -360,7 +360,7 @@
           <Ratio :ratio="3 / 2">
             <OpenSeadragon
               :tileSources="[
-                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Slaepspaar_GMH_GM5464_0425.jpg/info.json',
+                'https://img.dh.gu.se/flojtur/article/barrel/pyr/Slaepspaar_GMH_GM5464_0425.tif/info.json',
               ]"
             />
           </Ratio>

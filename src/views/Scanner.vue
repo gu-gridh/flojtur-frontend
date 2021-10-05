@@ -140,11 +140,11 @@
           <Ratio :ratio="3 / 2">
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'scanner/Valslaesare_1_DSC_0542.dzi',
-                publicPath + 'scanner/Valslaesare_2_DSC_0543.dzi',
-                publicPath + 'scanner/Valslaesare_3_DSC_0544.dzi',
-                publicPath + 'scanner/Valslaesare_4_DSC_0545.dzi',
-                publicPath + 'scanner/Valslaesare_5_DSC_0546.dzi',
+                'https://img.dh.gu.se/flojtur/article/scanner/pyr/Valslaesare_1_DSC_0542.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/scanner/pyr/Valslaesare_2_DSC_0543.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/scanner/pyr/Valslaesare_3_DSC_0544.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/scanner/pyr/Valslaesare_4_DSC_0545.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/scanner/pyr/Valslaesare_5_DSC_0546.tif/info.json',
               ]"
             />
           </Ratio>
@@ -157,7 +157,9 @@
         <Figure>
           <Ratio :ratio="3 / 2">
             <OpenSeadragon
-              :tileSources="[publicPath + 'scanner/Valslaesare_6_DSC_0547.dzi']"
+              :tileSources="[
+                'https://img.dh.gu.se/flojtur/article/scanner/pyr/Valslaesare_6_DSC_0547.tif/info.json',
+              ]"
             />
           </Ratio>
           <figcaption>
@@ -169,7 +171,9 @@
         <Figure>
           <Ratio :ratio="3 / 2">
             <OpenSeadragon
-              :tileSources="[publicPath + 'scanner/Valslaesare_7_DSC_0551.dzi']"
+              :tileSources="[
+                'https://img.dh.gu.se/flojtur/article/scanner/pyr/Valslaesare_7_DSC_0551.tif/info.json',
+              ]"
             />
           </Ratio>
           <figcaption>
@@ -180,7 +184,9 @@
         <Figure>
           <Ratio :ratio="3 / 2">
             <OpenSeadragon
-              :tileSources="[publicPath + 'scanner/Valslaesare_8_DSC_0552.dzi']"
+              :tileSources="[
+                'https://img.dh.gu.se/flojtur/article/scanner/pyr/Valslaesare_8_DSC_0552.tif/info.json',
+              ]"
             />
           </Ratio>
           <figcaption>

@@ -58,6 +58,10 @@
             CAD-ritning
           </li>
           <li>
+            Peter Svensson, Norges teknisk-naturvitenskapelige universitet,
+            design av optisk valsläsare
+          </li>
+          <li>
             Jonathan Westin, Göteborgs universitet, webbportal och datamining
           </li>
           <li>Alf Åslund, dokumentationsassistent</li>

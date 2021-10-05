@@ -93,11 +93,11 @@
             >
               <div id="lazy-load-poster" slot="poster"></div>
               <div id="button-load" slot="poster">
-      <div id="button-load-label">
-        Klicka här <br />
-        för att ladda in modellen
-      </div>
-    </div>
+                <div id="button-load-label">
+                  Klicka här <br />
+                  för att ladda in modellen
+                </div>
+              </div>
             </model-viewer>
           </Ratio>
           <figcaption>
@@ -133,8 +133,8 @@
           <Ratio>
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'zoom/IllustrationClose_10012_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_10022_4kx4k.dzi',
+                'https://img.dh.gu.se/flojtur/article/instrument/pyr/IllustrationClose_10012_4kx4k.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/instrument/pyr/IllustrationClose_10022_4kx4k.tif/info.json',
               ]"
             />
           </Ratio>
@@ -165,8 +165,8 @@
           <Ratio>
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'zoom/IllustrationClose_2001_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_2002_4kx4k.dzi',
+                'https://img.dh.gu.se/flojtur/article/instrument/pyr/IllustrationClose_2001_4kx4k.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/instrument/pyr/IllustrationClose_2002_4kx4k.tif/info.json',
               ]"
             />
           </Ratio>
@@ -193,8 +193,8 @@
           <Ratio>
             <OpenSeadragon
               :tileSources="[
-                publicPath + 'zoom/IllustrationClose_3001_4kx4k.dzi',
-                publicPath + 'zoom/IllustrationClose_3002_4kx4k.dzi',
+                'https://img.dh.gu.se/flojtur/article/instrument/pyr/IllustrationClose_3001_4kx4k.tif/info.json',
+                'https://img.dh.gu.se/flojtur/article/instrument/pyr/IllustrationClose_3002_4kx4k.tif/info.json',
               ]"
           /></Ratio>
           <figcaption>
@@ -206,10 +206,7 @@
         <p style="text-align: center">* * *</p>
 
         <a href="https://youtu.be/FIbxJ5GKR0M">
-          <div
-            class="IntroInfoContainer"
-            style="margin-top: 20px; height: 40px"
-          >
+          <div class="IntroInfoContainer">
             <div id="IntroLinkButton" style=""></div>
             <div id="IntroInfoLabel" style="">"Flöjturet går igen"</div>
           </div>
@@ -219,19 +216,29 @@
           Kungl. Vitterhetsakademiens flöjtur.
         </div>
 
-        <div class="IntroInfoContainer" style="margin-top: 20px; height: 40px">
+        <a
+          :href="publicPath + 'models/StrandSpelverkSTEPfil_210919.stp'"
+          type="application/STEP"
+          download
+          class="IntroInfoContainer"
+        >
           <div id="IntroInfoButton" style=""></div>
           <div id="IntroInfoLabel" style="">Ladda ner CAD-modellen</div>
-        </div>
+        </a>
 
         <div class="ButtonInfo">
           Licens: CC BY-NC 4.0. Dokumentation och CAD-ritning av Olof Pipping.
         </div>
 
-        <div class="IntroInfoContainer" style="margin-top: 20px; height: 40px">
+        <a
+          :href="publicPath + 'models/flojt.glb'"
+          type="model/gltf-binary"
+          download
+          class="IntroInfoContainer"
+        >
           <div id="IntroInfoButton" style=""></div>
           <div id="IntroInfoLabel" style="">Ladda ner 3D-modellen</div>
-        </div>
+        </a>
         <div class="ButtonInfo">Licens: CC BY-NC 4.0</div>
       </div>
     </article>
@@ -299,28 +306,26 @@ export default {
   color: black;
   padding: 10px;
   font-size: 18px;
-  line-height:1.1;
+  line-height: 1.1;
   text-align: center;
   font-weight: 300;
   margin-top: 17%;
 }
 
-  @media screen and (max-width: 1100px) {
-    #button-load {
-  height: 150px;
-  width: 150px;
+@media screen and (max-width: 1100px) {
+  #button-load {
+    height: 150px;
+    width: 150px;
     left: 0%;
-  top: 0%;
-  
-}
-#button-load-label {
-  color: black;
-  padding: 10px;
-  font-size: 24px;
-  line-height:1.1;
-
-}
+    top: 0%;
   }
+  #button-load-label {
+    color: black;
+    padding: 10px;
+    font-size: 24px;
+    line-height: 1.1;
+  }
+}
 
 @keyframes pulse {
   0% {
@@ -337,11 +342,12 @@ export default {
 }
 
 .IntroInfoContainer {
-  height: 20px;
+  display: block;
+  height: 40px;
   width: 320px;
   border-radius: 15px;
   padding: 10px;
-  margin-top: 2px;
+  margin-top: 20px;
   margin-bottom: 5px;
   margin-left: 0px;
   cursor: pointer;
