@@ -30,7 +30,7 @@ export function addGeojson(map, geojson, popup, onmouseover, onmouseout) {
       ? (feature, layer) => layer.bindPopup(feature.properties.name)
       : null
   }).addTo(map);
-  if (layer.getBounds().isValid()) map.fitBounds(layer.getBounds());
+  if (layer.getBounds().isValid()) map.fitBounds(layer.getBounds().pad(0.1));
   return layer;
 }
 
