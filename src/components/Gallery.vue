@@ -29,13 +29,13 @@
                       :alt="`Bild på ${instrument.aut_title}`"
                     />
                   </div>
-                  <div
-                    class="flip-card-back"
-                    :style="`background-image:url(${imageUrl(
-                      instrument.thumbnail || ''
-                    )});`"
-                  >
-                    <div class="cardBlur" :class="[`autom-${instrument.id}`]">
+                  <div class="flip-card-back">
+                    <img
+                      :src="imageUrl(instrument.thumbnail || '')"
+                      :alt="`Bild på ${instrument.aut_title}`"
+                      class="card-background"
+                    />
+                    <div class="" :class="[`autom-${instrument.id}`]">
                       <div class="cardInfo">
                         <div
                           class="cardMiniImage"
@@ -238,13 +238,13 @@ export default {
   margin-top: -150%;
   width: 100%;
   height: 100%;
+  background-color: #bbb;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
 }
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  background-color: #bbb;
   color: black;
 }
 
@@ -253,15 +253,11 @@ export default {
   color: white;
   transform: rotateY(180deg);
   background-size: cover;
+  overflow: hidden;
 }
 
-.cardBlur {
-  height: 100%;
-  backdrop-filter: blur(35px);
-}
-.cardBlur.autom-3 {
-  /* Masreliezuret blueprint is brighter and has lower contrast. */
-  backdrop-filter: blur(10px) saturate(150%) brightness(80%);
+.card-background {
+  filter: blur(10px);
 }
 
 .cardInfo {
@@ -309,19 +305,18 @@ export default {
   .cardInfoObjectTitle {
     font-size: 150%;
     width: 100%;
-      margin-left:-20px;
+    margin-left: -20px;
   }
   .cardInfoObject.secondary {
     display: none;
   }
 
   .cardInfo {
-  font-size: 110%;
-  -webkit-text-size-adjust: 80%;
-
-}
-.cardInfoObject {
-  margin-left:0px;
-}
+    font-size: 110%;
+    -webkit-text-size-adjust: 80%;
+  }
+  .cardInfoObject {
+    margin-left: 0px;
+  }
 }
 </style>
