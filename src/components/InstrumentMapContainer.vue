@@ -62,12 +62,15 @@ export default {
       const featureCollection = await getAutomLocations();
 
       // Zip GeoJSON features with full autom records.
-      this.automFeatureZip = this.automs.map((autom) => ({
-        autom,
-        feature: featureCollection.features.find(
-          (feature) => feature.properties.id == autom.id.value
-        ),
-      }));
+      this.automFeatureZip = this.automs
+        .map((autom) => ({
+          autom,
+          feature: featureCollection.features.find(
+            (feature) => feature.properties.id == autom.id.value
+          ),
+        }))
+        // If an autom has no location, the instrument has not moved since the previous record.
+        .filter(({ feature }) => !!feature);
 
       // Add more location info to the features.
       const enrichedFeatures = this.automFeatureZip.map(
