@@ -39,12 +39,15 @@ export async function getInstruments() {
   if (!instruments) return [];
 
   // Helper to find first autom record (Nytt instrument).
-  const findFirst = (automId) =>
-    findParallel(
-      instruments,
-      async (instrument) =>
-        instrument.id == (await getInstrumentHistory(automId))[0]
+  const findFirst = async (automId) => {
+    const firstId = (await getInstrumentHistory(automId))[0];
+    const firstFetched = instruments.find(
+      (instrument) => instrument.id == firstId
     );
+    if (firstFetched) return firstFetched;
+    const firstSearch = await searchFull("autom", `equals|id|${firstId}`);
+    return firstSearch[0];
+  };
 
   // Only include Inventering records, and add their corresponding Nytt instrument records.
   return Promise.all(
@@ -56,10 +59,6 @@ export async function getInstruments() {
       }))
   );
 }
-
-/** Find with async filter function by applying to all elements in parallel. */
-const findParallel = async (xs, f) =>
-  xs[(await Promise.all(xs.map(f))).findIndex(Boolean)];
 
 export const getAutomLocations = async () =>
   get("map", { layer: "autom" }).then((response) => response.data);
