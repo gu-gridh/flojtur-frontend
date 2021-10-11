@@ -181,11 +181,11 @@ export default {
         },
         {
           label: "Spelarmar",
-          value: this.division && this.division.fields.no_tones.extra,
+          value: this.division && this.division.fields.no_tones.value,
         },
         {
           label: "Registreringsarmar",
-          value: this.division && this.division.fields.no_reg.extra,
+          value: this.division && this.division.fields.no_reg.value,
         },
         // TODO Omfång nedre
         // TODO Omfång övre
