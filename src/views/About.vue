@@ -43,29 +43,34 @@
         </p>
         <ul>
           <li>
-            Carl Johan Bergsten, databas, design av optisk valsläsare samt
+            Carl Johan Bergsten (Föreningen för Göteborgs internationella
+            orgelakademi), databas, design av optisk valsläsare samt
             mjukvaruutveckling
           </li>
-          <li>Joar Holmström, Virtuell Design, 3D-modellering</li>
-          <li>Robert Lerbro, konstruktion av valsläsare</li>
-          <li>Arild Matsson, Göteborgs universitet, databas</li>
+          <li>Joar Holmström (Virtuell Design), 3D-modellering</li>
+          <li>Robert Lerbro (F:a Robert Lerbro), konstruktion av valsläsare</li>
           <li>
-            Leonardo Perretti, Casalnuovo Monterotaro, Italien,
-            mjukvaruutveckling
+            Arild Matsson (Centrum för digital humaniora, Göteborgs
+            universitet), utveckling webbpublikation
           </li>
+          <li>Leonardo Perretti (orgelbyggare), mjukvaruutveckling</li>
+          <li>Olof Pipping (Marotec), teknisk dokumentation och CAD-ritning</li>
           <li>
-            Olof Pipping, finmekaniker och expert på historiskt urmakeri samt
-            CAD-ritning
-          </li>
-          <li>
-            Peter Svensson, Norges teknisk-naturvitenskapelige universitet,
+            Peter Svensson (Norges teknisk-naturvitenskapelige universitet),
             design av optisk valsläsare
           </li>
           <li>
-            Jonathan Westin, Göteborgs universitet, webbportal och datamining
+            Jonathan Westin (Centrum för digital humaniora, Göteborgs
+            universitet), utveckling webbpublikation
           </li>
-          <li>Alf Åslund, dokumentationsassistent</li>
-          <li>Maria Öhrman, Göteborgs universitet, databas</li>
+          <li>
+            Alf Åslund (Föreningen för Göteborgs internationella orgelakademi),
+            dokumentationsassistent
+          </li>
+          <li>
+            Maria Öhrman (Centrum för digital humaniora, Göteborgs universitet),
+            utveckling webbpublikation
+          </li>
         </ul>
         <p>
           Projektet har fått stor hjälp av den kunniga personalen på många
@@ -109,9 +114,7 @@
         </ul>
         <p>Följande personer har utgjort referensgrupp för projektet:</p>
         <ul>
-          <li>
-            Göran Grahn, museichef, Stiftelsen för musikkulturens främjande
-          </li>
+          <li>Göran Grahn, museichef, Stiftelsen Musikkulturens Främjande</li>
           <li>Mats Krouthén, intendent, Ringve musikkmuseum, Trondheim</li>
           <li>
             Cecilia Lindhé, föreståndare för Centrum för digital humaniora,
