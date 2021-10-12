@@ -80,8 +80,8 @@
         <Figure>
           <video controls>
                <source
-              :src="publicPath + 'scanner/Plastbit_1.m4v'"
-              type="video/m4v"
+              :src="publicPath + 'scanner/Plastbit_1.mp4'"
+              type="video/mp4"
             />
             <source
               :src="publicPath + 'scanner/Plastbit_1.webm'"
@@ -92,8 +92,8 @@
           <video controls>
          
             <source
-              :src="publicPath + 'scanner/Plastbit_2.m4v'"
-              type="video/m4v"
+              :src="publicPath + 'scanner/Plastbit_2.mp4'"
+              type="video/mp4"
             />
 
                <source
@@ -119,8 +119,8 @@
         <Figure>
           <video controls>
                <source
-              :src="publicPath + 'scanner/Metallarm.m4v'"
-              type="video/m4v"
+              :src="publicPath + 'scanner/Metallarm.mp4'"
+              type="video/mp4"
             />
              <source
               :src="publicPath + 'scanner/Metallarm.webm'"
