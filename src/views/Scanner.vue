@@ -79,26 +79,23 @@
         </p>
         <Figure>
           <video controls>
-               <source
-              :src="publicPath + 'scanner/Plastbit_1.mp4'"
-              type="video/mp4"
-            />
             <source
               :src="publicPath + 'scanner/Plastbit_1.webm'"
               type="video/webm"
             />
-           
+            <source
+              :src="publicPath + 'scanner/Plastbit_1.mp4'"
+              type="video/mp4"
+            />
           </video>
           <video controls>
-         
+            <source
+              :src="publicPath + 'scanner/Plastbit_2.webm'"
+              type="video/webm"
+            />
             <source
               :src="publicPath + 'scanner/Plastbit_2.mp4'"
               type="video/mp4"
-            />
-
-               <source
-              :src="publicPath + 'scanner/Plastbit_2.webm'"
-              type="video/webm"
             />
           </video>
           <figcaption>
@@ -118,13 +115,13 @@
         </p>
         <Figure>
           <video controls>
-               <source
-              :src="publicPath + 'scanner/Metallarm.mp4'"
-              type="video/mp4"
-            />
-             <source
+            <source
               :src="publicPath + 'scanner/Metallarm.webm'"
               type="video/webm"
+            />
+            <source
+              :src="publicPath + 'scanner/Metallarm.mp4'"
+              type="video/mp4"
             />
           </video>
         </Figure>
