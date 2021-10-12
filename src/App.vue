@@ -54,6 +54,7 @@ h2 {
   font-size: 35px;
   line-height: 1;
   margin: 40px 0 0;
+  hyphens: none;
 }
 
 #ItemBack {
