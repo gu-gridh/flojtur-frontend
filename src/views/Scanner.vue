@@ -118,12 +118,10 @@
         </p>
         <Figure>
           <video controls>
-           
                <source
               :src="publicPath + 'scanner/Metallarm.m4v'"
               type="video/m4v"
             />
-
              <source
               :src="publicPath + 'scanner/Metallarm.webm'"
               type="video/webm"
