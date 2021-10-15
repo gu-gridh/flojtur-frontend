@@ -89,11 +89,11 @@
           :class="{ 'router-link-exact-active': $route.name === 'Home' }"
           >Flöjtur</router-link
         >
-        |
+        
         <router-link to="/karta" class="links-button">Karta</router-link>
-        |
+        
         <router-link to="/valsar" class="links-button">Stiftvalsar</router-link>
-        |
+        
         <a href="https://strand.dh.gu.se/admin" class="links-button">
           Avancerad sökning
         </a>
@@ -192,14 +192,14 @@ export default {
 
   .links-button {
     width: auto;
-    margin-inline: 5px;
+    margin-inline: 15px;
     transition: all 0.2s ease-in-out;
     border-radius: 8px 10px 8px 10px;
     padding: 10px;
  
 
     @media screen and (min-width: 800px) {
-      margin-inline: 30px;
+      margin-inline: 15px;
     }
 
     &.router-link-exact-active {
