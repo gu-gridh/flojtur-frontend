@@ -39,9 +39,11 @@
                       <div class="cardInfo">
                         <div
                           class="cardMiniImage"
-                          :style="`background-image:url(${imageUrl(
-                            instrument.thumbnail || ''
-                          )});`"
+                          :style="
+                            `background-image:url(${imageUrl(
+                              instrument.thumbnail || ''
+                            )});`
+                          "
                         ></div>
                         <div class="cardInfoObjectTitle">
                           {{ formatTitle(instrument.aut_title) }}
@@ -80,7 +82,7 @@ import Spinner from "./Spinner.vue";
 export default {
   name: "Gallery",
   components: { Spinner },
-  data: function () {
+  data: function() {
     return {
       containerId: "masonryContainer",
       instruments: [],
@@ -117,6 +119,10 @@ export default {
         instrument.thumbnail = photo.filename;
       }
     }
+    // Sort instruments by construction date.
+    const sortKey = (x) =>
+      parseInt(x._first.fields.date2.value || x._first.fields.date1.value * 10);
+    this.instruments = this.instruments.sort((a, b) => sortKey(a) - sortKey(b));
   },
   methods: {
     imageUrl: imageUrlMedium,
