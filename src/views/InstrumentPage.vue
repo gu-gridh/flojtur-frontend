@@ -124,7 +124,7 @@ export default {
     InstrumentMapContainer,
     ZoomViewer,
   },
-  data: function () {
+  data: function() {
     return {
       instrument: null,
       heroImageUrl: null,
@@ -190,6 +190,7 @@ export default {
         // TODO Omfång nedre
         // TODO Omfång övre
         // TODO Stämnamn
+        { label: "Fodral", value: values.case_info },
         { label: "Urverk", value: values.clock_info },
         { label: "Övrig info", value: values.gen_info },
         {
