@@ -45,6 +45,10 @@ export default {
   color: #fd8ef9;
 }
 
+a.value {
+  color: #90c3fd;
+}
+
 @media screen and (max-width: 610px) {
   .metadata-small {
     font-size: 22px;

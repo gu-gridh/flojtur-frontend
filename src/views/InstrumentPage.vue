@@ -139,6 +139,7 @@ export default {
       division: null,
       instrumentPhotos: [],
       stopPhotos: [],
+      extlinks: [],
       files: [],
     };
   },
@@ -193,6 +194,11 @@ export default {
         { label: "Fodral", value: values.case_info },
         { label: "Urverk", value: values.clock_info },
         { label: "Övrig info", value: values.gen_info },
+        ...this.extlinks.map((extlink) => ({
+          label: "Länk",
+          value: extlink.fields.lname.value,
+          href: extlink.fields.laddr.value,
+        })),
         {
           label: "Mer info",
           value: "Öppna databas",
@@ -242,6 +248,9 @@ export default {
           );
         });
       })
+    );
+    searchFull("extlink", `equals|nr|${this.id}`).then(
+      (extlinks) => (this.extlinks = extlinks)
     );
 
     // Find files.
