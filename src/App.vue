@@ -9,7 +9,7 @@
 import Footer from "@/components/Footer.vue";
 
 export default {
-  components: { Footer },
+  components: { Footer }
 };
 </script>
 
@@ -54,7 +54,6 @@ h2 {
   font-size: 35px;
   line-height: 1;
   margin: 40px 0 0;
-  hyphens: none;
 }
 
 #ItemBack {
@@ -108,9 +107,11 @@ h2 {
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
-  hyphens: auto;
   h2 {
     margin-bottom: 0.5em;
+  }
+  p {
+    hyphens: auto;
   }
 }
 
@@ -136,9 +137,10 @@ h2 {
 }
 
 @media screen and (min-width: 800px) {
-.articleIngress {
-  font-weight: 100;
-}}
+  .articleIngress {
+    font-weight: 100;
+  }
+}
 
 .articletext {
   margin-top: 30px;
