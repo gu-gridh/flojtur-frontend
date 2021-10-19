@@ -42,19 +42,25 @@
         </p>
 
         <Figure>
-          <img
-            src="@/assets/article/Strand_Leufsta_DSC_1876.jpg"
-            alt="Flöjtur"
-          />
+          <Ratio :ratio="2 / 3">
+            <OpenSeadragon
+              :tileSources="[
+                'https://img.dh.gu.se/flojtur/article/builder/pyr/Strand_Lovstabruk_DSC_1876.tif/info.json',
+              ]"
+            />
+          </Ratio>
 
           <figcaption>Foto: Johan Norrback. Licens: CC BY-NC 4.0.</figcaption>
         </Figure>
 
         <Figure>
-          <img
-            src="@/assets/article/Strand_Leufsta_urtavla_DSC_1813.jpg"
-            alt="Urtavla"
-          />
+          <Ratio :ratio="3 / 2">
+            <OpenSeadragon
+              :tileSources="[
+                'https://img.dh.gu.se/flojtur/article/builder/pyr/Strand_Lovstabruk_urtavla_DSC_1813.tif/info.json',
+              ]"
+            />
+          </Ratio>
 
           <figcaption>
             Speluret på Lövstabruks herrgård. Urtavlan signerad ”P; Strand
@@ -100,10 +106,13 @@
           på en liten väggpendyl han själv inte byggt vore förvånande.
         </p>
         <Figure>
-          <img
-            src="@/assets/article/Strand_Henriettas_pendyl_DSC_2148.jpg"
-            alt=""
-          />
+          <Ratio :ratio="2 / 3">
+            <OpenSeadragon
+              :tileSources="[
+                'https://img.dh.gu.se/flojtur/article/builder/pyr/Strand_Henriettas_pendyl_DSC_2148.tif/info.json',
+              ]"
+            />
+          </Ratio>
 
           <figcaption>
             Väggur signerat ”Pehr Strand Stockholm”. Har sannolikt tillhört
@@ -144,10 +153,13 @@
         </p>
 
         <Figure>
-          <img
-            src="@/assets/article/Strand_Sundals-Ryr_DSC_0211.jpg"
-            alt="Orgel"
-          />
+          <Ratio :ratio="2 / 3">
+            <OpenSeadragon
+              :tileSources="[
+                'https://img.dh.gu.se/flojtur/article/builder/pyr/Strand_Sundals-Ryd_DSC_0211.tif/info.json',
+              ]"
+            />
+          </Ratio>
 
           <figcaption>
             Orgeln i Sundal-Ryrs gamla kyrka i Dalsland. Foto: Johan Norrback.
@@ -257,10 +269,12 @@
 <script>
 import Title from "@/components/Title.vue";
 import Figure from "@/components/Figure.vue";
+import Ratio from "@/components/Ratio.vue";
+import OpenSeadragon from "@/components/OpenSeadragon.vue";
 import UrlLink from "@/components/UrlLink.vue";
 
 export default {
   name: "Builder",
-  components: { Title, UrlLink, Figure },
+  components: { Title, Figure, Ratio, OpenSeadragon, UrlLink },
 };
 </script>
