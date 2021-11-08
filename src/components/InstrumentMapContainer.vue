@@ -15,7 +15,7 @@
           v-for="autom in automs"
           :key="autom.id.value"
           class="history-item"
-          :class="{ focus: focusId === autom.loc_nr.value }"
+          :class="{ focus: isFocus(autom.loc_nr.value) }"
           @mouseover="focus(autom.loc_nr.value)"
           @mouseleave="unfocus()"
         >
@@ -50,12 +50,13 @@ export default {
   },
   methods: {
     formatDates(autom) {
-      return formatDates(
+      const dates = formatDates(
         autom.date1.value,
         autom.date2.value,
         autom.date_sign.value,
         true
-      ).replace(/./, (s) => s.toUpperCase());
+      );
+      return dates ? dates.replace(/./, (s) => s.toUpperCase()) : undefined;
     },
     async load() {
       // Get all autom locations.
@@ -90,6 +91,9 @@ export default {
     },
     unfocus() {
       this.focusId = null;
+    },
+    isFocus(id) {
+      return this.focusId && this.focusId !== "0" && this.focusId == id;
     },
   },
   watch: {
