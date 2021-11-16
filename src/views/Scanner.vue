@@ -77,27 +77,19 @@
           uppnå säkrare mätresultat med plastbitarna om olika avstånd till
           stiften och anläggningsvinkel testades.
         </p>
-        <Figure>
-          <video controls>
-            <source
-              :src="publicPath + 'scanner/Plastbit_1.webm'"
-              type="video/webm"
-            />
-            <source
-              :src="publicPath + 'scanner/Plastbit_1.mp4'"
-              type="video/mp4"
-            />
-          </video>
-          <video controls>
-            <source
-              :src="publicPath + 'scanner/Plastbit_2.webm'"
-              type="video/webm"
-            />
-            <source
-              :src="publicPath + 'scanner/Plastbit_2.mp4'"
-              type="video/mp4"
-            />
-          </video>
+        <Figure :class="{ 'span-columns': isChrome }">
+          <div class="figure-grid" :class="{ 'figure-grid-row': isChrome }">
+            <div>
+              <Ratio :ratio="16 / 9">
+                <Guplay videoId="0_t5riw0y1" />
+              </Ratio>
+            </div>
+            <div>
+              <Ratio :ratio="16 / 9">
+                <Guplay videoId="0_k40yjpgj" />
+              </Ratio>
+            </div>
+          </div>
           <figcaption>
             Filmerna visar en avläsning med de två olika plastbitarna på samma
             stiftvals och samma passage. De fyra sista stiften och byglarna är
@@ -113,17 +105,10 @@
           den automatiska funktionen för kvantisering. Inställningen sattes till
           notvärdet 1/8.
         </p>
-        <Figure>
-          <video controls>
-            <source
-              :src="publicPath + 'scanner/Metallarm.webm'"
-              type="video/webm"
-            />
-            <source
-              :src="publicPath + 'scanner/Metallarm.mp4'"
-              type="video/mp4"
-            />
-          </video>
+        <Figure :class="{ 'span-columns': isChrome }">
+          <Ratio :ratio="16 / 9">
+            <Guplay videoId="0_2wnqmo8c" />
+          </Ratio>
         </Figure>
       </div>
 
@@ -328,19 +313,39 @@
 import Title from "@/components/Title.vue";
 import Figure from "@/components/Figure.vue";
 import Ratio from "@/components/Ratio.vue";
+import Guplay from "@/components/Guplay.vue";
 import OpenSeadragon from "@/components/OpenSeadragon.vue";
 import PlayButton from "@/components/PlayButton.vue";
 
 export default {
-  components: { Title, Figure, Ratio, OpenSeadragon, PlayButton },
+  components: { Title, Figure, Ratio, Guplay, OpenSeadragon, PlayButton },
   computed: {
     publicPath: () => process.env.BASE_URL,
+    // Chrome has a bug with videos in columns.
+    // Might be same as https://bugs.chromium.org/p/chromium/issues/detail?id=421099
+    isChrome: () => navigator.userAgent.indexOf("Chrome/") > 0,
   },
 };
 </script>
 
-<style>
-video {
-  width: 100%;
+<style lang="scss">
+.figure-grid {
+  display: flex;
+  flex-direction: column;
+  margin-right: -0.5rem;
+  margin-bottom: -0.5rem;
+
+  > div {
+    flex: 1;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// With .span-columns, the videos can get very large. Place side-by-side.
+@media screen and (min-width: 1200px) {
+  .figure-grid-row {
+    flex-direction: row;
+  }
 }
 </style>
