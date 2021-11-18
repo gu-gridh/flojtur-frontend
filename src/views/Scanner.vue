@@ -77,25 +77,6 @@
           uppnå säkrare mätresultat med plastbitarna om olika avstånd till
           stiften och anläggningsvinkel testades.
         </p>
-        <Figure :class="{ 'span-columns': isChrome }">
-          <div class="figure-grid" :class="{ 'figure-grid-row': isChrome }">
-            <div>
-              <Ratio :ratio="16 / 9">
-                <Guplay videoId="0_t5riw0y1" />
-              </Ratio>
-            </div>
-            <div>
-              <Ratio :ratio="16 / 9">
-                <Guplay videoId="0_k40yjpgj" />
-              </Ratio>
-            </div>
-          </div>
-          <figcaption>
-            Filmerna visar en avläsning med de två olika plastbitarna på samma
-            stiftvals och samma passage. De fyra sista stiften och byglarna är
-            exempel på områden som skapade problem vid avläsningen.
-          </figcaption>
-        </Figure>
         <p>
           Till sist beslöts att bygga en miniatyr av en läsarm med lässpets, och
           fjäderbelastning, enligt samma principer som i ett flöjtur. Arbetet
@@ -105,11 +86,38 @@
           den automatiska funktionen för kvantisering. Inställningen sattes till
           notvärdet 1/8.
         </p>
-        <Figure :class="{ 'span-columns': isChrome }">
-          <Ratio :ratio="16 / 9">
-            <Guplay videoId="0_2wnqmo8c" />
-          </Ratio>
-        </Figure>
+
+        <div class="videos span-columns">
+          <div class="videos-double">
+            <Figure>
+              <div class="figure-grid">
+                <div>
+                  <Ratio :ratio="16 / 9">
+                    <Guplay videoId="0_t5riw0y1" />
+                  </Ratio>
+                </div>
+                <div>
+                  <Ratio :ratio="16 / 9">
+                    <Guplay videoId="0_k40yjpgj" />
+                  </Ratio>
+                </div>
+              </div>
+              <figcaption>
+                Filmerna visar en avläsning med de två olika plastbitarna på
+                samma stiftvals och samma passage. De fyra sista stiften och
+                byglarna är exempel på områden som skapade problem vid
+                avläsningen.
+              </figcaption>
+            </Figure>
+          </div>
+          <div class="videos-single">
+            <Figure>
+              <Ratio :ratio="16 / 9">
+                <Guplay videoId="0_2wnqmo8c" />
+              </Ratio>
+            </Figure>
+          </div>
+        </div>
       </div>
 
       <div class="articletext">
@@ -321,9 +329,6 @@ export default {
   components: { Title, Figure, Ratio, Guplay, OpenSeadragon, PlayButton },
   computed: {
     publicPath: () => process.env.BASE_URL,
-    // Chrome has a bug with videos in columns.
-    // Might be same as https://bugs.chromium.org/p/chromium/issues/detail?id=421099
-    isChrome: () => navigator.userAgent.indexOf("Chrome/") > 0,
   },
 };
 </script>
@@ -332,20 +337,37 @@ export default {
 .figure-grid {
   display: flex;
   flex-direction: column;
-  margin-right: -0.5rem;
-  margin-bottom: -0.5rem;
+  margin-right: -40px;
+  margin-bottom: -40px;
 
   > div {
     flex: 1;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-right: 40px;
+    margin-bottom: 40px;
   }
 }
 
 // With .span-columns, the videos can get very large. Place side-by-side.
 @media screen and (min-width: 1200px) {
-  .figure-grid-row {
+  .figure-grid {
     flex-direction: row;
+  }
+}
+@media screen and (min-width: 2000px) {
+  .videos {
+    display: flex;
+    // flex-direction: row;
+    margin-right: -40px;
+
+    .videos-double {
+      width: 66.67%;
+      padding-right: 40px;
+      box-sizing: border-box;
+    }
+    .videos-single {
+      flex: 1;
+      padding-right: 40px;
+    }
   }
 }
 </style>
