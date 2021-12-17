@@ -5,8 +5,8 @@
         Pehr Strand (c. 1758–1826) var orgel- och flöjtursbyggare i Stockholm
         kring sekelskiftet 1800. Strand fick privilegium att bygga spelur 1791,
         och lämnade 1824 över sin verkstad till sonen Pehr Zacharias Strand
-        (1797–1844). Denna webbportal är en källa till information om Pehr
-        Strand och i synnerhet hans flöjtur och samtidigt en redovisning av ett
+        (1797–1844). Denna webbpublikation är en källa till information om Pehr
+        Strand och hans flöjtur, och samtidigt en redovisning av ett
         forskningsprojekt.
       </p>
     </div>
@@ -23,7 +23,7 @@ export default {};
   margin: 50px auto 30px;
   line-height: 1.2;
   text-align: justify;
-  font-weight:300;
+  font-weight: 300;
 }
 
 .first {
@@ -46,7 +46,7 @@ export default {};
     //border-right: 0.5px solid;
     //text-align: right;
     text-align: center;
-    font-weight:100;
+    font-weight: 100;
     font-size: 30px;
   }
 

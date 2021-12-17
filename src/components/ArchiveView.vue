@@ -5,17 +5,20 @@
     <div id="menu-model" class="container">
       <div id="ItemRight" style="margin-top: 50px">
         <div class="IntroItem">Ett självspelande flöjtur</div>
-        <div class="articleIngress" style="margin-top: 10px; text-align: left">
-          Flöjtur är en klocka med ett mekaniskt spelverk som kan spela
-          musikstycken programmerade på en stiftvals. Termen
-          <i>flöjtur</i> brukar på svenska användas för de spelverk som byggts
-          in i större golvur och där tonen alstras med hjälp av pipor liknande
-          dem man finner i traditionella piporglar. I Sverige byggdes denna typ
-          av spelverk under andra hälften av 1700-talet och en bit in på
-          1800-talet, där Pehr Strand var en av de mest framgångsrika byggarna.
-          Flöjturet hör till en grupp instrument som brukar benämnas
-          <i>självspelande instrument</i> eller <i>spelautomater</i>. <br />
-          <br />
+        <div
+          class="articleIngress"
+          style="margin: 10px 0 30px; text-align: left"
+        >
+          Ett flöjtur är en klocka med ett mekaniskt spelverk som kan spela
+          musikstycken programmerade på en stiftvals. Flöjturet hör till en
+          grupp instrument som brukar benämnas
+          <em>självspelande instrument</em> eller <em>spelautomater</em>. Termen
+          <em>flöjtur</em> brukar på svenska användas specifikt för de spelverk
+          som byggts in i större golvur och där tonen alstras med hjälp av pipor
+          liknande dem man finner i traditionella piporglar. I Sverige byggdes
+          denna typ av självspelande klockor främst under andra hälften av
+          1700-talet och en bit in på 1800-talet, där Pehr Strand var en av de
+          mest framgångsrika byggarna.
         </div>
         <div style="display: flex; margin-top: 0px">
           <PlayButton default-sound />
@@ -89,11 +92,11 @@
           :class="{ 'router-link-exact-active': $route.name === 'Home' }"
           >Flöjtur</router-link
         >
-        
+
         <router-link to="/karta" class="links-button">Karta</router-link>
-        
+
         <router-link to="/valsar" class="links-button">Stiftvalsar</router-link>
-        
+
         <a href="https://strand.dh.gu.se/admin" class="links-button">
           Avancerad sökning
         </a>
@@ -153,9 +156,6 @@ export default {
   margin: auto;
 }
 
-
-
-
 .IntroItem {
   margin-left: auto;
   margin-right: auto;
@@ -168,9 +168,8 @@ export default {
 .articleIngress {
   columns: 1;
   line-height: 1.2;
-  font-weight:300;
+  font-weight: 300;
 }
-
 
 .links {
   height: auto;
@@ -178,7 +177,7 @@ export default {
   margin-top: 10px;
   margin-bottom: -10px;
   font-size: 25px;
-  font-weight:300;
+  font-weight: 300;
 }
 
 .ArchiveViewOptions {
@@ -188,7 +187,7 @@ export default {
   color: black;
   padding: 35px 0 30px 0;
   text-align: center;
-  line-height:2.0;
+  line-height: 2;
 
   .links-button {
     width: auto;
@@ -196,7 +195,6 @@ export default {
     transition: all 0.2s ease-in-out;
     border-radius: 8px 10px 8px 10px;
     padding: 10px;
- 
 
     @media screen and (min-width: 800px) {
       margin-inline: 15px;
@@ -216,8 +214,6 @@ export default {
     }
   }
 }
-
-
 
 #InfoContainer {
   display: flex;
@@ -257,7 +253,7 @@ export default {
   margin-top: 2px;
   margin-left: -10px;
   cursor: pointer;
-    
+
   transition: all 0.2s ease-in-out;
 }
 
@@ -270,7 +266,6 @@ export default {
   font-size: 25px;
   margin-top: 0px;
   margin-left: 20px;
-
 }
 
 #IntroInfoButton {
@@ -282,19 +277,19 @@ export default {
   background-size: 40px 40px;
 }
 
-.container{
-font-weight: 300;
+.container {
+  font-weight: 300;
 }
 
 @media screen and (min-width: 800px) {
-.container{
-  font-weight:100;
-}
-.articleIngress {
- font-weight:100;
-}
-.links {
- font-weight:100;
-}
+  .container {
+    font-weight: 100;
+  }
+  .articleIngress {
+    font-weight: 100;
+  }
+  .links {
+    font-weight: 100;
+  }
 }
 </style>
