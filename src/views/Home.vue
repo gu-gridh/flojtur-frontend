@@ -13,10 +13,10 @@ export default {
   name: "Home",
   components: {
     Title,
-    ArchiveView
+    ArchiveView,
   },
   mounted() {
-    document.title = 'Pehr Strands spelur';
-  }
+    document.title = "Pehr Strands flöjtur";
+  },
 };
 </script>
