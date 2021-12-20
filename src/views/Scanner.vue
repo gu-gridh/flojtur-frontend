@@ -72,10 +72,10 @@
           beröring av stiften. Två olika utformningar testades, där båda hade
           det problemet att deformationen av den elastiska plasten ledde till
           att längden på metallstiften inte representerades korrekt i
-          mätningarna. En musiker skulle beskriva det som att tonerna spelades,
-          eller lästes, för tätt tillsamman (legato). Det gick inte heller att
-          uppnå säkrare mätresultat med plastbitarna om olika avstånd till
-          stiften och anläggningsvinkel testades.
+          mätningarna. En musiker skulle beskriva det som att tonerna spelades
+          för tätt tillsamman (legato). Det gick inte heller att uppnå säkrare
+          mätresultat med plastbitarna trots att olika avstånd till stiften och
+          annan anläggningsvinkel testades.
         </p>
         <p>
           Till sist beslöts att bygga en miniatyr av en läsarm med lässpets, och
@@ -138,7 +138,8 @@
             mätningarna. Mätningarna samlas in i en mjukvara, och exporteras som
             en CSV-fil. Därefter görs en manuell förberedelse av CSV-filen innan
             den behandlas för konvertering till MIDI. MIDI-filen kan sedan
-            redigeras och spelas i lämplig mjukvara.
+            redigeras och spelas i lämplig mjukvara. Illustration: Carl Johan
+            Bergsten. Licens: CC BY-NC 4.0.
           </figcaption>
         </Figure>
         <Figure>
@@ -156,7 +157,8 @@
           <figcaption>
             Överst ser vi den färdiga valsläsaren, med en bärbar dator för
             insamling av mätdata. Den vita skivan ovanför stiftvalsen är till
-            för att kunna göra anteckningar medan en stiftvals läses av.
+            för att kunna göra anteckningar medan en stiftvals läses av. Foto:
+            Johan Norrback. Licens: CC BY-NC 4.0.
           </figcaption>
         </Figure>
         <Figure>
@@ -170,7 +172,8 @@
           <figcaption>
             Panel för positionering och start av läsare. Från vänster: summer
             av/på; positionering av lasergivare vänster/höger; brytare för start
-            av förinställt program; positionering av vals upp/ner.
+            av förinställt program; positionering av vals upp/ner. Foto: Johan
+            Norrback. Licens: CC BY-NC 4.0.
           </figcaption>
         </Figure>
         <Figure>
@@ -183,7 +186,7 @@
           </Ratio>
           <figcaption>
             USB-ingång. Från vänster: insamling av mätdata; inställning av
-            respektive stegmotor.
+            respektive stegmotor. Foto: Johan Norrback. Licens: CC BY-NC 4.0.
           </figcaption>
         </Figure>
         <Figure>
@@ -196,6 +199,7 @@
           </Ratio>
           <figcaption>
             Väska med hjul och teleskophandtag för transport av valsläsare.
+            Foto: Johan Norrback. Licens: CC BY-NC 4.0.
           </figcaption>
         </Figure>
         <p>
@@ -265,7 +269,8 @@
         <Figure>
           <PlayButton default-sound />
           <figcaption>
-            MP3-fil med samplat orgelljud ur Logics ljudbibliotek
+            Melodi avläst från stiftvals i privat ägo, exporterad som MP3-fil
+            med samplat orgelljud ur Logics ljudbibliotek. Licens: CC BY-NC 4.0.
           </figcaption>
         </Figure>
       </div>

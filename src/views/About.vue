@@ -30,9 +30,14 @@
           på stiftvalsar som inte kan spelas i sitt ursprungliga spelverk.
         </p>
         <p>
-          Projektet vill genom denna webbportal tillgängliggöra information om
-          speluren och den avancerade metodologin och mekanisk konstruktion som
-          krävdes för att programmera och spela musiken – ett unikt kulturarv.
+          Projektet vill genom denna webbpublikation tillgängliggöra information
+          om flöjturen. Det finns huvudsakligen två ingångar till materialet.
+          Den första är genom startsidan som ger en kuraterad presentation av
+          materialet i form av bilder, texter och andra data. Den andra är genom
+          länken Avancerad sökning. Här kommer besökaren direkt till en
+          sökfunktion för databasen där egendefinierade sökningar kan göras. En
+          beskrivning av respektive datafält, och deras inbördes relationer ges
+          genom databasbeskrivningen nedan.s
         </p>
         <p style="text-align: center">* * *</p>
         <p>

@@ -12,15 +12,14 @@
       <div class="articletext">
         <p>
           En av de mest utförliga skriftliga beskrivningar av hur man
-          programmerar en stiftvals görs av benediktinmunken François Bédos de
-          Celles (1709–79) i samband med att han i den fjärde och sista volymen
-          av hans välkända verk <em>L’art du facteur d’orgues</em> (1766–78)<sup
-            >1</sup
-          >
-          beskriver hur man bygger en mekanisk orgel. Metoden för att förbereda
-          och programmera musiken, benämnd tonotechnie, var utvecklad av
-          kollegan augustinmunken Marie-Dominique-Joseph Engramelle (1727–1805).
-          Bédos skriver att Engramelle var delaktig i arbetet med avsnittet om
+          programmerar en stiftvals finns i benediktinmunken François Bédos de
+          Celles (1709–79) välkända verk
+          <em>L’art du facteur d’orgues</em> (1766–78)<sup>1</sup>. I den fjärde
+          och sista volymen av verket beskriver han hur man bygger en mekanisk
+          orgel. Metoden för att förbereda och programmera musiken, benämnd
+          tonotechnie, var utvecklad av kollegan augustinmunken
+          Marie-Dominique-Joseph Engramelle (1727–1805). Bédos skriver att
+          Engramelle var delaktig i arbetet med avsnittet om
           musikprogrammeringen i <em>L’art du facteur d’orgues.</em> Det system
           Bédos beskriver utgår från att musiken analyseras, och därefter
           indelas i mindre delar. När detta är gjort används en skiva med
@@ -48,28 +47,28 @@
             Delaguette, 1775). I verkstaden ser vi olika mekaniska instrument
             och en klocka. Vid bordet sitter två personer – till vänster arbetas
             det med en serinett med en delningsskiva på veven och till höger
-            programmeras en stiftvals i en särskild valshållare.
+            programmeras en stiftvals i en särskild valshållare. Källa:
             <a
               href="https://archive.org/details/latonotechnieoul0000engr/page/n13/mode/1up"
-              >Källa</a
+              >Archive.org</a
             >
           </figcaption>
         </Figure>
 
         <p>
           I Strands spelur finns stiftvalsar med ett rutmönster inskuret i
-          trävalsens yta. Strecken i axelns längdriktning motsvarar
-          musikstyckets taktindelning och taktarten. Ofta finner man en
-          numrering av takterna i blyerts. De kortaste notvärdena verkar ha
-          placerats på fri hand, mellan markeringar. Den längsgående linjen
-          följer läsarmen, och går i ett spiralmönster för respektive ton och
-          pipa. Denna spiralgång åstadkoms genom att stiftvalsen förskjuts i
-          sidled för varje varv. I Strands spelur roterar stiftvalsen vanligen 6
-          varv och förskjuts 2 mm i sidled för varje varv. Denna förskjutning i
-          sidled uppfanns av Jacques Vaucanson och presenterades i tryck 1738.
-          Vaucansons uppfinning utgör ett paradigmskifte i utveckling av
-          mekaniska musikinstrument då det möjliggjorde uppspelning betydligt
-          längre musikstycken än tidigare.
+          trävalsens yta – en slags karta för placeringen av stiften. Strecken i
+          valsens längdriktning motsvarar musikstyckets taktindelning och
+          taktarten. Ofta finner man en numrering av takterna i blyerts. De
+          kortaste notvärdena verkar ha placerats på fri hand, mellan
+          markeringar. En korsande linje runt valsen skapar ett spriralspår med
+          stift för respektive ton och pipa. Detta spiralspår åstadkoms genom
+          att stiftvalsen förskjuts något i sidled för varje varv. I Strands
+          spelur roterar stiftvalsen vanligen 6 varv och förskjuts 2 mm i sidled
+          för varje varv. Denna förskjutning i sidled uppfanns av Jacques
+          Vaucanson och presenterades i tryck 1738. Vaucansons uppfinning utgör
+          ett paradigmskifte i utveckling av mekaniska musikinstrument då det
+          möjliggjorde uppspelning betydligt längre musikstycken än tidigare.
         </p>
 
         <p>
@@ -147,7 +146,7 @@
           Transkriberar vi detta exempel till modern notation finner vi faktiskt
           tre skrivfel. Tonen ”b” anges tydligt två gånger i förlagan på s. 13 i
           Aspelind. Detta vore en ytterst otidsenlig harmonik om så vore fallet.
-          Dessutom saknas det en ton, a<sup>1</sup> , i melodin. Gravören som
+          Dessutom saknas det en ton, a<sup>1</sup>, i melodin. Gravören som
           gjorde utviket kunde knappast noter, och korrekturläsningen missade
           denna detalj, vilket exemplifiera de svårigheter som uppstår i en
           komplex produktionsprocess där olika kompetenser skall samarbeta. Den
@@ -159,8 +158,8 @@
         <Figure>
           <img :src="publicPath + 'barrel/Aspelind_s13_transkriberad.png'" />
           <figcaption>
-            Punktnotationen för en vals transkriberad till noter. Pilarna anger
-            felen i transkriptionen.
+            Rutmönstret i <em>Disputatio mechanica</em> (s. 13), transkriberad
+            till modern notation. Pilarna markerar felen i transkriptionen.
           </figcaption>
         </Figure>
 
@@ -202,21 +201,21 @@
           </Ratio>
           <figcaption>
             En stiftvals till Kungl. Vitterhetsakademiens spelur, med rester av
-            papper under några stift.
+            papper under några stift. Foto: Johan Norrback. Licens: CC BY-NC
+            4.0.
           </figcaption>
         </Figure>
 
         <p>
-          I en annan svensk källa, Tobias Lang (1730–1836) i Visby, finner vi en
-          beskrivning om programmeringen av valsar med hjälp av papper.<sup
-            >8</sup
-          >
+          I en annan svensk källa, i Tobias Langs (1730–1836) arkiv i Visby,
+          finner vi en beskrivning om programmeringen av valsar med hjälp av
+          papper.<sup>8</sup>
           Lang kom ursprungligen från dagens Ungern, och är mest känd som
-          kattuntryckare, färgtryck på bomullstyg. Hans arkiv innehåller en hel
-          del material om färger, och kemiska experiment och jordbruk, men också
-          om mekaniska frågor. Bland dessa blandade ämnen återfinns en text och
-          en bild på hur man programmerar en stiftvals. Lang skriver om hur man
-          använder ett papper som referens:
+          kattuntryckare, det vill säga färgtryck på bomullstyg. Hans arkiv
+          innehåller en hel del material om färger, och kemiska experiment och
+          jordbruk, men också om mekaniska frågor. Bland dessa blandade ämnen
+          återfinns en text och en bild på hur man programmerar en stiftvals.
+          Lang skriver om hur man använder ett papper som referens:
         </p>
 
         <p>
@@ -284,14 +283,14 @@
           </Ratio>
           <figcaption>
             Markeringar för tidsindelningen gjorda med en vass spets runt hela
-            valsen.
+            valsen. Foto: Johan Norrback. Licens: CC BY-NC 4.0.
           </figcaption>
         </Figure>
 
         <p>
-          Takterna kan vara numrerade, och siffran 19 kan inte ha skrivits efter
-          att stiften placerats. I något fall markeras början och slutet av
-          musiken med de tyska orden Anfang (början) och Ende (slut).
+          Takterna kan vara numrerade, och siffran 19 i bilden nedan kan inte ha
+          skrivits efter att stiften placerats. I något fall markeras början och
+          slutet av musiken med de tyska orden Anfang (början) och Ende (slut).
           Programmeraren i detta fall bör därför ha varit av tyskt ursprung,
           alternativt ha lärt sig hantverket och terminologin av en tysk.
         </p>
@@ -308,8 +307,9 @@
             />
           </Ratio>
           <figcaption>
-            Exempel på takternumrering och texten Anfang och Ende på två olika
-            stiftvalsar till olika flöjtur.
+            Exempel på takternumrering och texten <em>Anfang</em> och
+            <em>Ende</em> på två olika stiftvalsar till olika flöjtur. Foto:
+            Johan Norrback. Licens: CC BY-NC 4.0.
           </figcaption>
         </Figure>
 
@@ -329,6 +329,7 @@
           </Ratio>
           <figcaption>
             Spår av verktyg för placering, eller höjdjustering, av stiften.
+            Foto: Johan Norrback. Licens: CC BY-NC 4.0.
           </figcaption>
         </Figure>
 
@@ -364,6 +365,10 @@
               ]"
             />
           </Ratio>
+          <figcaption>
+            Spår av skärverktyg på stiftvals i Göteborgs stadsmuseum. Foto:
+            Johan Norrback. Licens: CC BY-NC 4.0.
+          </figcaption>
         </Figure>
 
         <p>
@@ -441,7 +446,10 @@
             Aspelind Dalekarlus. In audit. Gust. maj. ad diem IX. Julii anni
             MDCCXXXI. Horis ante meridiem solitis.</em
           >, Diss. Uppsala : Uppsala universitet, 1731,Upsaliæ literis
-          Wernerianis., 1731. urn:nbn:se:uu:diva-345736
+          Wernerianis., 1731. Kungliga biblioteket,
+          <UrlLink
+            url="https://urn.kb.se/resolve?urn=urn:nbn:se:kb:eod-2497616"
+          />.
         </p>
         <p>
           8. Visby landsarkiv (ViLA), Tobias Langs arkiv, Ämnesordnade
@@ -492,5 +500,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
