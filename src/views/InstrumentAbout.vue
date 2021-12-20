@@ -73,7 +73,7 @@
           Berlinska.
         </p>
 
-        <Figure>
+        <Figure class="span-columns">
           <Ratio>
             <model-viewer
               class="model-viewer"
