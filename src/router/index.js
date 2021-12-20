@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@/views/Home.vue";
+import Versions from "@/views/Versions.vue";
 import Gallery from "@/components/Gallery.vue";
 
 Vue.use(VueRouter);
@@ -14,13 +15,13 @@ const routes = [
       {
         path: "",
         name: "Home",
-        component: Gallery
+        component: Gallery,
       },
       {
         path: "karta",
         name: "Map",
         component: () =>
-          import(/* webpackChunkName: "map" */ "../views/OverviewMap.vue")
+          import(/* webpackChunkName: "map" */ "../views/OverviewMap.vue"),
       },
       {
         path: "valsar",
@@ -28,21 +29,21 @@ const routes = [
         component: () =>
           import(
             /* webpackChunkName: "barrels" */ "../views/BarrelsOverview.vue"
-          )
-      }
-    ]
+          ),
+      },
+    ],
   },
   {
     path: "/om-forskningsprojektet",
     name: "About",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+      import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
   {
     path: "/om-pehr-strand",
     name: "Builder",
     component: () =>
-      import(/* webpackChunkName: "builder" */ "../views/Builder.vue")
+      import(/* webpackChunkName: "builder" */ "../views/Builder.vue"),
   },
   {
     path: "/ett-sjalvspelande-flojtur",
@@ -50,25 +51,27 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "instrument-about" */ "../views/InstrumentAbout.vue"
-      )
+      ),
   },
   {
     path: "/att-bygga-ett-flojtur",
     name: "Construction",
     component: () =>
-      import(/* webpackChunkName: "construction" */ "../views/Construction.vue")
+      import(
+        /* webpackChunkName: "construction" */ "../views/Construction.vue"
+      ),
   },
   {
     path: "/att-programmera-en-stiftvals",
     name: "BarrelAbout",
     component: () =>
-      import(/* webpackChunkName: "barrel-about" */ "../views/BarrelAbout.vue")
+      import(/* webpackChunkName: "barrel-about" */ "../views/BarrelAbout.vue"),
   },
   {
     path: "/en-optisk-valslasare",
     name: "Scanner",
     component: () =>
-      import(/* webpackChunkName: "scanner" */ "../views/Scanner.vue")
+      import(/* webpackChunkName: "scanner" */ "../views/Scanner.vue"),
   },
   {
     path: "/spelur/:id",
@@ -80,22 +83,28 @@ const routes = [
       import(
         /* webpackChunkName: "instrument" */ "../views/InstrumentPage.vue"
       ),
-    props: true
+    props: true,
   },
   {
     path: "/valsar/:id",
     name: "BarrelPage",
     component: () =>
       import(/* webpackChunkName: "barrel" */ "../views/BarrelPage.vue"),
-    props: true
+    props: true,
   },
   {
     path: "/spelur/:automId/bild/:category/:imageId",
     name: "ImagePage",
     component: () =>
       import(/* webpackChunkName: "image" */ "../views/ImagePage.vue"),
-    props: true
-  }
+    props: true,
+  },
+  {
+    path: "/versionshistorik",
+    name: "Versions",
+    component: Versions,
+    props: true,
+  },
 ];
 
 /** Identify frontpage routes. */
@@ -110,7 +119,7 @@ const router = new VueRouter({
     // Do not scroll if going from one frontpage route to another.
     const stayHome = isHomeRoute(from) && isHomeRoute(to);
     return stayHome ? null : savedPosition || { x: 0, y: 0 };
-  }
+  },
 });
 
 export default router;

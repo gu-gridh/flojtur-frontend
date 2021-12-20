@@ -32,7 +32,9 @@
         <div>
           Norrback, Johan (2021). <em>Pehr Strands flöjtur</em>.<br />
           Centrum för digital humaniora, Göteborgs universitet. <br />
-          https://strand.dh.gu.se (version 1).
+          https://strand.dh.gu.se (<router-link to="/versionshistorik"
+            >version 1</router-link
+          >).
         </div>
 
         <div style="padding-top: 0.8rem">
