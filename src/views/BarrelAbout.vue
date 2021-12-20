@@ -122,9 +122,14 @@
               ]"
             />
           </Ratio>
-          <Ratio :ratio="4936 / 1132">
-            <OpenSeadragon :src="publicPath + 'barrel/Aspelind_s11.png'" />
-          </Ratio>
+          <img :src="publicPath + 'barrel/Aspelind_s11_transkriberad.png'" />
+          <figcaption>
+            Början av psalmmelodin till ”Far thin weg thu arga werld”, nr 271 i
+            psalmboken 1697, ur <em>Disputatio mechanica</em> (s. 11), Kungliga
+            biblioteket. Samma avsnitt i modern notation.
+          </figcaption>
+        </Figure>
+        <Figure>
           <Ratio :ratio="3 / 2">
             <OpenSeadragon
               :tileSources="[
@@ -134,11 +139,11 @@
             />
           </Ratio>
           <figcaption>
-            Ur <em>Disputatio mechanica</em>, början av psalmmelodin till ”Far
-            thin weg thu arga werld”, nr 271 i psalmboken 1697, samt
-            transkribering till papper för en vals (s. 11 och utvik på s. 13,
-            beskurna). Valsen är avsedd för ett klockspel då tonerna inte har
-            någon tonlängd utan endast en impuls för slaget på klangskålen.
+            Psalmmelodin transkriberad till rutmönster på papper som kan
+            användas för programmering av en vals, ur
+            <em>Disputatio mechanica</em> (s. 13), Kungliga biblioteket.
+            Transkriptionen är gjord för ett klockspel då tonerna inte har någon
+            tonlängd utan endast en impuls för slaget på klangskålen.
           </figcaption>
         </Figure>
 
@@ -156,7 +161,9 @@
         </p>
 
         <Figure>
-          <img :src="publicPath + 'barrel/Aspelind_s13_transkriberad.png'" />
+          <img
+            :src="publicPath + 'barrel/Aspelind_s13_transkriberad_rev.png'"
+          />
           <figcaption>
             Rutmönstret i <em>Disputatio mechanica</em> (s. 13), transkriberad
             till modern notation. Pilarna markerar felen i transkriptionen.
