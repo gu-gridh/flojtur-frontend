@@ -193,10 +193,17 @@
           skulpterade ansikten i ytterkant med en liggande triangel däremellan.
         </p>
         <Figure>
-          <Ratio :ratio="2 / 3.5">
+          <Ratio :ratio="4 / 7">
             <OpenSeadragon
               :tileSources="[
                 'https://img.dh.gu.se/flojtur/article/construction/pyr/Ljungbyuret_Img0109.tif/info.json',
+              ]"
+            />
+          </Ratio>
+          <Ratio :ratio="4 / 3">
+            <OpenSeadragon
+              :tileSources="[
+                'https://img.dh.gu.se/flojtur/article/construction/pyr/Adelso_kyrka_interior_2016d.jpg/info.json',
               ]"
             />
           </Ratio>
