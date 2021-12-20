@@ -11,11 +11,12 @@
           tonen alstras med hjälp av pipor liknande dem man finner i
           traditionella piporglar. I andra typer av spelur alstras ljudet av ett
           stränginstrument eller av klangskålar (klockor). Spelur är en term som
-          kan syfta på alla dessa tre grundtyper, medan flöjtur är en specifik
-          term för ett spelur där ljudet alstras av flöjter eller orgelpipor. I
-          slutet av 1700-talet i Berlin, med flera mycket skickliga
-          spelurssbyggare, kallades de olika typerna för
-          <em>Flötenuhr</em>, <em>Harfenuhr</em> och <em>Glockenspiel</em>.
+          kan syfta på alla dessa tre typer, medan flöjtur är en specifik term
+          för ett spelur där ljudet alstras av flöjter eller orgelpipor. I
+          Berlin fanns i slutet av 1700-talet flera mycket skickliga
+          spelurssbyggare, här kallades de olika typerna för <em>Flötenuhr</em>,
+          <em>Harfenuhr</em> och <em>Glockenspiel</em>. Det är inte heller
+          ovanligt med en kombination av orgelpipor och strängar.
         </p>
       </div>
       <div class="articletext">
@@ -46,9 +47,9 @@
           som innehåller musiken som skall spelas. På en musikvals består det
           vanligen av stift och klamrar av metall som fästs på en trä- eller
           mässingscylinder. En så kallad stiftvals. Det är alltså inte en
-          inspelning, som på en vinyl- eller CD-skiva, utan ett program som ett
-          mekaniskt verk kan spela och upprepa. I golvuren drivs spelverket av
-          ett blylod som kan väga hela 40 kg.
+          inspelning av klingande musik, som på en vinyl- eller CD-skiva, utan
+          ett program som ett mekaniskt verk kan spela och upprepa. I golvuren
+          drivs spelverket av ett blylod som kan väga hela 40 kg.
         </p>
         <p>
           De första exemplen på automatiska instrument finner vi i grekiska
@@ -105,7 +106,7 @@
             av den längsta pipan. Pallbrädan som spelmekaniken och orgeln vilar
             på är 480 mm bred och 390 mm djup. Klicka på bilden för att ladda in
             en 3d-modell som du kan rotera. Scrolla för att förstora och
-            förminska modellen.
+            förminska modellen. Illustration: Olof Pipping och Joar Holmström.
           </figcaption>
         </Figure>
         <p>
@@ -116,7 +117,7 @@
         <p>
           Motorn: kraften att driva hela konstruktionen kommer från ett lod,
           oftast i bly, med en vikt uppemot 40kg. Lodet hänger i en lodlina som
-          är lindad runt en lite träcylinder. Belastningen på lager är stor men
+          är lindad runt en liten träcylinder. Belastningen på lager är stor men
           samtidigt är precisionen lika viktig och en korrekt uträkningen av
           förhållandena mellan alla kugghjul är avgörande. När man startar
           speluret sänks läsarmarna ner samtidigt som bälgen fylls med luft med
@@ -227,7 +228,8 @@
         </a>
 
         <div class="ButtonInfo">
-          Licens: CC BY-NC 4.0. Dokumentation och CAD-ritning av Olof Pipping.
+          Licens: CC BY-NC 4.0. Dokumentation och CAD-ritning av Olof Pipping,
+          3D-modell av Joar Holmström.
         </div>
 
         <a
@@ -261,7 +263,6 @@ export default {
   },
 };
 </script>
-
 
 <style lang="scss" scoped>
 .model-viewer {

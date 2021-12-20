@@ -8,16 +8,14 @@
       <div class="articleIngress">
         <p>
           Några specifika tekniska framsteg runt sekelskiftet 1700 gjorde att
-          klockor och även mekaniska musikinstrument fick ett uppsving. Det ena
-          var Christiaan Huygens (1629–1695) metod från 1656 att använda den
-          stabila pendelrörelsen som motor i urverk, vilket gav en mycket högre
-          precision i gången och därmed i tidvisningen. Dessutom Jacques de
-          Vaucanson (1709–1782) metod från 1737 att låta en vals med musik
-          förskjutas i sidled för varje varv och därmed skapa ett spriralspår
-          innebar att man nu kunde programmera längre musikstycken. Båda dessa
-          lösningar ledde till ett uppsving först inom urtillverkningen och
-          senare även ur med mekaniska spelverk, i både mindre och större
-          format.
+          tillverkningen av klockor och mekaniska musikinstrument fick ett
+          uppsving. Det ena var Christiaan Huygens (1629–1695) metod från 1656
+          att använda den stabila pendelrörelsen som regulator i urverk, vilket
+          gav en mycket högre precision i gången och därmed i tidvisningen.
+          Dessutom Jacques de Vaucanson (1709–1782) metod från 1737 att låta en
+          vals med musik förskjutas i sidled för varje varv, och därmed skapa
+          ett spriralspår. Detta innebar att man nu kunde programmera längre
+          musikstycken på en stiftvals.
         </p>
       </div>
       <div class="articletext">
@@ -74,26 +72,27 @@
             vyer av mekanik och stiftvals. Illustrationen är ur utgåvan från
             1771. (Digitaliserat av Bayerische Staatsbibliothek, och publicerat
             under licensen
-            <a href="http://rightsstatements.org/vocab/NoC-NC/1.0/"
+            <a href="https://rightsstatements.org/vocab/NoC-NC/1.0/"
               >NoC-NC 1.0</a
             >,
             <a href="https://mdz-nbn-resolving.de/details:bsb11279046">MDZ</a>.)
           </figcaption>
         </Figure>
         <p>
-          Det finns två svenska skriftliga källor inom ämnet som ger oss viktig
-          information. Den första källan härrör från 1731. Det är en avhandling,
-          enligt tidens praxis<sup>2</sup>, som försvarades av Magnus Aspelind
-          (okänd) under överinseende av Anders Celsius (1701–44). Avhandlingen,
+          Det finns två svenska skriftliga källor inom området som ger oss
+          viktig information. Den första källan publicerades 1731. Det är en
+          avhandling, enligt tidens praxis<sup>2</sup>, som försvarades av
+          Magnus Aspelind (okänd) under överinseende av Anders Celsius
+          (1701–44). Avhandlingen,
           <em>Disputatio mechanica de horologiis musico-automatis</em
           ><sup>3</sup>, handlar om hur man förser ett urverk med ett
           automatiskt musikspelverk, och är oerhört schematisk i sin
           framställning. Syftet var ju inte primärt att i text presentera fakta,
           utan att texten utgjorde ett underlag för det muntlig försvaret av
           densamma. En intressant detalj i arbetet är dock att den automatiska
-          spinett som finns i det Augsburgska konstskåpet, utställt på
+          spinett som finns i det Augsburgska konstskåpet, idag utställt på
           Gustavianum på Uppsala universitet, nämns. Gustav den II Adolf fick
-          konstskåpet som gåva den 24 april 1632 efter intåget i staden.<sup
+          konstskåpet som gåva den 24 april 1632 efter intåget i Augsburg.<sup
             >4</sup
           >
           Celsius-Aspelind skriver: ”§ XXI. Ett annat konsthantverk förvaras i
@@ -103,13 +102,13 @@
         </p>
         <p>
           I konstskåpet finns en spinett som man kan spela på, men som också kan
-          spela upp olika melodier på en stiftvals i ett mekanisk spelverk.
-          Konstskåpet är byggt i Augsburg under tidigt 1600-tal, i en tradition
-          som producerat flera likande föremål. I vissa fall har
-          instrumenttillverkaren kunnat identifieras som Samuel Bidermann d.ä.
-          (1540–1622) och Samuel Bidermann d.y. (1600–c.1653). Konstskåpet kom
-          tidigt till Uppsala för att förbli där, och det är därför det är så
-          välbevarat. Att spinetten i konstskåpet används som exempel i
+          spela upp olika melodier på en stiftvals med hjälp av ett mekaniskt
+          spelverk. Konstskåpet är byggt i Augsburg under tidigt 1600-tal, i en
+          hantverkstradition som producerat flera liknande föremål. I vissa fall
+          har instrumenttillverkaren kunnat identifieras som Samuel Bidermann
+          d.ä. (1540–1622) och Samuel Bidermann d.y. (1600–c.1653). Konstskåpet
+          kom tidigt till Uppsala för att förbli där, och det är därför det är
+          så välbevarat. Att spinetten i konstskåpet används som exempel i
           Celsius-Aspelind är ett bra exempel på hur en artefakt kan användas
           som källa.
         </p>
@@ -120,9 +119,11 @@
           Visby.<sup>6</sup> Lang är främst känd för sina färgtryck på
           bomullstyg. I hans arkiv finns en mängd material om färger och tryck,
           men också inom områden som kemi och mekanik och så två olika dokument
-          om stiftvalsar och musiken på dessa. I övrigt saknas utförliga
-          skriftliga källor, och därmed blir själva speluren den viktigaste
-          källan för hur man tillverkar ett spelur.
+          om stiftvalsar och musiken på dessa.
+        </p>
+        <p>
+          I övrigt saknas utförliga skriftliga källor, och därmed blir själva
+          speluren den viktigaste källan för hur man tillverkar ett spelur.
         </p>
         <p>
           I juli 1791 beviljades Pehr Strands ansökan om att ”inrätta och drifva
@@ -138,14 +139,14 @@
           mindre ur med små spelverk med klockor till större golvur med
           stiftvalsar och orgelpipor. Bland dessa byggare fanns till exempel
           Eric Lindgren d.y. (1729–1786), Johann Christian Knoop (1733–1808) och
-          Petter Söderman (1740–1813). Knoop byggde uteslutande spelur där
-          musiken spelades med vals och klubbor som slog på strängar.
-          Instrumentet kallas hackbräde eller dulcimer. I Berlin gick denna typ
-          av spelur under benämningen <em>Harfenuhr</em> (harpur). I Berlin
-          kombinerades detta ibland med en rad orgelpipor, och blev därmed
-          ganska komplexa mekaniska konstruktioner med två sorters ljudkällor.
-          Lindgren och Söderman byggde däremot spelur i samma stil som Strand,
-          nämligen med orgelpipor, så kallade flöjtur.
+          Petter Söderman (1740–1813). Knoop byggde huvudsakligen spelur där
+          musiken spelades med klubbor som slog på strängar. Instrumentet kallas
+          hackbräde eller dulcimer. I Berlin gick denna typ av spelur under
+          benämningen <em>Harfenuhr</em> (harpur). Ibland kombinerades detta med
+          en rad orgelpipor, och blev då ganska komplexa mekaniska
+          konstruktioner med två sorters ljudkällor. Lindgren och Söderman
+          byggde däremot spelur i samma stil som Strand, nämligen med
+          orgelpipor, så kallade flöjtur.
         </p>
         <p>
           Bland de bevarade spelur från Pehr Strand som studerats i detta
@@ -171,7 +172,8 @@
             <router-link :to="{ name: 'InstrumentPage', params: { id: 2 } }"
               >Alingsåsuret</router-link
             >
-            med spelverket i sockeln.
+            med spelverket i sockeln. Foto: Johan Norrback. Licens: CC BY-NC
+            4.0.
           </figcaption>
         </Figure>
         <p>
@@ -203,7 +205,8 @@
               >Ljungbyuret</router-link
             >
             med de ovanliga skärningarna och altaruppsatsen i Adelsö kyrka av
-            Pehr Ljung, 1802.
+            Pehr Ljung, 1802. Foto: Johan Norrback (licens: CC BY-NC 4.0)
+            respektive Holger Ellgaard (Wikipedia, licens: CC BY-SA 4.0).
           </figcaption>
         </Figure>
         <p>
@@ -211,11 +214,8 @@
           stil som förknippas med bröderna Louis Masreliez (1748–1810) och Jean
           Baptiste Masreliez (1753–1801). De var dåtidens ledande arkitekter och
           bildhuggare. Båda bröderna Masreliez arbetade med inredningen på
-          Tullgarns slott, likaså Pehr Ljung, varför det är svårt att säga exakt
-          vilka roller respektive bildhuggare eventuellt kan ha haft i
-          utformningen av de Strandska urfodralen. Pehr Ljung och Pehr Strand
-          hade i varje fall samma läromästare i Johan Ljung. Nedan följer tre
-          exempel på inredningsförslag till Tullgarns slott.
+          Tullgarns slott, likaså Pehr Ljung. Nedan följer tre exempel på
+          inredningsförslag till Tullgarns slott.
         </p>
         <ul>
           <li>
@@ -244,17 +244,21 @@
           </li>
         </ul>
         <p>
+          Det är svårt att exakt avgöra hur dessa bildhuggare eventuellt kan ha
+          bidragit till utformningen av de Strandska urfodralen. Pehr Ljung och
+          Pehr Strand hade i varje fall samma läromästare i Johan Ljung.
+        </p>
+        <p>
           Ett av speluren, det så kallade
           <router-link :to="{ name: 'InstrumentPage', params: { id: 3 } }"
             >Masreliezska flöjturet</router-link
           >
           på Göteborgs stadsmuseum, har en förlaga i form av en ritning av Louis
           Masreliez. I detta fall är det otvetydigt så att designen är gjord av
-          Masreliez, medan det är oklart vem som utförde arbetet med urfodralet.
-          Speluret bär många av de särdrag som Pehr Strands spelur har, särskilt
-          då kallstämpeln ”P: STRAND” på två av stiftvalsarna, och dessutom var
-          det han som hade privilegium att bygga spelur vid tidpunkten för detta
-          spelur från slutet av 1790-talet.
+          Louis Masreliez, medan det inte är fastställt vem som utförde arbetet
+          med urfodralet. Speluret bär i övrigt många av de särdrag som Pehr
+          Strands spelur har, särskilt då kallstämpeln ”P: STRAND” på två av
+          stiftvalsarna.
         </p>
 
         <Figure>
@@ -265,7 +269,11 @@
               ]"
             />
           </Ratio>
-          <figcaption>Ritning av Louis Masreliez till flöjtur.</figcaption>
+          <figcaption>
+            Flöjtur, ritning av Louis Masreliez. Kungliga biblioteket (<UrlLink
+              url="https://urn.kb.se/resolve?urn=urn:nbn:se:kb:dig-10191202"
+            />).
+          </figcaption>
         </Figure>
 
         <p>
@@ -299,22 +307,23 @@
             och
             <router-link :to="{ name: 'InstrumentPage', params: { id: 2 } }"
               >Alingsåsuret</router-link
-            >.
+            >. Foto: Johan Norrback. Licens: CC BY-NC 4.0.
           </figcaption>
         </Figure>
         <p>
-          Den som signerade urtavlan torde vara den som mottog beställningen,
-          och ansvarade för att samordna de olika hantverkskompetensser som
-          behövdes. Enligt Strands privilegium, hade han nödvändiga kunskaper
-          för att bygga mekaniken och orgeldelen. Tydligen kunde han även bygga
-          ett urverk då det tydligt markeras att han inte skulle göra det, utan
-          anlita andra mästare för själva urverket. Att han faktisk kunde bygga
-          klockor är klargjort genom den signerade väggpendyl som troligen ägdes
-          av hans dotter Henrietta, och som efter hennes giftermål 1826 med Carl
-          Isaac Löfman gått i arv i släkten. Huruvida Strand kunde programmera
-          stiftvalsar med musik är inte klart. Det finns ofta två typer av
-          stiftvalsar i de Strandska uren, och de är gjorda enligt två olika men
-          likvärdiga principer. Dessutom är stiftvalsarna inte alltid märkta med
+          Den som signerade urtavlan torde ha varit den som mottog
+          beställningen, och ansvarade för att samordna de olika
+          hantverkskompetenser som behövdes. Enligt Strands ansökan om
+          privilegium, hade han nödvändiga kunskaper för att bygga mekaniken och
+          orgeldelen. Tydligen kunde han även bygga ett urverk då det tydligt
+          markeras att han inte skulle göra det, utan anlita andra mästare för
+          själva urverket. Att han faktisk kunde bygga klockor är klargjort
+          genom den signerade väggpendyl som troligen ägdes av hans dotter
+          Henrietta, och som efter hennes giftermål 1826 med Carl Isaac Löfman
+          gått i arv i släkten. Huruvida Strand kunde programmera stiftvalsar
+          med musik är inte klart. Det finns ofta två typer av stiftvalsar i de
+          Strandska uren, och de är gjorda enligt två olika men likvärdiga
+          principer. Dessutom är stiftvalsarna inte alltid märkta med
           kallstämpeln ”P: STRAND”. Orgeldelen kunde Strand med all sannolikhet
           bygga då han även var verksam som orgelbyggare. Tabellen nedan
           försöker sammanfatta de olika arbetsmomenten och hantverkskompetensen
@@ -414,16 +423,15 @@
             Aspelind Dalekarlus. In audit. Gust. maj. ad diem IX. Julii anni
             MDCCXXXI. Horis ante meridiem solitis. </em
           >, Diss. Uppsala : Uppsala universitet, 1731,Upsaliæ literis
-          Wernerianis., 1731.
-          <a
-            href="http://urn.kb.se/resolve?urn=urn%3Anbn%3Ase%3Auu%3Adiva-345736"
-            >urn:nbn:se:uu:diva-345736</a
-          >
+          Wernerianis., 1731. Kungliga biblioteket,
+          <UrlLink
+            url="https://urn.kb.se/resolve?urn=urn:nbn:se:kb:eod-2497616"
+          />
         </p>
         <p>
           4. Augsburgska konstskåpet på Gustavianum, Uppsala universitet.
           <UrlLink
-            url="https://www.gustavianum.uu.se/samlingar/konstsamlingar/utstallningar/augsburgska-konstsk%C3%A5pet/"
+            url="https://www.gustavianum.uu.se/samlingar/konstsamlingar/utstallningar/augsburgska-konstskåpet/"
           />
         </p>
         <p>

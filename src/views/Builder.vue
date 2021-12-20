@@ -18,10 +18,10 @@
           gjord åren 1796 och 1797”. Tham, med ett stort intresse för historia
           och arkeologi, följde tidens praxis med reseskildringar. Han var
           hovintendent och rörde sig i kretsarna där Strands spelur senare kom
-          att bli populära. Thams karaktärisering av Strands stil som varande
-          enligt den ”Berlinske Methoden” är en viktig samtida iakttagelse som
-          även bekräftas av hantverket i Strands spelur. Detta återkommer vi
-          till.
+          att bli populära. Thams karaktärisering av Strands hantverksstil som
+          enligt den ”Berlinske Methoden” är en viktig samtida kommentar som
+          även bekräftas av hantverket i Strands spelur. Det finns tydliga
+          likheter i Strands ur med andra byggare i Berlin.
         </p>
       </div>
       <div class="articletext">
@@ -31,14 +31,16 @@
           finns inte noterade i kyrkoböckerna. När han senare återfinns i
           församlingens husförhörslängder tillsammans med sin familj, så är hans
           födelsedatum inte möjligt att otvetydigt fastställa. I litteraturen
-          förekommer ofta 1756 som födelseår, ibland preciserat till den 15
-          januari, men någon källa för detta har inte anförts. I Strands
-          bouppteckning anges dock att ”Orgelbyggeri Directeuren Pehr Strand”
-          var 68 år gammal när han avled den 19 augusti 1826.<sup>3</sup> Ännu
-          mera precis är angivelsen i notisen den 8 september i Post- och
-          Inrikes Tidningar<sup>4</sup> där det konstateras att Strand var 68 ½
-          år gammal då han avled. Dessa uppgifter pekar entydigt på att Strand
-          föddes 1758, troligen i januari.
+          förekommer 1756 som födelseår, ibland preciserat till den 15 januari,
+          men någon källa för detta har inte getts. I Strands bouppteckning
+          anges dock att ”Orgelbyggeri Directeuren Pehr Strand” var 68 år gammal
+          när han avled den 19 augusti 1826.<sup>3</sup> Ännu mera precis är
+          angivelsen i notisen den 8 september i Post- och Inrikes Tidningar<sup
+            >4</sup
+          >
+          där det konstateras att Strand var 68 ½ år gammal då han avled. Dessa
+          uppgifter pekar entydigt på att Strand föddes 1758, troligen i
+          januari.
         </p>
 
         <Figure>
@@ -50,7 +52,10 @@
             />
           </Ratio>
 
-          <figcaption>Foto: Johan Norrback. Licens: CC BY-NC 4.0.</figcaption>
+          <figcaption>
+            Speluret på Lövstabruks herrgård. Foto: Johan Norrback. Licens: CC
+            BY-NC 4.0.
+          </figcaption>
         </Figure>
 
         <Figure>
@@ -195,7 +200,7 @@
           2. För en introduktion till Pehr Strand se Johan Norrback, “The Pinned
           Barrel as Music Archive”, i
           <em>A Festschrift for Prof. Kerala J. Snyder</em>, (Göteborg, 2019).
-          <UrlLink url="http://hdl.handle.net/2077/60576" />
+          <UrlLink url="https://hdl.handle.net/2077/60576" />
           [hämtad 18 januari 2021]
         </p>
         <p>
