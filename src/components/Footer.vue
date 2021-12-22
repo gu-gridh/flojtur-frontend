@@ -12,7 +12,7 @@
       </div>
     </a>
 
-    <div id="SuperContainer">
+    <div id="SuperContainer" class="clearfix">
       <div class="container" style="width: 250px; height: 100%">
         <router-link to="/" tag="div" class="IntroInfoContainer">
           <div id="IntroInfoButton"></div>
@@ -59,7 +59,6 @@ export default {};
 
 <style lang="scss" scoped>
 #footer {
-  float: left;
   background-color: #222;
   color: white;
   line-height: 1.3;
@@ -68,7 +67,6 @@ export default {};
   font-size: 18px;
 }
 #SuperContainer {
-  float: left;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }

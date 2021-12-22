@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view :key="$route.path" />
+    <div id="view">
+      <router-view :key="$route.path" />
+    </div>
     <Footer />
   </div>
 </template>
@@ -9,7 +11,7 @@
 import Footer from "@/components/Footer.vue";
 
 export default {
-  components: { Footer }
+  components: { Footer },
 };
 </script>
 
@@ -23,6 +25,19 @@ body {
   font-size: 20px;
   -webkit-text-size-adjust: 100%;
   background: rgb(215, 215, 210);
+}
+
+body,
+#app {
+  min-height: 100vh;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  #view {
+    flex: 1;
+  }
 }
 
 a:link,
