@@ -1,5 +1,6 @@
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import router from "@/router";
 
 export function makeMap(el) {
   const map = L.map(el);
@@ -7,7 +8,7 @@ export function makeMap(el) {
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    subdomains: ["a", "b", "c"]
+    subdomains: ["a", "b", "c"],
   }).addTo(map);
 
   return map;
@@ -20,15 +21,18 @@ export function resetMap(map) {
   });
 }
 
-export function addGeojson(map, geojson, popup, onmouseover, onmouseout) {
+export function addGeojson(map, geojson, link, onmouseover, onmouseout) {
   const layer = L.geoJSON(geojson, {
-    pointToLayer: (feature, latlng) =>
-      L.circleMarker(latlng, markerOptions)
+    pointToLayer: (feature, latlng) => {
+      const marker = L.circleMarker(latlng, markerOptions)
         .on("mouseover", () => onmouseover && onmouseover(feature))
-        .on("mouseout", () => onmouseout && onmouseout(feature)),
-    onEachFeature: popup
-      ? (feature, layer) => layer.bindPopup(feature.properties.name)
-      : null
+        .on("mouseout", () => onmouseout && onmouseout(feature));
+      if (link)
+        marker.on("click", (event) =>
+          router.push(`/spelur/${event.target.feature.id}`)
+        );
+      return marker;
+    },
   }).addTo(map);
   if (layer.getBounds().isValid()) map.fitBounds(layer.getBounds().pad(0.1));
   return layer;
@@ -78,11 +82,11 @@ const markerOptions = {
   color: "#000",
   weight: 1,
   opacity: 1,
-  fillOpacity: 0.8
+  fillOpacity: 0.8,
 };
 
 const markerOptionsFocus = {
   ...markerOptions,
   fillColor: "white",
-  radius: 10
+  radius: 10,
 };
