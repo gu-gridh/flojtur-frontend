@@ -37,8 +37,15 @@
           länken Avancerad sökning. Här kommer besökaren direkt till en
           sökfunktion för databasen där egendefinierade sökningar kan göras. En
           beskrivning av respektive datafält, och deras inbördes relationer ges
-          genom databasbeskrivningen nedan.s
+          genom databasbeskrivningen nedan.
         </p>
+        <ul>
+          <li>
+            <a :href="publicPath + 'Strand MySQL.pdf'">
+              Databasbeskrivning (PDF)
+            </a>
+          </li>
+        </ul>
         <p style="text-align: center">* * *</p>
         <p>
           Föreningen för Göteborgs internationella orgelakademi har utgjort värd
@@ -138,6 +145,9 @@ import Title from "@/components/Title.vue";
 export default {
   name: "About",
   components: { Title },
+  computed: {
+    publicPath: () => process.env.BASE_URL,
+  },
 };
 </script>
 
