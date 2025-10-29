@@ -35,6 +35,7 @@ export default {
       tileSources: this.tileSources || { type: "image", url: this.src },
       sequenceMode: this.isMultiple,
       preserveViewport: true,
+      drawer: 'canvas',
     });
 
     // Zoom in a bit over the middle.
