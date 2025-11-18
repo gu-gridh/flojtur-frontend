@@ -1,7 +1,7 @@
 <template>
   <footer id="footer">
     <div id="SuperContainer" class="clearfix">
-      <div class="container" style="width: 250px; height: 100%">
+      <div class="container" style="width: 250px; height: 100%; margin-top: 10px;">
         <router-link to="/" tag="div" class="IntroInfoContainer">
           <div id="IntroInfoButton"></div>
           <div id="IntroInfoLabel">Startsidan</div>
@@ -40,7 +40,7 @@
           <a href="https://dh.gu.se/" class="cdh-wrapper">
       <div
         id="CDHLogo"
-        style="margin-left:40px;margin-top:0px; width:210px;padding: 20px 0px 30px 0px; border-style:solid; border-width:0px 0px 0px 0px; border-color:white;"
+        style="margin-left:40px;margin-top:12px; width:210px;padding: 20px 0px 30px 0px; border-style:solid; border-width:0px 0px 0px 0px; border-color:white;"
       >
       GU / GRIDH
       </div>
@@ -60,12 +60,12 @@ export default {};
   line-height: 1.3;
   height: auto;
   width: 100%;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 #SuperContainer {
-  padding-top: 1rem;
-  padding-bottom: .5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 a {

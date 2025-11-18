@@ -428,10 +428,9 @@
         <p>
           4. Athanasius Kircher, <em>Musurgia Universalis</em>, vol. 1 (1650),
           <UrlLink url="https://doi.org/10.11588/diglit.27668" /> och vol. 2
-          (1650), <UrlLink url="https://doi.org/10.11588/diglit.27669" />. En
-          tysk översättning (2018) av Günter Scheibel finns på
+          (1650), <UrlLink url="https://doi.org/10.11588/diglit.27669" />. En tysk översättning (2025) av Günter Scheibel finns på
           <UrlLink
-            url="https://www.hmt-leipzig.de/de/home/fachrichtungen/institut-fuer-musikwissenschaft/forschung/musurgia-universalis/volltextseite"
+            url="https://doi.org/10.5281/zenodo.14979230"
           />.
         </p>
         <p>
