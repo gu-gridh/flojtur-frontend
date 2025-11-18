@@ -1,17 +1,5 @@
 <template>
   <footer id="footer">
-    <a href="https://dh.gu.se/">
-      <div
-        id="CDHLogo"
-        style="margin-left:40px;margin-top:0px; width:210px;padding: 20px 0px 30px 0px; border-style:solid; border-width:0px 0px 0px 0px; border-color:white;"
-      >
-        Centre<br /><span
-          style="font-family: 'Clicker Script', cursive; font-size:30px;  vertical-align:40%;"
-          >for </span
-        >Digital <br />Humanities
-      </div>
-    </a>
-
     <div id="SuperContainer" class="clearfix">
       <div class="container" style="width: 250px; height: 100%">
         <router-link to="/" tag="div" class="IntroInfoContainer">
@@ -33,7 +21,7 @@
           <a href="https://gup.ub.gu.se/publication/311166"
             >Norrback, Johan (2021). <em>Pehr Strands flöjtur</em>.</a
           ><br />
-          Centrum för digital humaniora, Göteborgs universitet. <br />
+          Gothenburg Research Infrastructure in Digital Humanities, Göteborgs universitet. <br />
           https://strand.dh.gu.se (<router-link to="/versionshistorik"
             >version 1</router-link
           >).
@@ -49,6 +37,14 @@
           </div>
         </div>
       </div>
+          <a href="https://dh.gu.se/" class="cdh-wrapper">
+      <div
+        id="CDHLogo"
+        style="margin-left:40px;margin-top:0px; width:210px;padding: 20px 0px 30px 0px; border-style:solid; border-width:0px 0px 0px 0px; border-color:white;"
+      >
+      GU / GRIDH
+      </div>
+    </a>
     </div>
   </footer>
 </template>
@@ -64,11 +60,12 @@ export default {};
   line-height: 1.3;
   height: auto;
   width: 100%;
-  font-size: 18px;
+  font-size: 15px;
 }
+
 #SuperContainer {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: .5rem;
 }
 
 a {
@@ -80,19 +77,20 @@ a {
   margin-left: 50px;
 }
 
-#CDHLogo {
+.cdh-wrapper {
   float: right;
-  margin-top: 0px;
-  margin-right: 20px;
-  width: auto;
-  height: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#CDHLogo {
   text-align: left;
   font-weight: 100;
   font-style: normal;
   font-size: 50px;
-  line-height: 0.8;
-  padding: 30px 0px 10px 0px;
   vertical-align: middle;
+  margin-right: 20px;
   font-family: "Barlow Condensed", sans-serif;
 }
 
